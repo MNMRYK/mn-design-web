@@ -1,0 +1,201 @@
+.navbar-header {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 80%;
+  max-width: 1000px;
+  height: 60px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background: rgba(156, 70, 255, 0.301);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border-radius: 50px;
+  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
+}
+
+/* --- LOGO --- */
+.enlace-logo {
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  outline: none;
+}
+
+.enlace-logo * {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 45px;
+  width: auto;
+}
+
+.texto-logo {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.2;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none !important;
+}
+
+.siglas { 
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900; 
+  font-size: 2.2rem; 
+  color: var(--fondo-oscuro);
+}
+
+.marca { 
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark-violet);
+  font-size: 1.5rem; 
+  font-weight: 900; 
+  opacity: 0.8;
+} 
+
+/* --- MENÚ PRINCIPAL --- */
+.menu-principal {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  perspective: 1000px;
+}
+
+.menu-principal a {
+  display: inline-block;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--dark-violet);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 900;
+  transition: all 0.3s ease;
+}
+
+.menu-principal a:hover {
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+  transform: scale(1.1);
+}
+
+/* --- BOTÓN CONTACTO --- */
+.boton-contacto {
+  background-color: rgba(155, 79, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.219);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.boton-contacto:hover {
+  transform: scale(1.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--dark-violet);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Ocultar toggle en desktop */
+.menu-toggle {
+  display: none;
+}
+
+/* --- DESPLEGABLE --- */
+.tiene-desplegable {
+  position: relative !important;
+  overflow: visible !important;
+}
+
+.desplegable {
+  position: absolute;
+  top: 120%;
+  left: 0;
+
+  min-width: 220px;
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+
+  /* 🔥 EFECTO GLASS IGUAL QUE NAVBAR */
+  background: rgba(155, 79, 255, 0.301);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+  border: 1px solid rgba(155, 79, 255, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(92, 0, 150, 0.2);
+
+  /* Animación */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+
+  z-index: 999;
+}
+
+/* Mostrar desplegable */
+.tiene-desplegable.abierto .desplegable {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Items del desplegable */
+.desplegable li {
+  margin-bottom: 10px;
+}
+
+.desplegable li:last-child {
+  margin-bottom: 0;
+}
+
+.desplegable a {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-family: Peace sans, sans-serif;
+  font-weight: 900;
+  font-size: 1rem;
+  color: var(--dark-violet);
+  transition: all 0.2s ease;
+}
+
+.desplegable a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Flecha */
+.flecha {
+  font-size: 1rem;
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* DESKTOP: abrir con hover */
+@media (min-width: 951px) {
+  .tiene-desplegable:hover .desplegable {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,128 @@
+.contacto-section-wrapper {
+  width: 100%;
+  min-height: 100vh; /* Obligatorio para que el 'pin' funcione bien */
+  display: flex;
+  align-items: center; /* Centra el grid verticalmente mientras está fijo */
+  padding: 40px 5%;
+  position: relative;
+}
+
+.ruta-wrapper {
+  background: var(--deep-eggplant);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(166, 114, 255, 0.15);
+  border-radius: 30px;
+  padding: 40px 40px 67px;
+  width: 100%;
+  max-height: 95vh;
+  overflow-y: visible; /* Importante para GSAP */
+  font-family: 'Nunito', sans-serif;
+}
+
+.ruta-titulo-principal {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2rem);
+  font-weight: 700;
+  color:var(--iris-glaze);
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+/* LA LÍNEA */
+.ruta-timeline {
+  position: relative;
+  padding-left: 40px; 
+}
+
+.ruta-linea-fondo {
+  position: absolute;
+  top: 14px;
+  left: 11px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.05); /* Muy sutil */
+}
+
+.ruta-linea-progreso {
+  position: absolute;
+  top: 14px;
+  left: 11px;
+  width: 2px;
+  background: var(--electric-violet); 
+  height: 0%; 
+  box-shadow: 0 0 15px var(--electric-violet);
+  z-index: 1;
+}
+
+/* La chispa de luz que baja en la punta de la línea */
+.punta-luminosa {
+  position: absolute;
+  bottom: -5px;
+  left: -4px;
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 20px 5px var(--electric-violet);
+  z-index: -1;
+}
+
+/* LOS PASOS */
+.ruta-paso {
+  position: relative;
+  margin-bottom: 35px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.ruta-paso:last-child {
+  margin-bottom: 10px;
+}
+
+/* EL CÍRCULO (ESTADO APAGADO) */
+.ruta-nodo {
+  position: absolute;
+  left: -40px;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--electric-violet);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animación con rebote */
+}
+
+/* EL CÍRCULO (ESTADO ENCENDIDO - SE ACTIVA CON GSAP) */
+.ruta-paso.activo .ruta-nodo {
+  background: var(--electric-violet);   
+  border-color: white;
+  box-shadow: 0 0 25px var(--electric-violet), inset 0 0 5px rgba(255,255,255,0.5);
+  transform: scale(1.2); /* Se hace un poquito más grande */
+}
+
+/* TEXTOS */
+.ruta-contenido {
+  padding-left: 10px;
+}
+
+.ruta-titulo {
+  color: var(--iris-glaze);
+  font-size: 1.3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  transition: color 0.4s ease;
+}
+
+/* El título se ilumina cuando se activa */
+.ruta-paso.activo .ruta-titulo {
+  color: var(--iris-glaze); 
+}
+
+.ruta-texto {
+  color: var(--iris-glaze);
+  opacity: 0.8;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 0;
+}

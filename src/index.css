@@ -1,0 +1,81 @@
+#root {
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+
+  --fondo-claro: #ece8ff;
+  --deep-eggplant: #1A102D;
+  --dark-violet: #5f2eb4;
+  --electric-violet: #7E57C2;
+  --soft-lavender: #F3E5F5;
+  --iris-glaze: #D1C4E9;
+  --white-iris: #efebfc;
+  --fondo-oscuro: #1d1231;
+
+}
+
+#root, .app-wrapper {
+  overflow: visible; /* Que no atrapen el scroll */
+  height: auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  height: 100%;
+  overscroll-behavior-y: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden; 
+  overflow-y: visible; /* Dejamos que el contenido fluya hacia abajo libremente */
+  background-color: var(--white-iris);
+}
+
+.app-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white-iris);
+}
+
+.servicios-wrapper {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 2; /* Mayor que el Hero */
+  min-height: 100vh;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Reset total para la franja de logos */
+.tech-section-wrapper {
+  padding: 0 !important; /* Quitamos los 100px que vienen por defecto */
+  margin: 0 !important;
+  min-height: auto !important;
+  display: block; /* Evitamos que se comporte como una sección flex central */
+}
+
+/* El padding solo lo controlamos aquí */
+.tech-slider-section {
+  padding: 30px 0 !important; /* AQUÍ controlas el aire arriba y abajo por igual */
+  min-height: auto !important;
+}

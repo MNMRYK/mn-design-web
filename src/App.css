@@ -1,0 +1,33 @@
+.App {
+  width: 100%;
+}
+
+.app-container {
+  position: relative;
+  min-height: auto;
+  color: white;
+  
+}
+
+/* El fondo animado se queda fijo detrás */
+.background-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none; /* Crucial para que no robe el scroll del ratón */
+  overflow: hidden;    /* Asegura que el canvas no se salga ni un pixel */
+}
+
+/* Las Tecnologías pegadas a los servicios */
+.tech-section-wrapper {
+  position: relative;
+  z-index: 20;
+  background-color: var(--deep-eggplant);
+  width: 100%;
+  height: auto !important; 
+  min-height: auto !important;
+  margin-top: -40px !important; 
+}

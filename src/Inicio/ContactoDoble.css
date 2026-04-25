@@ -1,0 +1,22 @@
+.contacto-section-wrapper {
+  width: 100%;
+  min-height: 100vh; /* Obligatorio para que ocupe toda la pantalla al anclarse */
+  display: flex;
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center;
+  padding: 60px 5%;
+  position: relative;
+  background-color: var(--white-iris);
+  z-index: 2;
+}
+
+.contacto-grid {
+  display: grid;
+  /* Aquí está la magia: divide el espacio en dos columnas iguales */
+  grid-template-columns: 1fr 1fr; 
+  gap: 60px; /* Espacio generoso entre el formulario y la ruta */
+  max-width: 1300px; /* Mantiene el diseño recogido en pantallas gigantes */
+  margin: 0 auto; /* Centra el grid en la pantalla */
+  align-items: start; /* Hace que ambos bloques empiecen alineados por arriba */
+}
+

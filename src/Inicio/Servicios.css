@@ -1,0 +1,111 @@
+.servicios-section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  min-height: 100vh;
+  padding: 0px 40px 0;
+  text-align: center;
+  z-index: 2; /* Mucho mayor que el del Hero */
+  background-color: var(--white-iris);
+  color: var(--electric-violet);
+  box-shadow: 0 -20px 50px rgba(0,0,0,0.5);
+  box-sizing: border-box;
+}
+
+.servicios-section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  margin-bottom: 50px;
+  color: var(--dark-violet);
+}
+
+/* --- EL GRID MÁGICO --- */
+.servicios-grid {
+  display: grid;
+  /* Creamos 5 columnas iguales */
+  grid-template-columns: repeat(5, 1fr); 
+  /* AQUÍ ESTÁ TU GAP: Espacio real entre tarjetas */
+  gap: 20px; 
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.servicio-card {
+  background: rgba(156, 70, 255, 0.05); 
+  border: 1px solid rgba(155, 79, 255, 0.1);
+  padding: 25px 15px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Alinea todo arriba */
+  align-items: center;
+}
+
+.servicio-card:hover {
+  transform: translateY(-10px);
+  background: rgba(155, 79, 255, 0.08);
+  border-color: #d7acfa;
+  box-shadow: 0 10px 30px rgba(155, 79, 255, 0.1);
+}
+
+/* --- ICONOS MODERNOS --- */
+.servicio-icono {
+  font-size: 2.5rem;
+  color: #a37dfa;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.servicio-card h3 {
+  font-family: 'Nunito', Arial, sans-serif;
+  font-size: 1.5rem; /* Un pelín más pequeño para que no rompa en 2 líneas */
+  margin-bottom: 15px;
+  color: var(--dark-violet);
+  min-height: 50px; /* Altura fija para títulos */
+  display: flex;
+  align-items: center;
+}
+
+.servicio-card p {
+  font-family: 'Nunito', Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  color: var(--deep-eggplant);
+}
+
+.leer-mas-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto; /* Empuja el botón al final de la card */
+  color: var(--dark-violet);
+  font-family: 'Nunito', Arial, sans-serif;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: gap 0.3s ease;
+}
+
+.leer-mas-btn:hover {
+  gap: 15px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1100px) {
+  .servicios-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 por línea en tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .servicios-grid {
+    grid-template-columns: 1fr; /* 1 por línea en móvil */
+  }
+}

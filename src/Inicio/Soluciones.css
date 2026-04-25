@@ -1,0 +1,114 @@
+.soluciones-section {
+  position: relative;
+  width: 100vw;
+  height: 100svh;
+  min-height: 100vh;
+  padding: 0px 40px 0;
+  text-align: center;
+  z-index: 2; /* Mucho mayor que el del Hero */
+  background-color: var(--white-iris);
+  color: var(--electric-violet);
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+.soluciones-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.soluciones-main-title {
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color:var(--dark-violet); /* El lila de tus títulos */
+  font-family: 'Montserrat', sans-serif;
+}
+
+.soluciones-subtitle {
+  color: var(--dark-violet);
+  opacity: 0.8;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.soluciones-grid {
+  display: flex;
+  gap: 30px;
+  max-width: 1100px;
+  justify-content: center;
+}
+
+/* LA TARJETA ESTILO "SERVICIOS" */
+.solucion-card-new {
+  background: rgba(156, 70, 255, 0.05); 
+  border: 1px solid rgba(155, 79, 255, 0.1);
+  padding: 15px 30px;
+  border-radius: 25px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(95, 46, 180, 0.05); /* Sombra muy suave */
+}
+
+.solucion-card-new:hover {
+  transform: translateY(-10px);
+  background: rgba(155, 79, 255, 0.08);
+  border-color: #d7acfa;
+  box-shadow: 0 10px 30px rgba(155, 79, 255, 0.1);
+}
+
+.solucion-icon-box {
+  font-size: 2.5rem;
+  color: #a37dfa;
+  margin-bottom: 25px;
+}
+
+.solucion-card-title {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem; /* Un pelín más pequeño para que no rompa en 2 líneas */
+  color: #5f2eb4;
+  margin-bottom: 20px;
+}
+
+.solucion-card-text {
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.5;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+  color: var(--deep-eggplant);
+}
+
+/* BOTÓN ESTILO "LEER MÁS" */
+.solucion-card-btn {
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  border: none;
+  color: #5f2eb4;
+  font-weight: 900;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: gap 0.3s ease;
+}
+
+.solucion-card-btn:hover {
+  gap: 15px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  .soluciones-grid {
+    flex-direction: column;
+  }
+  .soluciones-main-title {
+    font-size: 2rem;
+  }
+}

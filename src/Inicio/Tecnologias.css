@@ -1,0 +1,85 @@
+.tech-slider-section {
+  position: relative;
+  background-color: var(--deep-eggplant);
+  margin: 0 !important;
+  overflow: hidden;
+  width: 100%;
+  height: auto !important;
+  min-height: auto !important;
+  display: flex;
+  align-items: center;
+}
+
+.tech-slider-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.tech-track {
+  display: flex;
+  /* El ancho debe ser suficiente para los 32 items (16x2) */
+  width: calc(200px * 32); 
+  animation: scrollInfinito 40s linear infinite; /* Más lento para que se lean bien */
+}
+
+.tech-card {
+  width: 200px;
+  /* Quitamos el height: 100% para que la card se ajuste a lo que miden sus hijos */
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  justify-content: center;
+  gap: 10px; 
+  transition: all 0.3s ease;
+}
+
+.tech-icon-box {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tech-svg {
+  height: 70px;
+  width: auto;
+  /* Filtro para que todos sean blancos y brillen un poco */
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.tech-name {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+/* EFECTO AL PASAR EL RATÓN */
+.tech-card:hover .tech-svg {
+  opacity: 1;
+  filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(163, 125, 250, 0.8));
+  transform: scale(1.1);
+}
+
+.tech-card:hover .tech-name {
+  color: #a37dfa; /* Tu color lila */
+  opacity: 1;
+}
+
+/* LA ANIMACIÓN */
+@keyframes scrollInfinito {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Desplazamos la mitad exacta (los 16 primeros) */
+    transform: translateX(calc(-200px * 16));
+  }
+}

@@ -1,0 +1,94 @@
+/* --- ESCAPARATE FINAL ANTES DEL FOOTER --- */
+.cta-final-container {
+  width: 100vw;
+  max-width: 100%;
+  min-height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent; /* Se adaptará al fondo que ya tengas */
+  padding: 0px 20px 80px;
+  position: relative;
+  z-index: 10;
+  text-shadow: 0 10px 30px rgba(92, 0, 150, 0.2);
+}
+
+.cta-content {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  max-width: 1400px;
+}
+
+/* 1. Sombra solo para la parte estática del título */
+.titulo-estatico {
+  display: inline;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cta-content h2 {
+  font-family: 'Montserrat', sans-serif;
+  /* Letra gigante para impactar */
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 900;
+  color: var(--electric-violet);
+  line-height: 1.2;
+  margin: 0;
+
+}
+
+/* La "caja" que encierra la palabra que cambia */
+.texto-cambiante-wrapper {
+  display: inline-grid;
+  grid-template-columns: 1fr;
+  vertical-align: middle;
+  color: var(--deep-eggplant); /* Tu lila para darle contraste */
+  /* Ajustamos la altura de la caja a la altura del texto para que no salte */
+  height: 1.2em; 
+  padding: 0 10px;
+  width: 7.5em; 
+  text-align: left;
+}
+
+.texto-cambiante {
+  grid-column: 1; /* Todas en la misma columna de la rejilla */
+  grid-row: 1;    /* Todas en la misma fila para apilarse */
+  display: inline-block;
+  white-space: nowrap;
+  opacity: 0; /* Por defecto invisibles hasta que Framer actúe */
+  
+  /* !!! Sombra individual para la palabra animada !!! */
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cta-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  color:  var(--deep-eggplant);
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+.cta-btn {
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--electric-violet);
+  border-radius: 20px;
+  color: var(--white-iris) !important; 
+  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
+  padding: clamp(14px, 2.2vh, 20px) clamp(25px, 3vw, 40px);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.cta-btn:hover {
+  color: var(--electric-violet) !important;
+  background-color: var(--white-iris); 
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
