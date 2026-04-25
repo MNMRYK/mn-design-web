@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import './Soluciones.css';
 import { motion } from 'framer-motion';
 

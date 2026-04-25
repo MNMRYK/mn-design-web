@@ -3,18 +3,18 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; // 1. IMPORTAMOS LENIS
 import "lenis/dist/lenis.css";
-import Grainient from "./inicio/GrainientBackground";
-import Navbar from './inicio/Navbar';
-import Hero from './inicio/Hero';
-import Servicios from './inicio/Servicios';
-import Tecnologias from './inicio/Tecnologias';
-import Soluciones from './inicio/Soluciones';
-import Beneficios from './inicio/Beneficios';
-import ContactoDoble from './inicio/ContactoDoble';
-import CallToActionFinal from './inicio/CallToActionFinal';
-import Footer from './inicio/Footer';
+import Grainient from "./Inicio/GrainientBackground";
+import Navbar from './Inicio/Navbar';
+import Hero from './Inicio/Hero';
+import Servicios from './Inicio/Servicios';
+import Tecnologias from './Inicio/Tecnologias';
+import Soluciones from './Inicio/Soluciones';
+import Beneficios from './Inicio/Beneficios';
+import ContactoDoble from './Inicio/ContactoDoble';
+import CallToActionFinal from './Inicio/CallToActionFinal';
+import Footer from './Inicio/Footer';
 import "./App.css";
-import "./inicio/Navbar.css";
+import "./Inicio/Navbar.css";
 
 
 function App() {

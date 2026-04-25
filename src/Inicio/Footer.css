@@ -1,6 +1,6 @@
 .footer-site {
   background: var(--deep-eggplant);
-  padding: 20px 5% 20px 5%;
+  padding: 25px 5% 20px 5%;
   color: white;
   font-family: 'Nunito', sans-serif;
   border-top: 1px solid rgba(166, 114, 255, 0.1);
@@ -9,27 +9,46 @@
 }
 
 .footer-container {
-  max-width: 1300px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
 .footer-main {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 40px;
-  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.2fr; /* 3 Columnas a medida */
+  gap: 50px;
+  margin-bottom: 15px; /* Separación con la línea de abajo */
+  align-items: start;
 }
 
 .footer-brand {
-  max-width: 400px;
+  max-width: 70%;
+}
+/* El enlace que envuelve a la imagen y al texto */
+.footer-logo-link {
+  display: flex; /* Esto los pone en la misma línea */
+  align-items: center; /* Los centra verticalmente */
+  gap: 15px; /* Separación entre el círculo y el texto */
+  text-decoration: none; /* Quitamos subrayados feos */
+  margin-bottom: 20px;
+  line-height: 1;
+}
+
+/* El circulito PNG */
+.footer-logo-img {
+  width: 50px; /* Ajusta esto para hacerlo más grande o más pequeño */
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+/* Un toquecito animado al pasar el ratón por el logo */
+.footer-logo-link:hover .footer-logo-img {
+  transform: rotate(-15deg) scale(1.1); /* Gira un poquito y crece */
 }
 
 .footer-logo {
   font-size: 2.3rem;
   font-weight: 800;
-  margin-bottom: 15px;
   color: var(--electric-violet);
 }
 
@@ -38,19 +57,52 @@
 }
 
 .footer-tagline {
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  color: var(--iris-glaze);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* --- LA NUEVA ZONA DEL MEDIO --- */
+.footer-contacto-medio {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 300px;
+}
+
+.footer-contacto-medio h3 {
+  color: var(--iris-glaze);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+.correo-gigante {
+  color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.correo-gigante:hover {
+  color: var(--electric-violet);
+}
+
+.horario-texto {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 1rem;
 }
 
 .footer-links-grid {
   display: flex;
-  gap: 80px;
+  gap: 60px;
 }
 
 .footer-column h3 {
   color: var(--iris-glaze);
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: 800;
   letter-spacing: 1px;
   margin-bottom: 25px;
@@ -66,10 +118,11 @@
 }
 
 .footer-column ul li a {
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.719);
   text-decoration: none;
   transition: color 0.3s ease;
-  font-size: 0.95rem;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 .footer-column ul li a:hover {
@@ -79,7 +132,7 @@
 /* SECCIÓN INFERIOR */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 40px;
+  padding: 30px 40px 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -87,55 +140,42 @@
   gap: 20px;
 }
 
-.footer-socials {
+.enlaces-externos {
   display: flex;
-  gap: 20px;
+  gap: 30px;
 }
 
-/* ESTILOS COMUNES PARA TODOS LOS ICONOS */
-.footer-icono {
-  /* Le damos el tamaño que quieres para el icono */
-  width: 24px;
-  height: 24px;
-  display: inline-block;
-  
-  /* 1. Este es el color base (Blanco) */
-  background-color: var(--white-iris, #ffffff); 
-  
-  transition: all 0.3s ease;
+.footer-enlace-icono {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: float-icono 8s ease-in-out infinite;
 }
 
-/* 2. Al pasar el ratón, simplemente cambiamos el fondo (Morado) */
-.footer-icono:hover {
-  background-color: var(--electric-violet, #b886fc);
-  transform: translateY(-5px);
+/* El segundo icono empieza con retraso */
+.footer-enlace-icono:nth-child(2) {
+  animation-delay: -1.2s; /* Empieza un poco "adelantado" */
 }
 
-
-/* --- LAS MÁSCARAS ESPECÍFICAS DE CADA ICONO --- */
-
-.icono-instagram {
-  /* Busca tu SVG en la carpeta public y lo usa de molde */
-  -webkit-mask: url('/instagram.svg') no-repeat center / contain;
-  mask: url('/instagram.svg') no-repeat center / contain;
+/* El tercero */
+.footer-enlace-icono:nth-child(3) {
+  animation-delay: -2.5s;
 }
 
-.icono-linkedin {
-  /* Sustituye el nombre por cómo se llame tu archivo exacto en public */
-  -webkit-mask: url('/linkedin.svg') no-repeat center / contain;
-  mask: url('/linkedin.svg') no-repeat center / contain;
+/* El cuarto (GitHub) */
+.footer-enlace-icono:nth-child(4) {
+  animation-delay: -0.7s;
 }
 
-.icono-facebook {
-  /* Sustituye el nombre por cómo se llame tu archivo exacto en public */
-  -webkit-mask: url('/facebook.svg') no-repeat center / contain;
-  mask: url('/facebook.svg') no-repeat center / contain;
+.footer-img-raw {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
 }
 
-.icono-github {
-  /* Sustituye el nombre por cómo se llame tu archivo exacto en public */
-  -webkit-mask: url('/github.svg') no-repeat center / contain;
-  mask: url('/github.svg') no-repeat center / contain;
+.footer-enlace-icono:hover .footer-img-raw {
+  transform: scale(1.2); /* Aumenta un 20% su tamaño. Pon 1.3 si lo quieres más bestia */
 }
 
 .footer-legal {
@@ -158,6 +198,15 @@
   font-size: 0.85rem;
 }
 
+/* 1. Definimos los movimientos: subir suavemente 8px */
+@keyframes float-icono {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px); /* Sube un poquito */
+  }
+}
 
 
 /* RESPONSIVE */
