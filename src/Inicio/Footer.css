@@ -92,15 +92,50 @@
   gap: 20px;
 }
 
-.footer-socials a {
-  color: var(--iris-glaze);
-  font-size: 1.2rem;
-  transition: transform 0.3s ease, color 0.3s ease;
+/* ESTILOS COMUNES PARA TODOS LOS ICONOS */
+.footer-icono {
+  /* Le damos el tamaño que quieres para el icono */
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  
+  /* 1. Este es el color base (Blanco) */
+  background-color: var(--white-iris, #ffffff); 
+  
+  transition: all 0.3s ease;
 }
 
-.footer-socials a:hover {
-  color: var(--electric-violet);
-  transform: translateY(-3px);
+/* 2. Al pasar el ratón, simplemente cambiamos el fondo (Morado) */
+.footer-icono:hover {
+  background-color: var(--electric-violet, #b886fc);
+  transform: translateY(-5px);
+}
+
+
+/* --- LAS MÁSCARAS ESPECÍFICAS DE CADA ICONO --- */
+
+.icono-instagram {
+  /* Busca tu SVG en la carpeta public y lo usa de molde */
+  -webkit-mask: url('/instagram.svg') no-repeat center / contain;
+  mask: url('/instagram.svg') no-repeat center / contain;
+}
+
+.icono-linkedin {
+  /* Sustituye el nombre por cómo se llame tu archivo exacto en public */
+  -webkit-mask: url('/linkedin.svg') no-repeat center / contain;
+  mask: url('/linkedin.svg') no-repeat center / contain;
+}
+
+.icono-facebook {
+  /* Sustituye el nombre por cómo se llame tu archivo exacto en public */
+  -webkit-mask: url('/facebook.svg') no-repeat center / contain;
+  mask: url('/facebook.svg') no-repeat center / contain;
+}
+
+.icono-github {
+  /* Sustituye el nombre por cómo se llame tu archivo exacto en public */
+  -webkit-mask: url('/github.svg') no-repeat center / contain;
+  mask: url('/github.svg') no-repeat center / contain;
 }
 
 .footer-legal {
@@ -123,24 +158,7 @@
   font-size: 0.85rem;
 }
 
-/* WHATSAPP FLOAT */
-.whatsapp-float {
-  position: fixed;
-  bottom: 70px;
-  right: 30px;
-  background-color: var(--electric-violet);
-  color: white;
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-  z-index: 99999999;
-  text-decoration: none;
-}
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {

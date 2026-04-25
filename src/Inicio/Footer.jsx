@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer-main">
           <div className="footer-brand">
             <h2 className="footer-logo">MN <span>Design Web</span></h2>
-            <p className="footer-tagline">Especialistas en código a medida con .NET y WordPress desde Alcoy.</p>
+            <p className="footer-tagline">Especialistas en código a medida con .NET y sistemas autogestionables desde Alcoy.</p>
           </div>
 
           <div className="footer-links-grid">
@@ -19,6 +19,7 @@ const Footer = () => {
                 <li><a href="#diseno">Diseño Web</a></li>
                 <li><a href="#ecommerce">E-commerce / Tienda Online</a></li>
                 <li><a href="#seo">Posicionamiento SEO</a></li>
+                <li><a href="#mantenimiento">Mantenimiento Web</a></li>
                 <li><a href="#rrss">Gestión Redes Sociales</a></li>
               </ul>
             </div>
@@ -36,10 +37,38 @@ const Footer = () => {
         {/* PARTE INFERIOR: Redes, Legal y Copyright */}
         <div className="footer-bottom">
           <div className="footer-socials">
-            <a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="https://www.linkedin.com/in/mar%C3%ADa-nadal-masi%C3%A1-080a77315/" aria-label="LinkedIn"><i className="fab fa-linkedin-in"></i></a>
-            <a href="https://github.com/MNMRYK" aria-label="GitHub"><i className="fab fa-github"></i></a>
+            <a 
+              href="https://www.instagram.com/mndesignweb/" 
+              aria-label="Instagram" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-icono icono-instagram"
+            ></a>
+            
+            <a 
+              href="https://www.linkedin.com/in/mar%C3%ADa-nadal-masi%C3%A1-080a77315/" 
+              aria-label="LinkedIn" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-icono icono-linkedin"
+            ></a>
+            
+            <a 
+              href="" 
+              aria-label="Facebook" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-icono icono-facebook"
+            ></a>
+
+            <a 
+              href="https://github.com/MNMRYK" 
+              aria-label="GitHub" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-icono icono-github"
+            ></a>
+
           </div>
 
           <div className="footer-legal">

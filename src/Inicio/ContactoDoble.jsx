@@ -1,6 +1,6 @@
 import React from 'react';
 import FormularioContacto from './FormularioContacto';
-import RutaTrabajo from '../RutaTrabajo';
+import RutaTrabajo from './RutaTrabajo';
 import './ContactoDoble.css'; // Aquí meteríamos el CSS del grid que divide la pantalla en 2
 import { motion } from 'framer-motion';
 
