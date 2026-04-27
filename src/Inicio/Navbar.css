@@ -254,7 +254,7 @@
 /* ====================================================
    🖥️ DESKTOP: ABRIR DESPLEGABLE CON HOVER
    ==================================================== */
-@media (min-width: 951px) {
+@media (min-width: 1053px) {
   .tiene-desplegable:hover .desplegable {
     opacity: 1;
     visibility: visible;
@@ -265,7 +265,7 @@
 /* ====================================================
    📱 RESPONSIVE NAVBAR (Móviles y Tablets pequeñas)
    ==================================================== */
-@media (max-width: 950px) {
+@media (max-width: 1052px) {
   
   .navbar-header {
     width: 80%;      /* Un poquito más ancho en móvil */
@@ -274,15 +274,15 @@
 
   /* --- AJUSTAR EL TAMAÑO DEL LOGO --- */
   .logo img {
-    height: 35px; /* Reducimos el pajarito */
+    height: 45px; /* Reducimos el pajarito */
   }
   
   .siglas {
-    font-size: 1.6rem; /* MN un poco más pequeño */
+    font-size: 2rem; /* MN un poco más pequeño */
   }
   
   .marca {
-    font-size: 1.1rem; /* Design Web más pequeño */
+    font-size: 1.5rem; /* Design Web más pequeño */
   }
 
   /* --- MOSTRAR EL BOTÓN HAMBURGUESA --- */
@@ -397,5 +397,19 @@
 
   .desplegable a:hover {
     background: transparent !important; /* Quitamos la pastilla de fondo */
+  }
+}
+
+/* ====================================================
+   📱 SÓLO MÓVILES: ACHICAR TEXTOS (De 950px hacia abajo)
+   ==================================================== */
+@media (max-width: 950px) {
+  
+  .navbar-header.top .siglas {
+    font-size: 1.6rem; 
+  }
+  
+  .navbar-header.top .marca {
+    font-size: 1.1rem; 
   }
 }

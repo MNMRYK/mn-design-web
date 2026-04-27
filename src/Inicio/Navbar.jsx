@@ -53,7 +53,7 @@ const Navbar = () => {
         <ul className={`menu-principal ${menuAbierto ? "active" : ""}`}>
           <li className={`tiene-desplegable ${desplegableAbierto ? "abierto" : ""}`}>
             <a href="#" onClick={(e) => {
-              if (window.innerWidth <= 950) {
+              if (window.innerWidth <= 1052) {
                 e.preventDefault();
                 setDesplegableAbierto(!desplegableAbierto);
               }
