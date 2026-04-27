@@ -38,15 +38,16 @@ const serviciosData = [
 const Servicios = () => {
   return (
     <section className="servicios-section" id="especialidades">
-      <motion.h2 
-        className="titulo-seccion"
+      <motion.div 
+        className="servicios-header"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        Mejora tu presencia digital <span className="subtitulo-especialidades">Nuestras especialidades</span>
-      </motion.h2>
+        <h2 className="servicios-main-title">¿Quieres mejorar tu presencia digital?</h2>
+        <span className="servicios-subtitle">Analizamos tus necesidades para ofrecerte la tecnología que mejor impulse tu negocio.</span>
+      </motion.div>
 
       <div className="servicios-grid">
         {serviciosData.map((servicio, index) => (

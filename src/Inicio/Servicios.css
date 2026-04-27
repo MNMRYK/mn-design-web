@@ -13,7 +13,12 @@
   box-sizing: border-box;
 }
 
-.servicios-section h2 {
+.servicios-header {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.servicios-main-title {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
@@ -23,30 +28,18 @@
   font-size: clamp(1.8rem, 5vw, 2.8rem);
   color:var(--dark-violet); /* El lila de tus títulos */
   font-family: 'Montserrat', sans-serif;
-  margin-bottom: 70px;
-
 }
 
-.subtitulo-especialidades {
-  display: inline-block; /* Asegura que ocupe su propia línea */
-  font-size: 2rem; /* Lo hacemos bastante más pequeño que el título principal */
-  font-weight: 700; /* Le quitamos un poco de grosor */
-  opacity: 0.8;
-  background: linear-gradient(to right, #7E57C2 0%, #5f2eb4 50%, #1A102D 100%);
-  background-size: 200% auto;
-  /* Recortar el fondo al texto y hacerlo transparente */
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* Aplicar la animación */
-  animation: shine 6s linear infinite;
-}
-
-/* Definir la animación del brillo */
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+.servicios-subtitle {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  filter: drop-shadow(0 0 1px rgba(255,255,255,0.2));
+  color: var(--dark-violet);
+  opacity: 0.9;
+  font-size: 1.1rem;
+  margin-top: 30px;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* --- EL GRID MÁGICO --- */
@@ -162,12 +155,12 @@
     align-items: center;
   }
 
-  .servicios-section h2 {
+  .servicios-main-title {
     margin-bottom: 50px;
 
   }
 
-  .subtitulo-especialidades {
+  .servicios-subtitle {
     display: block; /* 🔥 AQUÍ ESTÁ LA MAGIA: Fuerza el salto de línea solo en móvil 🔥 */
     margin-left: 0; /* Le quitamos el margen lateral porque ya no hace falta */
     margin-top: 10px; /* El empujón hacia abajo que querías */
