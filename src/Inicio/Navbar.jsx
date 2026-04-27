@@ -1,21 +1,28 @@
 import React, { useState } from "react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion"; 
+import { useScroll, useMotionValueEvent } from "framer-motion"; 
 import "./Navbar.css";
 
 const Navbar = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [desplegableAbierto, setDesplegableAbierto] = useState(false);
   
-  // --- LÓGICA SMART SCROLL ---
+  // --- LÓGICA SMART SCROLL Y CAMBIO DE COLOR ---
   const [oculto, setOculto] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); // NUEVO ESTADO
   const { scrollY } = useScroll();
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    // Obtenemos el valor justo anterior manualmente
     const previous = scrollY.getPrevious ? scrollY.getPrevious() : 0;
     
-    // Si bajamos más de 100px y la dirección es hacia abajo
-    if (latest > previous && latest > 100) {
+    // 1. Detectar si hemos pasado el Hero (ej: 90px de scroll)
+    if (latest > window.innerHeight * 0.90) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+
+    // 2. Ocultar/Mostrar el menú al bajar/subir (Solo si ya hemos bajado un poco)
+    if (latest > previous && latest > 150) {
       setOculto(true);
     } else {
       setOculto(false);
@@ -25,14 +32,8 @@ const Navbar = () => {
   const toggleMenu = () => setMenuAbierto(!menuAbierto);
   
   return (
-    <motion.header 
-      className="navbar-header"
-      variants={{
-        visible: { y: 0 },
-        hidden: { y: "-150%" }, // Lo mandamos bien lejos arriba
-      }}
-      animate={oculto ? "hidden" : "visible"}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
+    <header 
+      className={`navbar-header ${isScrolled ? "scrolled" : "top"} ${oculto ? "escondido" : ""}`}
     >
       <a href="/" className="enlace-logo">
         <div className="logo">
@@ -70,7 +71,7 @@ const Navbar = () => {
           <li><a href="/contacto" className="boton-contacto">Contacto</a></li>
         </ul>
       </nav>
-    </motion.header>
+    </header>
   );
 };
 

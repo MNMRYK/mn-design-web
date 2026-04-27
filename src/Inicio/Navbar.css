@@ -1,7 +1,7 @@
+/* --- LA BASE DEL NAVBAR --- */
 .navbar-header {
   position: fixed;
   top: 10px;
-  left: 50%;
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -13,12 +13,78 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 30px;
-  background: rgba(156, 70, 255, 0.301);
+  border-radius: 50px;
+  
+  /* Animación de subida/bajada mediante CSS (Reemplaza a Framer Motion) */
+  transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Cuando bajamos el ratón, escondemos la pastilla empujándola hacia arriba */
+.navbar-header.escondido {
+  top: -100px;
+}
+
+/* 🔥 TRUCO MAGISTRAL: EL FONDO FANTASMA 🔥
+   Ponemos el cristal en un ::before separado para que no rompa el blur de los hijos */
+.navbar-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  z-index: -1; /* Lo mandamos detrás del texto */
+  transition: background 0.4s ease, box-shadow 0.4s ease, border 0.4s ease, backdrop-filter 0.4s ease;
+}
+
+/* Transición para los colores de texto */
+.navbar-header * {
+  transition: color 0.4s ease, filter 0.4s ease;
+}
+
+/* ====================================================
+   ESTADO 1: ARRIBA DEL TODO (EN EL HERO OSCURO) 
+   ==================================================== */
+.navbar-header.top::before {
+  background: rgba(156, 70, 255, 0.30); 
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid rgba(255, 255, 255, 0.1); 
-  border-radius: 50px;
-  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
+}
+
+.navbar-header.top .siglas { color: var(--dark-violet) !important; }
+.navbar-header.top .menu-principal a,
+.navbar-header.top .marca { color: var(--white-iris) !important; }
+.navbar-header.top .boton-contacto {
+  color: var(--white-iris) !important;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* ====================================================
+   ESTADO 2: SCROLLEANDO (EN LAS SECCIONES CLARAS)
+   ==================================================== */
+.navbar-header.scrolled::before {
+  background: rgba(156, 70, 255, 0.30); 
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
+}
+
+/* Tus colores originales oscuros para fondos claros */
+.navbar-header.scrolled .menu-principal a {
+  color: var(--dark-violet);
+}
+
+.navbar-header.scrolled .siglas {
+  color: var(--fondo-oscuro);
+}
+
+.navbar-header.scrolled .marca {
+  color: var(--dark-violet);
+}
+
+.navbar-header.scrolled .boton-contacto {
+  color: var(--dark-violet) !important;
 }
 
 /* --- LOGO --- */
@@ -87,7 +153,7 @@
   color: var(--dark-violet);
   text-decoration: none;
   font-size: 1rem;
-  font-weight: 900;
+  font-weight: 700;
   transition: all 0.3s ease;
 }
 
@@ -100,7 +166,7 @@
 .boton-contacto {
   background-color: rgba(155, 79, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.219);
+  border: 1px solid rgba(255, 255, 255, 0.534);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   padding: 8px 15px;
   border-radius: 20px;
@@ -127,24 +193,18 @@
 
 .desplegable {
   position: absolute;
-  top: 120%;
-  left: 0;
-
+  top: 210%;
+  right: -40px;
   min-width: 220px;
   list-style: none;
   padding: 15px;
   margin: 0;
-
-  /* 🔥 EFECTO GLASS IGUAL QUE NAVBAR */
-  background: rgba(155, 79, 255, 0.301);
+  background: rgba(156, 70, 255, 0.30); /* Un poco más sutil */
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-
-  border: 1px solid rgba(155, 79, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
   border-radius: 20px;
-  box-shadow: 0 8px 32px rgba(92, 0, 150, 0.2);
-
-  /* Animación */
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -173,8 +233,8 @@
   display: block;
   padding: 8px 12px;
   border-radius: 10px;
-  font-family: Peace sans, sans-serif;
-  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
   font-size: 1rem;
   color: var(--dark-violet);
   transition: all 0.2s ease;
@@ -191,11 +251,151 @@
   vertical-align: middle;
 }
 
-/* DESKTOP: abrir con hover */
+/* ====================================================
+   🖥️ DESKTOP: ABRIR DESPLEGABLE CON HOVER
+   ==================================================== */
 @media (min-width: 951px) {
   .tiene-desplegable:hover .desplegable {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+}
+
+/* ====================================================
+   📱 RESPONSIVE NAVBAR (Móviles y Tablets pequeñas)
+   ==================================================== */
+@media (max-width: 950px) {
+  
+  .navbar-header {
+    width: 80%;      /* Un poquito más ancho en móvil */
+    padding: 0 20px; /* Menos padding lateral para aprovechar espacio */
+  }
+
+  /* --- AJUSTAR EL TAMAÑO DEL LOGO --- */
+  .logo img {
+    height: 35px; /* Reducimos el pajarito */
+  }
+  
+  .siglas {
+    font-size: 1.6rem; /* MN un poco más pequeño */
+  }
+  
+  .marca {
+    font-size: 1.1rem; /* Design Web más pequeño */
+  }
+
+  /* --- MOSTRAR EL BOTÓN HAMBURGUESA --- */
+  .menu-toggle {
+    display: block; 
+    background: transparent;
+    border: none;
+    color: var(--white-iris); /* Color por defecto (arriba) */
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001; /* Que esté por encima del menú desplegado */
+    padding: 5px;
+    transition: color 0.3s ease;
+  }
+
+  /* Si bajamos el scroll, cambiamos el color del icono hamburguesa para que se vea */
+  .navbar-header.scrolled .menu-toggle {
+    color: var(--dark-violet);
+  }
+
+  /* --- REESTRUCTURAR EL MENÚ PRINCIPAL --- */
+  .menu-principal {
+    position: absolute;
+    /* La bajamos un pelín más para que parezca una isla flotante */
+    top: calc(100% + 5px); 
+    left: 0;
+    right: 0; 
+    background: rgba(156, 70, 255, 0.30); 
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
+    border-radius: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 25px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.97);
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    pointer-events: none;
+    z-index: 1000;
+  }
+
+  /* Cuando le damos al botón, cae y se muestra */
+  .menu-principal.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+    pointer-events: all;
+  }
+
+  /* Estructura de las listas en móvil */
+  .menu-principal > li {
+    width: 100%;
+    margin-bottom: 0px;
+  }
+
+  .menu-principal > li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Textos blancos para que destaquen sobre el cristal oscuro */
+  .menu-principal a {
+    display: block;
+    font-size: 1.15rem;       
+    text-align: left;
+    width: 100%;
+  }
+  /* 2. Anulamos el efecto "Scale" gigante al hacer hover en móvil */
+  .menu-principal a:hover {
+    transform: none !important; /* Le decimos que NO crezca */
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.4)); /* Mantenemos solo el brillito elegante */
+  }
+
+  /* El botón de contacto dentro de la caja */
+  .boton-contacto {
+    margin-top: 0px;
+    text-align: center !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  /* --- SUBMENÚ ESPECIALIDADES (SE ABRE EN ACORDEÓN DENTRO DE LA CAJA) --- */
+  .desplegable {
+    position: static; 
+    /* 🔥 MATAMOS AL FANTASMA DEL ESCRITORIO 🔥 */
+    background: transparent !important; 
+    backdrop-filter: none;         /* Anulamos el blur heredado */
+    -webkit-backdrop-filter: none; /* Anulamos el blur heredado en Safari */
+    border: none;
+    box-shadow: none;
+    padding: 0;
+    margin-top: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+
+  /* Mostrar submenú cuando tocamos "Especialidades" */
+  .tiene-desplegable.abierto .desplegable {
+    max-height: 300px; 
+    padding-top: 15px;     
+    padding-left: 15px;  /* Le damos un poco de sangría para que parezca submenú */
+  }
+
+  /* Enlaces del submenú un pelín más pequeños y con otra opacidad */
+  .desplegable a {
+    font-size: 1rem;
+    padding: 8px 0;
+  }
+
+  .desplegable a:hover {
+    background: transparent !important; /* Quitamos la pastilla de fondo */
   }
 }

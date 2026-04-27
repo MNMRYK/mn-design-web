@@ -22,8 +22,8 @@ const Footer = () => {
           {/* COLUMNA 2 (LA NUEVA IDEA DEL MEDIO): CONTACTO RÁPIDO */}
           <div className="footer-contacto-medio">
             <h3>¿HABLEMOS DE TU PROYECTO?</h3>
-            <a href="mailto:hola@mndesignweb.es" className="correo-gigante">
-              hola@mndesignweb.es
+            <a href="mailto:info@mndesignweb.es" className="correo-gigante">
+              info@mndesignweb.es
             </a>
             <p className="horario-texto">Lunes a Viernes | 09:00 - 18:00</p>
           </div>
