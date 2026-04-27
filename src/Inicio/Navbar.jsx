@@ -1,27 +1,38 @@
 import React, { useState } from "react";
-// 1. IMPORTA MOTION
-import { motion } from "framer-motion"; 
+import { motion, useScroll, useMotionValueEvent } from "framer-motion"; 
 import "./Navbar.css";
 
 const Navbar = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [desplegableAbierto, setDesplegableAbierto] = useState(false);
+  
+  // --- LÓGICA SMART SCROLL ---
+  const [oculto, setOculto] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    // Obtenemos el valor justo anterior manualmente
+    const previous = scrollY.getPrevious ? scrollY.getPrevious() : 0;
+    
+    // Si bajamos más de 100px y la dirección es hacia abajo
+    if (latest > previous && latest > 100) {
+      setOculto(true);
+    } else {
+      setOculto(false);
+    }
+  });
 
   const toggleMenu = () => setMenuAbierto(!menuAbierto);
-  const toggleDesplegable = (e) => {
-    if (window.innerWidth <= 950) {
-      e.preventDefault();
-      setDesplegableAbierto(!desplegableAbierto);
-    }
-  };
-
+  
   return (
-    /* 2. CAMBIA EL <header> POR <motion.header> */
     <motion.header 
       className="navbar-header"
-      initial={{ opacity: 0, y: -20 }} // Empieza invisible y un poco más arriba
-      animate={{ opacity: 1, y: 0 }}    // Baja a su posición original y aparece
-      transition={{ duration: 0.8, ease: "easeOut" }} // Duración suave
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-150%" }, // Lo mandamos bien lejos arriba
+      }}
+      animate={oculto ? "hidden" : "visible"}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
     >
       <a href="/" className="enlace-logo">
         <div className="logo">
@@ -40,7 +51,12 @@ const Navbar = () => {
 
         <ul className={`menu-principal ${menuAbierto ? "active" : ""}`}>
           <li className={`tiene-desplegable ${desplegableAbierto ? "abierto" : ""}`}>
-            <a href="#" onClick={toggleDesplegable}>
+            <a href="#" onClick={(e) => {
+              if (window.innerWidth <= 950) {
+                e.preventDefault();
+                setDesplegableAbierto(!desplegableAbierto);
+              }
+            }}>
               Especialidades <span className="flecha">▾</span>
             </a>
             <ul className="desplegable">
