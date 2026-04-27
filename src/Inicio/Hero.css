@@ -1,14 +1,11 @@
 
 .hero-section-container {
   position: relative;
-  width: 100vw;
-  max-width: 100%;
-  height: 100vh; /* Ocupa toda la pantalla */
-  min-height: 600px;
-  max-height: 100vh;
+  width: 100%;
+  min-height: 100svh; /* CLAVE: Mínimo una pantalla, pero le dejamos crecer */
+  height: auto;
   z-index: 1; /* Capa base */
   background: transparent !important;
-  overflow: hidden;
 }
 
 /* Forzamos al fondo a ocupar todo el espacio del contenedor */
@@ -29,13 +26,14 @@
 .hero-container {
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   width: 100%;
   /* Bajamos el max-width para que en el monitor de 24" no se vea todo tan disperso */
   max-width: 1440px; 
-  height: 100svh;
-  min-height: 650px;
+  height: auto;
+  min-height: 100svh;
   z-index: 5;
   background: transparent !important; 
   display: grid;
@@ -220,8 +218,8 @@
     grid-row: 3;
     /* Un pelín más pequeño para que no ocupe 5 líneas */
     font-size: clamp(2.2rem, 9vw, 2.6rem); 
-    line-height: 1.1;
-    margin-top: 30px;
+    line-height: 1.3;
+    margin-top: 10px;
     max-width: 90%;
     font-family: 'Montserrat', sans-serif;
   }
@@ -230,7 +228,7 @@
     grid-row: 4;
     font-size: 1.1rem;
     max-width: 90%;
-    margin-top: 5px;
+    margin-top: 0px;
     line-height: 1.4;
   }
 
@@ -240,7 +238,7 @@
     width: 55%;
     max-width: 300px;
     gap: 20px;
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
   .btn-empezar, .btn-portfolio {

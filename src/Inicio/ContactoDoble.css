@@ -2,9 +2,8 @@
   width: 100%;
   min-height: 100vh; /* Obligatorio para que ocupe toda la pantalla al anclarse */
   display: flex;
-  align-items: center; /* Centra el contenido verticalmente */
   justify-content: center;
-  padding: 60px 5%;
+  padding: 60px 15px;
   position: relative;
   background-color: var(--white-iris);
   z-index: 2;

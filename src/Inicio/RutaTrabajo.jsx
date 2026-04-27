@@ -29,11 +29,12 @@ const RutaTrabajo = () => {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: sectionWrapper,
-                start: "top top", 
+                start: "top 40px", 
                 end: "+=250%",    
                 pin: true,        
                 scrub: 1,         
                 pinSpacing: true, 
+                anticipatePin: 1
             }
         });
 

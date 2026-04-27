@@ -1,9 +1,10 @@
 .servicios-section {
   position: relative;
-  width: 100vw;
-  height: 100svh;
+  width: 100%;
   min-height: 100vh;
-  padding: 0px 40px 0;
+  min-height: 100svh; 
+  height: auto;      
+  padding: 60px 25px;
   text-align: center;
   z-index: 2; /* Mucho mayor que el del Hero */
   background-color: var(--white-iris);
@@ -14,10 +15,38 @@
 
 .servicios-section h2 {
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1.8rem, 5vw, 2.8rem);
   font-weight: 700;
-  margin-bottom: 50px;
-  color: var(--dark-violet);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  filter: drop-shadow(0 0 1px rgba(255,255,255,0.2));
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+  color:var(--dark-violet); /* El lila de tus títulos */
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 70px;
+
+}
+
+.subtitulo-especialidades {
+  display: inline-block; /* Asegura que ocupe su propia línea */
+  font-size: 2rem; /* Lo hacemos bastante más pequeño que el título principal */
+  font-weight: 700; /* Le quitamos un poco de grosor */
+  opacity: 0.8;
+  background: linear-gradient(to right, #7E57C2 0%, #5f2eb4 50%, #1A102D 100%);
+  background-size: 200% auto;
+  /* Recortar el fondo al texto y hacerlo transparente */
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Aplicar la animación */
+  animation: shine 6s linear infinite;
+}
+
+/* Definir la animación del brillo */
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
 }
 
 /* --- EL GRID MÁGICO --- */
@@ -98,14 +127,76 @@
 }
 
 /* --- RESPONSIVE --- */
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .servicios-grid {
     grid-template-columns: repeat(3, 1fr); /* 3 por línea en tablet */
+    gap: 30px; /* Le damos un poco más de aire a las filas */
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 668px) {
   .servicios-grid {
     grid-template-columns: 1fr; /* 1 por línea en móvil */
+    gap: 30px;
   }
+  
+  /* Reducimos un poco el padding superior en móvil para que no sea tan bestia */
+  .servicios-section {
+    padding: 100px 20px 100px 20px; 
+  }
+
+  /* --- EL GRID MÁGICO --- */
+  .servicios-grid {
+    width: 90%;
+  }
+
+  .servicio-card {
+    background: rgba(156, 70, 255, 0.05); 
+    border: 1px solid rgba(155, 79, 255, 0.1);
+    padding: 20px 15px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinea todo arriba */
+    align-items: center;
+  }
+
+  .servicios-section h2 {
+    margin-bottom: 50px;
+
+  }
+
+  .subtitulo-especialidades {
+    display: block; /* 🔥 AQUÍ ESTÁ LA MAGIA: Fuerza el salto de línea solo en móvil 🔥 */
+    margin-left: 0; /* Le quitamos el margen lateral porque ya no hace falta */
+    margin-top: 10px; /* El empujón hacia abajo que querías */
+    font-size: 1.2rem;
+  }
+
+    /* --- ICONOS MODERNOS --- */
+  .servicio-icono {
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  .servicio-card h3 {
+    font-family: 'Nunito', Arial, sans-serif;
+    font-size: 1.2rem; /* Un pelín más pequeño para que no rompa en 2 líneas */
+    margin-bottom: 5px;
+    color: var(--dark-violet);
+    min-height: 30px; /* Altura fija para títulos */
+    display: flex;
+    align-items: center;
+  }
+
+  .servicio-card p {
+    font-family: 'Nunito', Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    color: var(--deep-eggplant);
+  }
+
 }

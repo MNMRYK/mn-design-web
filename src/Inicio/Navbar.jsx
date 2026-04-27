@@ -2,30 +2,30 @@ import React, { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion"; 
 import "./Navbar.css";
 
+
 const Navbar = () => {
+  // 👇 ESTO ES LO QUE TE HABÍAS BORRADO SIN QUERER 👇
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [desplegableAbierto, setDesplegableAbierto] = useState(false);
-  
-  // --- LÓGICA SMART SCROLL Y CAMBIO DE COLOR ---
-  const [oculto, setOculto] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false); // NUEVO ESTADO
+  const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
 
+  // --- LÓGICA SMART SCROLL Y CAMBIO DE COLOR ---
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious ? scrollY.getPrevious() : 0;
     
-    // 1. Detectar si hemos pasado el Hero (ej: 90px de scroll)
-    if (latest > window.innerHeight * 0.90) {
+    // 🔥 NUEVA LÓGICA INTELIGENTE (LA CINTA MÉTRICA) 🔥
+    // 1. Buscamos el contenedor del Hero en la web
+    const heroElement = document.querySelector('.hero-section-container');
+    
+    // 2. Calculamos su altura real (si no lo encuentra por lo que sea, usa la pantalla por defecto)
+    const heroHeight = heroElement ? heroElement.offsetHeight : window.innerHeight;
+
+    // 3. Cambiamos de color justo 50 píxeles antes de terminar el Hero, mida lo que mida
+    if (latest > heroHeight - 50) {
       setIsScrolled(true);
     } else {
       setIsScrolled(false);
-    }
-
-    // 2. Ocultar/Mostrar el menú al bajar/subir (Solo si ya hemos bajado un poco)
-    if (latest > previous && latest > 150) {
-      setOculto(true);
-    } else {
-      setOculto(false);
     }
   });
 
@@ -33,7 +33,7 @@ const Navbar = () => {
   
   return (
     <header 
-      className={`navbar-header ${isScrolled ? "scrolled" : "top"} ${oculto ? "escondido" : ""}`}
+      className={`navbar-header ${isScrolled ? "scrolled" : "top"} `}
     >
       <a href="/" className="enlace-logo">
         <div className="logo">
@@ -58,7 +58,7 @@ const Navbar = () => {
                 setDesplegableAbierto(!desplegableAbierto);
               }
             }}>
-              Especialidades <span className="flecha">▾</span>
+              Servicios <span className="flecha">▾</span>
             </a>
             <ul className="desplegable">
               <li><a href="/diseno-web">Diseño Web</a></li>

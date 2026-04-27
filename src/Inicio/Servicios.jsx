@@ -45,7 +45,7 @@ const Servicios = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.8 }}
       >
-        ¿Qué ofrecemos? Nuestras especialidades
+        Mejora tu presencia digital <span className="subtitulo-especialidades">Nuestras especialidades</span>
       </motion.h2>
 
       <div className="servicios-grid">

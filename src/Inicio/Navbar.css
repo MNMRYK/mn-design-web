@@ -14,15 +14,10 @@
   align-items: center;
   padding: 0 30px;
   border-radius: 50px;
-  
   /* Animación de subida/bajada mediante CSS (Reemplaza a Framer Motion) */
   transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Cuando bajamos el ratón, escondemos la pastilla empujándola hacia arriba */
-.navbar-header.escondido {
-  top: -100px;
-}
 
 /* 🔥 TRUCO MAGISTRAL: EL FONDO FANTASMA 🔥
    Ponemos el cristal en un ::before separado para que no rompa el blur de los hijos */
@@ -194,7 +189,7 @@
 .desplegable {
   position: absolute;
   top: 210%;
-  right: -40px;
+  right: -50px;
   min-width: 220px;
   list-style: none;
   padding: 15px;
@@ -405,11 +400,11 @@
    ==================================================== */
 @media (max-width: 950px) {
   
-  .navbar-header.top .siglas {
+  .siglas {
     font-size: 1.6rem; 
   }
   
-  .navbar-header.top .marca {
+  .marca {
     font-size: 1.1rem; 
   }
 }

@@ -2,7 +2,6 @@
   width: 100%;
   min-height: 100vh; /* Obligatorio para que el 'pin' funcione bien */
   display: flex;
-  align-items: center; /* Centra el grid verticalmente mientras está fijo */
   padding: 40px 5%;
   position: relative;
 }

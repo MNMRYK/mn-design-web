@@ -4,10 +4,10 @@
   margin: 0 !important;
   overflow: hidden;
   width: 100%;
-  height: auto !important;
-  min-height: auto !important;
   display: flex;
   align-items: center;
+  padding: 50px 0;
+  z-index: 5;
 }
 
 .tech-slider-container {
