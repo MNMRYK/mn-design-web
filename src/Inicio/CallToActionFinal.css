@@ -7,7 +7,7 @@
   justify-content: center;
   align-items: center;
   background-color: transparent; /* Se adaptará al fondo que ya tengas */
-  padding: 0px 20px 80px;
+  padding: 0px 20px 120px;
   position: relative;
   z-index: 10;
   text-shadow: 0 10px 30px rgba(92, 0, 150, 0.2);
@@ -76,7 +76,7 @@
   font-family: 'Montserrat', sans-serif;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--electric-violet);
-  border-radius: 20px;
+  border-radius: 25px;
   color: var(--white-iris) !important; 
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
   padding: clamp(14px, 2.2vh, 20px) clamp(25px, 3vw, 40px);
@@ -91,4 +91,42 @@
   background-color: var(--white-iris); 
   border-color: rgba(255, 255, 255, 0.4);
   transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+
+  .cta-final-container {
+    /* Reducimos el padding inferior en móvil para que no quede un hueco vacío gigante */
+    padding: 0px 20px 90px; 
+  }
+
+  .cta-content h2 {
+    /* Ajustamos el salto de línea para móviles */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.4;
+  }
+
+  .texto-cambiante-wrapper {
+    /* ¡AQUÍ ESTÁ LA CLAVE! */
+    /* Centramos el texto dentro del contenedor en lugar de alinearlo a la izquierda */
+    text-align: center; 
+    /* Le damos el 100% del ancho para que ocupe todo el espacio disponible */
+    width: 100%; 
+    /* Quitamos el padding para que quede perfectamente alineado con el resto del título */
+    padding: 0; 
+  }
+
+  .cta-subtitle {
+    /* Le damos un poco más de aire en móvil */
+    margin-top: 10px;
+    font-size: 1rem; /* Aseguramos que se lea bien pero no quite protagonismo */
+  }
+
+  .cta-btn {
+    /* Ajustamos el botón para que sea más estilizado en pantallas pequeñas */
+    width: 80%; 
+    max-width: 300px; /* Evitamos que se estire demasiado en tablets pequeñas */
+  }
 }

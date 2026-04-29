@@ -46,7 +46,7 @@ const Servicios = () => {
         transition={{ duration: 0.8 }}
       >
         <h2 className="servicios-main-title">¿Quieres mejorar tu presencia digital?</h2>
-        <span className="servicios-subtitle">Analizamos tus necesidades para ofrecerte la tecnología que mejor impulse tu negocio.</span>
+        <p className="servicios-subtitle">Creamos soluciones digitales rentables y a medida. Somos especialistas en <strong>diseño web</strong>, desarrollo de <strong>tiendas e-commerce</strong> y <strong>posicionamiento SEO</strong> para hacer crecer tu visibilidad y tus ventas en internet.</p>
       </motion.div>
 
       <div className="servicios-grid">

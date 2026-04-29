@@ -22,7 +22,7 @@
 }
 
 .footer-brand {
-  max-width: 70%;
+  width: 100%;
 }
 
 /* El enlace que envuelve a la imagen y al texto */
@@ -48,19 +48,21 @@
 }
 
 .footer-logo {
-  font-size: 2.3rem;
+  font-size: 2.4rem;
   font-weight: 800;
   color: var(--electric-violet);
 }
 
 .footer-logo span {
   color: var(--iris-glaze);
+  font-size: 2.2rem;
 }
 
 .footer-tagline {
   color: var(--iris-glaze);
   font-size: 1rem;
   line-height: 1.6;
+  width: 90%;
 }
 
 /* --- LA NUEVA ZONA DEL MEDIO --- */
@@ -209,6 +211,42 @@
   }
 }
 
+@media (max-width: 1024px) {
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  /* El circulito PNG */
+  .footer-logo-img {
+    width: 50px; /* Ajusta esto para hacerlo más grande o más pequeño */
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+
+  /* Un toquecito animado al pasar el ratón por el logo */
+  .footer-logo-link:hover .footer-logo-img {
+    transform: rotate(-15deg) scale(1.1); /* Gira un poquito y crece */
+  }
+
+  .footer-logo {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--electric-violet);
+  }
+
+  .footer-logo span {
+    color: var(--iris-glaze);
+    font-size: 1.9rem;
+  }
+
+  .footer-tagline {
+    color: var(--iris-glaze);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+}
 
 /* --- MÓVIL (768px hacia abajo) --- */
 @media (max-width: 768px) {
@@ -217,18 +255,24 @@
     grid-template-columns: 1fr;
     text-align: left;
     gap: 30px;
-    padding: 0px 15px;
+    padding: 15px 15px;
   }
 
   .footer-brand {
     grid-column: span 1;
     max-width: 100%;
+    margin-bottom: 20px;
   }
 
   .footer-logo {
-    font-size: 2rem;
+    font-size: 2.4rem;
     font-weight: 800;
     color: var(--electric-violet);
+  }
+
+  .footer-logo span {
+    color: var(--iris-glaze);
+    font-size: 2.1rem;
   }
 
   .footer-column ul li {

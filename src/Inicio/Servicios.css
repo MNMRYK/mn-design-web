@@ -1,10 +1,9 @@
 .servicios-section {
   position: relative;
   width: 100%;
-  min-height: 100vh;
   min-height: 100svh; 
   height: auto;      
-  padding: 60px 25px;
+  padding: 100px 30px 150px;
   text-align: center;
   z-index: 2; /* Mucho mayor que el del Hero */
   background-color: var(--white-iris);
@@ -26,7 +25,7 @@
   text-rendering: optimizeLegibility;
   filter: drop-shadow(0 0 1px rgba(255,255,255,0.2));
   font-size: clamp(1.8rem, 5vw, 2.8rem);
-  color:var(--dark-violet); /* El lila de tus títulos */
+  color:var(--electric-violet); /* El lila de tus títulos */
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -35,11 +34,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   filter: drop-shadow(0 0 1px rgba(255,255,255,0.2));
-  color: var(--dark-violet);
+  color: var(--deep-eggplant);
   opacity: 0.9;
   font-size: 1.1rem;
   margin-top: 30px;
   font-family: 'Nunito', sans-serif;
+  max-width: 1000px; 
 }
 
 /* --- EL GRID MÁGICO --- */
@@ -47,7 +47,7 @@
   display: grid;
   /* Creamos 5 columnas iguales */
   grid-template-columns: repeat(5, 1fr); 
-  /* AQUÍ ESTÁ TU GAP: Espacio real entre tarjetas */
+
   gap: 20px; 
   width: 100%;
   max-width: 1300px;
@@ -122,12 +122,24 @@
 /* --- RESPONSIVE --- */
 @media (max-width: 1200px) {
   .servicios-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 por línea en tablet */
+    grid-template-columns: repeat(2, 1fr); /* 2 por línea en tablet */
     gap: 30px; /* Le damos un poco más de aire a las filas */
+  }
+
+  .servicios-section {
+    padding: 0px 50px 50px; /* Reducimos un poco el padding lateral en tablet */
+  }
+  .servicios-header {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 80%;
   }
 }
 
-@media (max-width: 668px) {
+@media (max-width: 768px) {
   .servicios-grid {
     grid-template-columns: 1fr; /* 1 por línea en móvil */
     gap: 30px;
@@ -135,7 +147,7 @@
   
   /* Reducimos un poco el padding superior en móvil para que no sea tan bestia */
   .servicios-section {
-    padding: 100px 20px 100px 20px; 
+    padding: 100px 25px 130px 25px; 
   }
 
   /* --- EL GRID MÁGICO --- */
@@ -155,9 +167,16 @@
     align-items: center;
   }
 
-  .servicios-main-title {
-    margin-bottom: 50px;
+  .servicios-header {
+    gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+  }
 
+  .servicios-main-title {
+    font-size: 2rem;
   }
 
   .servicios-subtitle {
@@ -167,7 +186,7 @@
     font-size: 1.2rem;
   }
 
-    /* --- ICONOS MODERNOS --- */
+  /* --- ICONOS MODERNOS --- */
   .servicio-icono {
     font-size: 2rem;
     margin-bottom: 15px;

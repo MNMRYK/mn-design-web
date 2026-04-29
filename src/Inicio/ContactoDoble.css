@@ -1,9 +1,9 @@
 .contacto-section-wrapper {
   width: 100%;
-  min-height: 100vh; /* Obligatorio para que ocupe toda la pantalla al anclarse */
+  min-height: auto; /* Obligatorio para que ocupe toda la pantalla al anclarse */
   display: flex;
   justify-content: center;
-  padding: 60px 15px;
+  padding: 80px 15px 50px;
   position: relative;
   background-color: var(--white-iris);
   z-index: 2;
@@ -19,3 +19,25 @@
   align-items: start; /* Hace que ambos bloques empiecen alineados por arriba */
 }
 
+@media (max-width: 768px) {
+  .contacto-section-wrapper {
+    padding: 60px 15px 30px;
+  }
+
+  .contacto-grid {
+    /* Pasamos a una sola columna */
+    grid-template-columns: 1fr; 
+    gap: 40px; 
+    padding: 0 10px;
+  }
+  
+  /* El Formulario (1er hijo) lo mandamos al final */
+  .contacto-grid > *:nth-child(1) { 
+    order: 2; 
+  }
+
+  /* La Ruta de Trabajo (2do hijo) la subimos al principio */
+  .contacto-grid > *:nth-child(2) { 
+    order: 1; 
+  }
+}

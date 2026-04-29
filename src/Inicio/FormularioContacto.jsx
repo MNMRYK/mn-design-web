@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './FormularioContacto.css';
 
 // Las opciones de tu agencia
@@ -21,6 +21,20 @@ const FormularioContacto = () => {
   // ¡Estos dos son los que te faltaban!
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [estadoEnvio, setEstadoEnvio] = useState(''); 
+
+  // Referencia para saber si hacemos clic fuera del desplegable
+  const selectRef = useRef(null);
+
+  // Cerramos el menú si el usuario hace clic fuera de él
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (selectRef.current && !selectRef.current.contains(event.target)) {
+        setIsSelectOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleChange = (e) => {
     setFormData({
@@ -106,22 +120,39 @@ const FormularioContacto = () => {
           />
         </div>
 
-        {/* CAMPO SERVICIO (El desplegable) */}
-        <div className="form-grupo">
-          <label htmlFor="servicio">¿En qué te podemos ayudar?</label>
-          <div className="select-wrapper">
-            <select 
-              id="servicio" name="servicio" 
-              value={formData.servicio} onChange={handleChange} required
-            >
-              <option value="" disabled>Selecciona un servicio...</option>
-              <option value="Diseño Web">Diseño Web</option>
-              <option value="E-Commerce">E-Commerce / Tienda Online</option>
-              <option value="Posicionamiento Seo">Posicionamiento SEO</option>
-              <option value="Mantenimiento">Mantenimiento Web</option>
-              <option value="Gestion de redes sociales">Gestión de Redes Sociales</option>
-            </select>
+        {/* --- EL NUEVO DESPLEGABLE DE CRISTAL --- */}
+        <div className="form-grupo custom-select-container" ref={selectRef}>
+          <label>¿En qué te podemos ayudar?</label>
+          
+          <div 
+            className={`custom-select-trigger ${isSelectOpen ? 'open' : ''}`}
+            onClick={() => setIsSelectOpen(!isSelectOpen)}
+          >
+            <span>{formData.servicio || "Selecciona un servicio..."}</span>
+            <i className={`fas fa-chevron-down ${isSelectOpen ? 'rotated' : ''}`}></i>
           </div>
+
+          {isSelectOpen && (
+            <ul className="custom-options-list blur-effect">
+              {opcionesServicio.map((opcion, index) => (
+                <li 
+                  key={index} 
+                  className="custom-option"
+                  onClick={() => handleSelectChange(opcion)}
+                >
+                  {opcion}
+                </li>
+              ))}
+            </ul>
+          )}
+          
+          {/* Input oculto para que HTML5 validación funcione si es necesario */}
+          <input 
+            type="hidden" 
+            name="servicio" 
+            value={formData.servicio} 
+            required 
+          />
         </div>
 
         <div className="form-grupo">

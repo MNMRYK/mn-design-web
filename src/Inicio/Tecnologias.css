@@ -83,3 +83,46 @@
     transform: translateX(calc(-200px * 16));
   }
 }
+
+/* --- RESPONSIVE MÓVIL PARA EL CARRUSEL --- */
+@media (max-width: 768px) {
+  
+  .tech-slider-section {
+    padding: 25px 0; /* Le quitamos la mitad del "gordito" de arriba y abajo */
+  }
+
+  .tech-card {
+    width: 120px; /* Pasamos de 200px a 120px. Cabrán casi 3 en pantalla */
+    gap: 8px; /* Un pelín menos de espacio entre el logo y el texto */
+  }
+
+  .tech-icon-box {
+    height: 50px; /* Reducimos la caja del icono */
+  }
+
+  .tech-svg {
+    height: 40px; /* Pasamos de 70px a 40px, mucho más sutil */
+  }
+
+  .tech-name {
+    font-size: 0.6rem; /* Letra un puntito más pequeña */
+  }
+
+  .tech-track {
+    /* Recalculamos el ancho total con la nueva medida (120px * 32 items) */
+    width: calc(120px * 32); 
+    /* Le aplicamos una animación nueva para móvil */
+    animation: scrollInfinitoMovil 30s linear infinite; 
+  }
+}
+
+/* 🔥 LA NUEVA ANIMACIÓN PARA MÓVIL (Para que no salte) 🔥 */
+@keyframes scrollInfinitoMovil {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Desplazamos exactamente la mitad de las tarjetas nuevas (16 * 120px) */
+    transform: translateX(calc(-120px * 16));
+  }
+}

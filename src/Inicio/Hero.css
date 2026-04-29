@@ -109,6 +109,7 @@
   letter-spacing: 0.5px;
   gap: 40px;
   margin-top: 20px;
+  
 }
 
 .btn-empezar {
@@ -124,6 +125,7 @@
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
+  cursor: pointer;
 }
 
 .btn-empezar:hover {
@@ -150,6 +152,7 @@
   font-size: 1rem;
   font-weight: 800;
   letter-spacing: 1px;
+  cursor: pointer;
 }
 
 .btn-portfolio:hover {

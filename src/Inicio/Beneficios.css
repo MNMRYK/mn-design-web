@@ -132,10 +132,52 @@
 
 /* RESPONSIVE */
 @media (max-width: 1024px) {
+
+  .beneficios-section {
+    position: relative;
+    overflow: hidden;
+    width: 80vw;
+    height: auto;
+    max-width: 1300px;
+    padding: 60px 50px 70px;
+    background: linear-gradient(334deg, #7E57C2, #4c1986, #10001f);
+    background-size: 180% 180%;
+    animation: modo-movimiento 6s ease infinite;
+    border-radius: 50px;
+    background-blend-mode: soft-light;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Nunito', sans-serif;
+  }
+
   .beneficios-grid { grid-template-columns: repeat(2, 1fr); }
+  
 }
 
-@media (max-width: 600px) {
-  .beneficios-grid { grid-template-columns: 1fr; }
-  .beneficios-title { font-size: 2rem; }
+@media (max-width: 768px) {
+
+  .beneficios-grid { 
+    /* 🔥 LA MAGIA: Obligamos a que las columnas no crezcan más de 1fr 🔥 */
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+    gap: 15px; 
+    margin-top: 15px;
+  }
+  .beneficios-title { 
+    font-size: 2rem; 
+  }
+
+  .beneficio-text {
+    /* Le decimos que si una palabra (ej. Acompañamiento) es muy larga, la parta */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    /* Bajamos un pelín el texto en móvil para que respire mejor */
+    font-size: 0.9rem; 
+  }
+  
+  /* Reducimos un poco el padding lateral de la sección general para ganar espacio útil */
+  .beneficios-section {
+    padding: 50px 20px; 
+  }
+
 }
