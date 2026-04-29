@@ -1,6 +1,6 @@
 .nosotros-hero-section {
   width: 100%;
-  min-height: 90vh;
+  min-height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,17 +18,37 @@
   align-items: center;
 }
 
+/* --- BREADCRUMB INTERACTIVO --- */
 .nosotros-badge {
   font-family: 'Nunito', sans-serif;
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 2px;
-  color: var(--electric-violet);
   text-transform: uppercase;
-  display: inline-block;
-  margin-bottom: 20px;
+  display: flex; /* Para poner los elementos en línea */
+  align-items: center;
+  gap: 8px; /* Espacio entre palabras y la barra */
+  margin-bottom: 40px;
+
 }
 
+.breadcrumb-link {
+  color: var(--electric-violet);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+  opacity: 0.6; /* Un pequeño destello al pasar el ratón para saber que es clicable */
+}
+
+.breadcrumb-separator {
+  color: rgba(26, 16, 45, 0.3); /* Una barra separadora sutil */
+}
+
+.breadcrumb-current {
+  color: rgba(26, 16, 45, 0.6); /* El texto de 'NOSOTROS' un poco más apagado porque ya estamos aquí */
+}
 .nosotros-content h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -50,11 +70,12 @@
   font-size: 1.1rem;
   line-height: 1.7;
   color: rgba(26, 16, 45, 0.8); /* deep-eggplant un poco transparente */
-  margin-bottom: 40px;
+  margin-bottom: 15px;
 }
 
 /* --- TABS ESTILO MODERNO --- */
 .nosotros-tabs-container {
+  margin-top: 40px;
   background: white;
   padding: 30px;
   border-radius: 20px;
@@ -74,10 +95,11 @@
   background: transparent;
   border: none;
   font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
   font-weight: 700;
   color: rgba(26, 16, 45, 0.5);
   cursor: pointer;
-  padding: 8px 15px;
+  padding: 12px 20px;
   transition: all 0.3s ease;
   border-radius: 8px;
 }
@@ -95,7 +117,7 @@
 
 .tab-content-area p {
   font-family: 'Nunito', sans-serif;
-  font-size: 1.05rem;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--deep-eggplant);
   margin: 0;

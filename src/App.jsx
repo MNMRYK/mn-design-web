@@ -7,7 +7,8 @@ import Footer from './Inicio/Footer';
 
 // Importamos tus "Páginas" enteras
 import Inicio from './Inicio.jsx'; // <-- El archivo que acabamos de crear en el PASO 1
-import NosotrosHero from './Nosotros/NosotrosHero'; // <-- Aquí cargas tu página de Nosotros
+import NosotrosHero from './Nosotros/NosotrosHero';
+import Nosotros from './Nosotros.jsx'; // <-- Aquí cargas tu página de Nosotros
 
 // Importamos los CSS globales
 import "./App.css";
@@ -24,7 +25,7 @@ function App() {
           {/* 🔥 ESTE ES EL SEMÁFORO QUE CAMBIA LA PÁGINA 🔥 */}
           <Routes>
             <Route path="/" element={<Inicio />} />
-            <Route path="/nosotros" element={<NosotrosHero />} />
+            <Route path="/nosotros" element={<Nosotros />} />
           </Routes>
 
           {/* El Footer siempre visible abajo */}

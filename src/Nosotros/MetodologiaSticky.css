@@ -1,0 +1,70 @@
+.metodologia-container {
+  display: flex;
+  width: 100%;
+  position: relative;
+  background-color: #05010d; /* Asegúrate de que el fondo sea oscuro */
+}
+
+.metodologia-left {
+  width: 50%;
+  padding: 0 5% 0 10%;
+}
+
+.step-box {
+  height: 100vh; /* 🔥 Importante: Da el espacio para que el scroll dure */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.metodologia-right {
+  width: 50%;
+  height: 100vh;
+  position: sticky; /* 🔥 Fija el círculo a la derecha */
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.svg-wrapper {
+  width: 100%;
+  max-width: 500px;
+}
+
+.circle-graphic {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+/* Tipografías */
+.step-id { color: #a672ff; font-weight: 800; font-family: 'Montserrat'; }
+.step-heading { font-size: 3.5rem; color: #efebfc; font-family: 'Montserrat'; margin: 10px 0; }
+.step-body { color: rgba(239, 235, 252, 0.7); font-family: 'Nunito'; line-height: 1.6; }
+
+
+/* RESPONSIVE (MÓVIL Y TABLET PEQUEÑA) */
+@media (max-width: 968px) {
+  .metodologia-container {
+    flex-direction: column; /* Apilamos las columnas */
+    padding: 0;
+  }
+  .metodologia-left, .metodologia-right {
+    width: 100%;
+  }
+  .metodologia-right {
+    height: 60vh;
+    position: relative; /* En móvil quitamos el sticky para no estorbar el scroll */
+    background: radial-gradient(circle, rgba(166, 114, 255, 0.1) 0%, rgba(5,1,13,0) 70%); /* Un blob lila sutil de fondo */
+  }
+  .step-box {
+    height: auto;
+    padding: 80px 5%;
+    text-align: center;
+    align-items: center;
+  }
+  .step-heading {
+    font-size: 2.5rem;
+  }
+}
