@@ -1,30 +1,51 @@
 .damos-forma-section {
   background-color: var(--white-iris, #efebfc);
-  padding: 80px 0;
+  padding: 100px 0 50px;
+  margin: 50px 0px 100px;
   width: 100%;
+  
 }
 
-.damos-forma-header {
+.damos-forma-header .focus-container {
+  /* Alineamos a la izquierda para que coincida con el diseño */
+  justify-content: flex-start; 
   margin-bottom: 50px;
-  padding: 0 10%;
+  max-width: 1300px;
+}
+
+.damos-forma-header .focus-word {
+  /* Aplicamos tus estilos de fuente exactos */
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  font-weight: 900 !important;
+  color: var(--deep-eggplant) !important;
+  line-height: 1.1;
+  text-transform: uppercase; /* Para que tenga esa fuerza del diseño original */
+}
+
+/* Aplicamos el gradiente a las últimas palabras: "A TU IDEA" */
+/* Como la frase es "DAMOS FORMA A TU IDEA", las palabras 3, 4 y 5 llevan el gradiente */
+.damos-forma-header .focus-word:nth-child(n+3) {
+  background: var(--electric-violet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* Importante: el fill-color transparente es lo que permite ver el gradiente */
 }
 
 .mn-stack-card {
   /* 🔥 COLOR SÓLIDO OSCURO: Para que resalte sobre el fondo claro */
-  background: var(--iris-glaze); 
-  border: 1px solid rgba(166, 114, 255, 0.4);
+  background: #e7daff; 
+  border: 2px solid rgba(172, 70, 255, 0.37);
   /* 🔥 MEDIDAS EN PX 🔥 */
-  height: 420px !important; 
+  height: 400px !important; 
   width: 85% !important;
-  margin: 0 auto !important;
+  margin: 0 auto 20px !important;
   padding: 48px !important;
   border-radius: 40px !important;
-  
   display: flex;
   align-items: center;
   box-shadow: 0 -15px 35px rgba(53, 0, 83, 0.3);
-  
-  /* CERO TRANSICIONES PARA EL SCROLL */
   transition: none !important; 
   will-change: transform;
 }
@@ -43,11 +64,83 @@
   border: 3px solid #ffffff !important;
 }
 
+/* Color especial para la última palabra de la tarjeta final */
+.final-card .title-gradient {
+  /* Quitamos el degradado lila para que no se camufle */
+  background: none !important;
+  -webkit-text-fill-color: #ffffff !important; /* Blanco puro */
+  color: #ffffff !important;
+  
+  /* Añadimos un pequeño brillo para que se vea premium */
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.4));
+}
+
 .final-card h3, .final-card p { color: #ffffff !important; }
 
-/* Textos legibles */
-.card-num { color: #a672ff; font-weight: 800; font-family: 'Montserrat'; font-size: 1.2rem; }
-.card-text h3 { font-size: 2.2rem; color: #efebfc; font-family: 'Montserrat'; font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
-.card-text p { color: rgba(239, 235, 252, 0.9); font-size: 1.05rem; line-height: 1.6; }
+/* Estilo para los títulos de las cartas */
+.card-title-dynamic {
+  /* 🔥 TAMAÑO COHERENTE CON LA WEB 🔥 */
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: clamp(1.8rem, 3vw, 2.3rem) !important;
+  font-weight: 900 !important;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  
+  /* Color base (el berenjena de tu marca) */
+  color: var(--deep-eggplant) !important; /* He puesto este lila casi blanco porque el fondo de la card es oscuro */
+}
 
-.card-image img { width: 100%; max-width: 320px; filter: drop-shadow(0 0 20px rgba(166, 114, 255, 0.4)); }
+/* El toque mágico para la última palabra */
+.title-gradient {
+  background: linear-gradient(to right, var(--electric-violet), #9c22ff);
+  font-size: 2.8rem;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.card-text p { 
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    font-weight: 700;
+    max-width: 600px; 
+    color: rgba(26, 16, 45, 0.8); /* deep-eggplant un poco transparente */
+}
+
+.card-image img { 
+    width: 100%; 
+    max-width: 320px; 
+    filter: drop-shadow(0 0 20px rgba(166, 114, 255, 0.4)); 
+}
+
+.cta-stack {
+  margin-top: 20px;
+  padding: 16px 40px;
+  background-color: #ffffff;
+  color: #5227FF; /* El violeta potente de tu marca */
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  /* Forma y bordes */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  width: fit-content;
+  /* Animación suave al pasar el ratón */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Aseguramos que se vea por encima de todo */
+  position: relative;
+  z-index: 10;
+}
+
+.cta-stack:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  background-color: #f8f5ff; /* Un blanco lila muy sutil al pasar el ratón */
+}

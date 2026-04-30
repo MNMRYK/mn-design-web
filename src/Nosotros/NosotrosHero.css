@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   background-color: var(--white-iris);
-  padding: 120px 5% 80px;
+  padding: 120px 5% 120px;
   overflow: hidden;
 }
 
@@ -49,6 +49,7 @@
 .breadcrumb-current {
   color: rgba(26, 16, 45, 0.6); /* El texto de 'NOSOTROS' un poco más apagado porque ya estamos aquí */
 }
+
 .nosotros-content h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(2.5rem, 5vw, 4rem);

@@ -7,10 +7,10 @@ import './MetodologiaSticky.css';
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const pasos = [
-  { id: '01', titulo: 'Arquitectura', desc: 'La arquitectura es el motor de tu página: nos encargamos de que la navegación sea fluida...', icon: "M3 3h18v18H3z M3 9h18 M9 9v12" }, // Grid de arquitectura
-  { id: '02', titulo: 'Diseño UI/UX', desc: 'Estructuramos y optimizamos la información de tu página para que sea clara...', icon: "M12 2v20 M2 12h20 M12 2l10 10-10 10L2 12z" }, // Diamante/Diseño
-  { id: '03', titulo: 'Contenido web', desc: 'Diseñamos una identidad visual única y atractiva que refleja la esencia de tu marca...', icon: "M4 6h16M4 10h16M4 14h10" }, // Líneas de texto
-  { id: '04', titulo: 'Testing', desc: 'Realizamos pruebas exhaustivas de velocidad, adaptabilidad móvil y funcionamiento...', icon: "M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4L12 14.01l-3-3" } // Check de verificación
+  { id: '01', titulo: 'Arquitectura', desc: 'La arquitectura es el motor de tu página: nos encargamos de que la navegación sea fluida y de que cada herramienta integrada trabaje para mejorar la interacción con tus clientes. Diseñamos una estructura lógica que guía al usuario de forma intuitiva para generar resultados.', icon: "M3 3h18v18H3z M3 9h18 M9 9v12" }, // Grid de arquitectura
+  { id: '02', titulo: 'Diseño UI/UX', desc: 'Estructuramos y optimizamos la información de tu página para que sea clara, persuasiva y aporte valor real a tus visitantes desde el primer segundo, aumentando el posicionamiento en buscadores (SEO).', icon: "M12 2v20 M2 12h20 M12 2l10 10-10 10L2 12z" }, // Diamante/Diseño
+  { id: '03', titulo: 'Contenido web', desc: 'Diseñamos una identidad visual única y atractiva que refleja la esencia de tu marca y está enfocada a captar clientes potenciales. Cuidamos cada detalle para ofrecer un diseño profesional que genere confianza y convierta cada visita en una oportunidad real de negocio.', icon: "M4 6h16M4 10h16M4 14h10" }, // Líneas de texto
+  { id: '04', titulo: 'Testing', desc: 'Realizamos pruebas exhaustivas de velocidad, adaptabilidad móvil y funcionamiento de todos los enlaces para asegurar que tu web sea perfecta desde el minuto uno.', icon: "M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4L12 14.01l-3-3" } // Check de verificación
 ];
 
 const MetodologiaSticky = () => {

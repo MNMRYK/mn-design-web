@@ -1,0 +1,50 @@
+/* CierreProximity.css */
+
+.cierre-final-section {
+  width: 100%;
+  min-height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 50px 150px;
+  background-color: var(--white-iris, #efebfc); 
+  /* Cursor opcional para invitar a la interacción */
+  cursor: crosshair; 
+}
+
+/* LA MAGIA DEL BLUR REVEAL */
+.blur-reveal-container {
+  max-width: 1200px; /* Limitamos el ancho para que la frase rompa de forma bonita */
+  filter: blur(20px);
+  opacity: 0;
+  width: 100%; /* 🔥 1. Le decimos que ocupe todo el ancho posible */
+  text-align: center;
+  transform: translateY(40px);
+  transition: filter 2.5s ease-out, opacity 2s ease-out, transform 2s ease-out;
+  will-change: filter, opacity, transform;
+}
+
+.blur-reveal-container.is-visible {
+  filter: blur(0px);
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* EL TEXTO DEL VARIABLE PROXIMITY */
+.proximity-text-final {
+  font-family: 'Montserrat', sans-serif;
+  /* 🔥 Tamaño más pequeño y elegante para frases largas 🔥 */
+  font-size: clamp(1.8rem, 4vw, 3.5rem); 
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+  
+  /* 🔥 DEGRADADO MORADO OSCURO A CLARO 🔥 */
+  background: linear-gradient(135deg, var(--deep-eggplant, #1a0b2e) 0%, #6c1eff 50%, #a672ff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent; /* Fallback */
+  
+  display: inline-block;
+}

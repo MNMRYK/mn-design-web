@@ -1,20 +1,23 @@
 .scroll-stack-scroller {
   position: relative;
   width: 100%;
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: visible;
-  overscroll-behavior: contain;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+  height: auto;
+  overflow: visible; 
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   will-change: scroll-position;
+  z-index: 5;
+}
+
+/* Ocultar barra en Chrome/Safari/Brave */
+.scroll-stack-scroller::-webkit-scrollbar {
+  display: none;
 }
 
 .scroll-stack-inner {
-  padding: 100px 20px;
+  padding: 50px 20px;
   min-height: 100vh;
+  overflow: visible;
 }
 
 .scroll-stack-card-wrapper {
