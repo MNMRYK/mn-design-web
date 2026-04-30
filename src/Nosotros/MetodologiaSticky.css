@@ -1,30 +1,62 @@
-.metodologia-container {
-  display: flex;
+.metodologia-outer {
+  background-color: var(--deep-eggplant);
+  padding: 80px 25px;
   width: 100%;
-  position: relative;
-  background-color: #05010d; /* Asegúrate de que el fondo sea oscuro */
 }
 
-.metodologia-left {
-  width: 50%;
-  padding: 0 5% 0 10%;
-}
-
-.step-box {
-  height: 100vh; /* 🔥 Importante: Da el espacio para que el scroll dure */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.metodologia-right {
-  width: 50%;
-  height: 100vh;
-  position: sticky; /* 🔥 Fija el círculo a la derecha */
-  top: 0;
+.metodologia-pin-trigger {
+  width: 100%;
+  height: auto;
+  min-height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  
+}
+
+.metodologia-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; /* Damos más peso a la columna de texto */
+  width: 100%;
+  max-width: 1300px;
+  gap: 150px; /* 🔥 SEPARACIÓN: Aquí le damos el aire que pedías 🔥 */
+  align-items: center;
+}
+
+.metodologia-left-carousel {
+  position: relative;
+  height: 450px;
+  display: flex;
+  align-items: center;
+}
+
+.step-carousel-item {
+  position: absolute;
+  top: 0; /* 🔥 Anclaje fijo: todos salen del mismo sitio 🔥 */
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.step-item-0 { opacity: 1; pointer-events: all; }
+
+/* EFECTO NEÓN EN EL CÍRCULO */
+.progress-ring {
+  filter: drop-shadow(0 0 12px rgba(166, 114, 255, 0.5));
+}
+
+.dot {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.central-icon-wrapper path {
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
 }
 
 .svg-wrapper {
@@ -32,39 +64,36 @@
   max-width: 500px;
 }
 
-.circle-graphic {
-  width: 100%;
-  height: auto;
-  overflow: visible;
+.circle-graphic { overflow: visible; }
+
+/* TEXTOS */
+.step-id { 
+  color: var(--iris-glaze); 
+  font-weight: 800; font-family: 'Montserrat'; 
+  font-size: 3rem; 
 }
 
-/* Tipografías */
-.step-id { color: #a672ff; font-weight: 800; font-family: 'Montserrat'; }
-.step-heading { font-size: 3.5rem; color: #efebfc; font-family: 'Montserrat'; margin: 10px 0; }
-.step-body { color: rgba(239, 235, 252, 0.7); font-family: 'Nunito'; line-height: 1.6; }
+.step-heading { 
+  font-size: 4rem; 
+  color: var(--electric-violet); 
+  font-family: 'Montserrat'; 
+  font-weight: 900; 
+  line-height: 1.1; 
+  margin: 0 0 20px 0; 
+  text-transform: uppercase; 
+}
 
+.step-body { 
+  color:var(--iris-glaze); 
+  font-family: 'Nunito'; 
+  line-height: 1.6; 
+  font-size: 1.3rem; 
+  max-width: 800px; 
+}
 
-/* RESPONSIVE (MÓVIL Y TABLET PEQUEÑA) */
-@media (max-width: 968px) {
-  .metodologia-container {
-    flex-direction: column; /* Apilamos las columnas */
-    padding: 0;
-  }
-  .metodologia-left, .metodologia-right {
-    width: 100%;
-  }
-  .metodologia-right {
-    height: 60vh;
-    position: relative; /* En móvil quitamos el sticky para no estorbar el scroll */
-    background: radial-gradient(circle, rgba(166, 114, 255, 0.1) 0%, rgba(5,1,13,0) 70%); /* Un blob lila sutil de fondo */
-  }
-  .step-box {
-    height: auto;
-    padding: 80px 5%;
-    text-align: center;
-    align-items: center;
-  }
-  .step-heading {
-    font-size: 2.5rem;
-  }
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .metodologia-content { grid-template-columns: 1fr; }
+  .metodologia-right-graphic { display: none; }
+  .step-carousel-item { position: relative; opacity: 1 !important; top: 0; transform: none; padding: 40px 0; }
 }

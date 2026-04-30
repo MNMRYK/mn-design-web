@@ -7,97 +7,128 @@ import './MetodologiaSticky.css';
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const pasos = [
-  { id: '01', titulo: 'Arquitectura', desc: 'Cimentamos tu éxito con una estructura lógica y optimizada basándonos en la psicología de tu cliente.' },
-  { id: '02', titulo: 'Diseño UI/UX', desc: 'Creamos interfaces exclusivas que no solo son visualmente impactantes, sino que guían a la compra.' },
-  { id: '03', titulo: 'Desarrollo', desc: 'Programamos a medida con React y animaciones GSAP para que tu web sea rápida y fluida como una app.' },
-  { id: '04', titulo: 'Lanzamiento', desc: 'Auditamos el rendimiento extremo y el SEO para que estés listo para conquistar el mercado.' }
+  { id: '01', titulo: 'Arquitectura', desc: 'La arquitectura es el motor de tu página: nos encargamos de que la navegación sea fluida...', icon: "M3 3h18v18H3z M3 9h18 M9 9v12" }, // Grid de arquitectura
+  { id: '02', titulo: 'Diseño UI/UX', desc: 'Estructuramos y optimizamos la información de tu página para que sea clara...', icon: "M12 2v20 M2 12h20 M12 2l10 10-10 10L2 12z" }, // Diamante/Diseño
+  { id: '03', titulo: 'Contenido web', desc: 'Diseñamos una identidad visual única y atractiva que refleja la esencia de tu marca...', icon: "M4 6h16M4 10h16M4 14h10" }, // Líneas de texto
+  { id: '04', titulo: 'Testing', desc: 'Realizamos pruebas exhaustivas de velocidad, adaptabilidad móvil y funcionamiento...', icon: "M22 11.08V12a10 10 0 1 1-5.93-9.14 M22 4L12 14.01l-3-3" } // Check de verificación
 ];
 
 const MetodologiaSticky = () => {
-  const containerRef = useRef(null);
-  const titleRef = useRef(null);
-  const descRef = useRef(null);
+  const mainRef = useRef(null);
+  const triggerRef = useRef(null);
+  const iconPathRef = useRef(null);
 
   useGSAP(() => {
     const circumference = 2 * Math.PI * 160;
 
-    // Seteamos el estado inicial
+    // Seteamos el círculo al inicio
     gsap.set(".progress-ring", { 
       strokeDasharray: circumference, 
       strokeDashoffset: circumference 
     });
 
-    // --- 1. EL CÍRCULO: Se dibuja de 0 a 100 siguiendo el scroll de TODO el contenedor ---
-    gsap.to(".progress-ring", {
-      strokeDashoffset: 0,
-      ease: "none",
+    const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: containerRef.current,
-        start: "top center", 
-        end: "bottom center",
-        scrub: 1, // Esto hace que el dibujo siga el dedo/ratón perfectamente
+        trigger: triggerRef.current,
+        start: "top 100px",
+        end: "+=500%", 
+        pin: true,
+        scrub: 1,
+        pinSpacing: true,
       }
     });
 
-    // --- 2. LOS PUNTOS Y TEXTOS: Se activan al pasar por cada bloque ---
-    const stepBoxes = gsap.utils.toArray('.step-box');
-    
-    stepBoxes.forEach((step, i) => {
-      ScrollTrigger.create({
-        trigger: step,
-        start: "top center",
-        end: "bottom center",
-        onEnter: () => {
-          // Encender Punto
-          gsap.to(`.dot-${i}`, { fill: "#a672ff", stroke: "#a672ff", scale: 1.5, duration: 0.4 });
-          // Cambiar texto central
-          if(titleRef.current) titleRef.current.textContent = pasos[i].id;
-          if(descRef.current) descRef.current.textContent = pasos[i].titulo;
-          gsap.fromTo([titleRef.current, descRef.current], { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.3 });
-        },
-        onLeaveBack: () => {
-          // Apagar Punto al volver arriba
-          gsap.to(`.dot-${i}`, { fill: "#0a0118", stroke: "rgba(166,114,255,0.3)", scale: 1, duration: 0.4 });
-          // Volver al texto anterior
-          if(i > 0) {
-            if(titleRef.current) titleRef.current.textContent = pasos[i-1].id;
-            if(descRef.current) descRef.current.textContent = pasos[i-1].titulo;
-          }
-        }
-      });
+    // 🔄 COREOGRAFÍA: Dividimos la línea de tiempo en 4 tramos exactos
+    pasos.forEach((paso, i) => {
+      const label = `paso${i}`;
+      tl.add(label);
+
+      // 1. Dibujar el tramo del círculo (25% cada vez)
+      if (i > 0) {
+        tl.to(".progress-ring", {
+          strokeDashoffset: circumference - (circumference * (i / (pasos.length - 1))),
+          ease: "none",
+          duration: 1
+        }, label);
+      }
+
+      // 2. Activar Dot
+      tl.to(`.dot-${i}`, { 
+        fill: "#a672ff", 
+        stroke: "#fff", 
+        scale: 1.3, // Escala reducida para que no sea gigante
+        filter: "drop-shadow(0 0 10px #a672ff)",
+        duration: 0.3 
+      }, label);
+
+      // 3. Cambiar Icono Central
+      tl.to(iconPathRef.current, {
+        attr: { d: paso.icon },
+        duration: 0.3,
+        ease: "power2.inOut"
+      }, label);
+
+      // 4. Cambiar Textos
+      tl.to(`.step-item-${i}`, { opacity: 1, y: 0, pointerEvents: 'all', duration: 0.5 }, label);
+      
+      if (i > 0) {
+        tl.to(`.step-item-${i-1}`, { opacity: 0, y: -40, pointerEvents: 'none', duration: 0.5 }, label);
+        tl.to(`.dot-${i-1}`, { scale: 1, stroke: "rgba(166,114,255,0.3)", duration: 0.2 }, label);
+      }
+
+      // Añadimos un pequeño espacio de "espera" en cada paso
+      tl.to({}, { duration: 0.5 });
     });
-  }, { scope: containerRef });
+
+  }, { scope: mainRef });
 
   return (
-    <section className="metodologia-container" ref={containerRef}>
-      <div className="metodologia-left">
-        {pasos.map((paso) => (
-          <div key={paso.id} className="step-box">
-            <span className="step-id">{paso.id}</span>
-            <h2 className="step-heading">{paso.titulo}</h2>
-            <p className="step-body">{paso.desc}</p>
+    <div ref={mainRef} className="metodologia-outer">
+      <section className="metodologia-pin-trigger" ref={triggerRef}>
+        <div className="metodologia-content">
+          
+          <div className="metodologia-left-carousel">
+            {pasos.map((paso, index) => (
+              <div key={paso.id} className={`step-carousel-item step-item-${index}`}>
+                <span className="step-id">{paso.id}</span>
+                <h2 className="step-heading">{paso.titulo}</h2>
+                <p className="step-body">{paso.desc}</p>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="metodologia-right">
-        <div className="svg-wrapper">
-          <svg viewBox="0 0 400 400" className="circle-graphic">
-            <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(166, 114, 255, 0.05)" strokeWidth="1" />
-            <circle className="progress-ring" cx="200" cy="200" r="160" fill="none" stroke="#a672ff" strokeWidth="6" strokeLinecap="round" transform="rotate(-90 200 200)" />
-            
-            {/* Los 4 puntos */}
-            <circle cx="200" cy="40" r="10" className="dot dot-0" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
-            <circle cx="360" cy="200" r="10" className="dot dot-1" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
-            <circle cx="200" cy="360" r="10" className="dot dot-2" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
-            <circle cx="40" cy="200" r="10" className="dot dot-3" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
+          <div className="metodologia-right-graphic">
+            <div className="svg-wrapper">
+              <svg viewBox="0 0 400 400" className="circle-graphic">
+                <circle cx="200" cy="200" r="160" fill="none" stroke="rgba(166, 114, 255, 0.05)" strokeWidth="1" />
+                <circle className="progress-ring" cx="200" cy="200" r="160" fill="none" stroke="#a672ff" strokeWidth="8" strokeLinecap="round" transform="rotate(-90 200 200)" />
+                
+                {/* Dots */}
+                <circle cx="200" cy="40" r="10" className="dot dot-0" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
+                <circle cx="360" cy="200" r="10" className="dot dot-1" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
+                <circle cx="200" cy="360" r="10" className="dot dot-2" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
+                <circle cx="40" cy="200" r="10" className="dot dot-3" fill="#0a0118" stroke="rgba(166,114,255,0.3)" strokeWidth="3" />
 
-            <text ref={titleRef} x="200" y="190" textAnchor="middle" fill="#efebfc" fontSize="60" fontWeight="900" fontFamily="Montserrat">01</text>
-            <text ref={descRef} x="200" y="235" textAnchor="middle" fill="rgba(239, 235, 252, 0.6)" fontSize="18" fontWeight="800" fontFamily="Montserrat" textTransform="uppercase" letterSpacing="2">Arquitectura</text>
-          </svg>
+                {/* ICONO CENTRAL */}
+                <g className="central-icon-container">
+                   <path 
+                    ref={iconPathRef}
+                    d={pasos[0].icon} 
+                    fill="none" 
+                    stroke="#fff" 
+                    strokeWidth="2" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    transform="translate(170, 170) scale(2.5)" 
+                   />
+                </g>
+              </svg>
+            </div>
+          </div>
+
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 
