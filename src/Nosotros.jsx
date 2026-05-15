@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
 
-import NosotrosHero from './Nosotros/NosotrosHero';
+import NosotrosSiguiente from './Nosotros/NosotrosSiguiente';
 import MetodologiaSticky from './Nosotros/MetodologiaSticky';
 import DamosForma from './Nosotros/DamosForma';
 import CierreProximity from './Nosotros/CierreProximity';
@@ -26,8 +26,6 @@ const Nosotros = () => {
     gsap.ticker.add((time) => { lenis.raf(time * 1000); });
     gsap.ticker.lagSmoothing(0);
 
-    // 🔥 HEMOS BORRADO EL CÓDIGO QUE ANCLABA EL HERO 🔥
-    // Ahora todo fluirá hacia abajo de forma natural.
 
     return () => {
       ScrollTrigger.getAll().forEach(t => t.kill());
@@ -40,7 +38,7 @@ const Nosotros = () => {
       
       <div className="nosotros-page-wrapper">
 
-        <NosotrosHero />
+        <NosotrosSiguiente />
         <MetodologiaSticky />
         <DamosForma />
         <CierreProximity />

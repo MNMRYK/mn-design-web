@@ -7,7 +7,7 @@ import Footer from './Inicio/Footer';
 
 // Importamos tus "Páginas" enteras
 import Inicio from './Inicio.jsx'; // <-- El archivo que acabamos de crear en el PASO 1
-import NosotrosHero from './Nosotros/NosotrosHero';
+import NosotrosHero from './Nosotros/NosotrosSiguiente.jsx';
 import Nosotros from './Nosotros.jsx'; // <-- Aquí cargas tu página de Nosotros
 
 // Importamos los CSS globales

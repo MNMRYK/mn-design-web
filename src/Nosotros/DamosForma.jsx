@@ -1,33 +1,39 @@
 import React from 'react';
-import ScrollStack, { ScrollStackItem } from './ScrollStack';
-import TrueFocus from './TrueFocus';
+import ScrollStack, { ScrollStackItem } from './ScrollStack'; 
+import TrueFocus from './TrueFocus'; 
+import { Player } from '@lottiefiles/react-lottie-player';
 import './DamosForma.css';
+import aniAnalitica from '../assets/animations/analitica4.json';
+import aniGestion from '../assets/animations/gestion.json';
+import aniDiseño from '../assets/animations/diseno-de-interfaz-de-usuario.json';
+import aniDinero from '../assets/animations/analitica5.json';
+import aniProteccion from '../assets/animations/proteccion.json';
 
 const items = [
     {
     titulo: 'Diagnóstico de Negocio',
     desc: 'Para optimizar los resultados de tu marca, realizamos un asesoramiento personalizado desde la primera toma de contacto. Aplicamos una serie de pautas y preguntas estratégicas diseñadas para entender el alma de tu negocio. A través de este proceso, averiguamos qué es lo que realmente necesitas —ya sea una web corporativa, un sistema de reservas integrado o una tienda online— para que cada clic se traduzca en beneficio para ti.',
-    img: '/img/seo-growth.png' // Imagen de la mano robótica o métricas
+    animation: aniAnalitica
   },
   {
     titulo: 'Identidad Blindada',
     desc: 'En nuestra agencia, no utilizamos plantillas genéricas que limitan el crecimiento de tu marca. Creemos que cada proyecto merece una identidad visual auténtica que respire los valores de tu negocio. Diseñamos desde cero para garantizar coherencia estética, logrando que tu sitio no solo destaque, sino que transmita la profesionalidad necesaria para que tus clientes te elijan sin dudarlo.',
-    img: '/img/cerebro-digital.png' // Imagen del cerebro o circuitos
+    animation: aniProteccion
   },
   {
     titulo: 'Diseño de Alto Impacto',
     desc: 'Para nosotros, tu opinión es el motor del diseño. No improvisamos: trabajamos de la mano contigo desarrollando varios sketches y bocetos previos. Este proceso nos permite experimentar y ajustar cada detalle antes de la fase final, asegurándonos de que el resultado sea totalmente fiel a lo que habías imaginado.',
-    img: '/img/diseno-ui.png' // Imagen del móvil con gráficas
+    animation: aniDiseño
   },
   {
     titulo: 'Contenido que Convierte',
     desc: 'Para lograr esta excelencia, trabajamos en equipo. Mientras nosotros ponemos la magia del diseño y la estructura, necesitamos que tú nos proporciones una base de contenido sólida (textos, ideas clave y materiales de tu negocio). Con ese punto de partida, nosotros transformamos la información en una experiencia digital de alto impacto.',
-    img: '/img/laptop-neon.png' // Tu imagen favorita "Sin título.jpg"
+    animation: aniDinero
   },
   {
     titulo: 'Éxito Sin Interrupciones',
     desc: 'Te guiaremos de la mano durante todo el estructuramiento de la web. Desde la organización de las secciones hasta la jerarquía de los textos, te ayudaremos a dar forma a la base de contenido necesaria para que tu sitio sea lógico, intuitivo y profesional. Tú pones la esencia de tu negocio y nosotros la convertimos en una herramienta digital que trabaja para ti las 24 horas.',
-    img: '/img/rocket-final.png', // Algún icono de éxito o cohete
+    animation: aniGestion,
     isFinal: true
   }
 ];
@@ -71,8 +77,18 @@ const DamosForma = () => {
                                     <p>{item.desc}</p>
                                     {item.isFinal && <button className="cta-stack">¡EMPECEMOS YA!</button>}
                                 </div>
-                                <div className="card-image">
-                                    <img src={item.img} alt={item.titulo} />
+                                <div className="card-image lottie-container">
+                                    {/* 🔥 LA MAGIA OCURRE AQUÍ 🔥 */}
+                                    {item.animation ? (
+                                        <Player
+                                            autoplay
+                                            loop
+                                            src={item.animation}
+                                            className="lottie-icon"
+                                        />
+                                    ) : (
+                                        item.img ? <img src={item.img} alt={item.titulo} className="lottie-icon" /> : null
+                                    )}
                                 </div>
                             </div>
                         </ScrollStackItem>
@@ -82,6 +98,5 @@ const DamosForma = () => {
         </section>
     );
 };
-
 
 export default DamosForma;

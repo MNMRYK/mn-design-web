@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import './NosotrosHero.css';
-
-/* 🔥 ESTA ES LA LÍNEA QUE TE FALTA PARA QUE REACT SEPA QUÉ ES UN <Link> 🔥 */
+import './NosotrosSiguiente.css';
 import { Link } from 'react-router-dom';
 
 const tabsData = [
@@ -11,7 +9,7 @@ const tabsData = [
   { id: 'energia', title: 'Energía Joven', content: 'Combinamos 5 años de experiencia con la frescura y la innovación que el mercado actual exige.' }
 ];
 
-const NosotrosHero = () => {
+const NosotrosSiguiente = () => {
   const [activeTab, setActiveTab] = useState(tabsData[0].id);
 
   return (
@@ -91,4 +89,4 @@ const NosotrosHero = () => {
   );
 };
 
-export default NosotrosHero;
+export default NosotrosSiguiente;

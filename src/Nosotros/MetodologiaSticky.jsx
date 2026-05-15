@@ -19,71 +19,84 @@ const MetodologiaSticky = () => {
   const iconPathRef = useRef(null);
 
   useGSAP(() => {
-    const circumference = 2 * Math.PI * 160;
+    // 🔥 EL TRUCO NINJA: matchMedia para separar escritorio de móvil 🔥
+    let mm = gsap.matchMedia();
 
-    // Seteamos el círculo al inicio
-    gsap.set(".progress-ring", { 
-      strokeDasharray: circumference, 
-      strokeDashoffset: circumference 
+    // 💻 VERSIÓN ESCRITORIO (Más de 1024px): La animación en rueda clavada
+    mm.add("(min-width: 1025px)", () => {
+      const circumference = 2 * Math.PI * 160;
+      gsap.set(".progress-ring", { strokeDasharray: circumference, strokeDashoffset: circumference });
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top 100px",
+          end: "+=500%", 
+          pin: true,
+          scrub: 1,
+          pinSpacing: true,
+        }
+      });
+
+      pasos.forEach((paso, i) => {
+        const label = `paso${i}`;
+        tl.add(label);
+
+        if (i > 0) {
+          tl.to(".progress-ring", { strokeDashoffset: circumference - (circumference * (i / (pasos.length - 1))), ease: "none", duration: 1 }, label);
+        }
+
+        tl.to(`.dot-${i}`, { fill: "#a672ff", stroke: "#fff", scale: 1.3, filter: "drop-shadow(0 0 10px #a672ff)", duration: 0.3 }, label);
+        tl.to(iconPathRef.current, { attr: { d: paso.icon }, duration: 0.3, ease: "power2.inOut" }, label);
+        tl.to(`.step-item-${i}`, { opacity: 1, y: 0, pointerEvents: 'all', duration: 0.5 }, label);
+        
+        if (i > 0) {
+          tl.to(`.step-item-${i-1}`, { opacity: 0, y: -40, pointerEvents: 'none', duration: 0.5 }, label);
+          tl.to(`.dot-${i-1}`, { scale: 1, stroke: "rgba(166,114,255,0.3)", duration: 0.2 }, label);
+        }
+
+        tl.to({}, { duration: 0.5 });
+      });
     });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerRef.current,
-        start: "top 100px",
-        end: "+=500%", 
-        pin: true,
-        scrub: 1,
-        pinSpacing: true,
-      }
-    });
+    // 📱 VERSIÓN MÓVIL/TABLET (Hasta 1024px): Carrusel de texto superpuesto
+    mm.add("(max-width: 1024px)", () => {
+      // Reforzamos el estado inicial en GSAP
+      gsap.set(".step-carousel-item", { opacity: 0, y: 30 });
+      gsap.set(".step-item-0", { opacity: 1, y: 0 });
 
-    // 🔄 COREOGRAFÍA: Dividimos la línea de tiempo en 4 tramos exactos
-    pasos.forEach((paso, i) => {
-      const label = `paso${i}`;
-      tl.add(label);
+      const tlMobile = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerRef.current,
+          start: "top 15%", // Empieza un poco más abajo para no tapar tu menú
+          end: "+=200%",    // 🔥 Scroll más corto que en PC para que no canse 🔥
+          pin: true,
+          scrub: 1,
+          pinSpacing: true,
+        }
+      });
 
-      // 1. Dibujar el tramo del círculo (25% cada vez)
-      if (i > 0) {
-        tl.to(".progress-ring", {
-          strokeDashoffset: circumference - (circumference * (i / (pasos.length - 1))),
-          ease: "none",
-          duration: 1
-        }, label);
-      }
+      pasos.forEach((paso, i) => {
+        const label = `pasoMobile${i}`;
+        tlMobile.add(label);
 
-      // 2. Activar Dot
-      tl.to(`.dot-${i}`, { 
-        fill: "#a672ff", 
-        stroke: "#fff", 
-        scale: 1.3, // Escala reducida para que no sea gigante
-        filter: "drop-shadow(0 0 10px #a672ff)",
-        duration: 0.3 
-      }, label);
+        // La tarjeta actual entra
+        tlMobile.to(`.step-item-${i}`, { opacity: 1, y: 0, pointerEvents: 'all', duration: 0.5 }, label);
+        
+        // La tarjeta anterior sale hacia arriba
+        if (i > 0) {
+          tlMobile.to(`.step-item-${i-1}`, { opacity: 0, y: -40, pointerEvents: 'none', duration: 0.5 }, label);
+        }
 
-      // 3. Cambiar Icono Central
-      tl.to(iconPathRef.current, {
-        attr: { d: paso.icon },
-        duration: 0.3,
-        ease: "power2.inOut"
-      }, label);
-
-      // 4. Cambiar Textos
-      tl.to(`.step-item-${i}`, { opacity: 1, y: 0, pointerEvents: 'all', duration: 0.5 }, label);
-      
-      if (i > 0) {
-        tl.to(`.step-item-${i-1}`, { opacity: 0, y: -40, pointerEvents: 'none', duration: 0.5 }, label);
-        tl.to(`.dot-${i-1}`, { scale: 1, stroke: "rgba(166,114,255,0.3)", duration: 0.2 }, label);
-      }
-
-      // Añadimos un pequeño espacio de "espera" en cada paso
-      tl.to({}, { duration: 0.5 });
+        // Pausa de lectura para que el usuario pueda leer el texto
+        tlMobile.to({}, { duration: 0.6 });
+      });
     });
 
   }, { scope: mainRef });
 
   return (
-    <div ref={mainRef} className="metodologia-outer">
+    <div ref={mainRef} className="metodologia-outer tema-oscuro">
       <section className="metodologia-pin-trigger" ref={triggerRef}>
         <div className="metodologia-content">
           

@@ -3,7 +3,6 @@
   padding: 100px 0 50px;
   margin: 50px 0px 100px;
   width: 100%;
-  
 }
 
 .damos-forma-header .focus-container {
@@ -16,7 +15,7 @@
 .damos-forma-header .focus-word {
   /* Aplicamos tus estilos de fuente exactos */
   font-family: 'Montserrat', sans-serif !important;
-  font-size: clamp(2.5rem, 5vw, 4rem) !important;
+  font-size: clamp(2.1rem, 5vw, 4rem) !important;
   font-weight: 900 !important;
   color: var(--deep-eggplant) !important;
   line-height: 1.1;
@@ -34,7 +33,6 @@
 }
 
 .mn-stack-card {
-  /* 🔥 COLOR SÓLIDO OSCURO: Para que resalte sobre el fondo claro */
   background: #e7daff; 
   border: 2px solid rgba(172, 70, 255, 0.37);
   /* 🔥 MEDIDAS EN PX 🔥 */
@@ -52,8 +50,8 @@
 
 .card-inner {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 50px;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 30px;
   width: 100%;
   align-items: center;
 }
@@ -107,14 +105,25 @@
     font-size: 1.1rem;
     line-height: 1.7;
     font-weight: 700;
-    max-width: 600px; 
+    max-width: 750px; 
     color: rgba(26, 16, 45, 0.8); /* deep-eggplant un poco transparente */
 }
 
-.card-image img { 
-    width: 100%; 
-    max-width: 320px; 
-    filter: drop-shadow(0 0 20px rgba(166, 114, 255, 0.4)); 
+/* Asegúrate de que el contenedor no limite demasiado */
+.lottie-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Controlamos el tamaño del icono animado */
+.lottie-icon {
+    width: 100%;
+    max-width: 250px; /* Ajusta este número si lo quieres más grande o pequeño */
+    height: auto;
+    filter: drop-shadow(0 0 10px rgba(126, 87, 194, 0.3)); /* Un toque de brillo lila */
 }
 
 .cta-stack {
@@ -143,4 +152,80 @@
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   background-color: #f8f5ff; /* Un blanco lila muy sutil al pasar el ratón */
+}
+
+/* =========================================
+   📱 RESPONSIVE: TABLET Y MÓVIL
+   ========================================= */
+
+/* --- TABLET (Pantallas medianas) --- */
+@media (max-width: 1024px) {
+  .mn-stack-card {
+    /* 🔥 ¡FUERA LA ALTURA FIJA! Dejamos que crezca según el texto 🔥 */
+    height: auto !important; 
+    min-height: 400px !important; 
+    /* Aprovechamos más el ancho de la pantalla */
+    width: 95% !important; 
+    padding: 40px !important;
+  }
+  
+  .card-inner {
+    /* Reducimos un poco el hueco entre texto e imagen para ganar espacio */
+    gap: 20px; 
+  }
+}
+
+/* --- MÓVIL (Pantallas pequeñas) --- */
+@media (max-width: 768px) {
+  /* 🔥 1. ACERCAMOS EL TÍTULO A LAS TARJETAS 🔥 */
+  .damos-forma-header .focus-container {
+    margin-bottom: 15px !important; /* Le quitamos los 50px de margen que tenía */
+  }
+  
+  .mn-stack-card {
+    width: 100% !important; 
+    padding: 55px 20px 25px!important; /* Reducimos el padding lateral */
+    border-radius: 30px !important; /* Bordes un pelín menos redondos en móvil */
+  }
+
+  .card-inner {
+    /* Pasamos a 1 sola columna: Texto arriba, Icono abajo */
+    display: flex;
+    flex-direction: column;
+    text-align: center; /* Centramos el texto, queda mucho más elegante */
+  }
+
+  .card-text p {
+    font-size: 1rem;
+    max-width: 100%; /* El texto usa todo el ancho disponible */
+  }
+
+  .card-title-dynamic {
+    font-size: 1.8rem !important; 
+    margin-bottom: 20px;
+  }
+
+  .title-gradient {
+    font-size: 2.2rem;
+  }
+
+  /* Ajustes del contenedor del icono para móvil */
+  .lottie-container {
+    justify-content: center; /* Centramos la animación */
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .lottie-icon {
+    max-width: 180px; /* Reducimos un poco el tamaño para que no se coma la pantalla */
+  }
+  .final-card {
+    padding: 50px 0 10px; 
+  }
+
+  /* Centramos el botón en móvil */
+  .cta-stack {
+    margin: 45px auto 0;
+    display: block; /* Necesario para que el margin auto funcione */
+  }
 }

@@ -48,3 +48,44 @@
   
   display: inline-block;
 }
+
+/* =========================================
+   📱 RESPONSIVE: TABLET Y MÓVIL
+   ========================================= */
+
+@media (max-width: 1024px) {
+  .cierre-final-section {
+    /* Igualamos los espacios: 80px arriba y abajo, y reducimos los lados */
+    padding: 100px 20px 100px; 
+    /* Quitamos el cursor de la cruceta porque en táctil no sirve */
+    cursor: default; 
+  }
+
+  /* 🔥 TRUCO NINJA: Como el componente React usa estilos en línea (inline) 
+     para animar el peso de la fuente, usamos !important para obligar 
+     a cada letra (span) a quedarse "gordita" siempre en móvil 🔥 */
+  .proximity-text-final span {
+    font-variation-settings: 'wght' 900, 'opsz' 50 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cierre-final-section {
+    /* En móvil lo compactamos un poco más para que la transición al footer sea más natural */
+    padding: 200px 15px 80px; 
+  }
+  
+  /* Ajustamos la fuente para que respire bien en pantallas estrechas */
+  .proximity-text-final {
+    font-size: 2rem; 
+    line-height: 1.3;
+  }
+}
+
+@media (max-width: 390px) {
+  .cierre-final-section {
+    /* En móvil lo compactamos un poco más para que la transición al footer sea más natural */
+    padding: 280px 15px 50px; 
+  }
+
+}

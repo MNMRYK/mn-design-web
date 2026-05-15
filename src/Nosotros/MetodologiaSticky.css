@@ -91,9 +91,56 @@
   max-width: 800px; 
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE MÓVIL Y TABLET */
 @media (max-width: 1024px) {
-  .metodologia-content { grid-template-columns: 1fr; }
-  .metodologia-right-graphic { display: none; }
-  .step-carousel-item { position: relative; opacity: 1 !important; top: 0; transform: none; padding: 40px 0; }
+  .metodologia-content { 
+    grid-template-columns: 1fr; 
+    gap: 0; 
+  }
+  
+  .metodologia-right-graphic { 
+    display: none; 
+  }
+  
+  .metodologia-left-carousel {
+    position: relative;
+    height: 450px; 
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* 🔥 Evita que el texto salga por arriba o abajo al animarse */
+  }
+
+  .step-carousel-item { 
+    position: absolute; 
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* 🔥 LA CLAVE: Todo oculto por defecto, sin !important 🔥 */
+    opacity: 0;
+    pointer-events: none;
+    transform: none;
+  }
+
+  /* Solo la primera tarjeta es visible al empezar */
+  .step-item-0 { 
+    opacity: 1; 
+    pointer-events: all; 
+  }
+
+  /* Ajustamos la tipografía para móvil */
+  .step-heading { 
+    font-size: clamp(2.2rem, 8vw, 2.8rem); 
+  }
+  .step-id { 
+    font-size: 2.2rem; 
+  }
+  .step-body { 
+    font-size: 1.1rem; 
+  }
 }

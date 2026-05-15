@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import './Tecnologias.css';
 
 const techLogos = [
@@ -22,7 +22,7 @@ const techLogos = [
 const Tecnologias = () => {
   
   return (
-    <section className="tech-slider-section">
+    <section className="tech-slider-section tema-oscuro">
       <div className="tech-slider-container">
         <div className="tech-track">
           {/* Duplicamos el array para que el scroll sea infinito sin cortes */}

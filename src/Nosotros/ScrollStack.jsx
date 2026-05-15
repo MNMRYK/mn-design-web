@@ -42,10 +42,27 @@ const ScrollStack = ({
     return parseFloat(value);
   }, []);
 
+  // 🔥 TRUCO ANTI-TEMBLORES PARA MÓVIL 🔥
+  // Guardamos la altura inicial para que la barra de direcciones no nos rompa las matemáticas
+  const initialHeightRef = useRef(typeof window !== 'undefined' ? window.innerHeight : 800);
+  const lastWidthRef = useRef(typeof window !== 'undefined' ? window.innerWidth : 1200);
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      // Solo actualizamos la altura si el móvil se ha girado (cambia el ancho)
+      if (window.innerWidth !== lastWidthRef.current) {
+        initialHeightRef.current = window.innerHeight;
+        lastWidthRef.current = window.innerWidth;
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const getScrollData = useCallback(() => {
     return {
       scrollTop: window.scrollY,
-      containerHeight: window.innerHeight,
+      containerHeight: initialHeightRef.current, // ¡Altura bloqueada y estable!
     };
   }, []);
 
@@ -129,6 +146,12 @@ const ScrollStack = ({
       duration: 1.2,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      
+      // 🔥 LA MAGIA CONTRA EL TEMBLOR TÁCTIL 🔥
+      smoothTouch: true,  // Obliga al móvil a usar el scroll suave de Lenis
+      syncTouch: true,    // Sincroniza el dedo exactamente con la animación
+      touchMultiplier: 1.5, // Multiplicador para que el scroll no se sienta "pesado" al dedo
+      
       lerp: 0.1,
     });
 

@@ -37,7 +37,7 @@ const serviciosData = [
 
 const Servicios = () => {
   return (
-    <section className="servicios-section" id="especialidades">
+    <section className="servicios-section" id="especialidades" >
       <motion.div 
         className="servicios-header"
         initial={{ opacity: 0, scale: 0.9 }}

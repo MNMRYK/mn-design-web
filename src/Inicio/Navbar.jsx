@@ -2,35 +2,51 @@ import React, { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion"; 
 import "./Navbar.css";
 
-
 const Navbar = () => {
-  // 👇 ESTO ES LO QUE TE HABÍAS BORRADO SIN QUERER 👇
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [desplegableAbierto, setDesplegableAbierto] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
 
-  // --- LÓGICA SMART SCROLL Y CAMBIO DE COLOR ---
+  // --- LÓGICA HÍBRIDA: MATEMÁTICAS + ESCÁNER VISUAL ---
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious ? scrollY.getPrevious() : 0;
     
-    // 🔥 NUEVA LÓGICA INTELIGENTE (LA CINTA MÉTRICA) 🔥
-    // 1. Buscamos el contenedor del Hero en la web
+    // 🎯 1. LA LÓGICA DE TU HERO (La que ya tenías)
     const heroElement = document.querySelector('.hero-section-container');
     
-    // 2. Calculamos su altura real (si no lo encuentra por lo que sea, usa la pantalla por defecto)
-    const heroHeight = heroElement ? heroElement.offsetHeight : window.innerHeight;
+    // Si la página actual tiene un Hero, comprobamos las matemáticas
+    if (heroElement) {
+      const heroHeight = heroElement.offsetHeight;
+      
+      // Si estamos dentro del Hero (respetando tus 50px de margen)...
+      if (latest <= heroHeight - 50) {
+        setIsScrolled(false); // Mantenemos textos blancos (clase "top")
+        return; // 🔥 IMPORTANTE: Cortamos la función aquí. El Hero manda.
+      }
+    }
 
-    // 3. Cambiamos de color justo 50 píxeles antes de terminar el Hero, mida lo que mida
-    if (latest > heroHeight - 50) {
-      setIsScrolled(true);
+    // 🎯 2. EL ESCÁNER VISUAL (Para el resto de la web y secciones inferiores)
+    // Si no hay Hero en esta página, o si ya hemos hecho scroll por debajo de él, entra esto:
+    const x = window.innerWidth / 2;
+    const y = 30; // Altura aproximada donde está tu Navbar
+    
+    // Obtenemos qué hay exactamente debajo del centro del Navbar
+    const elementsUnder = document.elementsFromPoint(x, y);
+
+    if (!elementsUnder) return;
+
+    // Buscamos si algún elemento debajo del menú tiene la clase 'tema-oscuro'
+    // Usamos .closest() por si el Navbar está pisando un texto o una foto que está dentro de esa sección
+    const isOverDarkTheme = elementsUnder.some(el => el.closest && el.closest('.tema-oscuro'));
+
+    if (isOverDarkTheme) {
+      setIsScrolled(false); // Fondo oscuro detectado -> Textos blancos (clase "top")
     } else {
-      setIsScrolled(false);
+      setIsScrolled(true);  // Fondo claro detectado -> Textos morados (clase "scrolled")
     }
   });
 
   const toggleMenu = () => setMenuAbierto(!menuAbierto);
-  
   return (
     <header 
       className={`navbar-header ${isScrolled ? "scrolled" : "top"} `}

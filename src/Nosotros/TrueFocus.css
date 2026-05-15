@@ -67,3 +67,18 @@
   border-left: none;
   border-top: none;
 }
+
+/* --- 🔥 LA MAGIA SOLO PARA MÓVIL 🔥 --- */
+@media (max-width: 768px) {
+  .focus-container {
+    /* Reducimos el abismo entre palabras que estaba empujando el texto */
+    gap: 0.5rem !important; 
+    /* Margen de seguridad para que el cuadro animado no se corte en la izquierda */
+    padding-left: 30px; 
+  }
+  
+  .focus-word {
+    /* Letra más pequeña para que quepa bien sin reventar la pantalla */
+    font-size: 2.2rem !important; 
+  }
+}
