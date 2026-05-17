@@ -5,14 +5,13 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
 
-import ContactoSiguiente from './Contacto/ContactoSiguiente';
-import ReservaYMapa from './Contacto/ReservaYMapa';
-import Opiniones from './Contacto/Opiniones';
+import DisenoWebSiguiente from './DisenoWeb/DisenoWebSiguiente.jsx';
 
 
-const Contacto = () => {
+
+const DisenoWeb = () => {
   
-  // --- TODA LA MAGIA DEL SCROLL SUAVE (LENIS) ---
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -36,15 +35,13 @@ const Contacto = () => {
   return (
     <>
       
-      <div className="contacto-page-wrapper">
+        <div className="disenoweb-page-wrapper">
 
-        <ContactoSiguiente />
-        <ReservaYMapa />
-        <Opiniones />
-          
-      </div>
+            <DisenoWebSiguiente />
+            
+        </div>
     </>
   );
 };
 
-export default Contacto;
+export default DisenoWeb;

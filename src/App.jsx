@@ -9,6 +9,7 @@ import Footer from './Inicio/Footer';
 import Inicio from './Inicio.jsx'; 
 import Nosotros from './Nosotros.jsx'; 
 import Contacto from './Contacto.jsx';
+import DisenoWeb from './DisenoWeb.jsx';
 
 // Importamos los CSS globales
 import "./App.css";
@@ -27,6 +28,7 @@ function App() {
             <Route path="/" element={<Inicio />} />
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
+            <Route path="/disenoweb" element={<DisenoWeb />} />
           </Routes>
 
           {/* El Footer siempre visible abajo */}

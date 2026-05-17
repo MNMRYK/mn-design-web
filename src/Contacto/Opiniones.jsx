@@ -1,5 +1,6 @@
 import React from 'react';
 import './Opiniones.css';
+import { motion } from 'framer-motion';
 
 const testimonios = [
   {
@@ -48,14 +49,26 @@ const testimonios = [
 
 const Opiniones = () => {
   return (
-    <section className="opiniones-section tema-oscuro">
-      <div className="opiniones-header">
+    <section className="opiniones-section">
+      <motion.div 
+        className="opiniones-header"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <h2 className="opiniones-title">Casos de éxito</h2>
         <p className="opiniones-subtitle">Hablemos de resultados</p>
-      </div>
+      </motion.div>
 
       {/* 🌟 CARRUSEL INFINITO (MARQUEE) 🌟 */}
-      <div className="marquee-container">
+      <motion.div 
+        className="marquee-container"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
         <div className="marquee-track">
           
           {/* 🔥 PRIMER BLOQUE DE TARJETAS 🔥 */}
@@ -89,7 +102,7 @@ const Opiniones = () => {
           ))}
 
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

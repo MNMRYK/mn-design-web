@@ -2,7 +2,8 @@
 import React from 'react';
 import { MapPin, Video } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import FormularioContacto from '../Inicio/FormularioContacto'; // <-- Aquí importamos tu formulario
+import { motion } from 'framer-motion'; //
+import FormularioContacto from '../Inicio/FormularioContacto';
 import './ContactoSiguiente.css';
 
 const ContactoSiguiente = () => {
@@ -17,8 +18,13 @@ const ContactoSiguiente = () => {
         </div>
         
         {/* CABECERA */}
-        <div className="contacto-header">
-
+        <motion.div 
+          className="contacto-header"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
           <h1 className="contacto-title">
             No dejes para mañana el éxito <br className="hidden-mobile" />
             <span className="text-gradient">que tu negocio necesita hoy.</span>
@@ -26,13 +32,19 @@ const ContactoSiguiente = () => {
           <p className="contacto-subtitle">
             Contacta y empecemos a construir algo increíble juntos. Creemos que la comunicación fluida es la base de un proyecto de éxito.
           </p>
-        </div>
+        </motion.div>
 
         {/* GRID PRINCIPAL */}
         <div className="contacto-grid">
           
           {/* COLUMNA IZQUIERDA (Info y Opciones, ya SIN la imagen) */}
-          <div className="info-column">
+          <motion.div 
+            className="info-column"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             
             <div>
               <h2 className="info-title">
@@ -71,16 +83,22 @@ const ContactoSiguiente = () => {
               </div>
             </div>
 
-          </div>
+          </motion.div>
 
           {/* COLUMNA DERECHA (Aquí cargamos tu componente) */}
-          <div className="form-column">
+          <motion.div 
+            className="form-column"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
 
             
             {/* Renderizamos tu formulario reutilizable */}
             <FormularioContacto />
 
-          </div>
+          </motion.div>
 
         </div>
       </div>

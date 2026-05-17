@@ -250,6 +250,20 @@
 
 /* --- MÓVIL (768px hacia abajo) --- */
 @media (max-width: 768px) {
+
+  /* ¡Llamamos directamente a la clase maestra de tu componente Footer! */
+  .footer-site {
+    /* Forzamos el color berenjena */
+    background-color: var(--deep-eggplant, #1A102D) !important;
+    
+    /* El truco: Estiramos el relleno inferior para que se coma la "safe area" del iPhone */
+    padding-bottom: calc(20px + env(safe-area-inset-bottom)) !important;
+    
+    /* Le ponemos un z-index para que no se quede detrás de nada */
+    position: relative;
+    z-index: 100;
+  }
+
   .footer-main {
     /* Una sola columna: todo uno debajo de otro */
     grid-template-columns: 1fr;
