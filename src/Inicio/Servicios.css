@@ -3,7 +3,7 @@
   width: 100%;
   min-height: 100svh; 
   height: auto;      
-  padding: 100px 30px 150px;
+  padding: 100px 20px 150px;
   text-align: center;
   z-index: 2; /* Mucho mayor que el del Hero */
   background-color: var(--white-iris);
@@ -147,7 +147,7 @@
   
   /* Reducimos un poco el padding superior en móvil para que no sea tan bestia */
   .servicios-section {
-    padding: 100px 25px 130px 25px; 
+    padding: 80px 25px 130px 25px; 
   }
 
   /* --- EL GRID MÁGICO --- */
@@ -168,22 +168,33 @@
   }
 
   .servicios-header {
-    gap: 10px;
+    gap: 15px;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-bottom: 40px;
+    width: 100% !important; /* Forzamos ancho completo en móvil para que el texto flexione bien */
   }
 
   .servicios-main-title {
-    font-size: 2rem;
+    font-size: 1.9rem !important; /* Un pelín más estilizado para que no haga tantas líneas */
+    /* 🔥 REPARACIÓN 2: Forzamos un interlineado del 140% para separar las líneas sí o sí 🔥 */
+    line-height: 1.4 !important;    
+    text-align: center;  
+    color: var(--dark-violet) !important; /* Aseguramos tu morado oscuro corporativo */
+    margin: 0;
   }
 
   .servicios-subtitle {
-    display: block; /* 🔥 AQUÍ ESTÁ LA MAGIA: Fuerza el salto de línea solo en móvil 🔥 */
-    margin-left: 0; /* Le quitamos el margen lateral porque ya no hace falta */
-    margin-top: 10px; /* El empujón hacia abajo que querías */
-    font-size: 1.2rem;
+    display: block; 
+    margin-left: 0; 
+    /* Le damos un margen superior limpio respecto al título arreglado */
+    margin-top: 15px !important;    
+    font-size: 1rem !important;  
+    line-height: 1.6 !important;    
+    text-align: center;
+    color: var(--deep-eggplant);
+    max-width: 100% !important; /* Que aproveche bien el ancho de la caja de lectura */
   }
 
   /* --- ICONOS MODERNOS --- */

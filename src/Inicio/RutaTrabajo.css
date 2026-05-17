@@ -125,3 +125,57 @@
   line-height: 1.6;
   margin: 0;
 }
+
+/* ====================================================
+   AÑADE ESTO DENTRO DE TU @media (max-width: 768px)
+   ==================================================== */
+
+@media (max-width: 768px) {
+  
+  /* ... (aquí mantienes lo que ya tenías de .contacto-section-wrapper y .contacto-grid) ... */
+
+  .ruta-wrapper {
+    padding: 30px 20px 30px; /* Reducimos el aire interno para ganar casi 60px de pantalla */
+    max-height: none; /* Le quitamos el candado del 95vh para que respire de forma natural si el móvil es enano */
+  }
+
+  .ruta-titulo-principal {
+    margin-bottom: 30px; /* Bajamos de 40px a 20px. ¡Fuera aire muerto! */
+    font-size: 1.6rem;   /* Un pelín más contenido para móviles */
+  }
+
+  .ruta-timeline {
+    padding-left: 30px; /* Estrechamos el margen izquierdo del eje */
+  }
+
+  .ruta-nodo {
+    left: -30px; /* Ajustamos el círculo para que vaya a juego con el nuevo timeline */
+    width: 20px;  /* Hacemos los círculos un pelín más sutiles */
+    height: 20px;
+    top: 2px;
+  }
+
+  .ruta-linea-fondo,
+  .ruta-linea-progreso {
+    left: 9px; /* Centramos la línea vertical con los nuevos nodos más pequeños */
+    top: 12px;
+  }
+
+  .ruta-paso {
+    margin-bottom: 18px; /* ¡LA CLAVE! Bajamos de 35px a 18px el espacio entre pasos */
+  }
+
+  .ruta-paso:last-child {
+    margin-bottom: 0; /* El último paso no necesita empujar nada hacia abajo */
+  }
+
+  .ruta-titulo {
+    font-size: 1.1rem; /* Títulos un pelo más compactos para evitar que fuercen dos líneas */
+    margin-bottom: 4px;
+  }
+
+  .ruta-texto {
+    font-size: 0.95rem; /* La descripción un pelín más pequeña pero perfectamente legible */
+    line-height: 1.4;
+  }
+}

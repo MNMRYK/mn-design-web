@@ -1,0 +1,147 @@
+.opiniones-section {
+  width: 100%;
+  background-color: var(--deep-eggplant, #1a0b2e);
+  padding: 50px 0 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden; /* Vital para que la barra de desplazamiento horizontal no se rompa */
+}
+
+.opiniones-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.opiniones-title {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.opiniones-subtitle {
+  color: var(--electric-violet, #a672ff);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ========================================= */
+/* 🔥 EL CONTENEDOR DEL SCROLL INFINITO 🔥   */
+/* ========================================= */
+
+.marquee-container {
+  width: 100%;
+  max-width: 1400px;
+  position: relative;
+  /* El efecto mágico: hace que los bordes izquierdo y derecho se difuminen hacia el negro */
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  /* Animación continua de 40 segundos. Si lo quieres más rápido, baja los segundos */
+  animation: scroll-marquee 40s linear infinite;
+}
+
+/* Si el ratón pasa por encima, la animación se pausa para poder leer */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Se desplaza exactamente la mitad (porque duplicamos el contenido) menos la mitad del gap */
+    transform: translateX(calc(-50% - 0.75rem));
+  }
+}
+
+/* ========================================= */
+/* 🔥 LAS TARJETITAS ESTILO GLASS 🔥         */
+/* ========================================= */
+
+.review-card {
+  width: 350px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(166, 114, 255, 0.15);
+  border-radius: 20px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(166, 114, 255, 0.4);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.review-avatar {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  /* 🔥 Añade esto para que las fotos encajen perfectas 🔥 */
+  object-fit: contain; 
+}
+
+.review-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-name {
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+
+.review-username {
+  color: #efebfc;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.review-body {
+  color: #efebfc;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* ========================================= */
+/* 📱 RESPONSIVE                             */
+/* ========================================= */
+
+@media (max-width: 768px) {
+  .review-card {
+    width: 280px; /* Tarjetas más estrechas en móvil */
+    padding: 20px;
+  }
+  
+  .marquee-track {
+    animation-duration: 30s; /* Que vaya un poco más rápido en pantallas pequeñas */
+  }
+}

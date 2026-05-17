@@ -178,6 +178,7 @@
   /* Reducimos un poco el padding lateral de la sección general para ganar espacio útil */
   .beneficios-section {
     padding: 50px 20px; 
+    width: 90vw;
   }
 
 }

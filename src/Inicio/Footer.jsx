@@ -3,7 +3,7 @@ import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer-site">
+    <footer className="footer-site tema-oscuro">
       <div className="footer-container">
         {/* PARTE SUPERIOR: Logo y Columnas */}
         <div className="footer-main">

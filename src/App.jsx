@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import 'leaflet/dist/leaflet.css';
 // Importamos el esqueleto global
 import Navbar from './Inicio/Navbar';
 import Footer from './Inicio/Footer';
 
 // Importamos tus "Páginas" enteras
-import Inicio from './Inicio.jsx'; // <-- El archivo que acabamos de crear en el PASO 1
-import NosotrosHero from './Nosotros/NosotrosSiguiente.jsx';
-import Nosotros from './Nosotros.jsx'; // <-- Aquí cargas tu página de Nosotros
+import Inicio from './Inicio.jsx'; 
+import Nosotros from './Nosotros.jsx'; 
+import Contacto from './Contacto.jsx';
 
 // Importamos los CSS globales
 import "./App.css";
@@ -26,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Inicio />} />
             <Route path="/nosotros" element={<Nosotros />} />
+            <Route path="/contacto" element={<Contacto />} />
           </Routes>
 
           {/* El Footer siempre visible abajo */}

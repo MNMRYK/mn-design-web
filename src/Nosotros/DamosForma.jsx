@@ -56,7 +56,7 @@ const DamosForma = () => {
             <ScrollStack 
                 itemDistance={150}         // 🔥 Bajamos esto para reducir el espacio final
                 itemStackDistance={45}     // 🔥 Subimos de 20 a 45 para que se vean bien los escalones entre cartas
-                stackPosition="20%"        // Un poco más abajo para que se vea mejor
+                stackPosition="15%"        // Un poco más abajo para que se vea mejor
                 baseScale={0.7}            // Subimos un pelo la escala para que sean legibles las de atrás
                 blurAmount={0}             // He puesto el blur a 0 para que la última sea "bien legible" como pedías
                 useWindowScroll={true}

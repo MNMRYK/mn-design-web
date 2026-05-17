@@ -80,6 +80,8 @@ const Navbar = () => {
               <li><a href="/diseno-web">Diseño Web</a></li>
               <li><a href="/e-commerce">E-commerce</a></li>
               <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
+              <li><a href="/redes-sociales">Redes Sociales</a></li>
+              <li><a href="/redes-sociales">Mantenimiento Web</a></li>
             </ul>
           </li>
           <li><a href="/portfolio">Portfolio</a></li>

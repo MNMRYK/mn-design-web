@@ -41,7 +41,7 @@ const Beneficios = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <div className="beneficios-header">
+            <div className="beneficios-header tema-oscuro">
                 <h2 className="beneficios-title">¿Qué beneficio obtienes con nuestros servicios?</h2>
                 <p className="beneficios-description">
                 Obtendrás un diseño con personalidad propia creado desde cero mediante sketches y bocetos. 

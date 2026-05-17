@@ -22,12 +22,18 @@ const ScrollStack = ({
   onStackComplete
 }) => {
   const scrollerRef = useRef(null);
-  const stackCompletedRef = useRef(false);
   const animationFrameRef = useRef(null);
   const lenisRef = useRef(null);
   const cardsRef = useRef([]);
   const lastTransformsRef = useRef(new Map());
   const isUpdatingRef = useRef(false);
+
+  // 🔥 NUEVO: Memorias caché para guardar las posiciones y no saturar al móvil
+  const cardPositionsRef = useRef([]);
+  const endPositionRef = useRef(0);
+  
+  const initialHeightRef = useRef(typeof window !== 'undefined' ? window.innerHeight : 800);
+  const lastWidthRef = useRef(typeof window !== 'undefined' ? window.innerWidth : 1200);
 
   const calculateProgress = useCallback((scrollTop, start, end) => {
     if (scrollTop < start) return 0;
@@ -42,33 +48,13 @@ const ScrollStack = ({
     return parseFloat(value);
   }, []);
 
-  // 🔥 TRUCO ANTI-TEMBLORES PARA MÓVIL 🔥
-  // Guardamos la altura inicial para que la barra de direcciones no nos rompa las matemáticas
-  const initialHeightRef = useRef(typeof window !== 'undefined' ? window.innerHeight : 800);
-  const lastWidthRef = useRef(typeof window !== 'undefined' ? window.innerWidth : 1200);
-
-  useLayoutEffect(() => {
-    const handleResize = () => {
-      // Solo actualizamos la altura si el móvil se ha girado (cambia el ancho)
-      if (window.innerWidth !== lastWidthRef.current) {
-        initialHeightRef.current = window.innerHeight;
-        lastWidthRef.current = window.innerWidth;
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
   const getScrollData = useCallback(() => {
     return {
       scrollTop: window.scrollY,
-      containerHeight: initialHeightRef.current, // ¡Altura bloqueada y estable!
+      containerHeight: initialHeightRef.current,
     };
   }, []);
 
-  // 🔥 SOLUCIÓN A LA VIBRACIÓN: Usamos offsetTop en lugar de getBoundingClientRect.
-  // Esto nos da la posición exacta en el documento SIN contar los transform, 
-  // rompiendo el bucle de retroalimentación.
   const getElementOffset = useCallback((element) => {
     let top = 0;
     let el = element;
@@ -79,22 +65,33 @@ const ScrollStack = ({
     return top;
   }, []);
 
+  // 🔥 LA CLAVE DEL ARREGLO: Calculamos esto UNA SOLA VEZ, no 60 veces por segundo
+  const calculatePositions = useCallback(() => {
+    if (!scrollerRef.current || !cardsRef.current.length) return;
+
+    const endElement = scrollerRef.current.querySelector('.scroll-stack-end');
+    endPositionRef.current = endElement ? getElementOffset(endElement) : 0;
+
+    cardPositionsRef.current = cardsRef.current.map(card => getElementOffset(card));
+  }, [getElementOffset]);
+
+
   const updateCardTransforms = useCallback(() => {
     if (!cardsRef.current.length || isUpdatingRef.current) return;
-
     isUpdatingRef.current = true;
 
     const { scrollTop, containerHeight } = getScrollData();
     const stackPositionPx = parsePercentage(stackPosition, containerHeight);
     const scaleEndPositionPx = parsePercentage(scaleEndPosition, containerHeight);
 
-    const endElement = scrollerRef.current?.querySelector('.scroll-stack-end');
-    const endElementTop = endElement ? getElementOffset(endElement) : 0;
+    // Usamos el valor guardado en la memoria
+    const endElementTop = endPositionRef.current;
 
     cardsRef.current.forEach((card, i) => {
       if (!card) return;
 
-      const cardTop = getElementOffset(card); 
+      // 🔥 Usamos la posición guardada, liberando al procesador del móvil
+      const cardTop = cardPositionsRef.current[i] || 0; 
       
       const triggerStart = cardTop - stackPositionPx - itemStackDistance * i;
       const triggerEnd = cardTop - scaleEndPositionPx;
@@ -114,15 +111,9 @@ const ScrollStack = ({
         translateY = pinEnd - cardTop + stackPositionPx + itemStackDistance * i;
       }
 
-      // 🔥 QUITAMOS LOS REDONDEOS (Math.round) para que los movimientos
-      // sub-píxel fluyan y no se vean "escalonados".
-      const newTransform = {
-        translateY: translateY,
-        scale: scale,
-      };
-
+      const newTransform = { translateY, scale };
       const lastTransform = lastTransformsRef.current.get(i);
-      // 🔥 Aumentamos la precisión para que reaccione al milímetro
+
       const hasChanged =
         !lastTransform ||
         Math.abs(lastTransform.translateY - newTransform.translateY) > 0.05 ||
@@ -135,7 +126,7 @@ const ScrollStack = ({
     });
 
     isUpdatingRef.current = false;
-  }, [itemScale, itemStackDistance, stackPosition, scaleEndPosition, baseScale, calculateProgress, parsePercentage, getScrollData, getElementOffset]);
+  }, [itemScale, itemStackDistance, stackPosition, scaleEndPosition, baseScale, calculateProgress, parsePercentage, getScrollData]);
 
   const handleScroll = useCallback(() => {
     updateCardTransforms();
@@ -146,12 +137,9 @@ const ScrollStack = ({
       duration: 1.2,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
-      
-      // 🔥 LA MAGIA CONTRA EL TEMBLOR TÁCTIL 🔥
-      smoothTouch: true,  // Obliga al móvil a usar el scroll suave de Lenis
-      syncTouch: true,    // Sincroniza el dedo exactamente con la animación
-      touchMultiplier: 1.5, // Multiplicador para que el scroll no se sienta "pesado" al dedo
-      
+      smoothTouch: true,  
+      syncTouch: true,    
+      touchMultiplier: 1.5, 
       lerp: 0.1,
     });
 
@@ -178,20 +166,36 @@ const ScrollStack = ({
       card.style.backfaceVisibility = 'hidden';
     });
 
+    // 1. Calculamos las posiciones al cargar la web
+    calculatePositions(); 
     setupLenis();
     
+    // 2. Volvemos a calcular por si alguna fuente o imagen ha tardado en cargar
     setTimeout(() => {
+        calculatePositions();
         updateCardTransforms();
-    }, 100);
+    }, 200);
+
+    const handleResize = () => {
+      // 3. Si el usuario gira el móvil, recalculamos las nuevas alturas
+      if (window.innerWidth !== lastWidthRef.current) {
+        initialHeightRef.current = window.innerHeight;
+        lastWidthRef.current = window.innerWidth;
+        calculatePositions(); 
+        updateCardTransforms();
+      }
+    };
+    window.addEventListener('resize', handleResize);
 
     return () => {
+      window.removeEventListener('resize', handleResize);
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
       if (lenisRef.current) lenisRef.current.destroy();
       cardsRef.current = [];
       lastTransformsRef.current.clear();
       isUpdatingRef.current = false;
     };
-  }, [setupLenis, updateCardTransforms]);
+  }, [setupLenis, updateCardTransforms, calculatePositions]);
 
   return (
     <div className={`scroll-stack-scroller ${className}`.trim()} ref={scrollerRef}>

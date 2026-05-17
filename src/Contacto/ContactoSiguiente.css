@@ -1,0 +1,184 @@
+/* CONTENEDORES PRINCIPALES */
+.contacto-wrapper {
+  min-height: 100vh;
+  background-color: var(--white-iris);
+  color: var(--deep-eggplant);
+  font-family: 'Nunito', sans-serif;
+  padding: 120px 24px 80px;
+}
+
+.contacto-container {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* --- BREADCRUMB INTERACTIVO --- */
+.contacto-badge {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;; /* 🔥 Añadido para que se centre con el título de Contacto */
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.breadcrumb-link {
+  color: var(--electric-violet);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+  opacity: 0.6;
+}
+
+.breadcrumb-separator {
+  color: rgba(26, 16, 45, 0.3);
+}
+
+.breadcrumb-current {
+  color: rgba(26, 16, 45, 0.6);
+}
+
+/* CABECERA */
+.contacto-header {
+  text-align: center;
+  margin-bottom: 64px;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contacto-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--deep-eggplant);
+  margin-bottom: 24px;
+  line-height: 1.2;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text-gradient {
+  background: var(--electric-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.contacto-subtitle {
+  font-size: 1.125rem;
+  color: rgba(26, 16, 45, 0.7); /* Deep-eggplant con opacidad */
+  line-height: 1.6;
+}
+
+/* GRID PRINCIPAL */
+.contacto-grid {
+  display: grid;
+  gap: 48px;
+  align-items: flex-start;
+}
+
+
+
+/* COLUMNA IZQUIERDA: INFO */
+.info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 25px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.info-text {
+  font-size: 1.125rem;
+  color: rgba(26, 16, 45, 0.8);
+  line-height: 1.6;
+}
+
+.info-text strong {
+  color: var(--deep-eggplant);
+}
+
+/* TARJETAS DE OPCIONES */
+.opciones-grid {
+  display: grid;
+  gap: 24px;
+}
+
+.card-contacto {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(126, 87, 194, 0.2); /* Electric-violet suavizado */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: all 0.3s ease;
+}
+
+.card-contacto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(126, 87, 194, 0.15);
+  border-color: var(--iris-glaze);
+}
+
+.card-icon {
+  background-color: var(--soft-lavender);
+  color: var(--electric-violet);
+  padding: 16px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.card-contacto:hover .card-icon {
+  background-color: var(--electric-violet);
+  color: #ffffff;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--deep-eggplant);
+}
+
+.card-text {
+  color: rgba(26, 16, 45, 0.7);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+    .contacto-title {
+        font-size: 3rem;
+    }
+    .hidden-mobile {
+        display: block;
+    }
+
+    .hidden-mobile {
+        display: none;
+    }
+
+    .form-column {
+        padding: 40px;
+        position: sticky;
+        top: 120px; /* Para que al hacer scroll baje suavemente sin pisar tu navbar */
+    }
+
+    .contacto-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+    }
+}

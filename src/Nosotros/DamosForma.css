@@ -177,6 +177,7 @@
 
 /* --- MÓVIL (Pantallas pequeñas) --- */
 @media (max-width: 768px) {
+  
   /* 🔥 1. ACERCAMOS EL TÍTULO A LAS TARJETAS 🔥 */
   .damos-forma-header .focus-container {
     margin-bottom: 15px !important; /* Le quitamos los 50px de margen que tenía */
@@ -219,8 +220,31 @@
   .lottie-icon {
     max-width: 180px; /* Reducimos un poco el tamaño para que no se coma la pantalla */
   }
+
   .final-card {
-    padding: 50px 0 10px; 
+    /* 50px arriba, 25px a los lados (¡vital para respirar!), 30px abajo */
+    padding: 50px 25px 30px; 
+  }
+
+  /* Domamos el tamaño del título general de esta tarjeta */
+  .final-card .card-title-dynamic {
+    /* Bajamos un poco la letra base */
+    font-size: 1.8rem; 
+    margin-bottom: 15px;
+  }
+
+  /* Domamos la palabra gigante "INTERRUPCIONES" */
+  .final-card .title-gradient {
+    /* Reducimos la palabra destacada para que no reviente los bordes */
+    font-size: 1.8rem; 
+    /* La forzamos a ser un bloque por si necesita bajar de línea solita */
+    display: inline-block; 
+    margin-top: 5px;
+    margin-bottom: 15px;
+  }
+  
+  .final-card .card-text p {
+    margin-bottom: 25px;
   }
 
   /* Centramos el botón en móvil */

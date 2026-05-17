@@ -143,14 +143,42 @@
   overflow: hidden;
 }
 
-/* RESPONSIVE BÁSICO */
-@media (max-width: 968px) {
+/* RESPONSIVE BÁSICO (Sustituye tu @media anterior por este) */
+@media (max-width: 568px) {
+  .nosotros-hero-section {
+    padding: 120px 5% 30px;
+  }
+
   .nosotros-hero-container {
     grid-template-columns: 1fr;
     gap: 40px;
   }
   
+  /* 1. Arreglamos los botones para que no se baje "Energía Joven" */
+  .nosotros-tabs-container {
+    padding: 20px 15px; /* Reducimos el cuadrado un poco por los lados */
+  }
+
   .tabs-buttons {
-    flex-wrap: wrap;
+    gap: 5px; /* Juntamos más los botones */
+    flex-wrap: nowrap; /* Obligamos a que se queden en la misma línea */
+    overflow-x: auto; /* Si la pantalla es enana, que hagan scroll lateral suave */
+    padding-bottom: 10px;
+  }
+
+  .tab-btn {
+    padding: 8px 12px; /* Hacemos los botones más finos */
+    font-size: 0.85rem; /* Letra un pelín más pequeña */
+    white-space: nowrap; /* Evitamos que el texto del botón se parta por la mitad */
+  }
+
+  /* 2. Quitamos la altura mínima para que el cuadrado se ajuste al texto real */
+  .tab-content-area p {
+    min-height: auto;
+  }
+
+  /* 3. ¡Matamos la imagen falsa en móvil! */
+  .image-placeholder {
+    display: none !important;
   }
 }
