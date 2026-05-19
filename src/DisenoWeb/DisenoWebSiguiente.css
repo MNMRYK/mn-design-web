@@ -2,101 +2,206 @@
    SECCIÓN PRINCIPAL: DISEÑO WEB
    ==================================================== */
 .servicio-detalle-section {
-  width: 100%;
   min-height: 100vh;
-  /* El padding superior brutal de 140px para esquivar tu Navbar plana en móvil y PC */
-  padding: 140px 20px 100px;
-  background-color: var(--white-iris, #efebfc);
-  display: flex;
-  justify-content: center;
-  position: relative;
-  z-index: 2;
+  background-color: var(--white-iris);
+  color: var(--deep-eggplant);
+  font-family: 'Nunito', sans-serif;
+  padding: 120px 25px 80px;
 }
 
 .servicio-detalle-container {
   width: 100%;
   max-width: 1300px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 60px; /* Separación entre el header, el texto+foto y las cards */
 }
 
-/* --- HEADER SUPERIOR --- */
-.detalle-header {
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.detalle-hook {
-  display: block;
+.diseno-badge {
   font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
   font-weight: 800;
-  font-size: 1.2rem;
-  color: var(--electric-violet);
-  text-transform: uppercase;
   letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.breadcrumb-link {
+  color: var(--electric-violet);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-link:hover { opacity: 0.6; }
+.breadcrumb-separator { color: rgba(26, 16, 45, 0.3); }
+.breadcrumb-current { color: rgba(26, 16, 45, 0.6); }
+
+/* --- HEADER SUPERIOR (Alineado Izquierda) --- */
+.detalle-header {
+  text-align: left; /* 🔥 MAGIA: Ahora todo el bloque empuja a la izquierda */
   margin-bottom: 15px;
+  width: 100%;
 }
 
-.detalle-main-title {
+.diseno-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--deep-eggplant);
+  margin-bottom: 20px;
+  line-height: 1.3;
   font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
-  font-weight: 900;
-  color: var(--dark-violet);
-  line-height: 1.2;
-  margin: 0;
 }
 
-/* --- CONTENIDO PRINCIPAL (GRID TEXTO + FOTO) --- */
+.title-phrase-one {
+  text-align: center; /* phrase 1 centers itself */
+}
+
+.text-gradient {
+  background: var(--electric-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  display: block; /* ya está presente */
+  text-align: left;
+  margin-top: 50px;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
 .detalle-content-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
+  gap: 48px; 
+  align-items: flex-start; /* Hace que el texto y el Beam empiecen juntos arriba */
+}
+
+.detalle-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .detalle-textos p {
   font-family: 'Nunito', sans-serif;
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: var(--deep-eggplant);
-  margin-bottom: 25px;
-  opacity: 0.9;
+  font-size: 1.125rem; 
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
 }
 
 .detalle-textos p strong {
-  color: var(--dark-violet);
-  font-weight: 800;
+  color: var(--deep-eggplant);
+  font-weight: 700;
 }
 
+/* ESTILO PREMIUM PARA EL TEXTO DESTACO (Decrypted) */
 .texto-destacado {
   font-weight: 700 !important;
-  font-size: 1.25rem !important;
-  color: var(--dark-violet) !important;
+  font-size: 1.125rem !important;
+  color: var(--deep-eggplant) !important;
   border-left: 4px solid var(--electric-violet);
-  padding-left: 20px;
-  margin-top: 35px;
-  background: rgba(126, 87, 194, 0.05); /* Un fondo súper sutil */
-  padding: 20px;
-  border-radius: 0 15px 15px 0;
+  margin-top: 15px;
+  background: linear-gradient(135deg, rgba(126, 87, 194, 0.08) 0%, rgba(126, 87, 194, 0.02) 100%);
+  padding: 25px; 
+  border-radius: 0 16px 16px 0;
+  cursor: crosshair; /* Toque hacker para el descifrado */
+  transition: box-shadow 0.3s ease;
+  display: block; 
+  min-height: 85px;
 }
 
-/* --- IMAGEN CON ESTILO MODERNIZADO --- */
+.texto-destacado:hover {
+  box-shadow: 0 10px 20px rgba(126, 87, 194, 0.05);
+}
+
+/* ====================================================
+   ESTILOS DEL ANIMATED BEAM CUSTOM (Para 5 iconos)
+   ==================================================== */
 .detalle-imagen-wrapper {
   position: relative;
   width: 100%;
   border-radius: 30px;
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  padding: 40px;
+  margin-top: -100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(26, 16, 45, 0.05);
+  min-height: 450px; /* Le damos altura extra para que quepan los 5 */
 }
 
-.detalle-imagen {
+.beam-container {
+  display: flex;
   width: 100%;
-  height: auto;
-  border-radius: 30px;
-  box-shadow: 0 20px 40px rgba(26, 16, 45, 0.15);
+  max-width: 450px; /* Un poco más ancho para dar respiro */
+  justify-content: space-between;
+  align-items: center;
   position: relative;
   z-index: 2;
-  object-fit: cover;
+  height: 100%; 
+}
+
+.beam-columna {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribuye el espacio uniforme */
+  height: 400px; /* Forzamos la altura para que coincida con el SVG */
+  z-index: 2;
+}
+
+/* 🔥 AÑADE ESTO JUSTO AQUÍ DEBAJO 🔥 */
+.beam-columna:last-child {
+  justify-content: center; /* Centra el nodo final verticalmente en la derecha */
+}
+
+.beam-nodo {
+  width: 65px; /* Un pelín más pequeños para que no se apilen a lo bestia */
+  height: 65px;
+  background: white;
+  border: 2px solid var(--soft-lavender);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--electric-violet);
+  box-shadow: 0 5px 15px rgba(126, 87, 194, 0.1);
+}
+
+.nodo-final {
+  width: 120px; /* Hacemos el final un poco más grande para que tu Lottie luzca */
+  height: 120px;
+  background: var(--white-iris); /* Fondo claro para que resalte el Lottie si tiene color */
+  border: 3px solid var(--electric-violet);
+  border-radius: 20px;
+}
+
+.beam-caminos {
+  position: absolute;
+  top: 50%; 
+  left: 0; right: 0; 
+  transform: translateY(-50%); /* Lo centramos clavao */
+  height: 400px;
+  z-index: 1;
+}
+
+.beam-linea-fondo {
+  fill: none;
+  stroke: rgba(126, 87, 194, 0.2);
+  stroke-width: 3;
+}
+
+.beam-luz {
+  fill: none;
+  stroke: var(--electric-violet);
+  stroke-width: 4;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 8px var(--electric-violet));
 }
 
 .resplandor-imagen {
@@ -104,11 +209,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 90%;
   background: var(--electric-violet);
   filter: blur(100px);
-  opacity: 0.3;
+  opacity: 0.12;
   z-index: 1;
   border-radius: 50%;
 }
@@ -116,116 +221,75 @@
 /* --- TARJETAS INFERIORES --- */
 .detalle-cards-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  margin-top: 20px;
+  gap: 24px;
+  margin-top: 60px;
 }
 
 .detalle-card-opcion {
-  background: rgba(255, 255, 255, 0.5); /* Blanco translúcido para contraste suave */
-  border: 1px solid rgba(126, 87, 194, 0.15);
-  padding: 40px;
-  border-radius: 25px;
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid rgba(126, 87, 194, 0.2); 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .detalle-card-opcion:hover {
-  transform: translateY(-10px);
-  background: white;
-  box-shadow: 0 15px 35px rgba(126, 87, 194, 0.1);
-  border-color: rgba(126, 87, 194, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(126, 87, 194, 0.15);
+  border-color: var(--iris-glaze);
 }
 
 .card-opcion-icono {
-  width: 60px;
-  height: 60px;
-  background: var(--soft-lavender);
-  color: var(--dark-violet);
-  border-radius: 15px;
+  background-color: var(--soft-lavender);
+  color: var(--electric-violet);
+  padding: 16px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.8rem;
-  margin-bottom: 25px;
-  transition: all 0.4s ease;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
 }
 
 .detalle-card-opcion:hover .card-opcion-icono {
-  background: var(--dark-violet);
-  color: white;
-  transform: scale(1.1) rotate(-5deg);
+  background-color: var(--electric-violet);
+  color: #ffffff;
 }
 
 .detalle-card-opcion h3 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.4rem;
-  font-weight: 800;
-  color: var(--dark-violet);
-  margin-bottom: 15px;
-  line-height: 1.3;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--deep-eggplant);
 }
 
 .detalle-card-opcion p {
   font-family: 'Nunito', sans-serif;
-  font-size: 1.05rem;
-  color: var(--deep-eggplant);
+  font-size: 1rem;
+  color: rgba(26, 16, 45, 0.7);
   line-height: 1.6;
-  opacity: 0.85;
   margin: 0;
 }
 
-
 /* ====================================================
-   RESPONSIVE (MÓVILES Y TABLETS)
+   RESPONSIVE
    ==================================================== */
-
-@media (max-width: 1024px) {
+@media (min-width: 768px) {
+  .detalle-main-title { font-size: 3rem; }
   .detalle-content-grid {
-    grid-template-columns: 1fr; /* Apilamos la imagen debajo del texto en tablet */
-    gap: 40px;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
   }
-  
-  .detalle-imagen-wrapper {
-    max-width: 700px;
-    margin: 0 auto;
-  }
+  .detalle-cards-grid { grid-template-columns: 1fr 1fr; }
 }
 
-@media (max-width: 768px) {
-  .servicio-detalle-section {
-    padding: 120px 15px 80px; /* Ajustamos padding para móvil */
-  }
-
-  .detalle-hook {
-    font-size: 1rem;
-    margin-bottom: 10px;
-  }
-
-  .detalle-main-title {
-    font-size: 2rem;
-  }
-
-  .detalle-textos p {
-    font-size: 1.05rem;
-  }
-
-  .texto-destacado {
-    font-size: 1.15rem !important;
-    padding: 15px;
-  }
-
-  .detalle-cards-grid {
-    grid-template-columns: 1fr; /* Tarjetas una debajo de la otra en móvil */
-    gap: 25px;
-  }
-
-  .detalle-card-opcion {
-    padding: 30px 25px;
-  }
-
-  .detalle-card-opcion h3 {
-    font-size: 1.25rem;
-  }
+@media (max-width: 767px) {
+  .beam-container { max-width: 100%; padding: 0 20px; }
+  .text-gradient { font-size: 2.2rem; }
 }

@@ -1,0 +1,349 @@
+/* ====================================================
+   ESTILOS GLOBALES DE LAS NUEVAS SECCIONES
+   ==================================================== */
+.ec-secciones-extras-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 24px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px; /* Separación generosa entre bloques */
+}
+
+.ec-section-title-container {
+  margin-bottom: 50px;
+}
+
+.ec-section-title-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--electric-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  display: block; /* ya está presente */
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.ec-section-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem; 
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+/* ====================================================
+   SECCIÓN 1: MEJORA DE PLANES (ASIMÉTRICOS)
+   ==================================================== */
+.ec-planes-grid {
+  display: grid;
+  /* 🔥 EL CAMBIO: Cambiamos 1fr por repeat(3, 1fr) para que salgan en fila en PC 🔥 */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 32px;
+  align-items: center;
+}
+
+.ec-plan-card {
+  background: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(26, 16, 45, 0.02);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Tarjeta Destacada "Impulso" */
+.ec-plan-card.destacado {
+  background: linear-gradient(145deg, #ffffff 0%, rgba(126, 87, 194, 0.05) 100%);
+  border: 2px solid var(--electric-violet);
+  box-shadow: 0 20px 40px rgba(126, 87, 194, 0.1);
+}
+
+.ec-badge-destacado {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--electric-violet);
+  color: #ffffff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.ec-plan-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: var(--deep-eggplant);
+  margin-bottom: 8px;
+}
+
+.ec-plan-precio {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--electric-violet);
+  margin-bottom: 30px;
+}
+
+.ec-plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.ec-plan-features li {
+  
+  color: rgba(26, 16, 45, 0.8);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.4;
+}
+
+.ec-plan-features li i {
+  color: var(--electric-violet);
+  margin-top: 4px;
+}
+
+/* Botones de los planes */
+.ec-btn-plan-primario, .ec-btn-plan-secundario {
+  font-size: 1rem;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.ec-btn-plan-primario {
+  background: var(--electric-violet);
+  color: #ffffff;
+  border: none;
+}
+
+.ec-btn-plan-primario:hover {
+  background: var(--dark-violet);
+  box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
+}
+
+.ec-btn-plan-secundario {
+  background: transparent;
+  color: var(--electric-violet);
+  border: 2px solid rgba(126, 87, 194, 0.3);
+}
+
+.ec-btn-plan-secundario:hover {
+  background: var(--electric-violet);
+  color: #ffffff;
+  border-color: var(--electric-violet);
+}
+
+/* ====================================================
+   SECCIÓN 2: ESTRUCTURAS (LISTADO INTERACTIVO ELEGANTE)
+   ==================================================== */
+
+.ec-estructuras-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 24px;
+}
+
+.ec-estructura-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  background: #ffffff;
+  /* 🔥 Margen por la derecha para que el texto no pise el botón 🔥 */
+  padding: 24px 70px 24px 24px; 
+  border-radius: 16px;
+  border: 1px solid rgba(126, 87, 194, 0.1);
+  box-shadow: 0 4px 15px rgba(26, 16, 45, 0.01);
+  text-align: left;
+  transition: border-color 0.3s ease;
+  
+  /* 🔥 TRUCO CLAVE PARA EL BOTÓN ESQUINERO 🔥 */
+  position: relative; 
+  overflow: hidden;   
+}
+
+.ec-estructura-item:hover {
+  border-color: rgba(126, 87, 194, 0.3);
+}
+
+.ec-estructura-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  background: var(--soft-lavender);
+  color: var(--electric-violet);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.ec-estructura-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.ec-estructura-info h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: var(--deep-eggplant);
+  margin-bottom: 4px;
+}
+
+/* 🔥 ESTE ES EL ÚNICO QUE TIENE QUE QUEDAR 🔥 */
+.ec-estructura-contenido-row {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+}
+
+.ec-estructura-contenido-row p {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: rgba(26, 16, 45, 0.7);
+  line-height: 1.6;
+}
+
+/* 🔥 EL NUEVO BOTÓN TIPO APP 🔥 */
+.ec-btn-ver-ejemplo {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: var(--electric-violet);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px 0 0 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.ec-btn-ver-ejemplo i {
+  transition: transform 0.3s ease;
+}
+
+/* Efectito juguetón al hacer hover en la tarjeta */
+.ec-estructura-item:hover .ec-btn-ver-ejemplo {
+  width: 55px;
+  height: 55px;
+  background-color: #7E57C2; 
+}
+
+.ec-estructura-item:hover .ec-btn-ver-ejemplo i {
+  transform: translateX(3px) scale(1.1);
+}
+
+/* ====================================================
+   ESTILOS DE LA VENTANA EMERGENTE (MODAL)
+   ==================================================== */
+.ec-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(26, 16, 45, 0.6); /* Fondo oscurecido sutil con base berenjena */
+  backdrop-filter: blur(8px); /* Efecto difuminado premium */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Por encima de cualquier menú o navbar */
+  padding: 20px;
+}
+
+.ec-modal-content {
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 700px; /* Tamaño máximo de la ventana */
+  box-shadow: 0 25px 50px rgba(26, 16, 45, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.ec-modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+  color: var(--deep-eggplant);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.ec-modal-close-btn:hover {
+  background: var(--electric-violet);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+.ec-modal-body-img {
+  width: 100%;
+  max-height: 75vh; /* Evita que la foto se salga de pantallas portátiles */
+  overflow-y: auto; /* Si la captura es muy alta, el usuario puede hacer scroll interno */
+}
+
+.ec-modal-body-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* ====================================================
+   RESPONSIVE (PC & TABLETS)
+   ==================================================== */
+
+/* 📱2. Si la pantalla es un MÓVIL (Máximo 768px de ancho) */
+@media (max-width: 768px) {
+  .planes-grid {
+    /* Los planes se ponen uno debajo de otro */
+    grid-template-columns: 1fr; 
+  }
+
+  .estructuras-grid {
+    /* Las estructuras pasan a ser una sola columna */
+    grid-template-columns: 1fr; 
+  }
+
+}

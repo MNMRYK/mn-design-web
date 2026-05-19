@@ -12,9 +12,9 @@ const ContactoSiguiente = () => {
       <div className="contacto-container">
         {/* --- BREADCRUMB INTERACTIVO --- */}
         <div className="contacto-badge">
-            <Link to="/" className="breadcrumb-link">INICIO</Link>
-            <span className="breadcrumb-separator">/</span>
-            <span className="breadcrumb-current">CONTACTO</span>
+          <Link to="/" className="breadcrumb-link">INICIO</Link>
+          <span className="breadcrumb-separator">/</span>
+          <span className="breadcrumb-current">CONTACTO</span>
         </div>
         
         {/* CABECERA */}

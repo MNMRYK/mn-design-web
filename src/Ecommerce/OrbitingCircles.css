@@ -1,0 +1,70 @@
+.orbit-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.orbit-svg-path {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.orbit-circle-line {
+  fill: none;
+  stroke: rgba(26, 16, 45, 0.15); /* Tu color egg-plant pero muy transparente */
+  stroke-width: 1.5;
+  stroke-dasharray: 6 6; 
+}
+
+.orbit-item-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.orbit-animate {
+  position: absolute;
+  animation: orbit calc(var(--duration) * 1s) linear infinite;
+  animation-direction: var(--reverse, 1);
+  animation-delay: calc(var(--delay) * 1s);
+}
+
+/* Esta clase arregla que orbitaran por fuera de la línea */
+.orbit-icon-center {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+}
+
+.orbit-icon-bubble {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 65px;
+  height: 65px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos para TUS imágenes SVG de la carpeta public */
+.orbit-icon-bubble img {
+  width: 33px; /* Tamaño del icono dentro de la burbuja */
+  height: 33px;
+  object-fit: contain;
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateY(calc(var(--radius) * -1px)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateY(calc(var(--radius) * -1px)) rotate(-360deg); }
+}

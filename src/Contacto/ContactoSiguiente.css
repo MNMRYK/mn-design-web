@@ -54,7 +54,7 @@
 }
 
 .contacto-title {
-  font-size: 2.25rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: var(--deep-eggplant);
   margin-bottom: 24px;
@@ -63,6 +63,7 @@
 }
 
 .text-gradient {
+  font-size: 3rem;
   background: var(--electric-violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

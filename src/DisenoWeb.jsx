@@ -6,8 +6,9 @@ import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
 import DisenoWebSiguiente from './DisenoWeb/DisenoWebSiguiente.jsx';
-
-
+import DisenoWebSeccionesEspeciales from './DisenoWeb/DisenoWebSeccionesEspeciales.jsx';
+import ResponsiveShowcase from './DisenoWeb/ResponsiveShowcase.jsx';
+import DisenoDoble from './DisenoWeb/DisenoDoble.jsx';
 
 const DisenoWeb = () => {
   
@@ -35,11 +36,14 @@ const DisenoWeb = () => {
   return (
     <>
       
-        <div className="disenoweb-page-wrapper">
+      <div className="disenoweb-page-wrapper">
 
-            <DisenoWebSiguiente />
-            
-        </div>
+          <DisenoWebSiguiente />
+          <DisenoWebSeccionesEspeciales />
+          <ResponsiveShowcase />
+          <DisenoDoble />
+          
+      </div>
     </>
   );
 };

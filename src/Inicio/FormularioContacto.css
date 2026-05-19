@@ -198,3 +198,9 @@
   color: var(--electric-violet);
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
 }
+
+.btn-enviar-form:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important; /* Desactiva la animación al pulsar */
+}

@@ -1,0 +1,233 @@
+.ecommerce-section {
+  min-height: 100vh;
+  background-color: var(--white-iris);
+  color: var(--deep-eggplant);
+  font-family: 'Nunito', sans-serif;
+  padding: 120px 25px 80px;
+}
+
+.ecommerce-detalle-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.ecommerce-badge {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 8px;
+  margin-bottom: 40px;
+  
+}
+
+.breadcrumb-link {
+  color: var(--electric-violet);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-link:hover { opacity: 0.6; }
+.breadcrumb-separator { color: rgba(26, 16, 45, 0.3); }
+.breadcrumb-current { color: rgba(26, 16, 45, 0.6); }
+
+/* Ajustes del título para que encaje bien en la columna */
+.ecommerce-header {
+  text-align: left; /* 🔥 MAGIA: Ahora todo el bloque empuja a la izquierda */
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.ecommerce-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--deep-eggplant);
+  margin-bottom: 20px;
+  line-height: 1.3;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+}
+
+.ec-title-phrase-one {
+  text-align: center; /* phrase 1 centers itself */
+}
+
+.ec-text-gradient {
+  background: var(--electric-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  display: block; 
+  text-align: left;
+  margin-top: 50px; /* Reducido para agrupar mejor el título */
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+.ecommerce-main-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr; 
+  gap: 80px;
+  align-items: flex-start; /* 🔥 Cambio importante: alinea arriba, no al centro */
+  margin-bottom: 60px;
+}
+
+.ecommerce-columna-izq {
+  display: flex;
+  flex-direction: column;
+}
+
+.ecommerce-columna-izq p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem; 
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
+}
+
+.ec-detalle-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ec-detalle-textos p strong {
+  color: var(--deep-eggplant);
+  font-weight: 700;
+}
+
+.ec-texto-destacado {
+  font-weight: 700 !important;
+  font-size: 1.125rem !important;
+  color: var(--deep-eggplant) !important;
+  border-left: 4px solid var(--electric-violet);
+  margin-top: 15px;
+  background: linear-gradient(135deg, rgba(126, 87, 194, 0.08) 0%, rgba(126, 87, 194, 0.02) 100%);
+  padding: 25px; 
+  border-radius: 0 16px 16px 0;
+  cursor: crosshair; /* Toque hacker para el descifrado */
+  transition: box-shadow 0.3s ease;
+  display: block; 
+  min-height: 85px;
+}
+
+.ec-texto-destacado:hover {
+  box-shadow: 0 10px 20px rgba(126, 87, 194, 0.05);
+}
+
+/* Grid de iconos/servicios */
+.ecommerce-features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.feat-card {
+  padding: 20px 10px;
+  background: #faf9fc; /* Tono muy suave */
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  border: 1px solid rgba(126, 87, 194, 0.1);
+  transition: all 0.3s ease;
+}
+
+.feat-card:hover {
+  background: white;
+  box-shadow: 0 10px 30px rgba(126, 87, 194, 0.15);
+}
+
+.feat-animation-wrapper {
+  width: 80px;  /* Ajusta este tamaño según lo grande que quieras el icono */
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feat-card span {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--deep-eggplant);
+  text-align: center;
+}
+
+/* 🔥 EL RESPLANDOR DIFUMINADO 🔥 */
+.resplandor-imagen {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  background: var(--electric-violet);
+  filter: blur(100px);
+  opacity: 0.12; /* Si lo quieres más oscuro, sube este número a 0.20 */
+  z-index: 1;
+  border-radius: 50%;
+}
+
+/* 🔥 ESTA ES LA CAJA MÁGICA IGUAL QUE LA DE DISEÑO WEB 🔥 */
+.ecommerce-imagen-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  padding: 40px;
+  margin-top: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(26, 16, 45, 0.05);
+  min-height: 500px; 
+}
+
+.orbit-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.orbit-icon-bubble img {
+  filter: invert(37%) sepia(28%) saturate(1605%) hue-rotate(224deg) brightness(97%) contrast(85%);  /* ¡Copia aquí el código que te dio la web! */
+}
+
+/* ====================================================
+   NÚCLEO CENTRAL Y ESTILOS EXTRA DE ICONOS
+   ==================================================== */
+.orbit-center-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: var(--white-iris);
+  border: 2px solid var(--electric-violet);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: var(--electric-violet);
+  z-index: 3; /* Por encima de las órbitas */
+  box-shadow: 0 0 20px rgba(126, 87, 194, 0.2);
+}
+
+
+/* Estilo especial opcional para el icono de Código a medida (para que destaque) */
+.custom-code-bubble {
+  border: 2px solid var(--electric-violet);
+  color: var(--deep-eggplant) !important;
+}
+

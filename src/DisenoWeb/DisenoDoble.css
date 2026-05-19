@@ -1,0 +1,44 @@
+.diseno-section-wrapper {
+  width: 100%;
+  min-height: auto; /* Obligatorio para que ocupe toda la pantalla al anclarse */
+  display: flex;
+  justify-content: center;
+  padding: 50px 15px 100px;
+  position: relative;
+  background-color: var(--white-iris);
+  z-index: 2;
+  box-sizing: border-box; /* Good practice */
+}
+
+.diseno-grid {
+  display: grid;
+  /* 🔥 EL TRUCO PARA EVITAR LA EXPANSIÓN HORIZONTAL 🔥 */
+  /* En lugar de usar '1fr', usamos anchos fijos en píxeles.
+     600px + 60px (gap) + 600px = 1260px, lo cual encaja perfecto con el max-width de 1300px. */
+  grid-template-columns: 600px 600px;
+  gap: 60px;
+  max-width: 1300px;
+  margin: 0 auto;
+  align-items: start;
+  box-sizing: border-box;
+}
+@media (max-width: 768px) {
+  .diseno-section-wrapper {
+    padding: 60px 5px 30px;
+  }
+
+  .diseno-grid {
+    /* En móvil pasamos a una sola columna que ocupa todo el ancho */
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 10px;
+  }
+
+  .diseno-grid > *:nth-child(1) {
+    order: 2;
+  }
+
+  .diseno-grid > *:nth-child(2) {
+    order: 1;
+  }
+}

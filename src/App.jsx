@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
+import { Toaster } from 'react-hot-toast';
+
 // Importamos el esqueleto global
 import Navbar from './Inicio/Navbar';
 import Footer from './Inicio/Footer';
@@ -10,6 +12,7 @@ import Inicio from './Inicio.jsx';
 import Nosotros from './Nosotros.jsx'; 
 import Contacto from './Contacto.jsx';
 import DisenoWeb from './DisenoWeb.jsx';
+import Ecommerce from './Ecommerce.jsx';
 
 // Importamos los CSS globales
 import "./App.css";
@@ -29,6 +32,7 @@ function App() {
             <Route path="/nosotros" element={<Nosotros />} />
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/disenoweb" element={<DisenoWeb />} />
+            <Route path="/e-commerce" element={<Ecommerce />} />
           </Routes>
 
           {/* El Footer siempre visible abajo */}
@@ -44,6 +48,19 @@ function App() {
             <i className="fa-brands fa-whatsapp"></i>
           </a>
         </main>
+
+        {/* 🔥 2. PLANTAMOS EL CONTENEDOR DE ALERTAS 🔥 */}
+        {/* Le decimos que salgan abajo a la derecha y que duren 4 segundos */}
+        <Toaster 
+          position="bottom-right" 
+          reverseOrder={false}
+          toastOptions={{
+            duration: 4000,
+            style: {
+              fontFamily: 'Nunito, sans-serif', // Tu fuente corporativa
+            },
+          }}
+        />
       </div>
     </Router>
   );
