@@ -303,20 +303,104 @@
 
 
 /* ====================================================
-   PARCHES PARA MÓVIL Y TABLET DE VERDAD (Al final del archivo)
+   RESPONSIVE - TABLET (Entre 768px y 1024px)
    ==================================================== */
-@media (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .responsive-flex-container {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr; /* Pasamos a 1 sola columna vertical */
+    gap: 40px; 
+    padding: 40px 30px; /* Reducimos un poco el padding interior de la caja morada */
+    display: flex; /* Cambiamos a flex para poder usar 'order' */
+    flex-direction: column;
+  }
+
+  /* 🔥 FORZAMOS EL ORDEN: Textos arriba (1), Simulador abajo (2) */
+  .responsive-text-content {
+    order: 1;
+    text-align: center; /* Centramos el texto en tablet para que quede mejor */
+  }
+
+  .canvas-simulador-container {
+    order: 2;
+    width: 100%; /* Aseguramos que el contenedor ocupe todo el ancho */
+  }
+
+  .titulo-responsive-oscuro {
+    font-size: 2.6rem !important; 
+    line-height: 1.1;
+    display: block; /* Para que el break funcione bien */
+  }
+
+  /* Centramos también el subtítulo morado para que acompañe al H2 */
+  .titulo-responsive-claro {
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  /* Centramos los botones en tablet */
+  .simulador-buttons-row {
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+    padding-top: 20px;
   }
 }
 
-@media (max-width: 768px) {
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
   .seccion-responsive-showcase {
-    padding: 40px 20px;
+    padding: 60px 20px 40px; /* Alineamos con los márgenes de la chuleta */
   }
+
+  .responsive-flex-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 50px 20px; /* Padding ajustado para móvil */
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px; /* Bordes un poco menos redondeados en móvil */
+  }
+
+  /* 🔥 FORZAMOS EL ORDEN: Textos arriba (1), Simulador abajo (2) */
+  .responsive-text-content {
+    order: 1;
+    text-align: left; /* En móvil solemos dejar el texto a la izquierda por legibilidad */
+  }
+
+  .canvas-simulador-container {
+    order: 2;
+    width: 100%;
+    min-height: auto; /* Quitamos la altura mínima estricta para que respire */
+    padding-top: 20px;
+  }
+
+  /* --- AJUSTES DE TIPOGRAFÍA (CHUETA) --- */
+  .titulo-responsive-oscuro {
+    font-size: 2.6rem !important; 
+    line-height: 1.1;
+    display: block; /* Para que el break funcione bien */
+  }
+
+  .titulo-responsive-claro {
+    font-size: 2rem !important;
+    justify-content: flex-start; /* Lo alineamos a la izquierda con el texto */
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+
+  /* --- AJUSTE DE BOTONES Y SIMULADOR --- */
   .simulador-buttons-row {
-    grid-template-columns: 1fr 1fr; /* En móvil, ponemos los botones 2 a 2 */
+    grid-template-columns: 1fr 1fr; /* 2 columnas para los botones de dispositivo */
+    gap: 15px;
+    padding-top: 20px
   }
+
+  /* Ajustamos las medidas de las pantallitas para que quepan en la pantalla del móvil físico */
+  .simulador-device-wrapper.xl { width: 100%; height: 300px; }
+  .simulador-device-wrapper.desktop { width: 90%; height: 280px; }
+  .simulador-device-wrapper.tablet { width: 75%; height: 340px; }
+  .simulador-device-wrapper.mobile { width: 60%; height: 380px; }
 }

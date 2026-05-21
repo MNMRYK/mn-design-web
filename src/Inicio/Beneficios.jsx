@@ -33,7 +33,7 @@ const Beneficios = () => {
     return (
 
         <motion.section 
-            className="beneficios-section" 
+            className="beneficios-section tema-oscuro" 
             ref={sectionRef} 
             onMouseMove={handleMouseMove}
             initial={{ opacity: 0, y: 50 }}
@@ -41,7 +41,7 @@ const Beneficios = () => {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
         >
-            <div className="beneficios-header tema-oscuro">
+            <div className="beneficios-header ">
                 <h2 className="beneficios-title">¿Qué beneficio obtienes con nuestros servicios?</h2>
                 <p className="beneficios-description">
                 Obtendrás un diseño con personalidad propia creado desde cero mediante sketches y bocetos. 

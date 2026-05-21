@@ -1,0 +1,242 @@
+/* ====================================================
+   ESTILOS GLOBALES DE LAS NUEVAS SECCIONES
+   ==================================================== */
+.seo-secciones-extras-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 30px 24px 80px;
+
+}
+
+.seo-section-title-container {
+  margin-bottom: 50px;
+}
+
+.seo-section-title-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--electric-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  display: block; /* ya está presente */
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-weight: 800;
+}
+
+.seo-section-subtitle {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem; 
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
+  margin-bottom: 20px;
+}
+
+/* ====================================================
+   SECCIÓN 1: MEJORA DE PLANES (ASIMÉTRICOS)
+   ==================================================== */
+.seo-planes-grid {
+  display: grid;
+  /* 🔥 EL CAMBIO: Cambiamos 1fr por repeat(3, 1fr) para que salgan en fila en PC 🔥 */
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+}
+
+.seo-plan-card {
+  background: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  padding: 40px 30px;
+  border-radius: 24px;
+  box-shadow: 0 4px 20px rgba(26, 16, 45, 0.02);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 100%;
+}
+
+/* Tarjeta Destacada "Impulso" */
+.seo-plan-card:hover {
+  background: linear-gradient(145deg, #ffffff 0%, rgba(126, 87, 194, 0.05) 100%);
+  border: 2px solid var(--electric-violet);
+  box-shadow: 0 20px 40px rgba(126, 87, 194, 0.1);
+}
+
+
+.seo-plan-card h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  color: var(--deep-eggplant);
+  margin-bottom: 8px;
+}
+
+.seo-plan-precio {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--electric-violet);
+  margin-bottom: 30px;
+}
+
+.seo-plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: left;
+}
+
+.seo-plan-features li {
+  
+  color: rgba(26, 16, 45, 0.8);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.4;
+}
+
+.seo-plan-features li i {
+  color: var(--electric-violet);
+  margin-top: 4px;
+}
+
+/* Botones de los planes */
+.seo-btn-plan {
+  font-size: 1rem;
+  width: 100%;
+  padding: 14px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+  display: inline-flex;     /* Centra el texto de forma limpia */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.seo-btn-plan {
+  background: var(--electric-violet);
+  color: #ffffff;
+  border: none;
+}
+
+.seo-btn-plan:hover {
+  background: var(--dark-violet);
+  box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
+}
+
+
+/* ====================================================
+   RESPONSIVE - TABLET (Entre 768px y 1024px)
+   ==================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Padding y gaps generales */
+  .seo-secciones-extras-wrapper {
+    padding: 50px 25px 60px;
+    gap: 80px;
+  }
+
+  /* --- ARREGLO DE PLANES EN TABLET --- */
+  .seo-planes-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap: 20px; 
+  }
+
+  /* La tarjeta destacada ocupa todo el ancho abajo */
+  .seo-plan-card.destacado {
+    grid-column: span 2; 
+    width: 90%;          /* Mucho más ancha que antes */
+    max-width: 500px;    /* Punto dulce para que no se deforme */
+    margin: 0 auto;
+    order: 3;         /* Forzamos que se vaya a la posición 3 (abajo) */
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Aseguramos que las normales no tengan span raro */
+  .seo-plan-card:not(.destacado) {
+    grid-column: auto;
+  }
+
+  .seo-plan-card.destacado .seo-btn-plan-primario {
+    width: auto;
+    min-width: 350px;
+  }
+  
+
+  /* Estructuras en tablet */
+  .seo-estructuras-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .seo-section-subtitle {
+    text-align: left;
+  }
+}
+
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
+  .seo-section-title-container {
+    margin-bottom: 30px;
+  }
+
+  /* 1. Paddings de móvil */
+  .seo-secciones-extras-wrapper {
+    padding: 50px 20px 60px;
+    gap: 60px;
+  }
+  
+  /* 2. Ajustamos los Títulos (H2) */
+  .seo-section-title-container h2 {
+    font-size: 2rem !important;
+    line-height: 1.1;
+  }
+
+  .seo-section-subtitle {
+    text-align: left;
+  }
+
+  /* 3. Todos los grids pasan a 1 sola columna vertical */
+  .seo-planes-grid,
+  .seo-estructuras-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  /* Reset del span para que en móvil sea normal */
+  .seo-plan-card.destacado {
+    grid-column: span 1;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* 4. Ajustes específicos para que las tarjetas respiren en móvil */
+  .seo-plan-card {
+    padding: 30px 20px;
+  }
+
+  .seo-estructura-item {
+    padding: 20px 70px 20px 20px; 
+  }
+
+  .seo-estructura-info h4 {
+    font-size: 1.15rem;
+  }
+
+  .seo-estructura-contenido-row p {
+    font-size: 1.05rem;
+  }
+} 

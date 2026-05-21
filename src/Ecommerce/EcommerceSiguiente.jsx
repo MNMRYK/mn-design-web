@@ -99,7 +99,7 @@ const EcommerceSiguiente = () => {
                 >
                     <h1 className="ecommerce-title">
                         <div className="ec-title-phrase-one">
-                            Estrategia y tecnología en tu <br />Tienda online
+                            Estrategia y tecnología en tu <br />Tienda Online
                         </div>
                         <span className="ec-text-gradient">E-commerce Inteligente</span>
                     </h1>
@@ -134,7 +134,13 @@ const EcommerceSiguiente = () => {
                     </div>
 
                     {/* COLUMNA DERECHA: El cuadrado premium con fondo */}
-                    <div className="ecommerce-imagen-wrapper">
+                    <motion.div 
+                        className="ecommerce-imagen-wrapper"
+                        initial={{ opacity: 0, scale: 0.9 }} 
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true, margin: "-50px" }}
+                        transition={{ duration: 0.7, delay: 0.3 }}
+                    >
                         <div className="resplandor-imagen"></div>
                         <div className="orbit-wrapper">
                             
@@ -193,27 +199,37 @@ const EcommerceSiguiente = () => {
                             </OrbitingCircles>
                             
                         </div>
-                    </div>
+                    </motion.div>
 
                 </div>
 
                 {/* Grid de servicios */}
+                {/* Grid de servicios */}
                 <div className="ecommerce-features">
                     {features.map((feature, index) => (
-                        <div key={index} className="feat-card">
-                            
+                        <motion.div 
+                            key={index} 
+                            className="feat-card"
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.5, delay: index * 0.15 }}
+                            whileHover={{ y: -5 }} /* Pequeño saltito al hacer hover */
+                        >
+                            {/* 🔥 ANIMACIÓN DE LAS TARJETAS EN CASCADA 🔥 */}
+
                             {/* Contenedor de la animación */}
                             <div className="feat-animation-wrapper">
-                            <LottiePlayer 
-                                animationData={feature.animation} 
-                                loop={true} 
-                                autoplay={true} 
-                            />
+                                <LottiePlayer 
+                                    animationData={feature.animation} 
+                                    loop={true} 
+                                    autoplay={true} 
+                                />
                             </div>
                             
                             {/* Texto de la tarjeta */}
                             <span>{feature.title}</span>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>

@@ -1,0 +1,88 @@
+/* Fondo suave para que el "folio" blanco destaque */
+.legal-wrapper {
+  background-color: #fcfcfc;
+  padding: 120px 20px 80px; /* Espacio arriba para tu Navbar */
+  min-height: 100vh;
+  height: auto;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* El folio premium donde va el texto */
+.legal-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 50px 60px;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(126, 87, 194, 0.08); /* Sombra lila muy sutil */
+  border-top: 6px solid #7E57C2; /* Tu morado coronando la página */
+}
+
+/* Título principal */
+.legal-title {
+  color: #1A102D;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+}
+
+/* Subtítulos de cada apartado */
+.legal-container h2 {
+  color: #7E57C2;
+  font-size: 1.4rem;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 1px solid rgba(126, 87, 194, 0.2);
+  padding-bottom: 10px;
+}
+
+/* Textos normales */
+.legal-container p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 15px;
+}
+
+/* Listas personalizadas para que queden corporativas */
+.legal-container ul {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 20px;
+}
+
+.legal-container ul li {
+  position: relative;
+  padding-left: 25px;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #4a4a4a;
+  margin-bottom: 10px;
+}
+
+/* El cuadradito morado de las listas */
+.legal-container ul li::before {
+  content: "■";
+  color: #7E57C2;
+  position: absolute;
+  left: 0;
+  top: -1px;
+  font-size: 0.9rem;
+}
+
+.legal-container strong {
+  color: #1A102D;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 30px 20px;
+  }
+  .legal-title {
+    font-size: 2rem;
+  }
+}

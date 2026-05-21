@@ -25,6 +25,9 @@ const Footer = () => {
             <a href="mailto:info@mndesignweb.es" className="correo-gigante">
               info@mndesignweb.es
             </a>
+            <a href="tel:+34645854934" className="correo-gigante">
+              + 34 645 854 934
+            </a>
             <p className="horario-texto">Lunes a Viernes | 09:00 - 18:00</p>
           </div>
 

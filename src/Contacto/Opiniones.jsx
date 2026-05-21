@@ -49,7 +49,7 @@ const testimonios = [
 
 const Opiniones = () => {
   return (
-    <section className="opiniones-section">
+    <section className="opiniones-section tema-oscuro">
       <motion.div 
         className="opiniones-header"
         initial={{ opacity: 0, y: 30 }}

@@ -22,6 +22,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-size: 2.5rem;
+  font-weight: 800;
   display: block; /* ya está presente */
   text-align: left;
   margin-top: 10px;
@@ -29,6 +30,8 @@
 }
 
 .section-subtitle {
+  display: block; /* ya está presente */
+  text-align: center;
   font-family: 'Nunito', sans-serif;
   font-size: 1.125rem; 
   line-height: 1.6;
@@ -130,6 +133,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: auto;
+  display: inline-flex;     /* Centra el texto de forma limpia */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
 }
 
 .btn-plan-primario {
@@ -264,20 +271,22 @@
 }
 
 /* ====================================================
-   ESTILOS DE LA VENTANA EMERGENTE (MODAL)
+   ESTILOS DE LA VENTANA EMERGENTE (MODAL) - LA DEFINITIVA
    ==================================================== */
+
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(26, 16, 45, 0.6); /* Fondo oscurecido sutil con base berenjena */
-  backdrop-filter: blur(8px); /* Efecto difuminado premium */
+  width: 100vw;
+  height: 100vh;
+  background: rgba(26, 16, 45, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Por encima de cualquier menú o navbar */
+  align-items: center; /* Centramos la caja blanca perfectamente */
   padding: 20px;
 }
 
@@ -285,29 +294,35 @@
   background: #ffffff;
   border-radius: 20px;
   width: 100%;
-  max-width: 700px; /* Tamaño máximo de la ventana */
-  box-shadow: 0 25px 50px rgba(26, 16, 45, 0.25);
+  max-width: 800px; 
+  /* 🔥 1. LIMITAMOS LA CAJA: No puede ser más alta que el 90% de la pantalla */
+  max-height: 90vh; 
   position: relative;
-  overflow: hidden;
+  
+  /* 🔥 2. FLEXBOX: Para que la zona de la imagen rellene el espacio y active el scroll */
+  display: flex;
+  flex-direction: column;
 }
 
+/* El botón de la X (Lo dejamos asomando un pelín) */
 .modal-close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: -15px; 
+  right: -15px;
   background: #ffffff;
-  border: 1px solid rgba(126, 87, 194, 0.2);
-  color: var(--deep-eggplant);
-  width: 36px;
-  height: 36px;
+  border: 2px solid var(--electric-violet);
+  color: var(--electric-violet);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 .modal-close-btn:hover {
@@ -317,18 +332,37 @@
 }
 
 .modal-body-img {
-  width: 100%;
-  max-height: 75vh; /* Evita que la foto se salga de pantallas portátiles */
-  overflow-y: auto; /* Si la captura es muy alta, el usuario puede hacer scroll interno */
+  /* 🔥 3. EL CONTENEDOR TOMA EL CONTROL DEL SCROLL */
+  flex: 1; /* Ocupa todo el alto permitido por la caja blanca */
+  overflow-y: auto; /* Activa la barra de scroll interna */
+  border-radius: 20px; 
+  
+  /* 🔥 4. LA MAGIA ANTI-FONDO: Prohíbe que el scroll "salpique" a la web de atrás */
+  overscroll-behavior: contain; 
 }
 
 .modal-body-img img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
 }
 
+/* Estilo para que la barrita de scroll sea morada y fina */
+.modal-body-img::-webkit-scrollbar {
+  width: 8px;
+}
+.modal-body-img::-webkit-scrollbar-track {
+  background: transparent;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.modal-body-img::-webkit-scrollbar-thumb {
+  background: rgba(126, 87, 194, 0.4);
+  border-radius: 10px;
+}
+.ec-modal-body-img::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 87, 194, 0.8);
+}
 /* ====================================================
    SECCIÓN 3: PORTFOLIO MOCKUP PREMIUM (UIVERSE)
    ==================================================== */
@@ -630,32 +664,123 @@
 .portfolio-card:hover .btn-visitar-esquina i {
   transform: translateX(4px) scale(1.1);
 }
+
 /* ====================================================
-   RESPONSIVE (PC & TABLETS)
+   RESPONSIVE - TABLET (Entre 768px y 1024px)
    ==================================================== */
-/* 📱1. Si la pantalla es una TABLET (Máximo 1024px de ancho) */
-@media (max-width: 1024px) {
-  .portfolio-grid {
-    /* El portfolio baja a 2 columnas para que no se estruje */
-    grid-template-columns: 1fr 1fr; 
-    gap: 24px;
+@media (min-width: 768px) and (max-width: 1024px) {
+  .secciones-extras-wrapper {
+    padding: 50px 25px 60px;
+    gap: 80px;
   }
+
+  /* --- ARREGLO DE PLANES EN TABLET (2 arriba, 1 abajo) --- */
+  .planes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap: 20px; 
+  }
+
+  /* El plan destacado (el del medio) ocupa las 2 columnas y va abajo */
+  .plan-card.destacado {
+    grid-column: span 2; 
+    width: 90%;          /* Mucho más ancha que antes */
+    max-width: 500px;    /* Punto dulce para que no se deforme */
+    margin: 0 auto;
+    order: 3;         /* Forzamos que se vaya a la posición 3 (abajo) */
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Los otros planes se quedan arriba */
+  .plan-card:not(.destacado) {
+    grid-column: auto;
+    order: 0;         /* Se quedan en su orden normal arriba */
+  }
+
+  .plan-card.destacado .btn-plan-primario {
+    width: auto;
+    min-width: 350px;
+  }
+  
+  /* Ajustamos las otras secciones para tablet */
+  .estructuras-grid,
+  .portfolio-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .section-subtitle {
+    display: block; /* ya está presente */
+    text-align: left;
+  }
+  
 }
 
-/* 📱2. Si la pantalla es un MÓVIL (Máximo 768px de ancho) */
-@media (max-width: 768px) {
-  .planes-grid {
-    /* Los planes se ponen uno debajo de otro */
-    grid-template-columns: 1fr; 
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
+  .section-title-container {
+    margin-bottom: 30px;
   }
 
-  .estructuras-grid {
-    /* Las estructuras pasan a ser una sola columna */
-    grid-template-columns: 1fr; 
+  /* 1. Aplicamos los paddings de móvil de la chuleta */
+  .secciones-extras-wrapper {
+    padding: 50px 20px 60px;
+    gap: 100px; /* Separación de bloques más corta en móvil */
+  }
+  
+  /* 2. Ajustamos los Títulos (H2) a 2.6rem según chuleta */
+  .section-title-container h2 {
+    font-size: 2rem !important;
+    line-height: 1.1;
   }
 
+  .section-subtitle {
+    display: block; /* ya está presente */
+    text-align: left;
+  }
+
+  /* 3. Todos los grids pasan a 1 sola columna vertical */
+  .planes-grid,
+  .estructuras-grid,
   .portfolio-grid {
-    /* El portfolio se pone en una sola columna vertical */
     grid-template-columns: 1fr; 
+    gap: 20px; /* Espaciado estándar móvil */
+  }
+
+  /* Reset del span para que en móvil sea normal */
+  .planes-grid .plan-card:last-child {
+    grid-column: span 1;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* 4. Ajustes específicos para que las tarjetas respiren en móvil */
+  .plan-card {
+    padding: 30px 20px; /* Un poco menos de padding interior en móvil */
+  }
+
+  .estructura-item {
+    /* Mantenemos el padding derecho de 70px para no pisar el botón */
+    padding: 20px 70px 20px 20px; 
+  }
+
+  .estructura-info h4 {
+    font-size: 1.15rem; /* H3/H4 un pelín más pequeño en móvil */
+  }
+
+  .estructura-contenido-row p,
+  .portfolio-meta p {
+    font-size: 1.05rem;
+  }
+
+  /* 5. Aseguramos que la barra del mockup no se rompa en pantallas muy finas */
+  .head-browser input {
+    padding: 0 35px 0 10px; /* Reducimos un poco el padding interior */
+  }
+  .head-browser .star {
+    right: 45px; 
   }
 }

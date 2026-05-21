@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './Hero.css';
 
 const Hero = () => {
@@ -25,8 +26,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <button className="btn-empezar">Empezar proyecto</button>
-          <button className="btn-portfolio">Ver Portfolio</button>
+          <Link to="/contacto#reserva-section" className="btn-empezar">
+            Empezar proyecto
+          </Link>
+          
+          {/* Enlace directo a tu página de portfolio */}
+          <Link to="/portfolio" className="btn-portfolio">
+            Ver Portfolio
+          </Link>
         </motion.div>
 
         {/* 3. SUBTÍTULO: Aparece el último, cerrando la composición */}

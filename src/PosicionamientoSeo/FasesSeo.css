@@ -1,0 +1,160 @@
+/* ====================================================
+   ESTILOS COMPONENTE FASES SEO (Glassmorphism Premium)
+   ==================================================== */
+.seo-scenarios-section {
+  background-color: var(--white-iris); 
+  color: var(--deep-eggplant);
+  font-family: 'Nunito', sans-serif;
+  padding: 40px 24px 80px;
+}
+
+.seo-scenarios-container {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+
+}
+
+.scenarios-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--deep-eggplant);
+  margin-bottom: 100px;
+  position: relative;
+  display: inline-block;
+}
+
+.scenarios-title::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 4px;
+  background: var(--electric-violet);
+  border-radius: 2px;
+}
+
+.scenarios-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+/* Tarjeta premium con desenfoque de fondo */
+.scenario-card-premium {
+  position: relative;
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  border-radius: 24px;
+  padding: 40px 35px;
+  text-align: left;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(26, 16, 45, 0.04);
+  transition: border-color 0.3s ease;
+}
+
+/* Tarjeta destacada de rescate */
+.scenario-card-premium.active {
+  background: rgba(126, 87, 194, 0.03);
+  border: 1px solid rgba(126, 87, 194, 0.25);
+  box-shadow: 0 20px 40px rgba(126, 87, 194, 0.06);
+}
+
+/* Brillo de fondo que reacciona al hover */
+.scenario-glow {
+  position: absolute;
+  top: -20%;
+  right: -20%;
+  width: 150px;
+  height: 150px;
+  background: var(--electric-violet);
+  filter: blur(60px);
+  opacity: 0.15;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.scenario-card-premium:hover .scenario-glow {
+  opacity: 0.35;
+}
+
+.scenario-card-premium:hover {
+  border-color: var(--electric-violet);
+}
+
+.scenario-icon-box {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(126, 87, 194, 0.15) 0%, rgba(126, 87, 194, 0.05) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+}
+
+.scenario-icon-box i {
+  font-size: 1.6rem;
+  color: var(--electric-violet);
+}
+
+.scenario-card-premium h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--deep-eggplant);
+  margin: 0 0 8px 0;
+}
+
+.scenario-subtitle {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--electric-violet);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.scenario-card-premium p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
+}
+
+.scenario-card-premium p strong {
+  color: var(--deep-eggplant);
+  font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .scenarios-grid { 
+    grid-template-columns: 1fr; gap: 30px; 
+  }
+  .seo-scenarios-section {
+    padding: 40px 24px 50px;
+  }
+}
+@media (max-width: 767px) {
+  .scenarios-title { 
+    font-size: 1.6rem; 
+    margin-bottom: 80px;
+  }
+
+  .scenarios-title::after {
+    bottom: -20px;
+  }
+
+  .scenario-card-premium { padding: 30px 25px; }
+}

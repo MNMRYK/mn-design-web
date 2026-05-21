@@ -1,0 +1,55 @@
+.seo-section-wrapper {
+  width: 100%;
+  min-height: auto; /* Obligatorio para que ocupe toda la pantalla al anclarse */
+  display: flex;
+  justify-content: center;
+  padding: 50px 15px 100px;
+  position: relative;
+  background-color: var(--white-iris);
+  z-index: 2;
+  box-sizing: border-box; /* Good practice */
+}
+
+.seo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* El max-width aquí actúa como "techo" para que no se separen demasiado */
+  max-width: 1300px; 
+  width: 100%;
+  gap: 60px;
+  margin: 0 auto;
+  align-items: start;
+  box-sizing: border-box;
+}
+
+/* ====================================================
+   RESPONSIVE - TABLET (Entre 768px y 1024px)
+   ==================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .seo-section-wrapper {
+    padding: 60px 25px 100px; /* Padding de chuleta */
+  }
+
+  .seo-grid {
+    /* 🔥 FORZAMOS A 1 COLUMNA EN TABLET 🔥 */
+    grid-template-columns: 1fr;
+    max-width: 700px; /* Limitamos el ancho para que el form no sea gigantesco */
+    gap: 60px;
+  }
+}
+
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
+  .seo-section-wrapper {
+    padding: 80px 20px 100px; /* Padding de chuleta */
+  }
+
+  .seo-grid {
+    /* En móvil pasamos a una sola columna que ocupa todo el ancho */
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+
+}

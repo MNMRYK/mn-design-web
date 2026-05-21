@@ -7,31 +7,31 @@ const serviciosData = [
     title: "Diseño y Desarrollo Web",
     desc: "Desarrollo de páginas web optimizadas y modernas con WordPress o código a medida.",
     icon: "fas fa-code",
-    link: "diseno-web.html"
+    link: "/disenoweb"
   },
   {
     title: "Tienda E-commerce",
     desc: "Diseñamos tu tienda desde cero para que vendas tus productos de forma segura.",
     icon: "fas fa-store",
-    link: "e-commerce.html"
+    link: "/e-commerce"
   },
   {
     title: "Posicionamiento SEO",
     desc: "Mejora la visibilidad de tu negocio apareciendo en los primeros resultados de Google.",
     icon: "fas fa-search-dollar",
-    link: "posicionamiento-seo.html"
+    link: "/posicionamiento-seo"
   },
   {
     title: "Mantenimiento y Optimización",
-    desc: "Nos ocupamos de el mantenimiento y optimización de tu sitio web para garantizar su buen funcionamiento.",
+    desc: "Nos ocupamos de que tu web esté siempre rápida, segura y actualizada. ¡Hablemos de tu caso!",
     icon: "fas fa-cogs",
-    link: "diseno-web.html"
+    link: "/contacto#reserva-section" 
   },
   {
     title: "Gestión de Redes Sociales",
     desc: "Creamos contenido estratégico para que tu marca destaque en redes sociales.",
     icon: "fa-brands fa-instagram",
-    link: "posicionamiento-seo.html"
+    link: "/redes-sociales"
   }
 ];
 

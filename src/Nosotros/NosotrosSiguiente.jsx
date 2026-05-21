@@ -29,7 +29,7 @@ const NosotrosSiguiente = () => {
                 <span className="breadcrumb-current">NOSOTROS</span>
             </div>
 
-          <h2>Llevamos tu negocio al <br/><span className="text-gradient">siguiente nivel</span></h2>
+          <h1>Llevamos tu negocio al <br/><span className="nos-text-gradient">siguiente nivel</span></h1>
           
           <p className="nosotros-desc">
             Somos una agencia joven con +5 años de experiencia transformando ideas en realidades digitales. Nacimos con una misión clara: <strong>ayudar a autónomos y empresas que están empezando</strong> a dar el salto al mundo online de forma profesional.
@@ -80,7 +80,7 @@ const NosotrosSiguiente = () => {
           <div className="image-placeholder">
             <div className="glass-shape glass-1"></div>
             <div className="glass-shape glass-2"></div>
-            <span>[Aquí vuestra foto real o gráfico abstracto]</span>
+            <img src="/nosotros.jpg" alt="MN Design Web" className="nosotros-img" />
           </div>
         </motion.div>
 

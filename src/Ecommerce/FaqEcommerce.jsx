@@ -21,28 +21,27 @@ const faqs = [
     ]
   },
   {
-    pregunta: "¿Cuánto cuesta diseñar una página web profesional?",
+    pregunta: "¿Qué necesito para empezar a vender online?",
     respuesta: [
-      "El precio varía según la complejidad, pero en MN Design Web ofrecemos planes desde 350€ (en oferta) que garantizan un <strong>diseño profesional, rápido y optimizado para SEO</strong> desde el primer día.",
-      "**Siempre escuchamos qué proyecto quieres llevar a cabo para ofrecerte un <strong>presupuesto adaptado</strong>."
+      "Necesitas una plataforma robusta como por ejemplo <strong> WooCommerce, un catálogo de productos optimizado y pasarelas de pago seguras.</strong> En MN Design Web configuramos todo, desde el inventario hasta el certificado SSL, para que lances tu negocio con total confianza."
     ]
   },
   {
-    pregunta: "¿Cuánto tiempo se tarda en crear una página web?",
+    pregunta: "¿Cómo se gestionan los pagos en la tienda online?",
     respuesta: [
-      "Dependiendo del proyecto suelen oscilar entre <strong>1 a 3 semanas</strong>, pero trabajamos con procesos optimizados para que tu web esté <strong>lista en tiempo récord</strong>, asegurando que cada sección funcione a la perfección."
+      "Integramos los métodos más utilizados:<strong> tarjeta de crédito, PayPal y Bizum a través de pasarelas como Stripe.</strong> Todas las transacciones son directas a tu cuenta bancaria, sin intermediarios y con encriptación de seguridad avanzada."
     ]
   },
   {
-    pregunta: "¿Mi web aparecerá en los primeros resultados de Google?",
+    pregunta: "¿Puedo gestionar reservas o citas desde mi web?",
     respuesta: [
-      "No solo diseñamos; optimizamos la estructura para el <strong>posicionamiento en buscadores (SEO)</strong>. Usamos herramientas como Rank Math y <strong>datos estructurados</strong> para que Google entienda y priorice tu contenido."
+      "Por supuesto! Somos especialistas en <strong>implementar sistemas de reservas automatizados.</strong> Tus clientes podrán agendar citas o servicios directamente desde la web, con sincronización de calendario y confirmaciones automáticas por email"
     ]
   },
   {
-    pregunta: "¿Podré gestionar yo mismo el contenido de la web?",
+    pregunta: "¿Es difícil gestionar los pedidos y productos yo mismo?",
     respuesta: [
-      "Nos aseguramos que sepas controlar el contenido que necesites para que puedas <strong>actualizar textos, imágenes y gestionar tus reservas</strong> de forma <strong>totalmente autogestionable</strong>."
+      "Para nada. Diseñamos con un <strong>panel totalmente autogestionable donde podrás añadir productos, cambiar precios y gestionar pedidos de forma intuitiva.</strong> Además, te entregamos una <strong>guía básica de uso</strong> para que seas el dueño total de tu tienda."
     ]
   },
   {

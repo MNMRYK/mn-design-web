@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import './ResponsiveShowcase.css'; // 🔥 Recuerda poner aquí el nombre de tu archivo CSS real
 
 const ResponsiveShowcase = () => {
@@ -10,7 +11,13 @@ const ResponsiveShowcase = () => {
   // ===================================================
   return (
     <section className="seccion-responsive-showcase tema-oscuro">
-      <div className="responsive-flex-container">
+      <motion.div 
+        className="responsive-flex-container"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6 }}
+      >
         
         {/* LADO IZQUIERDO: Simulador Visual */}
         <div className="canvas-simulador-container">
@@ -112,7 +119,7 @@ const ResponsiveShowcase = () => {
           </div>
         </div>
 
-      </div>
+      </motion.div>
     </section>
   );
 };

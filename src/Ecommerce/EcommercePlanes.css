@@ -26,6 +26,7 @@
   text-align: left;
   margin-top: 10px;
   margin-bottom: 20px;
+  font-weight: 800;
 }
 
 .ec-section-subtitle {
@@ -264,20 +265,22 @@
 }
 
 /* ====================================================
-   ESTILOS DE LA VENTANA EMERGENTE (MODAL)
+   ESTILOS DE LA VENTANA EMERGENTE (MODAL) - LA DEFINITIVA
    ==================================================== */
+
 .ec-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(26, 16, 45, 0.6); /* Fondo oscurecido sutil con base berenjena */
-  backdrop-filter: blur(8px); /* Efecto difuminado premium */
+  width: 100vw;
+  height: 100vh;
+  background: rgba(26, 16, 45, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 9999;
+  
   display: flex;
   justify-content: center;
-  align-items: center;
-  z-index: 9999; /* Por encima de cualquier menú o navbar */
+  align-items: center; /* Centramos la caja blanca perfectamente */
   padding: 20px;
 }
 
@@ -285,29 +288,35 @@
   background: #ffffff;
   border-radius: 20px;
   width: 100%;
-  max-width: 700px; /* Tamaño máximo de la ventana */
-  box-shadow: 0 25px 50px rgba(26, 16, 45, 0.25);
+  max-width: 800px; 
+  /* 🔥 1. LIMITAMOS LA CAJA: No puede ser más alta que el 90% de la pantalla */
+  max-height: 90vh; 
   position: relative;
-  overflow: hidden;
+  
+  /* 🔥 2. FLEXBOX: Para que la zona de la imagen rellene el espacio y active el scroll */
+  display: flex;
+  flex-direction: column;
 }
 
+/* El botón de la X (Lo dejamos asomando un pelín) */
 .ec-modal-close-btn {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: -15px; 
+  right: -15px;
   background: #ffffff;
-  border: 1px solid rgba(126, 87, 194, 0.2);
-  color: var(--deep-eggplant);
-  width: 36px;
-  height: 36px;
+  border: 2px solid var(--electric-violet);
+  color: var(--electric-violet);
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
 }
 
 .ec-modal-close-btn:hover {
@@ -317,33 +326,139 @@
 }
 
 .ec-modal-body-img {
-  width: 100%;
-  max-height: 75vh; /* Evita que la foto se salga de pantallas portátiles */
-  overflow-y: auto; /* Si la captura es muy alta, el usuario puede hacer scroll interno */
+  /* 🔥 3. EL CONTENEDOR TOMA EL CONTROL DEL SCROLL */
+  flex: 1; /* Ocupa todo el alto permitido por la caja blanca */
+  overflow-y: auto; /* Activa la barra de scroll interna */
+  border-radius: 20px; 
+  
+  /* 🔥 4. LA MAGIA ANTI-FONDO: Prohíbe que el scroll "salpique" a la web de atrás */
+  overscroll-behavior: contain; 
 }
 
 .ec-modal-body-img img {
   width: 100%;
   height: auto;
   display: block;
-  object-fit: cover;
 }
 
+/* Estilo para que la barrita de scroll sea morada y fina */
+.ec-modal-body-img::-webkit-scrollbar {
+  width: 8px;
+}
+.ec-modal-body-img::-webkit-scrollbar-track {
+  background: transparent;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.ec-modal-body-img::-webkit-scrollbar-thumb {
+  background: rgba(126, 87, 194, 0.4);
+  border-radius: 10px;
+}
+.ec-modal-body-img::-webkit-scrollbar-thumb:hover {
+  background: rgba(126, 87, 194, 0.8);
+}
 
 /* ====================================================
-   RESPONSIVE (PC & TABLETS)
+   RESPONSIVE - TABLET (Entre 768px y 1024px)
    ==================================================== */
-
-/* 📱2. Si la pantalla es un MÓVIL (Máximo 768px de ancho) */
-@media (max-width: 768px) {
-  .planes-grid {
-    /* Los planes se ponen uno debajo de otro */
-    grid-template-columns: 1fr; 
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Padding y gaps generales */
+  .ec-secciones-extras-wrapper {
+    padding: 50px 25px 60px;
+    gap: 80px;
   }
 
-  .estructuras-grid {
-    /* Las estructuras pasan a ser una sola columna */
-    grid-template-columns: 1fr; 
+  /* --- ARREGLO DE PLANES EN TABLET --- */
+  .ec-planes-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap: 20px; 
   }
 
+  /* La tarjeta destacada ocupa todo el ancho abajo */
+  .ec-plan-card.destacado {
+    grid-column: span 2; 
+    width: 90%;          /* Mucho más ancha que antes */
+    max-width: 500px;    /* Punto dulce para que no se deforme */
+    margin: 0 auto;
+    order: 3;         /* Forzamos que se vaya a la posición 3 (abajo) */
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Aseguramos que las normales no tengan span raro */
+  .ec-plan-card:not(.destacado) {
+    grid-column: auto;
+  }
+
+  .ec-plan-card.destacado .ec-btn-plan-primario {
+    width: auto;
+    min-width: 350px;
+  }
+  
+
+  /* Estructuras en tablet */
+  .ec-estructuras-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+  }
+
+  .ec-section-subtitle {
+    text-align: left;
+  }
 }
+
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
+  .ec-section-title-container {
+    margin-bottom: 30px;
+  }
+
+  /* 1. Paddings de móvil */
+  .ec-secciones-extras-wrapper {
+    padding: 50px 20px 60px;
+    gap: 60px;
+  }
+  
+  /* 2. Ajustamos los Títulos (H2) */
+  .ec-section-title-container h2 {
+    font-size: 2rem !important;
+    line-height: 1.1;
+  }
+
+  .ec-section-subtitle {
+    text-align: left;
+  }
+
+  /* 3. Todos los grids pasan a 1 sola columna vertical */
+  .ec-planes-grid,
+  .ec-estructuras-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  /* Reset del span para que en móvil sea normal */
+  .ec-plan-card.destacado {
+    grid-column: span 1;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* 4. Ajustes específicos para que las tarjetas respiren en móvil */
+  .ec-plan-card {
+    padding: 30px 20px;
+  }
+
+  .ec-estructura-item {
+    padding: 20px 70px 20px 20px; 
+  }
+
+  .ec-estructura-info h4 {
+    font-size: 1.15rem;
+  }
+
+  .ec-estructura-contenido-row p {
+    font-size: 1.05rem;
+  }
+} 

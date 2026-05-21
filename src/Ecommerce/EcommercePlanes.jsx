@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'; 
 import './EcommercePlanes.css';
 
@@ -23,21 +23,21 @@ const EcommercePlanes = () => {
             icon: "fa-store", 
             title: "D2C: Tienda de Marca", 
             desc: "Tu marca directa al consumidor. Diseños únicos para potenciar tu identidad visual y fidelizar a tus clientes.",
-            img: "/ejemplos/tienda-marca.jpg"
+            img: "/ejemplos/d2d.jpg"
         },
         { 
             animation: animLibro, 
             icon: "fa-book-open", 
             title: "Infoproductos & Cursos", 
             desc: "Plataformas especializadas en la venta y entrega automática de cursos, ebooks y áreas privadas de contenido.",
-            img: "/ejemplos/cursos.jpg"
+            img: "/ejemplos/educa.jpg"
         },
         { 
             animation: animRelacion, 
             icon: "fa-handshake", 
             title: "B2B: Catálogo Mayorista", 
             desc: "Tiendas enfocadas a profesionales con gestión de precios personalizados, niveles de acceso y grandes volúmenes.",
-            img: "/ejemplos/b2b.jpg"
+            img: "/ejemplos/catalogo.jpg"
         },
         { 
             animation: animGblo, 
@@ -51,16 +51,33 @@ const EcommercePlanes = () => {
             icon: "fa-box-open", 
             title: "Suscripciones (Box)", 
             desc: "Modelos de venta recurrente ideales para cajas de suscripción, consumibles o servicios de pago mensual.",
-            img: "/ejemplos/suscripcion.jpg"
+            img: "/ejemplos/suscripciones.jpg"
         },
         { 
             animation: animCronometro, 
             icon: "fa-rocket", 
             title: "Venta de Lanzamiento", 
             desc: "Estrategias de venta rápida o 'flash sale' con páginas optimizadas para generar urgencia y máxima conversión.",
-            img: "/ejemplos/flash-sale.jpg"
+            img: "/ejemplos/lanzamiento.jpg"
         }
     ];
+
+    // 🔥 EL EFECTO CON CANDADO DOBLE 🔥
+    useEffect(() => {
+        if (imagenModal) {
+            document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden'; // Bloquea el HTML también
+        } else {
+            document.body.style.overflow = 'unset';
+            document.documentElement.style.overflow = 'unset';
+        }
+
+        return () => {
+            document.body.style.overflow = 'unset';
+            document.documentElement.style.overflow = 'unset';
+        };
+    }, [imagenModal]);
+
 
     return (
         <div className="ec-secciones-extras-wrapper">
@@ -68,7 +85,13 @@ const EcommercePlanes = () => {
         {/* ===================================================
             SECCIÓN 1: PLANES PREMIUM
             =================================================== */}
-            <section className="ec-seccion-planes">
+            <motion.section 
+                className="ec-seccion-planes"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="ec-section-title-container">
                     <h2>Nuestros Planes Adaptados</h2>
                     <p className="ec-section-subtitle">Soluciones transparentes para escalar tu negocio sin sorpresas.</p>
@@ -86,7 +109,14 @@ const EcommercePlanes = () => {
                             <li><i className="fa-solid fa-check"></i> Gestión básica de envíos y stock.</li>
                             <li><i className="fa-solid fa-check"></i> Formación para subir productos.</li>
                         </ul>
-                        <button className="ec-btn-plan-secundario">Solicitar presupuesto</button>
+                        <a 
+                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Básico%20de%20E-commerce."
+                            rel="noopener noreferrer" 
+                            target="_blank" 
+                            className="seo-btn-plan"
+                        >
+                            Solicitar presupuesto
+                        </a>
                     </motion.div>
 
                     {/* Plan Impulso: Enfocado en crecimiento y ventas */}
@@ -101,7 +131,14 @@ const EcommercePlanes = () => {
                             <li><i className="fa-solid fa-check"></i> Venta cruzada (Productos relacionados).</li>
                             <li><i className="fa-solid fa-check"></i> Mantenimiento preventivo incluido.</li>
                         </ul>
-                        <button className="ec-btn-plan-primario">Solicitar presupuesto</button>
+                        <a 
+                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20E-commerce."
+                            rel="noopener noreferrer" 
+                            target="_blank" 
+                            className="seo-btn-plan"
+                        >
+                            Agendar consultoría
+                        </a>
                     </motion.div>
 
                     {/* Plan Esencial: Enfocado en automatización y escalabilidad */}
@@ -115,15 +152,28 @@ const EcommercePlanes = () => {
                             <li><i className="fa-solid fa-check"></i> Integración CRM / ERP para sincronización.</li>
                             <li><i className="fa-solid fa-check"></i> Soporte técnico preferente.</li>
                         </ul>
-                        <button className="ec-btn-plan-secundario">Solicitar presupuesto</button>
+                        <a 
+                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20E-commerce."
+                            rel="noopener noreferrer" 
+                            target="_blank" 
+                            className="seo-btn-plan"
+                        >
+                            Solicitar presupuesto
+                        </a>
                     </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
         {/* ===================================================
             SECCIÓN 2: ESTRUCTURAS MÁS DEMANDADAS
             =================================================== */}
-            <section className="ec-seccion-estructuras">
+            <motion.section 
+                className="ec-seccion-estructuras"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="ec-section-title-container">
                     <h2>¿Qué estructura necesita tu presencia digital?</h2>
                 </div>
@@ -159,9 +209,9 @@ const EcommercePlanes = () => {
                         </motion.div>
                     ))}
                 </div>
-            </section>
+            </motion.section>
 
-            <AnimatePresence>
+           <AnimatePresence>
                 {imagenModal && (
                     <motion.div 
                         className="ec-modal-overlay"
@@ -178,7 +228,7 @@ const EcommercePlanes = () => {
                         onClick={(e) => e.stopPropagation()} // Evita que se cierre al clicar la foto
                         >
                         <button className="ec-modal-close-btn" onClick={() => setImagenModal(null)}>
-                            <i className="ec-fa-solid fa-xmark"></i>
+                            <i className="fa-solid fa-xmark"></i>
                         </button>
                         <div className="ec-modal-body-img">
                             <img src={imagenModal} alt="Ejemplo de estructura web" />

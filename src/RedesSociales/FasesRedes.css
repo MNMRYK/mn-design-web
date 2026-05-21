@@ -1,0 +1,184 @@
+/* ====================================================
+   SECCIÓN COMPLETA DE FASES (A PANTALLA COMPLETA)
+   ==================================================== */
+.fr-section-wrapper {
+  width: 100%;
+  padding: 50px 24px 60px; /* Aire por arriba y por abajo */
+  display: flex;
+  justify-content: center; /* Lo centramos en medio de la pantalla */
+  align-items: center;
+  background-color: var(--white-iris); /* Fondo claro de la web */
+}
+
+.fr-ruta-wrapper {
+  background: var(--deep-eggplant);
+  border: 1px solid rgba(166, 114, 255, 0.15);
+  border-radius: 40px;
+  padding: 60px 80px 80px; /* Mucho más aire interno para que respire */
+  width: 100%;
+  max-width: 1200px; /* 🔥 Ampliado para que ocupe gran parte del centro */
+  font-family: 'Nunito', sans-serif;
+  box-shadow: 0 30px 60px rgba(26, 16, 45, 0.15);
+}
+
+.fr-header-box {
+  margin-bottom: 60px;
+  text-align: center; /* Centramos el título superior */
+}
+
+.fr-titulo-principal {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2rem, 5vw, 2.6rem);
+  font-weight: 800;
+  color: var(--white-iris);
+  margin-bottom: 25px;
+}
+
+.fr-subtitulo {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.125rem; 
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- LA LÍNEA --- */
+.fr-ruta-timeline {
+  position: relative;
+  padding-left: 60px; /* Más espacio a la izquierda para el texto */
+  max-width: 1000px; /* Contenemos el ancho del texto dentro de la caja */
+  margin: 0 auto; /* Centramos el timeline dentro del wrapper oscuro */
+}
+
+.fr-linea-fondo {
+  position: absolute;
+  top: 14px;
+  left: 21px; /* Ajustado al nuevo padding */
+  width: 3px; /* Línea un pelín más gruesa para que se vea bien */
+  background: rgba(255, 255, 255, 0.08); 
+}
+
+.fr-linea-progreso {
+  position: absolute;
+  top: 14px;
+  left: 21px;
+  width: 3px;
+  background: var(--electric-violet); 
+  height: 0%; 
+  box-shadow: 0 0 20px var(--electric-violet);
+  z-index: 1;
+}
+
+.fr-punta-luminosa {
+  position: absolute;
+  bottom: -6px;
+  left: -4px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 25px 8px var(--electric-violet);
+  z-index: -1;
+}
+
+/* --- LOS PASOS --- */
+.fr-ruta-paso {
+  position: relative;
+  margin-bottom: 50px; /* 🔥 Más espacio entre pasos para que quede elegante */
+  display: flex;
+  align-items: flex-start;
+}
+
+.fr-ruta-paso:last-child {
+  margin-bottom: 10px;
+}
+
+/* EL CÍRCULO */
+.fr-nodo {
+  position: absolute;
+  left: -52px; /* Ajustado al padding del timeline */
+  top: 2px;
+  width: 26px; /* Círculos un poco más grandes */
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(166, 114, 255, 0.2); /* Empieza semitransparente */
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  z-index: 2;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* --- TEXTOS --- */
+.fr-contenido {
+  padding-left: 15px;
+}
+
+.fr-titulo {
+  color: var(--white-iris);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.fr-texto {
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* --- ALINEACIÓN DEL TÍTULO Y EL ICONO --- */
+.fr-titulo-con-icono {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Espacio entre el icono y el texto */
+}
+
+/* --- TRUCO PRO: MÁSCARA CSS PARA PINTAR SVGS EXTERNOS --- */
+.fr-icono-svg {
+  display: inline-block;
+  width: 60px;  /* 🔥 Si no le damos ancho, no se ve 🔥 */
+  height: 60px; /* 🔥 Si no le damos alto, no se ve 🔥 */
+  background-color: #efebfc; /* 🔥 El color que querías 🔥 */
+  
+  /* Configuramos la máscara para que actúe como un recorte */
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+
+
+/* ====================================================
+   RESPONSIVE MÓVIL
+   ==================================================== */
+@media (max-width: 768px) {
+  .fr-section-wrapper { padding: 60px 20px 50px; }
+  
+  .fr-ruta-wrapper {
+    padding: 40px 20px 60px;
+    border-radius: 25px;
+  }
+
+  .fr-ruta-timeline { padding-left: 35px; }
+
+  .fr-nodo {
+    left: -42px;
+    width: 20px;
+    height: 20px;
+    top: 4px;
+  }
+
+  .fr-linea-fondo,
+  .fr-linea-progreso {
+    left: 2px;
+  }
+
+  .fr-ruta-paso { margin-bottom: 35px; }
+  .fr-titulo { font-size: 1.15rem; margin-bottom: 8px; }
+  .fr-texto { font-size: 1rem; line-height: 1.5; }
+}

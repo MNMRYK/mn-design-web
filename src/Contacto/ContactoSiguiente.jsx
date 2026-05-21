@@ -27,7 +27,7 @@ const ContactoSiguiente = () => {
         >
           <h1 className="contacto-title">
             No dejes para mañana el éxito <br className="hidden-mobile" />
-            <span className="text-gradient">que tu negocio necesita hoy.</span>
+            <span className="cont-text-gradient">que tu negocio necesita hoy.</span>
           </h1>
           <p className="contacto-subtitle">
             Contacta y empecemos a construir algo increíble juntos. Creemos que la comunicación fluida es la base de un proyecto de éxito.

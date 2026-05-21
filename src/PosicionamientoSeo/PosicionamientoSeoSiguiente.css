@@ -1,0 +1,286 @@
+/* ====================================================
+   ESTILOS GENERALES Y LAYOUT (Equivalentes a Ecommerce)
+   ==================================================== */
+.seo-section { 
+  min-height: 100vh; 
+  background-color: var(--white-iris); 
+  color: var(--deep-eggplant);
+  font-family: 'Nunito', sans-serif;
+  padding: 120px 25px 80px; 
+}
+
+.seo-detalle-container { 
+  width: 100%; 
+  max-width: 1300px; 
+  margin: 0 auto; 
+  display: flex;
+  flex-direction: column;
+}
+
+/* Breadcrumbs (Igual que Ecommerce) */
+.seo-badge {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.breadcrumb-link { color: var(--electric-violet); text-decoration: none; transition: opacity 0.3s ease; }
+.breadcrumb-link:hover { opacity: 0.6; }
+.breadcrumb-separator { color: rgba(26, 16, 45, 0.3); }
+.breadcrumb-current { color: rgba(26, 16, 45, 0.6); }
+
+/* Títulos (Igual que Ecommerce) */
+.seo-header { 
+  text-align: left; 
+  margin-bottom: 20px; 
+  width: 100%; 
+}
+
+.seo-title { 
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--deep-eggplant);
+  margin-bottom: 20px;
+  line-height: 1.3;
+  font-family: 'Montserrat', sans-serif;
+  text-align: left;
+}
+
+.seo-title-phrase-one { text-align: center; }
+
+.seo-text-gradient { 
+  background: var(--electric-violet);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem; 
+  display: block; 
+  text-align: left;
+  margin-top: 50px;
+}
+
+.seo-title-phrase-one {
+  text-align: center; /* phrase 1 centers itself */
+}
+
+/* Grid principal */
+.seo-main-grid { 
+  display: grid; 
+  grid-template-columns: 1.05fr 0.95fr; 
+  gap: 80px; 
+  align-items: flex-start; 
+  margin-bottom: 60px; 
+}
+
+.seo-columna-izq {
+  display: flex;
+  flex-direction: column;
+}
+
+.seo-columna-izq p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem; 
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
+}
+
+.seo-detalle-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.seo-detalle-textos p strong {
+  color: var(--deep-eggplant);
+  font-weight: 700;
+}
+
+/* Texto Destacado (Estilo Hacker igual que Ecommerce) */
+.seo-texto-destacado {
+  font-weight: 700 !important;
+  font-size: 1.125rem !important;
+  color: var(--deep-eggplant) !important;
+  border-left: 4px solid var(--electric-violet);
+  margin-top: 15px;
+  background: linear-gradient(135deg, rgba(126, 87, 194, 0.08) 0%, rgba(126, 87, 194, 0.02) 100%);
+  padding: 25px; 
+  border-radius: 0 16px 16px 0;
+  cursor: crosshair;
+  transition: box-shadow 0.3s ease;
+  display: block;
+  min-height: 140px;
+}
+
+/* Contenedor padre del globo */
+.seo-imagen-wrapper { 
+  position: relative;
+  width: 100%;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.4);
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  margin-top: -100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 40px rgba(26, 16, 45, 0.05);
+  min-height: 450px; 
+  overflow: hidden;
+}
+
+
+/* Contenedor responsivo del Canvas 3D */
+.globe-canvas-container {
+  width: 100%;
+  height: 500px; /* En PC se queda en los 500px que tenías */
+  position: relative;
+  z-index: 2;
+}
+
+/* Grid de Features (Cards iguales que Ecommerce) */
+.seo-features { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 70px; 
+}
+
+.feat-card { 
+  padding: 20px 10px; 
+  background: #faf9fc; 
+  border-radius: 20px; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap: 4px; 
+  border: 1px solid rgba(126, 87, 194, 0.1); 
+  transition: all 0.3s ease; 
+  height: 150px;
+}
+
+.feat-card:hover { 
+  background: white; 
+  box-shadow: 0 10px 30px rgba(126, 87, 194, 0.15); 
+}
+
+.feat-icon-wrapper { 
+  width: 80px; 
+  height: 80px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.feat-icon-wrapper i { 
+  font-size: 2rem; 
+  color: var(--electric-violet); 
+}
+
+.feat-card span { 
+  font-family: 'Nunito', sans-serif; 
+  font-weight: 700; 
+  color: var(--deep-eggplant); 
+  text-align: center; 
+}
+
+/* ====================================================
+   RESPONSIVE (Lógica heredada de Ecommerce)
+   ==================================================== */
+@media (min-width: 1025px) {
+  .seo-main-grid { 
+    grid-template-columns: 1.05fr 0.95fr; 
+    gap: 80px; 
+  }
+
+  .seo-features { 
+    grid-template-columns: repeat(4, 1fr); 
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* 🔥 EL CAMBIO: Pasamos de 2 columnas a apilar texto arriba y globo abajo */
+  .seo-main-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+  }
+
+  .seo-columna-izq { order: 1; }
+  
+  .seo-imagen-wrapper { 
+    order: 2; 
+    min-height: auto; 
+    margin-top: 10px !important; 
+  }
+  
+  .globe-canvas-container { height: 450px; }
+  .seo-title { font-size: 2.6rem !important; }
+
+  /* 🔥 EL REDISEÑO DE LAS TARJETAS EN MÓVIL 🔥 */
+  .seo-features { 
+    grid-template-columns: 1fr; /* Pasamos a 1 sola columna vertical */
+    gap: 15px; 
+    margin-top: 0px;
+  }
+  
+  .feat-card {
+    flex-direction: row; /* Ponemos el icono y el texto en línea horizontal */
+    height: auto; /* Quitamos la altura fija gigante */
+    padding: 15px 20px;
+    justify-content: flex-start; /* Alineamos todo a la izquierda */
+    border-radius: 16px;
+  }
+
+  .feat-icon-wrapper {
+    width: 50px; /* Icono más recogidito */
+    height: 50px;
+    flex-shrink: 0; /* Evita que el icono se aplaste si el texto es largo */
+  }
+
+  .feat-card span {
+    text-align: left; /* El texto fluye natural hacia la izquierda */
+    font-size: 1.05rem;
+    margin-left: 20px; /* Separación entre el icono y el texto */
+  }
+}
+
+@media (max-width: 767px) {
+  .seo-section { 
+    padding: 100px 20px 50px; 
+  }
+
+  .seo-title { 
+    font-size: 2.6rem;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .seo-text-gradient { 
+    font-size: 2rem !important; 
+    margin-top: 40px !important;
+    text-align: left !important; 
+    display: block;
+    width: 100%;
+  }
+
+  .seo-main-grid { 
+    display: flex; 
+    flex-direction: column; 
+    gap: 40px; 
+  }
+
+  .feat-card { 
+    height: 180px;
+  }
+
+  .seo-columna-izq { order: 1; }
+  .seo-imagen-wrapper { order: 2; min-height: 330px; margin-top: 10px !important; }
+  .globe-canvas-container { height: 380px; }
+  .seo-features { grid-template-columns: 1fr 1fr; gap: 15px; }
+}

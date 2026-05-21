@@ -112,6 +112,15 @@
   
 }
 
+.btn-empezar, .btn-portfolio {
+  display: inline-flex;     /* Alinea correctamente el texto por dentro */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;    /* 🔥 OBLIGATORIO: Elimina el subrayado azul de los enlaces */
+  box-sizing: border-box;   /* Mantiene los paddings bajo control */
+  text-shadow: none !important;
+}
+
 .btn-empezar {
   background-color: var(--fondo-claro); 
   border: 1px solid rgba(255, 255, 255, 0.219);

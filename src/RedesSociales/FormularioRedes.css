@@ -1,0 +1,181 @@
+.redes-formulario-area {
+  background: rgba(156, 70, 255, 0.05); 
+  border: 1px solid rgba(155, 79, 255, 0.1);
+  padding: 35px 40px 30px;
+  border-radius: 30px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.redes-form-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2rem);
+  font-weight: 700;
+  color: var(--deep-eggplant);
+  margin-bottom: 25px;
+}
+
+#redes-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.redes-form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.redes-form-grupo label {
+  font-weight: 800;
+  color: var(--deep-eggplant);
+  font-size: 0.95rem;
+  margin-left: 5px;
+}
+
+/* Estilos de los campos de texto */
+.redes-form-grupo input[type="text"],
+.redes-form-grupo input[type="email"],
+.redes-form-grupo textarea {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+  background: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: var(--deep-eggplant);
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+}
+
+.redes-form-grupo input::placeholder,
+.redes-form-grupo textarea::placeholder {
+  color: rgba(26, 16, 45, 0.3);
+}
+
+.redes-form-grupo input:focus,
+.redes-form-grupo textarea:focus {
+  border-color: var(--electric-violet);
+  box-shadow: 0 0 0 4px rgba(166, 114, 255, 0.15);
+}
+
+.redes-form-grupo textarea {
+  resize: vertical;
+  min-height: 60px; 
+  height: auto;
+}
+
+/* Matar el fondo azul de autocompletado de Chrome */
+.redes-form-grupo input:-webkit-autofill,
+.redes-form-grupo textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #efebfc inset !important; 
+  -webkit-text-fill-color: var(--deep-eggplant, #1A102D) !important; 
+  transition: background-color 5000s ease-in-out 0s; 
+}
+
+/* =========================================
+   🔥 CHECKBOXES PERSONALIZADOS 🔥
+   ========================================= */
+.redes-checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.redes-checkbox-label {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  gap: 12px;
+  user-select: none;
+}
+
+.redes-checkbox-label input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.redes-checkmark {
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  border: 2px solid rgba(126, 87, 194, 0.3); 
+  border-radius: 6px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.redes-checkmark i {
+  color: white;
+  font-size: 12px;
+  opacity: 0;
+  transform: scale(0); 
+  transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.redes-checkbox-label:hover input[type="checkbox"] ~ .redes-checkmark {
+  border-color: var(--electric-violet);
+  background-color: rgba(126, 87, 194, 0.05);
+}
+
+.redes-checkbox-label input[type="checkbox"]:checked ~ .redes-checkmark {
+  background-color: var(--electric-violet);
+  border-color: var(--electric-violet);
+}
+
+.redes-checkbox-label input[type="checkbox"]:checked ~ .redes-checkmark i {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.redes-checkbox-text {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--deep-eggplant);
+  transition: color 0.2s ease;
+}
+
+.redes-checkbox-label input[type="checkbox"]:checked ~ .redes-checkbox-text {
+  color: var(--electric-violet);
+}
+
+/* =========================================
+   🔥 BOTÓN DE ENVÍO 🔥
+   ========================================= */
+.btn-enviar-redes {
+  padding: 10px 35px;
+  background: var(--electric-violet);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* EL BOTÓN GIGANTE EN HOVER */
+/* 🔥 AÑADIDO ':not(:disabled)' para que la animación no salte si se está enviando 🔥 */
+.btn-enviar-redes:hover:not(:disabled) {
+  transform: scale(1.03);
+  background-color: var(--white-iris);
+  border-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: var(--electric-violet);
+  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
+}

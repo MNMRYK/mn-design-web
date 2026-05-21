@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { motion } from 'framer-motion';
@@ -6,7 +6,6 @@ import './ReservaYMapa.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import animacionReserva from '../assets/animations/reserva-movil.json';
 
-// 📌 CONFIGURACIÓN DEL ICONO CHULO: Creamos un pin lila personalizado con CSS
 const customIcon = new L.DivIcon({
   className: 'custom-neon-marker',
   html: `<div class="marker-pulse"></div><div class="marker-core"></div>`,
@@ -15,12 +14,23 @@ const customIcon = new L.DivIcon({
 });
 
 const ReservaYMapa = () => {
-  // Coordenadas de ejemplo (Cámbialas por las de tu ubicación o tu zona general)
   const posicion = [38.73891339445123, -0.440249004021603]; 
+
+    useEffect(() => {
+        const hash = window.location.hash; 
+        if (hash === '#reserva-section') {
+            const element = document.querySelector(hash);
+            if (element) {
+                setTimeout(() => {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }, 300); // Pequeña pausa para asegurar que el mapa cargó
+            }
+        }
+    }, []);
 
   return (
     <section className="reserva-mapa-section tema-oscuro">
-        <div className="reserva-mapa-container">
+        <div id="reserva-section" className="reserva-mapa-container">
             
             {/* 🗓️ COLUMNA IZQUIERDA: EL CALENDARIO DE RESERVAS */}
             <motion.div 
@@ -43,9 +53,8 @@ const ReservaYMapa = () => {
                     </div>
                 </div>
 
-            {/* CONTENEDOR DEL WIDGET (Aquí puedes meter el iframe o script de Cal.com / Calendly) */}
+            {/* CONTENEDOR DEL WIDGET  */}
             <div className="calendar-embed-container">
-                {/* Te dejo un iframe elegante configurado para tema oscuro listo para cambiar por tu enlace */}
                 <iframe 
                     src="https://cal.com/mndesignweb/reserva-de-30-min" 
                     title="Reserva de citas"
@@ -80,7 +89,6 @@ const ReservaYMapa = () => {
                     className="leaflet-map-actual"
                 >
                     <TileLayer
-                        // AHORA (Claro/Positron)
                         url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
                     />

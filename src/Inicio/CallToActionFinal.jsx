@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './CallToActionFinal.css';
 
-// Aquí pones las palabras que quieras que vayan rotando
+
 const palabras = ["VENDEN.", "ENAMORAN.", "IMPACTAN.", "CONVIERTEN."];
 
 const CallToActionFinal = () => {
@@ -29,7 +30,7 @@ const CallToActionFinal = () => {
         <h2>
           Creamos experiencias digitales <br />
           que{' '}
-          {/* El wrapper es vital para que la altura no salte y se rompa el diseño */}
+
           <span className="texto-cambiante-wrapper">
             <AnimatePresence mode="wait">
               <motion.span
@@ -48,8 +49,13 @@ const CallToActionFinal = () => {
         
         <p className="cta-subtitle">¿Lista para llevar tu marca al siguiente nivel?</p>
         
-        {/* Reutilizamos las clases de tu botón premium del Hero */}
-        <button className="btn-empezar cta-btn">Empezar mi proyecto</button>
+        <Link 
+          to="/contacto#reserva-section" 
+          className="btn-empezar cta-btn"
+          style={{ display: 'inline-flex', justifyContent: 'center', textDecoration: 'none' }}
+        >
+          Empezar mi proyecto
+        </Link>
       </motion.div>
     </section>
   );

@@ -13,6 +13,13 @@ import Nosotros from './Nosotros.jsx';
 import Contacto from './Contacto.jsx';
 import DisenoWeb from './DisenoWeb.jsx';
 import Ecommerce from './Ecommerce.jsx';
+import PosicionamientoSeo from './PosicionamientoSeo.jsx';
+import RedesSociales from './RedesSociales.jsx';
+import PoliticaPrivacidad from './Legales/PoliticaPrivacidad.jsx';
+import AvisoLegal from './Legales/AvisoLegal.jsx';
+import PoliticaCookies from './Legales/PoliticaCookies.jsx'; 
+import CookieBanner from './Legales/CookieBanner';
+import NotFound from './NotFound';
 
 // Importamos los CSS globales
 import "./App.css";
@@ -33,6 +40,14 @@ function App() {
             <Route path="/contacto" element={<Contacto />} />
             <Route path="/disenoweb" element={<DisenoWeb />} />
             <Route path="/e-commerce" element={<Ecommerce />} />
+            <Route path="/posicionamiento-seo" element={<PosicionamientoSeo />} />
+            <Route path="/redes-sociales" element={<RedesSociales />} />
+            <Route path="/privacidad" element={<PoliticaPrivacidad />} />
+            <Route path="/aviso-legal" element={<AvisoLegal />} />
+            <Route path="/cookies" element={<PoliticaCookies />} />
+            <Route path="/cookies" element={<CookieBanner />} />
+            <Route path="*" element={<NotFound />} />
+
           </Routes>
 
           {/* El Footer siempre visible abajo */}

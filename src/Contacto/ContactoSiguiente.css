@@ -21,7 +21,7 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  justify-content: flex-start;; /* 🔥 Añadido para que se centre con el título de Contacto */
+  justify-content: flex-start; /* 🔥 Añadido para que se centre con el título de Contacto */
   gap: 8px;
   margin-bottom: 40px;
 }
@@ -54,15 +54,15 @@
 }
 
 .contacto-title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--deep-eggplant);
-  margin-bottom: 24px;
-  line-height: 1.2;
   font-family: 'Montserrat', sans-serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  font-weight: 900;
+  color: var(--deep-eggplant);
+  line-height: 1.1;
+  margin-bottom: 30px;
 }
 
-.text-gradient {
+.cont-text-gradient {
   font-size: 3rem;
   background: var(--electric-violet);
   -webkit-background-clip: text;
@@ -83,8 +83,6 @@
   align-items: flex-start;
 }
 
-
-
 /* COLUMNA IZQUIERDA: INFO */
 .info-column {
   display: flex;
@@ -93,7 +91,7 @@
 }
 
 .info-title {
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   margin-bottom: 25px;
   font-family: 'Montserrat', sans-serif;
@@ -160,26 +158,73 @@
   margin: 0;
 }
 
+/* ====================================================
+   RESPONSIVE (PC & TABLETS)
+   ==================================================== */
 @media (min-width: 768px) {
-    .contacto-title {
-        font-size: 3rem;
-    }
-    .hidden-mobile {
-        display: block;
-    }
+  .hidden-mobile {
+    display: none;
+  }
 
-    .hidden-mobile {
-        display: none;
-    }
+  .form-column {
+    padding: 40px;
+    position: sticky;
+    top: 120px; /* Para que al hacer scroll baje suavemente sin pisar tu navbar */
+  }
 
-    .form-column {
-        padding: 40px;
-        position: sticky;
-        top: 120px; /* Para que al hacer scroll baje suavemente sin pisar tu navbar */
-    }
-
-    .contacto-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-    }
+  .contacto-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+  }
 }
+
+/* ====================================================
+   RESPONSIVE MÓVIL (Pantallas pequeñas)
+   ==================================================== */
+@media (max-width: 767px) {
+  /* Alineación a la izquierda */
+  .contacto-header, 
+  .contacto-title, 
+  .cont-text-gradient {
+    text-align: left !important;
+  }
+
+  .contacto-header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .info-title {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+
+  .cont-text-gradient {
+    font-size: 2.1rem;
+    text-align: left; /* 🔥 Adiós al 'center' que rompía el diseño */
+    display: block;
+  }
+  /* 🔥 EL ORDEN DEFINITIVO 🔥 */
+  .contacto-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 40px !important;
+  }
+
+  /* Forzamos el orden por número, esto es infalible */
+  .info-column {
+    order: 1 !important;
+  }
+
+  .form-column {
+    order: 2 !important;
+    position: static !important; /* 🔥 ESTO ES LO QUE TE LO ARREGLA */
+    padding: 0 !important;
+  }
+}
+
+  
+

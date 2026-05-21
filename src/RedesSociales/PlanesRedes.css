@@ -1,0 +1,235 @@
+/* ====================================================
+   SECCIÓN DE PLANES (REDES SOCIALES)
+   ==================================================== */
+.rs-secciones-extras-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 70px 24px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 100px; /* Separación generosa entre bloques */
+}
+
+.rs-section-title-container {
+    margin-bottom: 50px;
+}
+
+.rs-section-title-container h2 {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--electric-violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+     font-size: clamp(2rem, 5vw, 2.6rem);
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.rs-section-subtitle {
+    font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem; 
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
+  margin-bottom: 20px
+}
+
+.rs-planes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    align-items: center;
+}
+
+.rs-plan-card {
+    background: #ffffff;
+    border: 1px solid rgba(126, 87, 194, 0.15);
+    padding: 40px 30px;
+    border-radius: 24px;
+    box-shadow: 0 4px 20px rgba(26, 16, 45, 0.02);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+}
+
+.rs-plan-card.destacado {
+    background: linear-gradient(145deg, #ffffff 0%, rgba(126, 87, 194, 0.05) 100%);
+    border: 2px solid var(--electric-violet);
+    box-shadow: 0 20px 40px rgba(126, 87, 194, 0.1);
+}
+
+.rs-badge-destacado {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--electric-violet);
+    font-family: 'Nunito', sans-serif;
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.rs-plan-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    color: var(--deep-eggplant);
+    margin-bottom: 8px;
+}
+
+.rs-plan-precio {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--electric-violet);
+    margin-bottom: 30px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.rs-plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.rs-plan-features li {
+    color: rgba(26, 16, 45, 0.8);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    line-height: 1.4;
+    font-family: 'Nunito', sans-serif;
+}
+
+.rs-plan-features li i {
+    color: var(--electric-violet);
+    margin-top: 4px;
+}
+
+.rs-btn-plan-primario, .rs-btn-plan-secundario {
+    font-size: 1rem;
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: auto;
+    display: inline-flex;    
+    font-family: 'Nunito', sans-serif;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.rs-btn-plan-primario {
+    background: var(--electric-violet);
+    color: #ffffff;
+    border: none;
+}
+
+.rs-btn-plan-primario:hover { box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3); }
+
+.rs-btn-plan-secundario {
+    background: transparent;
+    color: var(--electric-violet);
+    border: 2px solid rgba(126, 87, 194, 0.3);
+}
+
+.rs-btn-plan-secundario:hover {
+    background: var(--electric-violet);
+    color: #ffffff;
+}
+
+/* ====================================================
+   RESPONSIVE - TABLET (Entre 768px y 1024px)
+   ==================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  /* Padding y gaps generales */
+  .rs-secciones-extras-wrapper {
+    padding: 50px 25px 60px;
+    gap: 80px;
+  }
+
+  /* --- ARREGLO DE PLANES EN TABLET --- */
+  .rs-planes-grid {
+    grid-template-columns: 1fr 1fr; /* 2 columnas */
+    gap: 20px; 
+  }
+
+  /* La tarjeta destacada ocupa todo el ancho abajo */
+  .rs-plan-card.destacado {
+    grid-column: span 2; 
+    width: 90%;          /* Mucho más ancha que antes */
+    max-width: 500px;    /* Punto dulce para que no se deforme */
+    margin: 0 auto;
+    order: 3;         /* Forzamos que se vaya a la posición 3 (abajo) */
+    align-items: center;
+    text-align: center;
+  }
+
+  /* Aseguramos que las normales no tengan span raro */
+  .rs-plan-card:not(.destacado) {
+    grid-column: auto;
+  }
+
+  .rs-plan-card.destacado .rs-btn-plan-primario {
+    width: auto;
+    min-width: 350px;
+  }
+  
+
+}
+
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
+  .rs-section-title-container {
+    margin-bottom: 30px;
+  }
+
+  /* 1. Paddings de móvil */
+  .rs-secciones-extras-wrapper {
+    padding: 60px 20px 60px;
+    gap: 60px;
+  }
+  
+  /* 2. Ajustamos los Títulos (H2) */
+  .rs-section-title-container h2 {
+    font-size: 2rem !important;
+    line-height: 1.1;
+  }
+
+  .rs-section-subtitle {
+    text-align: left;
+  }
+
+  /* 3. Todos los grids pasan a 1 sola columna vertical */
+  .rs-planes-grid,
+  .rs-estructuras-grid {
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
+
+  /* Reset del span para que en móvil sea normal */
+  .rs-plan-card.destacado {
+    grid-column: span 1;
+    max-width: none;
+    margin: 0;
+  }
+
+  /* 4. Ajustes específicos para que las tarjetas respiren en móvil */
+  .rs-plan-card {
+    padding: 30px 20px;
+  }
+
+} 

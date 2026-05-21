@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion'; 
 import './DisenoWebSeccionesEspeciales.css';
 
@@ -15,6 +15,7 @@ const LottiePlayer = Lottie.default || Lottie;
 
 const DisenoWebSeccionesEspeciales = () => {
     const [imagenModal, setImagenModal] = useState(null);
+
 
     // Lista de estructuras con la Opción 6 añadida y rutas de imagen
     const estructuras = [
@@ -63,13 +64,42 @@ const DisenoWebSeccionesEspeciales = () => {
         }
     ];
 
+    // 🔥 EL EFECTO CON CANDADO DOBLE 🔥
+        useEffect(() => {
+            if (imagenModal) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = 'unset';
+            }
+            return () => { document.body.style.overflow = 'unset'; };
+        }, [imagenModal]);
+
+        useEffect(() => {
+            const hash = window.location.hash; 
+            if (hash) {
+                const element = document.querySelector(hash);
+                if (element) {
+                    setTimeout(() => {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }, 300);
+                }
+            }
+        }, []);
+    
+
     return (
         <div className="secciones-extras-wrapper">
         
-        {/* ===================================================
+            {/* ===================================================
             SECCIÓN 1: PLANES PREMIUM
             =================================================== */}
-            <section className="seccion-planes">
+            <motion.section 
+                className="seccion-planes"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="section-title-container">
                     <h2>Nuestros Planes Adaptados</h2>
                     <p className="section-subtitle">Soluciones transparentes para escalar tu negocio sin sorpresas.</p>
@@ -86,7 +116,14 @@ const DisenoWebSeccionesEspeciales = () => {
                         <li><i className="fa-solid fa-check"></i> Diseño 100% responsivo y ultra-rápido.</li>
                         <li><i className="fa-solid fa-check"></i> Formularios de contacto inteligentes.</li>
                         </ul>
-                        <button className="btn-plan-secundario">Solicitar presupuesto</button>
+                        <a 
+                            href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Básico%20de%20Diseño%20Web." 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn-plan-secundario"
+                        >
+                            Solicitar presupuesto
+                        </a>
                     </motion.div>
 
                     {/* Plan Impulso (DESTACADO) */}
@@ -101,7 +138,14 @@ const DisenoWebSeccionesEspeciales = () => {
                         <li><i className="fa-solid fa-check"></i> Calendario integrado y gestión de citas.</li>
                         <li><i className="fa-solid fa-check"></i> Mantenimiento web incluido primer año.</li>
                         </ul>
-                        <button className="btn-plan-primario">Solicitar presupuesto</button>
+                        <a 
+                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20Diseño%20Web." 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn-plan-primario"
+                        >
+                            Agendar consultoría
+                        </a>
                     </motion.div>
 
                     {/* Plan Esencial */}
@@ -114,15 +158,29 @@ const DisenoWebSeccionesEspeciales = () => {
                         <li><i className="fa-solid fa-check"></i> Optimización para IA (AEO/GEO).</li>
                         <li><i className="fa-solid fa-check"></i> Automatización de Marketing & CRM.</li>
                         </ul>
-                        <button className="btn-plan-secundario">Solicitar presupuesto</button>
+                        <a 
+                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20Diseño%20Web." 
+                            target="_blank" 
+                            rel="noopener noreferrer" 
+                            className="btn-plan-secundario"
+                        >
+                            Solicitar presupuesto
+                        </a>
                     </motion.div>
                 </div>
-            </section>
+            </motion.section>
 
         {/* ===================================================
             SECCIÓN 2: ESTRUCTURAS MÁS DEMANDADAS
             =================================================== */}
-            <section className="seccion-estructuras">
+            <motion.section 
+                id="estructuras-section"
+                className="seccion-estructuras"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="section-title-container">
                     <h2>¿Qué estructura necesita tu presencia digital?</h2>
                 </div>
@@ -158,12 +216,19 @@ const DisenoWebSeccionesEspeciales = () => {
                         </motion.div>
                     ))}
                 </div>
-            </section>
+            </motion.section>
 
         {/* ===================================================
             SECCIÓN 3: PORTFOLIO / GITHUB PREMIUM
             =================================================== */}
-            <section className="seccion-portfolio">
+            <motion.section 
+                id="portfolio-section"
+                className="seccion-portfolio"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
                 <div className="section-title-container">
                     <h2>Diseño a Medida de Alto Rendimiento</h2>
                     <p className="section-subtitle">Explora algunos proyectos reales optimizados en rendimiento y código limpio.</p>
@@ -271,7 +336,7 @@ const DisenoWebSeccionesEspeciales = () => {
                         </motion.div>
                     ))}
                 </div>
-            </section>
+            </motion.section>
 
             <AnimatePresence>
                 {imagenModal && (

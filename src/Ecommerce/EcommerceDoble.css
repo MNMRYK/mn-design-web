@@ -12,33 +12,44 @@
 
 .ecommerce-grid {
   display: grid;
-  /* 🔥 EL TRUCO PARA EVITAR LA EXPANSIÓN HORIZONTAL 🔥 */
-  /* En lugar de usar '1fr', usamos anchos fijos en píxeles.
-     600px + 60px (gap) + 600px = 1260px, lo cual encaja perfecto con el max-width de 1300px. */
-  grid-template-columns: 600px 600px;
+  grid-template-columns: 1fr 1fr;
+  /* El max-width aquí actúa como "techo" para que no se separen demasiado */
+  max-width: 1300px; 
+  width: 100%;
   gap: 60px;
-  max-width: 1300px;
   margin: 0 auto;
   align-items: start;
   box-sizing: border-box;
 }
-@media (max-width: 768px) {
+
+/* ====================================================
+   RESPONSIVE - TABLET (Entre 768px y 1024px)
+   ==================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
   .ecommerce-section-wrapper {
-    padding: 60px 5px 30px;
+    padding: 60px 25px 100px; /* Padding de chuleta */
+  }
+
+  .ecommerce-grid {
+    /* 🔥 FORZAMOS A 1 COLUMNA EN TABLET 🔥 */
+    grid-template-columns: 1fr;
+    max-width: 700px; /* Limitamos el ancho para que el form no sea gigantesco */
+    gap: 60px;
+  }
+}
+
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
+  .ecommerce-section-wrapper {
+    padding: 80px 20px 100px; /* Padding de chuleta */
   }
 
   .ecommerce-grid {
     /* En móvil pasamos a una sola columna que ocupa todo el ancho */
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 0 10px;
+    gap: 80px;
   }
 
-  .ecommerce-grid > *:nth-child(1) {
-    order: 2;
-  }
-
-  .ecommerce-grid > *:nth-child(2) {
-    order: 1;
-  }
 }

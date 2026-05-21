@@ -60,7 +60,7 @@
   text-align: center; /* phrase 1 centers itself */
 }
 
-.text-gradient {
+.diseno-text-gradient {
   background: var(--electric-violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -278,18 +278,103 @@
 }
 
 /* ====================================================
-   RESPONSIVE
+   RESPONSIVE - PC (Escritorio grande)
    ==================================================== */
-@media (min-width: 768px) {
-  .detalle-main-title { font-size: 3rem; }
+@media (min-width: 1025px) {
   .detalle-content-grid {
       grid-template-columns: 1fr 1fr;
       gap: 80px;
   }
-  .detalle-cards-grid { grid-template-columns: 1fr 1fr; }
+  .detalle-cards-grid { 
+      grid-template-columns: 1fr 1fr; 
+  }
 }
 
+/* ====================================================
+   RESPONSIVE - TABLET (iPad y similares)
+   ==================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .detalle-content-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+  }
+  .detalle-cards-grid { 
+      grid-template-columns: 1fr 1fr; 
+  }
+  .detalle-imagen-wrapper {
+      margin-top: 0 !important; /* 🔥 MAGIA TABLET: Quitamos el -100px para que no se suba al texto */
+  }
+  .diseno-text-gradient {
+      font-size: 2rem;
+  }
+}
+
+/* ====================================================
+   RESPONSIVE - MÓVIL (Pantallas pequeñas)
+   ==================================================== */
 @media (max-width: 767px) {
-  .beam-container { max-width: 100%; padding: 0 20px; }
-  .text-gradient { font-size: 2.2rem; }
+  .servicio-detalle-section {
+    padding: 100px 20px 20px;
+  }
+
+  /* --- TÍTULOS --- */
+  .detalle-header {
+    text-align: left; 
+  }
+  
+  .diseno-title { 
+    font-size: 2.6rem !important; 
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title-phrase-one {
+    text-align: center !important; /* 🔥 Título negro CENTRADO */
+    display: block;
+    width: 100%;
+  }
+
+  .diseno-text-gradient { 
+    font-size: 2rem !important; 
+    margin-top: 40px !important;
+    text-align: left !important; /* 🔥 Título morado a la IZQUIERDA */
+    display: block;
+    width: 100%;
+  }
+
+  /* --- BEAM (CORTAMOS LAS LÍNEAS) --- */
+  .detalle-imagen-wrapper {
+    min-height: 300px; /* Reducimos la altura */
+    margin-top: 0px !important; 
+    padding: 20px 25px !important; 
+    overflow: hidden !important; /* 🔥 ESTO ES LO QUE CORTA LAS LÍNEAS PARA QUE NO SE SALGAN */
+  }
+  
+  .beam-container { 
+    max-width: 100%; 
+    padding: 0; 
+  }
+
+  /* Hacemos los iconos más pequeños en móvil para que entren bien en la caja */
+  .beam-columna, .beam-caminos {
+    height: 250px !important; /* Acortamos la altura del SVG para que coincida */
+  }
+
+  .beam-nodo {
+    width: 45px !important; 
+    height: 45px !important; 
+    font-size: 1.2rem !important;
+  }
+
+  .nodo-final {
+    width: 80px !important; 
+    height: 80px !important;
+  }
+
+  /* --- TARJETAS --- */
+  .detalle-cards-grid { 
+    grid-template-columns: 1fr; 
+    gap: 20px;
+  }
 }

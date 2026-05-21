@@ -164,7 +164,7 @@ const DisenoWebSiguiente = () => {
               ¿Buscas una agencia que diseñe<br />
                tu proyecto?
             </div>
-            <span className="text-gradient">Diseño y Desarrollo Web</span>
+            <span className="diseno-text-gradient">Diseño y Desarrollo Web</span>
           </h1>
         </motion.div>
 

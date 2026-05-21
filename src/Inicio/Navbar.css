@@ -119,7 +119,7 @@
 .siglas { 
   font-family: 'Nunito', sans-serif;
   font-weight: 900; 
-  font-size: 2.3rem; 
+  font-size: 2.2rem; 
   color: var(--fondo-oscuro);
 }
 
@@ -228,7 +228,7 @@
   display: block;
   padding: 8px 12px;
   border-radius: 10px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 1rem;
   color: var(--dark-violet);

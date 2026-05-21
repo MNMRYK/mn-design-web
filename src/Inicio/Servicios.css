@@ -127,7 +127,7 @@
   }
 
   .servicios-section {
-    padding: 0px 50px 50px; /* Reducimos un poco el padding lateral en tablet */
+    padding: 80px 50px 150px; /* Reducimos un poco el padding lateral en tablet */
   }
   .servicios-header {
     gap: 10px;

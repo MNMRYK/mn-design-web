@@ -126,7 +126,7 @@
 .ecommerce-features {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 50px;
 }
 
 .feat-card {
@@ -231,3 +231,108 @@
   color: var(--deep-eggplant) !important;
 }
 
+/* ====================================================
+   RESPONSIVE - PC (Escritorio grande)
+   ==================================================== */
+@media (min-width: 1025px) {
+  .ecommerce-main-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+  }
+
+  .ecommerce-features { 
+      grid-template-columns: repeat(4, 1fr); 
+  }
+}
+/* ====================================================
+   RESPONSIVE - TABLET (iPad y similares)
+   ==================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .ecommerce-main-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+  }
+  .ecommerce-features { 
+      grid-template-columns: 1fr 1fr; 
+  }
+  .ecommerce-imagen-wrapper {
+      margin-top: 0 !important; 
+  }
+  .ec-text-gradient {
+      font-size: 2rem;
+  }
+}
+
+/* ====================================================
+   RESPONSIVE - MÓVIL (Menos de 768px)
+   ==================================================== */
+@media (max-width: 767px) {
+  .ecommerce-section {
+    padding: 100px 20px 20px;
+  }
+
+  /* 🔥 REORDENACIÓN Y COLUMNA EN MÓVIL 🔥 */
+  .ecommerce-main-grid {
+    display: flex;         /* Cambiamos de grid a flex para reordenar */
+    flex-direction: column; /* Apilamos en columna */
+    gap: 40px;
+  }
+
+  /* El texto arriba (Orden 1) */
+  .ecommerce-columna-izq {
+    order: 1;
+  }
+
+  /* 🔥 SOLUCIÓN ORBITA: Escalado dinámico 🔥 */
+  .ecommerce-imagen-wrapper {
+    order: 2;
+    min-height: 330px; 
+    margin-top: 10px !important; /* Damos un poco más de aire */
+    padding: 10px !important; 
+    overflow: hidden !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .orbit-wrapper {
+    /* Aquí está el truco: escalamos la animación al 65% en móvil */
+    transform: scale(0.65); 
+    transform-origin: center center;
+    /* Aseguramos que ocupe el espacio sin romper el layout */
+    width: 100%;
+    height: 100%;
+  }
+
+  /* --- TÍTULOS --- */
+  .ecommerce-header {
+    text-align: left; 
+  }
+  
+  .ecommerce-title { 
+    font-size: 2.6rem !important; 
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ec-title-phrase-one {
+    text-align: center !important; 
+    display: block;
+    width: 100%;
+  }
+
+  .ec-text-gradient { 
+    font-size: 2rem !important; 
+    margin-top: 40px !important;
+    text-align: left !important; 
+    display: block;
+    width: 100%;
+  }
+
+  /* --- FEATURES GRID (2x2 en móvil para que no sea tan largo) --- */
+  .ecommerce-features {
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+  }
+}
