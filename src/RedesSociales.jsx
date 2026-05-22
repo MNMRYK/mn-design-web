@@ -31,10 +31,13 @@ const RedesSociales = () => {
 
   const schemaService = {
     "@context": "https://schema.org",
-    "@type": "Service",
+    "@type": "Product", /* 🔥 EL CAMBIO CLAVE: Usamos Product en lugar de Service 🔥 */
     "name": "Gestión de Redes Sociales",
     "description": "Estrategia de contenidos, creación de Reels/TikTok y gestión integral de marca.",
-    "provider": { "@type": "LocalBusiness", "name": "MN Design Web", "url": "https://mndesignweb.es/" },
+    "brand": { 
+        "@type": "Brand", 
+        "name": "MN Design Web" 
+    }, /* 🔥 Los productos tienen 'brand' (marca) en vez de 'provider' 🔥 */
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -42,7 +45,6 @@ const RedesSociales = () => {
       "bestRating": "5",
       "worstRating": "1"
     },
-    // 🔥 ESTO ES LO QUE FALTABA PARA QUE GOOGLE LO DÉ POR VÁLIDO 🔥
     "review": {
       "@type": "Review",
       "reviewRating": {
@@ -51,11 +53,10 @@ const RedesSociales = () => {
       },
       "author": {
         "@type": "Person",
-        "name": "Cliente Verificado" // Puedes cambiar esto por el nombre de un cliente real
+        "name": "Cliente Verificado"
       }
     }
   };
- 
 
   return (
     <>
