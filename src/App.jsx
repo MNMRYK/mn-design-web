@@ -15,6 +15,7 @@ import DisenoWeb from './DisenoWeb.jsx';
 import Ecommerce from './Ecommerce.jsx';
 import PosicionamientoSeo from './PosicionamientoSeo.jsx';
 import RedesSociales from './RedesSociales.jsx';
+import Portfolio from './Portfolio.jsx';
 import PoliticaPrivacidad from './Legales/PoliticaPrivacidad.jsx';
 import AvisoLegal from './Legales/AvisoLegal.jsx';
 import PoliticaCookies from './Legales/PoliticaCookies.jsx'; 
@@ -42,6 +43,7 @@ function App() {
             <Route path="/e-commerce" element={<Ecommerce />} />
             <Route path="/posicionamiento-seo" element={<PosicionamientoSeo />} />
             <Route path="/redes-sociales" element={<RedesSociales />} />
+            <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/privacidad" element={<PoliticaPrivacidad />} />
             <Route path="/aviso-legal" element={<AvisoLegal />} />
             <Route path="/cookies" element={<PoliticaCookies />} />

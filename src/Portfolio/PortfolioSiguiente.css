@@ -1,0 +1,144 @@
+.portfolio-mantenimiento {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--deep-eggplant, #1a102d);
+  color: white;
+  padding: 100px 30px;
+  font-family: 'Nunito', sans-serif;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.portfolio-header h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  color: #ece8ff;
+}
+
+.portfolio-header p {
+  color: #bfa5ff;
+  font-size: 1.1rem;
+}
+
+/* --- COLORES DEL CÓDIGO (Tus brand colors) --- */
+.fn  { color: #ff85c0; }       /* Funciones (Rosa claro) */
+.str { color: #a1f2c2; }       /* Strings (Verde menta) */
+.var { color: #c69eff; }       /* Variables (Violeta claro) */
+.kw  { color: #9c46ff; font-weight: bold; } /* Keywords (Tu violeta principal) */
+.op  { color: #ffffff; }       /* Operadores (Blanco) */
+
+.animation-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+  min-height: 370px;
+}
+
+/* CAJA DE LA ANIMACIÓN */
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 66ch;
+  padding: 2rem;
+  min-height: 370px !important; 
+  height: 370px !important;     
+  
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(156, 70, 255, 0.3);
+  color: #ece8ff;
+  border-radius: 1rem;
+  font-family: monospace;
+  font-size: 1.1rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.container pre {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.container .waapi,
+.container.show-animejs .animejs {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.container .animejs,
+.container.show-animejs .waapi {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
+.container .waapi span,
+.container.show-animejs .animejs span {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.container .animejs span,
+.container.show-animejs .waapi span {
+  display: none;
+}
+
+/* FOOTER CON BOTÓN Y SOCIALES */
+.portfolio-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn-volver-inicio {
+  background-color: #9c46ff;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-volver-inicio:hover {
+  background-color: #7b2cbf;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(156, 70, 255, 0.4);
+}
+
+.portfolio-sociales {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.portfolio-sociales a {
+  color: #bfa5ff;
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.portfolio-sociales a:hover {
+  color: #ffffff;
+  transform: scale(1.2) rotate(5deg);
+}
+
+@media (max-width: 768px) {
+  .container { 
+     font-size: 0.9rem; 
+     padding: 1.5rem; 
+     min-height: 480px; /* Un poco más alto en móvil por si el texto hace salto de línea */
+  }
+  .portfolio-header h1 { font-size: 2rem; }
+}
