@@ -38,7 +38,7 @@ const Footer = () => {
                 <li><a href="/disenoweb">Diseño Web</a></li>
                 <li><a href="/e-commerce">E-commerce / Tienda Online</a></li>
                 <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
-                <li><a href="/contacto#reserva-section">Mantenimiento Web</a></li>
+                <li><a href="/contacto#calendario-reserva">Mantenimiento Web</a></li>
                 <li><a href="/redes-sociales">Gestión Redes Sociales</a></li>
               </ul>
             </div>

@@ -25,7 +25,7 @@ const serviciosData = [
     title: "Mantenimiento y Optimización",
     desc: "Nos ocupamos de que tu web esté siempre rápida, segura y actualizada. ¡Hablemos de tu caso!",
     icon: "fas fa-cogs",
-    link: "/contacto#reserva-section" 
+    link: "/contacto#calendario-reserva" 
   },
   {
     title: "Gestión de Redes Sociales",

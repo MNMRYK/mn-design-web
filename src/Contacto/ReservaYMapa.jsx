@@ -17,23 +17,25 @@ const ReservaYMapa = () => {
   const posicion = [38.73891339445123, -0.440249004021603]; 
 
     useEffect(() => {
-        const hash = window.location.hash; 
-        if (hash === '#reserva-section') {
-            const element = document.querySelector(hash);
+        const hash = window.location.hash;
+        if (hash === '#calendario-reserva') { // Asegúrate de que esto coincida con el ID del div
+            const element = document.getElementById('calendario-reserva');
             if (element) {
+                // Aumentamos el tiempo de espera y usamos scrollIntoView con margen
                 setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }, 300); // Pequeña pausa para asegurar que el mapa cargó
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 800); // 800ms da tiempo a que el iframe y el mapa carguen
             }
         }
     }, []);
 
   return (
     <section className="reserva-mapa-section tema-oscuro">
-        <div id="reserva-section" className="reserva-mapa-container">
+        <div className="reserva-mapa-container">
             
             {/* 🗓️ COLUMNA IZQUIERDA: EL CALENDARIO DE RESERVAS */}
             <motion.div 
+                id="calendario-reserva"
                 className="booking-wrapper"
                 initial={{ opacity: 0, x: -50 }}
                 whileInView={{ opacity: 1, x: 0 }}

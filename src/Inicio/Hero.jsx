@@ -26,7 +26,12 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <HashLink to="/contacto#reserva-section" className="btn-empezar" smooth>
+          <HashLink 
+            to="/contacto#calendario-reserva" 
+            className="btn-empezar" 
+            smooth
+            scroll={(el) => setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 500)}
+          >
             Empezar proyecto
           </HashLink>
           
