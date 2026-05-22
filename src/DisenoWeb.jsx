@@ -1,17 +1,31 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, lazy, Suspense } from 'react'; // 🔥 Importamos herramientas
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
 import { Helmet } from 'react-helmet-async';
+import { useInView } from 'framer-motion'; // 🔥 Importamos el sensor
 
+// 1. CARGA INMEDIATA: Hero
 import DisenoWebSiguiente from './DisenoWeb/DisenoWebSiguiente.jsx';
-import DisenoWebSeccionesEspeciales from './DisenoWeb/DisenoWebSeccionesEspeciales.jsx';
-import ResponsiveShowcase from './DisenoWeb/ResponsiveShowcase.jsx';
-import DisenoDoble from './DisenoWeb/DisenoDoble.jsx';
+
+// 2. CARGA DIFERIDA (LAZY): Componentes pesados
+const DisenoWebSeccionesEspeciales = lazy(() => import('./DisenoWeb/DisenoWebSeccionesEspeciales.jsx'));
+const ResponsiveShowcase = lazy(() => import('./DisenoWeb/ResponsiveShowcase.jsx'));
+const DisenoDoble = lazy(() => import('./DisenoWeb/DisenoDoble.jsx'));
 
 const DisenoWeb = () => {
+
+  // 🔥 SENSORES DE PROXIMIDAD 🔥
+  const refSecciones = useRef(null);
+  const isInViewSecciones = useInView(refSecciones, { once: true, margin: "400px" });
+
+  const refShowcase = useRef(null);
+  const isInViewShowcase = useInView(refShowcase, { once: true, margin: "400px" });
+
+  const refDoble = useRef(null);
+  const isInViewDoble = useInView(refDoble, { once: true, margin: "400px" });
+
 
   // 🔥 1. GUARDAMOS EL JSON EN UNA VARIABLE (Antes de los efectos)
   const schemaFAQ = {
@@ -55,7 +69,7 @@ const DisenoWeb = () => {
         "name": "¿Mi web aparecerá en los primeros resultados de Google?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No solo diseñamos; optimizamos la estructura técnica para el posicionamiento en buscadores (SEO). Usamos herramientas como Rank Math y datos estructurados para que Google rastree, entienda y priorice tu contenido frente a tu competencia."
+          "text": "No solo diseñamos; optimizamos la structure técnica para el posicionamiento en buscadores (SEO). Usamos herramientas como Rank Math y datos estructurados para que Google rastree, entienda y priorice tu contenido frente a tu competencia."
         }
       },
       {
@@ -101,7 +115,6 @@ const DisenoWeb = () => {
     ]
   };
 
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
@@ -122,8 +135,6 @@ const DisenoWeb = () => {
     };
   }, []);
 
-// ... dentro de tu componente DisenoWeb ...
-
   return (
     <>
       <Helmet>
@@ -143,11 +154,36 @@ const DisenoWeb = () => {
         <meta name="twitter:description" content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir." />
         <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
       </Helmet>
+      
       <div className="disenoweb-page-wrapper">
+        
+        {/* Renderizado inmediato */}
         <DisenoWebSiguiente />
-        <DisenoWebSeccionesEspeciales />
-        <ResponsiveShowcase />
-        <DisenoDoble />
+        
+        {/* 🔥 CARGA DIFERIDA CON SENSORES 🔥 */}
+        <div ref={refSecciones} style={{ minHeight: '80vh' }}>
+          {isInViewSecciones && (
+            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando planes y estructuras...</div>}>
+              <DisenoWebSeccionesEspeciales />
+            </Suspense>
+          )}
+        </div>
+
+        <div ref={refShowcase} style={{ minHeight: '80vh' }}>
+          {isInViewShowcase && (
+            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando portfolio...</div>}>
+              <ResponsiveShowcase />
+            </Suspense>
+          )}
+        </div>
+
+        <div ref={refDoble} style={{ minHeight: '60vh' }}>
+          {isInViewDoble && (
+            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando contacto...</div>}>
+              <DisenoDoble />
+            </Suspense>
+          )}
+        </div>
         
         {/* JSON-LD ÚNICO Y BIEN CERRADO */}
         <script

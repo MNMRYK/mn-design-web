@@ -1,16 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, lazy, Suspense } from 'react'; // 🔥 Importamos lazy, Suspense y useRef
 import { Helmet } from 'react-helmet-async';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
+import { useInView } from 'framer-motion'; // 🔥 Importamos el sensor
 
+// 1. CARGA INMEDIATA: La primera sección que se ve al entrar (Hero de Nosotros)
 import NosotrosSiguiente from './Nosotros/NosotrosSiguiente';
-import MetodologiaSticky from './Nosotros/MetodologiaSticky';
-import DamosForma from './Nosotros/DamosForma';
-import CierreProximity from './Nosotros/CierreProximity';
+
+// 2. CARGA DIFERIDA (LAZY): Secciones que están más abajo
+const MetodologiaSticky = lazy(() => import('./Nosotros/MetodologiaSticky'));
+const DamosForma = lazy(() => import('./Nosotros/DamosForma'));
+const CierreProximity = lazy(() => import('./Nosotros/CierreProximity'));
 
 const Nosotros = () => {
+
+  // 🔥 SENSORES PARA LAS SECCIONES DE ABAJO 🔥
+  const refMetodologia = useRef(null);
+  const isInViewMetodologia = useInView(refMetodologia, { once: true, margin: "400px" });
+
+  const refDamosForma = useRef(null);
+  const isInViewDamosForma = useInView(refDamosForma, { once: true, margin: "400px" });
+
+  const refCierre = useRef(null);
+  const isInViewCierre = useInView(refCierre, { once: true, margin: "400px" });
 
   const schemaFAQ = {
     "@context": "https://schema.org",
@@ -70,12 +84,38 @@ const Nosotros = () => {
         <meta name="twitter:description" content="Conoce al equipo detrás de MN Design Web. Creamos experiencias digitales únicas." />
         <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
       </Helmet>
+      
       <div className="nosotros-page-wrapper">
+        
+        {/* CARGA INMEDIATA */}
         <NosotrosSiguiente />
-        <MetodologiaSticky />
-        <DamosForma />
-        <CierreProximity />
+        
+        {/* 🔥 CARGA DIFERIDA CON SENSORES 🔥 */}
+        <div ref={refMetodologia} style={{ minHeight: '100vh' }}>
+            {isInViewMetodologia && (
+                <Suspense fallback={<div>Cargando Metodología...</div>}>
+                    <MetodologiaSticky />
+                </Suspense>
+            )}
+        </div>
 
+        <div ref={refDamosForma} style={{ minHeight: '80vh' }}>
+            {isInViewDamosForma && (
+                <Suspense fallback={<div>Cargando...</div>}>
+                    <DamosForma />
+                </Suspense>
+            )}
+        </div>
+
+        <div ref={refCierre} style={{ minHeight: '50vh' }}>
+            {isInViewCierre && (
+                <Suspense fallback={<div>Cargando Cierre...</div>}>
+                    <CierreProximity />
+                </Suspense>
+            )}
+        </div>
+
+        {/* METADATOS SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ 
