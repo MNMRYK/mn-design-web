@@ -27,13 +27,14 @@
   position: absolute;
   inset: 0;
   border-radius: 50px;
-  z-index: -1; /* Lo mandamos detrás del texto */
+  z-index: 2; /* Lo mandamos detrás del texto */
   transition: background 0.4s ease, box-shadow 0.4s ease, border 0.4s ease, backdrop-filter 0.4s ease;
 }
 
 /* Transición para los colores de texto */
 .navbar-header * {
   transition: color 0.4s ease, filter 0.4s ease;
+  z-index: 2; /* Lo mandamos detrás del texto */
 }
 
 /* ====================================================
