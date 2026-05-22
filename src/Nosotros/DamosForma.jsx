@@ -1,6 +1,7 @@
 import React from 'react';
 import ScrollStack, { ScrollStackItem } from './ScrollStack'; 
 import TrueFocus from './TrueFocus'; 
+import { Link } from 'react-router-dom';
 import { Player } from '@lottiefiles/react-lottie-player';
 import './DamosForma.css';
 import aniAnalitica from '../assets/animations/analitica4.json';
@@ -75,7 +76,11 @@ const DamosForma = () => {
                                         {mainTitle} <span className="title-gradient">{lastWord}</span>
                                     </h3>
                                     <p>{item.desc}</p>
-                                    {item.isFinal && <button className="cta-stack">¡EMPECEMOS YA!</button>}
+                                    {item.isFinal && (
+                                        <Link to="/contacto#calendario-reserva" className="cta-stack btn-empezar-final">
+                                            ¡EMPECEMOS YA!
+                                        </Link>
+                                    )}
                                 </div>
                                 <div className="card-image lottie-container">
                                     {/* 🔥 LA MAGIA OCURRE AQUÍ 🔥 */}

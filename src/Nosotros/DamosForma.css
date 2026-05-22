@@ -154,6 +154,13 @@
   background-color: #f8f5ff; /* Un blanco lila muy sutil al pasar el ratón */
 }
 
+.cta-stack.btn-empezar-final {
+    display: inline-block; /* Crucial para que los márgenes y paddings funcionen en una etiqueta 'a' */
+    text-decoration: none; /* Quita el subrayado feo de los enlaces */
+    text-align: center;
+    /* (El resto de estilos de color y fondo ya los heredará de tu clase original .cta-stack) */
+}
+
 /* =========================================
    📱 RESPONSIVE: TABLET Y MÓVIL
    ========================================= */

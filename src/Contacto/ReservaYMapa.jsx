@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import { motion } from 'framer-motion';
@@ -27,6 +27,16 @@ const ReservaYMapa = () => {
                 }, 800); // 800ms da tiempo a que el iframe y el mapa carguen
             }
         }
+    }, []);
+
+    const [esMovil, setEsMovil] = useState(window.innerWidth <= 1024);
+
+    useEffect(() => {
+        const comprobarResolucion = () => {
+            setEsMovil(window.innerWidth <= 1024);
+        };
+        window.addEventListener('resize', comprobarResolucion);
+        return () => window.removeEventListener('resize', comprobarResolucion);
     }, []);
 
   return (
@@ -61,7 +71,7 @@ const ReservaYMapa = () => {
                     src="https://cal.com/mndesignweb/reunion-30-min" 
                     title="Reserva de citas"
                     frameBorder="0" 
-                    scrolling="no"
+                    scrolling={esMovil ? "auto" : "no"}
                     className="calendar-iframe"
                 />
             </div>

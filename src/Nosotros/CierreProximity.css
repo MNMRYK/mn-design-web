@@ -14,7 +14,7 @@
 
 /* LA MAGIA DEL BLUR REVEAL */
 .blur-reveal-container {
-  max-width: 1200px; /* Limitamos el ancho para que la frase rompa de forma bonita */
+  max-width: 1100px; /* Limitamos el ancho para que la frase rompa de forma bonita */
   filter: blur(20px);
   opacity: 0;
   width: 100%; /* 🔥 1. Le decimos que ocupe todo el ancho posible */
