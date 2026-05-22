@@ -138,8 +138,10 @@
   .soluciones-subtitle {
     display: block; /* 🔥 AQUÍ ESTÁ LA MAGIA: Fuerza el salto de línea solo en móvil 🔥 */
     margin-left: 0; /* Le quitamos el margen lateral porque ya no hace falta */
-    margin-top: 10px; /* El empujón hacia abajo que querías */
-    font-size: 1.2rem;
+    margin-top: 15px; /* El empujón hacia abajo que querías */
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: var(--deep-eggplant);
   }
 
   .soluciones-main-title {
