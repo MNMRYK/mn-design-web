@@ -45,7 +45,6 @@ function App() {
             <Route path="/privacidad" element={<PoliticaPrivacidad />} />
             <Route path="/aviso-legal" element={<AvisoLegal />} />
             <Route path="/cookies" element={<PoliticaCookies />} />
-            <Route path="/cookies" element={<CookieBanner />} />
             <Route path="*" element={<NotFound />} />
 
           </Routes>
@@ -64,8 +63,9 @@ function App() {
           </a>
         </main>
 
+        <CookieBanner />
+
         {/* 🔥 2. PLANTAMOS EL CONTENEDOR DE ALERTAS 🔥 */}
-        {/* Le decimos que salgan abajo a la derecha y que duren 4 segundos */}
         <Toaster 
           position="bottom-right" 
           reverseOrder={false}
