@@ -35,19 +35,19 @@ const Footer = () => {
             <div className="footer-column">
               <h3>ESPECIALIDADES</h3>
               <ul>
-                <li><a href="#diseno">Diseño Web</a></li>
-                <li><a href="#ecommerce">E-commerce / Tienda Online</a></li>
-                <li><a href="#seo">Posicionamiento SEO</a></li>
-                <li><a href="#mantenimiento">Mantenimiento Web</a></li>
-                <li><a href="#rrss">Gestión Redes Sociales</a></li>
+                <li><a href="/diseno">Diseño Web</a></li>
+                <li><a href="/ecommerce">E-commerce / Tienda Online</a></li>
+                <li><a href="/seo">Posicionamiento SEO</a></li>
+                <li><a href="/mantenimiento">Mantenimiento Web</a></li>
+                <li><a href="/rrss">Gestión Redes Sociales</a></li>
               </ul>
             </div>
 
             <div className="footer-column">
               <h3>EMPRESA</h3>
               <ul>
-                <li><a href="#contacto">Contacto</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="/contacto">Contacto</a></li>
+                <li><a href="/nosotros">Nosotros</a></li>
               </ul>
             </div>
           </div>

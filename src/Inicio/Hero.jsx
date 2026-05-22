@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Hero.css';
 
 const Hero = () => {
@@ -26,14 +26,14 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.8 }}
         >
-          <Link to="/contacto#reserva-section" className="btn-empezar">
+          <HashLink to="/contacto#reserva-section" className="btn-empezar" smooth>
             Empezar proyecto
-          </Link>
+          </HashLink>
           
           {/* Enlace directo a tu página de portfolio */}
-          <Link to="/portfolio" className="btn-portfolio">
+          <HashLink to="/portfolio" className="btn-portfolio" smooth>
             Ver Portfolio
-          </Link>
+          </HashLink>
         </motion.div>
 
         {/* 3. SUBTÍTULO: Aparece el último, cerrando la composición */}

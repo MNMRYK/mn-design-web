@@ -43,8 +43,8 @@
 .navbar-header.top::before {
   background: rgba(156, 70, 255, 0.3); 
   background: rgba(156, 70, 255, 0.3); 
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.3); 
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
 }
@@ -62,8 +62,8 @@
    ==================================================== */
 .navbar-header.scrolled::before {
   background: rgba(156, 70, 255, 0.3); 
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.3); 
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
 }
@@ -204,8 +204,8 @@
   padding: 15px;
   margin: 0;
   background: rgba(156, 70, 255, 0.30); /* Un poco más sutil */
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
   border: 1px solid rgba(255, 255, 255, 0.3); 
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
   border-radius: 20px;
@@ -315,8 +315,8 @@
     left: 0;
     right: 0; 
     background: rgba(156, 70, 255, 0.30); 
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
     border: 1px solid rgba(255, 255, 255, 0.3); 
     box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
     border-radius: 20px;
@@ -375,8 +375,8 @@
     position: static; 
     /* 🔥 MATAMOS AL FANTASMA DEL ESCRITORIO 🔥 */
     background: transparent !important; 
-    backdrop-filter: none;         /* Anulamos el blur heredado */
-    -webkit-backdrop-filter: none; /* Anulamos el blur heredado en Safari */
+    backdrop-filter: none !important;         /* Anulamos el blur heredado */
+    -webkit-backdrop-filter: none !important; /* Anulamos el blur heredado en Safari */
     border: none;
     box-shadow: none;
     padding: 0;
