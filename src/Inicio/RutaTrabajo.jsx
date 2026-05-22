@@ -75,8 +75,8 @@ const RutaTrabajo = () => {
     }, []);
 
   return (
-    <div className="ruta-wrapper" ref={containerRef}>
-      <h3 className="ruta-titulo-principal tema-oscuro">Nuestra metodología</h3>
+    <div className="ruta-wrapper tema-oscuro" ref={containerRef}>
+      <h3 className="ruta-titulo-principal">Nuestra metodología</h3>
       
         <div className="ruta-timeline">
             <div className="ruta-linea-fondo"></div>
