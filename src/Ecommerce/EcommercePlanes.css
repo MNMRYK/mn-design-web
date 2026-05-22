@@ -418,7 +418,7 @@
   /* 1. Paddings de móvil */
   .ec-secciones-extras-wrapper {
     padding: 50px 20px 60px;
-    gap: 60px;
+    gap: 100px;
   }
   
   /* 2. Ajustamos los Títulos (H2) */

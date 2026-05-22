@@ -260,3 +260,13 @@
     min-width: unset; /* Quitamos el ancho mínimo de escritorio */
   }
 }
+
+@media (max-width: 380px) {
+
+  .btn-empezar, .btn-portfolio {
+    width: 100%;
+    padding: 14px; /* Un grosor cómodo para el dedo pero no gigante */
+    font-size: 0.9rem;
+    min-width: unset; /* Quitamos el ancho mínimo de escritorio */
+  }
+}
