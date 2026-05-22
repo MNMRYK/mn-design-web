@@ -1,30 +1,47 @@
-import React from "react";
+import React, { lazy, Suspense } from "react"; // 🔥 1. Importamos lazy y Suspense
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import { Toaster } from 'react-hot-toast';
 
-// Importamos el esqueleto global
+// 📦 COMPONENTES GLOBALES (NO se hacen lazy porque se ven en TODAS las páginas)
 import Navbar from './Inicio/Navbar';
 import Footer from './Inicio/Footer';
-
-// Importamos tus "Páginas" enteras
-import Inicio from './Inicio.jsx'; 
-import Nosotros from './Nosotros.jsx'; 
-import Contacto from './Contacto.jsx';
-import DisenoWeb from './DisenoWeb.jsx';
-import Ecommerce from './Ecommerce.jsx';
-import PosicionamientoSeo from './PosicionamientoSeo.jsx';
-import RedesSociales from './RedesSociales.jsx';
-import Portfolio from './Portfolio.jsx';
-import PoliticaPrivacidad from './Legales/PoliticaPrivacidad.jsx';
-import AvisoLegal from './Legales/AvisoLegal.jsx';
-import PoliticaCookies from './Legales/PoliticaCookies.jsx'; 
 import CookieBanner from './Legales/CookieBanner';
-import NotFound from './NotFound';
+
+// 🚀 IMPORTS DINÁMICOS (LA DIETA): Solo se descargan cuando el usuario hace clic
+const Inicio = lazy(() => import('./Inicio.jsx')); 
+const Nosotros = lazy(() => import('./Nosotros.jsx')); 
+const Contacto = lazy(() => import('./Contacto.jsx'));
+const DisenoWeb = lazy(() => import('./DisenoWeb.jsx'));
+const Ecommerce = lazy(() => import('./Ecommerce.jsx'));
+const PosicionamientoSeo = lazy(() => import('./PosicionamientoSeo.jsx'));
+const RedesSociales = lazy(() => import('./RedesSociales.jsx'));
+const Portfolio = lazy(() => import('./Portfolio.jsx'));
+const PoliticaPrivacidad = lazy(() => import('./Legales/PoliticaPrivacidad.jsx'));
+const AvisoLegal = lazy(() => import('./Legales/AvisoLegal.jsx'));
+const PoliticaCookies = lazy(() => import('./Legales/PoliticaCookies.jsx')); 
+const NotFound = lazy(() => import('./NotFound'));
 
 // Importamos los CSS globales
 import "./App.css";
 import "./Inicio/Navbar.css";
+
+// Un pequeño componente de carga para cuando saltas de una página a otra
+const PantallaCarga = () => (
+  <div style={{
+    height: '100vh', 
+    backgroundColor: 'var(--deep-eggplant, #1a102d)', // Tu color de fondo
+    display: 'flex', 
+    justifyContent: 'center', 
+    alignItems: 'center',
+    color: '#ece8ff',
+    fontFamily: 'Montserrat, sans-serif',
+    fontSize: '1.2rem',
+    fontWeight: 'bold'
+  }}>
+    Cargando experiencia...
+  </div>
+);
 
 function App() {
   return (
@@ -34,22 +51,24 @@ function App() {
           {/* El Navbar siempre visible arriba */}
           <Navbar />
           
-          {/* 🔥 ESTE ES EL SEMÁFORO QUE CAMBIA LA PÁGINA 🔥 */}
-          <Routes>
-            <Route path="/" element={<Inicio />} />
-            <Route path="/nosotros" element={<Nosotros />} />
-            <Route path="/contacto" element={<Contacto />} />
-            <Route path="/disenoweb" element={<DisenoWeb />} />
-            <Route path="/e-commerce" element={<Ecommerce />} />
-            <Route path="/posicionamiento-seo" element={<PosicionamientoSeo />} />
-            <Route path="/redes-sociales" element={<RedesSociales />} />
-            <Route path="/portfolio" element={<Portfolio />} />
-            <Route path="/privacidad" element={<PoliticaPrivacidad />} />
-            <Route path="/aviso-legal" element={<AvisoLegal />} />
-            <Route path="/cookies" element={<PoliticaCookies />} />
-            <Route path="*" element={<NotFound />} />
-
-          </Routes>
+          {/* 🔥 2. EL FILTRO SUSPENSE: Envuelve a tus rutas */}
+          <Suspense fallback={<PantallaCarga />}>
+            {/* ESTE ES EL SEMÁFORO QUE CAMBIA LA PÁGINA */}
+            <Routes>
+              <Route path="/" element={<Inicio />} />
+              <Route path="/nosotros" element={<Nosotros />} />
+              <Route path="/contacto" element={<Contacto />} />
+              <Route path="/disenoweb" element={<DisenoWeb />} />
+              <Route path="/e-commerce" element={<Ecommerce />} />
+              <Route path="/posicionamiento-seo" element={<PosicionamientoSeo />} />
+              <Route path="/redes-sociales" element={<RedesSociales />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              <Route path="/privacidad" element={<PoliticaPrivacidad />} />
+              <Route path="/aviso-legal" element={<AvisoLegal />} />
+              <Route path="/cookies" element={<PoliticaCookies />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
 
           {/* El Footer siempre visible abajo */}
           <Footer />
@@ -67,14 +86,14 @@ function App() {
 
         <CookieBanner />
 
-        {/* 🔥 2. PLANTAMOS EL CONTENEDOR DE ALERTAS 🔥 */}
+        {/* CONTENEDOR DE ALERTAS */}
         <Toaster 
           position="bottom-right" 
           reverseOrder={false}
           toastOptions={{
             duration: 4000,
             style: {
-              fontFamily: 'Nunito, sans-serif', // Tu fuente corporativa
+              fontFamily: 'Nunito, sans-serif',
             },
           }}
         />
