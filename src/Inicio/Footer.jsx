@@ -35,11 +35,11 @@ const Footer = () => {
             <div className="footer-column">
               <h3>ESPECIALIDADES</h3>
               <ul>
-                <li><a href="/diseno">Diseño Web</a></li>
-                <li><a href="/ecommerce">E-commerce / Tienda Online</a></li>
-                <li><a href="/seo">Posicionamiento SEO</a></li>
-                <li><a href="/mantenimiento">Mantenimiento Web</a></li>
-                <li><a href="/rrss">Gestión Redes Sociales</a></li>
+                <li><a href="/disenoweb">Diseño Web</a></li>
+                <li><a href="/e-commerce">E-commerce / Tienda Online</a></li>
+                <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
+                <li><a href="/contacto#reserva-section">Mantenimiento Web</a></li>
+                <li><a href="/redes-sociales">Gestión Redes Sociales</a></li>
               </ul>
             </div>
 
