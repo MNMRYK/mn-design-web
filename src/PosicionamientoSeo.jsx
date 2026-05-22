@@ -1,30 +1,18 @@
-import React, { useEffect, useRef, lazy, Suspense } from 'react'; // 🔥 Importamos lazy, Suspense y useRef
+import React, { useEffect } from 'react';
 import gsap from "gsap";
 import { Helmet } from 'react-helmet-async';
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
-import { useInView } from 'framer-motion'; // 🔥 Importamos el sensor
 
-// 1. CARGA INMEDIATA: Hero
 import PosicionamientoSeoSiguiente from './PosicionamientoSeo/PosicionamientoSeoSiguiente';
+import FasesSeo from './PosicionamientoSeo/FasesSeo';
+import PlanesSeo from './PosicionamientoSeo/PlanesSeo';
+import SeoDoble from './PosicionamientoSeo/SeoDoble';
 
-// 2. CARGA DIFERIDA (LAZY): Componentes de abajo
-const FasesSeo = lazy(() => import('./PosicionamientoSeo/FasesSeo'));
-const PlanesSeo = lazy(() => import('./PosicionamientoSeo/PlanesSeo'));
-const SeoDoble = lazy(() => import('./PosicionamientoSeo/SeoDoble'));
+
 
 const PosicionamientoSeo = () => {
-
-  // 🔥 SENSORES DE PROXIMIDAD 🔥
-  const refFases = useRef(null);
-  const isInViewFases = useInView(refFases, { once: true, margin: "400px" });
-
-  const refPlanes = useRef(null);
-  const isInViewPlanes = useInView(refPlanes, { once: true, margin: "400px" });
-
-  const refDoble = useRef(null);
-  const isInViewDoble = useInView(refDoble, { once: true, margin: "400px" });
 
   const schemaFAQ = {
     "@context": "https://schema.org",
@@ -102,34 +90,10 @@ const PosicionamientoSeo = () => {
       </Helmet>
 
       <div className="PosicionamientoSeo-page-wrapper">
-        
-        {/* Renderizado inmediato */}
         <PosicionamientoSeoSiguiente />
-        
-        {/* 🔥 CARGA DIFERIDA CON SENSORES 🔥 */}
-        <div ref={refFases} style={{ minHeight: '80vh' }}>
-          {isInViewFases && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando fases de la estrategia...</div>}>
-              <FasesSeo />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refPlanes} style={{ minHeight: '80vh' }}>
-          {isInViewPlanes && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando planes SEO...</div>}>
-              <PlanesSeo />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refDoble} style={{ minHeight: '60vh' }}>
-          {isInViewDoble && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando contacto...</div>}>
-              <SeoDoble />
-            </Suspense>
-          )}
-        </div>
+        <FasesSeo />
+        <PlanesSeo />
+        <SeoDoble />
 
         <script
           type="application/ld+json"
@@ -155,27 +119,7 @@ const PosicionamientoSeo = () => {
                 "@context": "https://schema.org/",
                 "@type": "Product",
                 "name": "Servicio de Posicionamiento SEO",
-                "brand": { 
-                  "@type": "Brand", 
-                  "name": "MN Design Web" 
-                },
-                "aggregateRating": { 
-                  "@type": "AggregateRating", 
-                  "ratingValue": "5", 
-                  "bestRating": "5", 
-                  "ratingCount": "18" 
-                },
-                "review": {
-                  "@type": "Review",
-                  "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5"
-                  },
-                  "author": {
-                    "@type": "Person",
-                    "name": "Cliente Verificado"
-                  }
-                }
+                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "18" }
               }
             ]) 
           }}

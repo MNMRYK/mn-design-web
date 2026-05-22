@@ -1,31 +1,16 @@
-import React, { useEffect, useRef, lazy, Suspense } from 'react'; // 🔥 Imports añadidos
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
-import { useInView } from 'framer-motion'; // 🔥 Sensor de scroll
 
-// 1. CARGA INMEDIATA: Hero de Redes Sociales
 import RedesSocialesSiguiente from './RedesSociales/RedesSocialesSiguiente.jsx';
-
-// 2. CARGA DIFERIDA (LAZY)
-const FasesRedes = lazy(() => import('./RedesSociales/FasesRedes.jsx'));
-const PlanesRedes = lazy(() => import('./RedesSociales/PlanesRedes.jsx'));
-const RedesDoble = lazy(() => import('./RedesSociales/RedesDoble.jsx'));
+import FasesRedes from './RedesSociales/FasesRedes.jsx';
+import PlanesRedes from './RedesSociales/PlanesRedes.jsx';
+import RedesDoble from './RedesSociales/RedesDoble.jsx';
 
 const RedesSociales = () => {
-
-  // 🔥 SENSORES DE PROXIMIDAD 🔥
-  const refFases = useRef(null);
-  const isInViewFases = useInView(refFases, { once: true, margin: "400px" });
-
-  const refPlanes = useRef(null);
-  const isInViewPlanes = useInView(refPlanes, { once: true, margin: "400px" });
-
-  const refDoble = useRef(null);
-  const isInViewDoble = useInView(refDoble, { once: true, margin: "400px" });
-
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
@@ -46,13 +31,13 @@ const RedesSociales = () => {
 
   const schemaService = {
     "@context": "https://schema.org",
-    "@type": "Product", 
+    "@type": "Product", /* 🔥 EL CAMBIO CLAVE: Usamos Product en lugar de Service 🔥 */
     "name": "Gestión de Redes Sociales",
     "description": "Estrategia de contenidos, creación de Reels/TikTok y gestión integral de marca.",
     "brand": { 
         "@type": "Brand", 
         "name": "MN Design Web" 
-    }, 
+    }, /* 🔥 Los productos tienen 'brand' (marca) en vez de 'provider' 🔥 */
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -102,35 +87,10 @@ const RedesSociales = () => {
       </Helmet>
 
       <div className="social-page-wrapper">
-        
-        {/* Renderizado inmediato */}
         <RedesSocialesSiguiente />
-        
-        {/* 🔥 CARGA DIFERIDA CON SENSORES 🔥 */}
-        <div ref={refFases} style={{ minHeight: '80vh' }}>
-          {isInViewFases && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando fases...</div>}>
-              <FasesRedes />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refPlanes} style={{ minHeight: '80vh' }}>
-          {isInViewPlanes && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando planes...</div>}>
-              <PlanesRedes />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refDoble} style={{ minHeight: '60vh' }}>
-          {isInViewDoble && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando contacto...</div>}>
-              <RedesDoble />
-            </Suspense>
-          )}
-        </div>
-
+        <FasesRedes />
+        <PlanesRedes />
+        <RedesDoble />
       </div>
     </>
   );

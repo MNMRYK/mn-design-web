@@ -1,27 +1,15 @@
-import React, { useEffect, useRef, lazy, Suspense } from 'react'; // 🔥 Importamos lazy, Suspense y useRef
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
-import { useInView } from 'framer-motion'; // 🔥 Importamos el sensor de scroll
 
-// 1. CARGA INMEDIATA: La cabecera/Hero de la página se queda normal
 import ContactoSiguiente from './Contacto/ContactoSiguiente';
-
-// 2. CARGA DIFERIDA (LAZY): Ponemos a dieta las secciones pesadas de abajo
-const ReservaYMapa = lazy(() => import('./Contacto/ReservaYMapa'));
-const Opiniones = lazy(() => import('./Contacto/Opiniones'));
+import ReservaYMapa from './Contacto/ReservaYMapa';
+import Opiniones from './Contacto/Opiniones';
 
 const Contacto = () => {
-
-  // 🔥 SENSORES DE PROXIMIDAD 🔥
-  // Empezarán a descargar los componentes cuando el usuario esté a 400px de llegar a ellos
-  const refReserva = useRef(null);
-  const isInViewReserva = useInView(refReserva, { once: true, margin: "400px" });
-
-  const refOpiniones = useRef(null);
-  const isInViewOpiniones = useInView(refOpiniones, { once: true, margin: "400px" });
 
   const schemaFAQ = {
     "@context": "https://schema.org",
@@ -83,30 +71,10 @@ const Contacto = () => {
       </Helmet>
 
       <div className="contacto-page-wrapper">
-        
-        {/* Renderizado inmediato */}
         <ContactoSiguiente />
-        
-        {/* 🔥 SECCIÓN DE AGENDA Y MAPA CON LAZY LOADING 🔥 */}
-        {/* Reservamos una altura mínima estimada para evitar saltos bruscos en el scroll */}
-        <div ref={refReserva} style={{ minHeight: '700px' }}>
-          {isInViewReserva && (
-            <Suspense fallback={<div style={{ textAlign: 'center', color: '#ece8ff', padding: '2rem' }}>Cargando agenda interactiva...</div>}>
-              <ReservaYMapa />
-            </Suspense>
-          )}
-        </div>
-
-        {/* 🔥 SECCIÓN DE OPINIONES CON LAZY LOADING 🔥 */}
-        <div ref={refOpiniones} style={{ minHeight: '400px' }}>
-          {isInViewOpiniones && (
-            <Suspense fallback={<div style={{ textAlign: 'center', color: '#ece8ff', padding: '2rem' }}>Cargando testimonios...</div>}>
-              <Opiniones />
-            </Suspense>
-          )}
-        </div>
+        <ReservaYMapa />
+        <Opiniones />
           
-        {/* ESTRUCTURAS DE DATOS SEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ 

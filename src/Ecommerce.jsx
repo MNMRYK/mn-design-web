@@ -1,30 +1,16 @@
-import React, { useEffect, useRef, lazy, Suspense } from 'react'; // 🔥 Importamos lazy, Suspense y useRef
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
-import { useInView } from 'framer-motion'; // 🔥 Importamos el sensor
 
-// 1. CARGA INMEDIATA: Hero de E-commerce
 import EcommerceSiguiente from './Ecommerce/EcommerceSiguiente.jsx';
-
-// 2. CARGA DIFERIDA (LAZY)
-const EcommercePlanes = lazy(() => import('./Ecommerce/EcommercePlanes.jsx'));
-const ResponsiveShowcase = lazy(() => import('./DisenoWeb/ResponsiveShowcase.jsx'));
-const EcommerceDoble = lazy(() => import('./Ecommerce/EcommerceDoble.jsx'));
+import EcommercePlanes from './Ecommerce/EcommercePlanes.jsx';
+import ResponsiveShowcase from './DisenoWeb/ResponsiveShowcase.jsx';
+import EcommerceDoble from './Ecommerce/EcommerceDoble.jsx';
 
 const Ecommerce = () => {
-
-  // 🔥 SENSORES DE PROXIMIDAD 🔥
-  const refPlanes = useRef(null);
-  const isInViewPlanes = useInView(refPlanes, { once: true, margin: "400px" });
-
-  const refShowcase = useRef(null);
-  const isInViewShowcase = useInView(refShowcase, { once: true, margin: "400px" });
-
-  const refDoble = useRef(null);
-  const isInViewDoble = useInView(refDoble, { once: true, margin: "400px" });
 
   const schemaFAQ = {
     "@context": "https://schema.org",
@@ -102,34 +88,10 @@ const Ecommerce = () => {
       </Helmet>
 
       <div className="ecommerce-page-wrapper">
-        
-        {/* Renderizado inmediato */}
         <EcommerceSiguiente />
-        
-        {/* 🔥 CARGA DIFERIDA CON SENSORES 🔥 */}
-        <div ref={refPlanes} style={{ minHeight: '80vh' }}>
-          {isInViewPlanes && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando planes E-commerce...</div>}>
-              <EcommercePlanes />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refShowcase} style={{ minHeight: '80vh' }}>
-          {isInViewShowcase && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando portfolio de tiendas...</div>}>
-              <ResponsiveShowcase />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refDoble} style={{ minHeight: '60vh' }}>
-          {isInViewDoble && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando contacto...</div>}>
-              <EcommerceDoble />
-            </Suspense>
-          )}
-        </div>
+        <EcommercePlanes />
+        <ResponsiveShowcase />
+        <EcommerceDoble />
 
         <script
           type="application/ld+json"
