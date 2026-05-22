@@ -37,7 +37,7 @@ const CookieBanner = () => {
       <p className="cookieHeading">Usamos cookies</p>
       <p className="cookieDescription">
         Utilizamos cookies para darte la mejor experiencia en nuestra web. <br/>
-        <Link className="cookielink" to="/politica-cookies">Ver políticas de cookies</Link>.
+        <Link className="cookielink" to="/politica-cookies">Ver políticas de cookies</Link>
       </p>
 
       <div className="buttonContainer">

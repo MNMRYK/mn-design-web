@@ -115,47 +115,57 @@
 }
 
 
-/* Responsivo para móviles - ULTRA COMPACTO */
+/* Responsivo para móviles - CORREGIDO PARA NO CHOCAR CON WHATSAPP */
 @media (max-width: 480px) {
   .cookie-card-uiverse {
-    bottom: 10px;        /* Más pegadito al borde inferior */
-    left: 50%;
-    transform: translateX(-50%);
-    width: 95%;          /* Aprovechamos un poco más el ancho */
-    max-width: none;     /* Quitamos el tope */
-    padding: 15px 20px;  /* Reducimos el relleno interno drásticamente */
-    min-height: auto;    /* Quitamos el min-height fijo de 240px de arriba */
-    gap: 10px;           /* Elementos más pegaditos entre sí */
+    bottom: 10px;        /* Pegadito abajo */
+    /* 🔥 REUBICACIÓN CLAVE: Arrinconamos a la izquierda 🔥 */
+    left: 10px;          
+    right: auto;         
+    transform: none;     /* Apagamos el centrado de escritorio */
+    
+    /* 🔥 ANCHO AJUSTADO: Dejamos espacio a la derecha para WhatsApp 🔥 */
+    width: calc(100% - 70px); /* Calculamos el ancho dejando ~70px libres a la derecha */
+    max-width: 300px;     /* Ponemos un tope para que no sea muy largo en pantallas grandes */
+    
+    padding: 20px;       /* Relleno muy compacto */
+    min-height: auto;    /* Altura automática */
+    gap: 8px;            /* Elementos muy pegaditos */
     border-radius: 12px;
+    align-items: flex-start; /* Alineamos los textos a la izquierda */
   }
 
-  /* Escondemos la galletita para ahorrar espacio visual */
+  /* Mantenemos el resto de optimizaciones de tamaño */
   #cookieSvg {
-    display: none; 
+    display: none; /* Escondemos la galleta en móvil */
   }
 
   .cookieHeading {
-    font-size: 1.2em; /* Título mucho más pequeño */
+    font-size: 1.1em; /* Título pequeño */
+    text-align: left;
   }
 
   .cookieDescription {
-    font-size: 0.85em; /* Texto más chiquitito */
-    line-height: 1.3;
+    font-size: 0.8em; /* Texto muy chiquitito */
+    line-height: 1.2;
+    text-align: left; /* Texto alineado a la izquierda */
   }
 
   .cookielink {
-    margin-top: 5px;
-    font-size: 0.85em;
+    margin-top: 10px;
+    font-size: 0.8em;
   }
 
   .buttonContainer {
-    margin-top: 5px;
-    gap: 10px;
+    margin-top: 10px;
+    gap: 8px;
+    justify-content: flex-start; /* Botones alineados a la izquierda */
   }
 
   .acceptButton, .declineButton {
-    width: 110px; /* Botones más finos */
-    height: 35px; /* Botones menos altos */
-    font-size: 0.85em;
+    width: auto;         /* Ancho automático según texto */
+    padding: 0 15px;     /* Relleno lateral */
+    height: 30px;        /* Botones bajitos */
+    font-size: 0.8em;
   }
 }
