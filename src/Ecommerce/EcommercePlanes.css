@@ -131,6 +131,11 @@
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: auto;
+  display: inline-flex;     
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  box-sizing: border-box;
 }
 
 .ec-btn-plan-primario {

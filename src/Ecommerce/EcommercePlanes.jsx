@@ -113,7 +113,7 @@ const EcommercePlanes = () => {
                             href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Básico%20de%20E-commerce."
                             rel="noopener noreferrer" 
                             target="_blank" 
-                            className="seo-btn-plan"
+                            className="ec-btn-plan-secundario"
                         >
                             Solicitar presupuesto
                         </a>
@@ -135,7 +135,7 @@ const EcommercePlanes = () => {
                             href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20E-commerce."
                             rel="noopener noreferrer" 
                             target="_blank" 
-                            className="seo-btn-plan"
+                            className="ec-btn-plan-primario"
                         >
                             Agendar consultoría
                         </a>
@@ -156,7 +156,7 @@ const EcommercePlanes = () => {
                             href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20E-commerce."
                             rel="noopener noreferrer" 
                             target="_blank" 
-                            className="seo-btn-plan"
+                            className="ec-btn-plan-secundario"
                         >
                             Solicitar presupuesto
                         </a>
