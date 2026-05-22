@@ -84,7 +84,7 @@
 
 .calendar-embed-container {
   width: 100%;
-  height: 450px; /* Dejamos la altura original que querías */
+  height: 480px; /* Dejamos la altura original que querías */
   background: rgba(255, 255, 255, 0.03);
   border: 2px solid rgba(166, 114, 255, 0.15);
   border-radius: 30px;
@@ -98,7 +98,7 @@
   /* Al encogerlo a 0.85, necesitamos compensar el ancho para que no queden huecos blancos a la derecha (100 / 0.85 = 118%) */
   width: 118%; 
   /* Le damos altura de sobra para que la web de Cal.com muestre todos los días sin cortarlos */
-  height: 530px; 
+  height: 580px; 
   border: none;
   
   /* Aquí aplicamos la reducción al 85% de su tamaño */
@@ -125,7 +125,7 @@
 
 .map-container-styled {
   width: 100%;
-  height: 450px; /* Misma altura que el calendario para que quede simétrico */
+  height: 480px; /* Misma altura que el calendario para que quede simétrico */
   border-radius: 30px;
   overflow: hidden;
   border: 2px solid rgba(166, 114, 255, 0.2);

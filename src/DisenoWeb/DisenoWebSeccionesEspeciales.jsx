@@ -16,7 +16,6 @@ const LottiePlayer = Lottie.default || Lottie;
 const DisenoWebSeccionesEspeciales = () => {
     const [imagenModal, setImagenModal] = useState(null);
 
-
     // Lista de estructuras con la Opción 6 añadida y rutas de imagen
     const estructuras = [
         { 
@@ -74,14 +73,16 @@ const DisenoWebSeccionesEspeciales = () => {
             return () => { document.body.style.overflow = 'unset'; };
         }, [imagenModal]);
 
+        // 🔥 EL ÚNICO USEEFFECT DE SCROLL QUE NECESITAS (Sustituye a los otros dos) 🔥
         useEffect(() => {
             const hash = window.location.hash; 
             if (hash) {
                 const element = document.querySelector(hash);
                 if (element) {
+                    // 500ms es el tiempo perfecto para que carguen los Lotties antes de bajar
                     setTimeout(() => {
-                        element.scrollIntoView({ behavior: 'smooth' });
-                    }, 300);
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 500); 
                 }
             }
         }, []);
@@ -174,7 +175,7 @@ const DisenoWebSeccionesEspeciales = () => {
             SECCIÓN 2: ESTRUCTURAS MÁS DEMANDADAS
             =================================================== */}
             <motion.section 
-                id="estructuras-section"
+                id="estructuras"
                 className="seccion-estructuras"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -222,7 +223,7 @@ const DisenoWebSeccionesEspeciales = () => {
             SECCIÓN 3: PORTFOLIO / GITHUB PREMIUM
             =================================================== */}
             <motion.section 
-                id="portfolio-section"
+                id="portfolio"
                 className="seccion-portfolio"
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}

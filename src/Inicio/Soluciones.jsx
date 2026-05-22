@@ -31,9 +31,9 @@ const Soluciones = () => {
                     <p className="solucion-card-text">
                         Webs ultra-rápidas, sin límites de diseño y optimizadas al 100% para Google.
                     </p>
-                    <Link to="/disenoweb#portfolio-section" className="solucion-card-btn">
+                    <a href="/disenoweb#portfolio" className="solucion-card-btn">
                         SABER MÁS <i className="fas fa-chevron-right"></i>
-                    </Link>
+                    </a>
                 </motion.div>
 
                 <motion.div className="solucion-card-new" whileHover={{ y: -5 }}>
@@ -42,9 +42,9 @@ const Soluciones = () => {
                     <p className="solucion-card-text">
                         Potenciamos tu negocio con los mejores gestores (Shopify, WordPress, WooCommerce).
                     </p>
-                    <Link to="/disenoweb#estructuras-section" className="solucion-card-btn">
+                    <a href="/disenoweb#estructuras" className="solucion-card-btn">
                         SABER MÁS <i className="fas fa-chevron-right"></i>
-                    </Link>
+                    </a>
                 </motion.div>
             </div>
         </motion.section>
