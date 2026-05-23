@@ -81,12 +81,9 @@ function App() {
             theme={{
               button: { 
                 backgroundColor: "#7E57C2", 
-                size: "70px",
+                size: "60px",
                 customIconSrc:
                   "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/bubble-icon?v=1779549222783",
-              },
-              chatWindow: {
-                maxHeight: "600px" // Frena la altura para que no ocupe toda la web
               },
               previewMessage: {
                 backgroundColor: "#fcfcff", // Corregido el doble ##
@@ -94,6 +91,26 @@ function App() {
                 closeButtonBackgroundColor: "#efebfc",
                 closeButtonIconColor: "#1A102D",
               },
+              customCss: `
+                /* Para navegadores Chrome, Edge y Safari */
+                .typebot-container .scrollable-container::-webkit-scrollbar {
+                  display: block !important;
+                  width: 8px !important;
+                }
+                .typebot-container .scrollable-container::-webkit-scrollbar-track {
+                  background-color: #fcfcff !important;
+                }
+                .typebot-container .scrollable-container::-webkit-scrollbar-thumb {
+                  background-color: #7E57C2 !important;
+                  border-radius: 8px !important;
+                }
+                
+                /* Para navegadores Firefox (que usan otro motor) */
+                .typebot-container .scrollable-container {
+                  scrollbar-width: thin !important;
+                  scrollbar-color: #7E57C2 #fcfcff !important;
+                }
+              `
             }}
             previewMessage={{
               message: "¡Hola! ¿En qué puedo ayudarte? 🚀",
