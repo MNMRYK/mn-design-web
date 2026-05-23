@@ -4,10 +4,10 @@ import './Legales/TextosLegales.css'; // Puedes reutilizar tu CSS de textos lega
 
 const NotFound = () => {
     return (
-        <div className="legal-wrapper" style={{textAlign: 'center', paddingTop: '200px'}}>
-            <h1 style={{fontSize: '5rem', color: '#7E57C2'}}>404</h1>
-            <p>¡Uy! Esta página se ha ido de vacaciones.</p>
-            <Link to="/" className="btn-empezar">Volver al inicio</Link>
+        <div className="legal-wrapper not-found-wrapper">
+            <h1 className="not-found-title">404</h1>
+            <p className="not-found-text">¡Uy! Esta página se ha ido de vacaciones.</p>
+            <Link to="/" className="btn-volver-inicio">Volver al inicio</Link>
         </div>
     );
 };

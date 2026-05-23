@@ -77,6 +77,62 @@
   color: #1A102D;
 }
 
+/* ====================================================
+   ESTILOS ESPECÍFICOS PARA LA PÁGINA 404
+   ==================================================== */
+.not-found-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Centramos todo el bloque en la pantalla */
+  min-height: 80vh; 
+  padding-top: 120px; 
+  text-align: center;
+}
+
+.not-found-title {
+  font-size: 8rem; /* Un 404 gigante y con impacto */
+  color: #7E57C2;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  margin: 0;
+  line-height: 1;
+  text-shadow: 4px 4px 15px rgba(126, 87, 194, 0.15); /* Sombra suave para dar volumen */
+}
+
+.not-found-text {
+  font-size: 1.5rem;
+  color: #4a4a4a;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  margin-top: 15px;
+  /* 🔥 AQUÍ ESTÁ EL AIRE: 50px de separación antes del botón */
+  margin-bottom: 50px; 
+}
+
+/* El nuevo botón corporativo para el 404 */
+.btn-volver-inicio {
+  background-color: #7E57C2;
+  color: #ffffff;
+  padding: 16px 40px;
+  border-radius: 30px; /* Bordes bien redondeados */
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.btn-volver-inicio:hover {
+  background-color: #6a49a8;
+  transform: translateY(-4px); /* Efecto de flotar al pasar el ratón */
+  box-shadow: 0 12px 25px rgba(126, 87, 194, 0.4);
+  color: #ffffff;
+}
+
 /* Responsivo para móviles */
 @media (max-width: 768px) {
   .legal-container {
@@ -84,5 +140,14 @@
   }
   .legal-title {
     font-size: 2rem;
+  }
+
+  .not-found-title {
+    font-size: 6rem;
+  }
+  .not-found-text {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    padding: 0 20px;
   }
 }
