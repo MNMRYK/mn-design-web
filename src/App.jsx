@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from "react"; // 🔥 1. Importamos lazy y Susp
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import { Toaster } from 'react-hot-toast';
+import { Bubble } from "@typebot.io/react";
 
 // 📦 COMPONENTES GLOBALES (NO se hacen lazy porque se ven en TODAS las páginas)
 import Navbar from './Inicio/Navbar';
@@ -73,15 +74,33 @@ function App() {
           {/* El Footer siempre visible abajo */}
           <Footer />
 
-          {/* El botón de WhatsApp siempre flotando en todas las páginas */}
-          <a 
-            href="https://api.whatsapp.com/send?phone=34645854934&text=Hola" 
-            className="whatsapp-float" 
-            target="_blank" 
-            rel="noreferrer"
-          >
-            <i className="fa-brands fa-whatsapp"></i>
-          </a>
+          {/* 🔥 2. TU NUEVA BURBUJA DE TYPEBOT (Reemplaza o acompaña al botón anterior) */}
+          <Bubble
+            typebot="my-typebot-7uabkh3"
+            apiHost="https://typebot.io"
+            theme={{
+              button: { 
+                backgroundColor: "#7E57C2", 
+                size: "80px",
+                customIconSrc:
+                  "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/bubble-icon?v=1779549222783",
+              },
+              chatWindow: {
+                maxHeight: "650px" // Frena la altura para que no ocupe toda la web
+              },
+              previewMessage: {
+                backgroundColor: "#fcfcff", // Corregido el doble ##
+                textColor: "#1A102D",
+                closeButtonBackgroundColor: "#efebfc",
+                closeButtonIconColor: "#1A102D",
+              },
+            }}
+            previewMessage={{
+              message: "¡Hola! ¿En qué puedo ayudarte? 🚀",
+              avatarUrl: "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/hostAvatar?v=1779545605843",
+              autoShowDelay: 3000, // Espera 3 segundos antes de asomarse
+            }}
+          />
         </main>
 
         <CookieBanner />
