@@ -81,6 +81,28 @@ section {
   min-height: auto !important;
 }
 
+/* ==========================================
+   BARRA DE SCROLL PERSONALIZADA (MN DESIGN)
+   ========================================== */
+
+html::-webkit-scrollbar {
+  width: 13px; /* Un ancho elegante, ni muy gordo ni muy fino */
+}
+
+html::-webkit-scrollbar-track {
+  background: #f4f4f9; /* Un color clarito para el carril de fondo */
+}
+
+html::-webkit-scrollbar-thumb {
+  background-color: #a486da; /* Tu morado corporativo */
+  border-radius: 10px; /* Bordes bien redondeados */
+  border: 3px solid #f4f4f9; /* Truco de diseño: le ponemos un borde del mismo color que el track para que parezca que la barra "flota" */
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background-color: #5c3b99; /* Un morado un poco más oscuro al pasar el ratón */
+}
+
 @media (max-width: 768px) {
   .footer-site {
     padding-bottom: calc(20px + env(safe-area-inset-bottom));
