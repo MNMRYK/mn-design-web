@@ -81,12 +81,12 @@ function App() {
             theme={{
               button: { 
                 backgroundColor: "#7E57C2", 
-                size: "80px",
+                size: "70px",
                 customIconSrc:
                   "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/bubble-icon?v=1779549222783",
               },
               chatWindow: {
-                maxHeight: "650px" // Frena la altura para que no ocupe toda la web
+                maxHeight: "600px" // Frena la altura para que no ocupe toda la web
               },
               previewMessage: {
                 backgroundColor: "#fcfcff", // Corregido el doble ##
