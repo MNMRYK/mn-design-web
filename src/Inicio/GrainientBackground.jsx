@@ -133,7 +133,8 @@ const Grainient = ({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      // 🔥 Optimización: Si es móvil, renderizamos a 1x (no Retina)
+      dpr: window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio || 1, 2)
     });
 
     const gl = renderer.gl;
