@@ -23,6 +23,8 @@ const Inicio = () => {
       duration: 1.2, 
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), 
       smoothWheel: true,
+      smoothTouch: false,
+      syncTouch: true,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
@@ -30,14 +32,16 @@ const Inicio = () => {
     gsap.ticker.lagSmoothing(0);
 
     const timer = setTimeout(() => {
-      ScrollTrigger.create({
-        trigger: ".hero-section-container",
-        start: "top top",
-        pin: true,
-        pinSpacing: false,
-        anticipatePin: 1,
-        refreshPriority: 1
-      });
+      if (window.innerWidth > 768) {
+        ScrollTrigger.create({
+          trigger: ".hero-section-container",
+          start: "top top",
+          pin: true,
+          pinSpacing: false,
+          anticipatePin: 1,
+          refreshPriority: 1
+        });
+      }
       ScrollTrigger.refresh();
     }, 100); 
 

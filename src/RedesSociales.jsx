@@ -13,7 +13,13 @@ import RedesDoble from './RedesSociales/RedesDoble.jsx';
 const RedesSociales = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({ duration: 1.2, smoothWheel: true });
+    const lenis = new Lenis({ 
+      duration: 1.2, 
+      smoothWheel: true,
+      smoothTouch: false,
+      syncTouch: true, 
+    });
+
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add((time) => { lenis.raf(time * 1000); });
     return () => { ScrollTrigger.getAll().forEach(t => t.kill()); lenis.destroy(); };

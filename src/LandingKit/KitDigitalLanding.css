@@ -1,0 +1,313 @@
+/* ==========================================
+   ESTILOS BASE Y CONTENEDOR
+   ========================================== */
+.landing-premium-container {
+  font-family: 'Montserrat', 'Nunito', sans-serif;
+  color: #1a102d;
+  background-color: #fcfcff;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* ==========================================
+   CABECERA GLOBAL CON LOGO ABSOLUTO
+   ========================================== */
+
+/* Volvemos a posicionar el logo en absoluto fuera de la cuadrícula hero */
+.global-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  position: absolute; /* Para que se clave en la esquina superior */
+  top: 20px;
+  left: 30px;
+  z-index: 100;       /* Muy por encima para no taparse */
+}
+
+.global-logo img {
+  height: 55px; /* Tu medida original */
+  width: auto;
+}
+
+.texto-logo {
+  display: flex;
+  flex-direction: row;
+  line-height: 1.2;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none !important;
+}
+
+.siglas { 
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900; 
+  font-size: 2.2rem; 
+  color: #1a102d; /* Tu color original */
+}
+
+.marca { 
+  font-family: 'Nunito', sans-serif;
+  color: #7E57C2;  /* Tu color original */
+  font-size: 1.9rem; 
+  font-weight: 900; 
+  opacity: 0.8;
+}
+
+/* ==========================================
+   NUEVA SECCIÓN HERO (SPLIT 60/40) CON AJUSTES
+   ========================================== */
+
+.hero-split-container {
+  background: linear-gradient(135deg, #efe8fd 0%, #ffffff 100%);
+  padding: 5rem 2rem 4rem; /* Aumentamos padding-top para que no choque con el logo absoluto */
+  border-bottom: 1px solid #e2d8f5;
+  display: flex;
+  align-items: center;
+  position: relative; /* Importante para que el logo absoluto no se pierda */
+  
+}
+
+.hero-split-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+/* --- LADO IZQUIERDO (CONTENIDO MEZCLADO) --- */
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem; 
+}
+/* 🔥 BLOQUE CENTRADO PARA BADGE Y BOTÓN CTA */
+.centered-hero-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centramos en horizontal */
+  text-align: center;   /* Centramos texto interior */
+  gap: 40px;            /* Separación entre badge y botón */
+}
+
+
+.badge-premium {
+  display: inline-block;
+  background: #1a102d;
+  color: #ece8ff;
+  padding: 0.5rem 1.2rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0; /* Quitamos margin-bottom original */
+}
+
+/* 🔥 BLOQUE ALINEADO A LA IZQUIERDA PARA TÍTULO Y DESCRIPCIÓN */
+.hero-content-left-text {
+  text-align: left; /* Alineación forzada a la izquierda */
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #1a102d;
+  line-height: 1.1;
+  margin-bottom: 1.8rem;
+}
+
+.hero-description {
+  font-size: 1.15rem;
+  color: #202020;
+  margin-bottom: 0; /* Quitamos margin-bottom original */
+  font-weight: 500;
+  max-width: 95%;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Botón CTA centrado (mantenemos tu estilo premium) */
+.btn-primary-glow {
+  display: inline-block;
+  background-color: #7E57C2;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(126, 87, 194, 0.4);
+  margin-bottom: 0; /* Quitamos margin-bottom original */
+}
+
+.btn-primary-glow:hover {
+  background-color: #5e35b1;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(126, 87, 194, 0.6);
+}
+
+/* ==========================================
+   LADO DERECHO: CARRUSEL VERTICAL DE DOLORES
+   ========================================== */
+
+.hero-right-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  /* Aseguramos que esta columna ocupe el espacio correcto sin desbordar */
+  height: 100%; 
+  max-height: 650px;
+}
+
+.carousel-title {
+  color: #1a102d;
+  font-family: 'Montserrat', 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1.6rem;
+  text-align: center;
+  margin: 0;
+  flex-shrink: 0; /* Para que el título no se achique si el carrusel crece */
+}
+
+.vertical-scroll-area {
+  height: 600px; 
+  overflow-y: auto;
+  padding: 20px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  
+  /* Quitamos el scroll-snap que bloqueaba el ratón */
+  pointer-events: auto;
+  
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 5%, black 95%, transparent 100%);
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+}
+
+.vertical-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+.card-dolor {
+  background: #ffffff;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 1.5rem 1.3rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+  /* flex-shrink 0 sigue siendo necesario para que no se aplasten */
+  flex-shrink: 0; 
+  /* Quitamos el scroll-snap-align de aquí también */
+}
+
+.card-dolor:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+  border-color: #7E57C2;
+}
+
+/* Ajustes para los SVG personalizados */
+.card-dolor .card-icon {
+  margin-bottom: 1rem;
+  display: flex; /* Para centrar o alinear el SVG bien */
+}
+
+.card-dolor .card-icon img {
+  width: 45px; /* Define el tamaño exacto de tus SVG */
+  height: 45px;
+  object-fit: contain; /* Para que no se deformen */
+  filter: invert(41%) sepia(45%) saturate(1115%) hue-rotate(226deg) brightness(86%) contrast(85%);
+}
+
+.card-dolor h4 {
+  font-size: 1.3rem;
+  color: #1a102d;
+  margin-bottom: 0.8rem;
+}
+
+.card-dolor p {
+  color: #202020;
+  font-size: 1.1rem;
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+}
+
+@media (max-width: 1024px) {
+  .landing-premium-container {
+    font-family: 'Montserrat', 'Nunito', sans-serif;
+    color: #1a102d;
+    background-color: #fcfcff;
+    line-height: 1.6;
+    scroll-behavior: smooth;
+  }
+  .hero-split-grid {
+    grid-template-columns: 1fr; /* Pasamos a una sola columna */
+    gap: 50px;
+    padding: 0 1rem;
+  }
+
+  .hero-left {
+    text-align: center; /* Centramos todo en tablet */
+    align-items: center;
+  }
+
+  .hero-description {
+    max-width: 80%; /* Damos más aire al texto */
+  }
+
+  .hero-right-carousel {
+    max-height: 500px; /* Acortamos el carrusel en tablets */
+  }
+
+  .vertical-scroll-area {
+    height: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Cabecera / Logo */
+  .global-logo {
+    position: relative; /* Lo sacamos de absoluto para que no tape nada */
+    left: 0;
+    top: 0;
+    justify-content: center;
+    padding: 20px 0;
+  }
+
+  /* Hero */
+  .hero-split-container {
+    padding: 2rem 1rem; /* Menos padding */
+  }
+
+  .hero-title {
+    font-size: 2.2rem; /* Título más pequeño */
+  }
+
+  .hero-description {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  /* Botón CTA más grande y cómodo para el pulgar */
+  .btn-primary-glow {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  /* Carrusel en móvil */
+  .vertical-scroll-area {
+    height: 400px; /* Más compacto */
+  }
+
+  /* Ajuste de márgenes globales */
+  .centered-hero-actions {
+    gap: 20px;
+  }
+}

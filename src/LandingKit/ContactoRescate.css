@@ -1,0 +1,233 @@
+.contacto-rescate-section {
+    padding: 6rem 2rem;
+    background-color: #1a102d;
+    color: #ffffff;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start; /* Alineamos arriba para que el calendario y el form empiecen nivelados */
+}
+
+.contacto-left {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cal-widget {
+width: 100%;
+  height: 480px; /* Dejamos la altura original que querías */
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(166, 114, 255, 0.15);
+  border-radius: 30px;
+  overflow: hidden; /* Esto corta todo lo que sobre */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.calendar-iframe {
+    /* Al encogerlo a 0.85, necesitamos compensar el ancho para que no queden huecos blancos a la derecha (100 / 0.85 = 118%) */
+  width: 118%; 
+  /* Le damos altura de sobra para que la web de Cal.com muestre todos los días sin cortarlos */
+  height: 560px; 
+  border: none;
+  transform: scale(0.85); 
+  transform-origin: top left; 
+}
+
+.beneficios-lista {
+    list-style: none;
+    padding: 0;
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif;
+}
+
+.check-icon-circle {
+    font-size: 1.4rem;
+    margin-right: 10px;
+    color: #7E57C2;
+}
+
+.contacto-rescate-section {
+    padding: 6rem 2rem;
+    background-color: #1a102d;
+    color: #ffffff;
+}
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.title-white { 
+    font-size: 3rem;
+    margin-bottom: 1rem; 
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Estilo del Formulario Premium sobre fondo oscuro */
+.formulario-rescate {
+    background: #ffffff;
+    padding: 3rem;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #1a102d;
+    position: sticky;
+    top: 100px;
+}
+
+.formulario-rescate h3 { 
+    font-family: 'Montserrat', sans-serif; 
+    margin-bottom: 0; 
+    font-size: 1.7rem; 
+    color: #1a102d;
+    font-weight: 800;
+}
+
+.form-subtext { 
+    font-family: 'Nunito', sans-serif; 
+    font-size: 1.1rem; 
+    color: #202020;
+    margin-bottom: 10px; 
+}
+
+.diseno-form-grupo input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 12px;
+    border: 1px solid #e2d8f5;
+    font-size: 1.1rem;
+    font-family: 'Nunito', sans-serif; 
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    color: #202020;
+    cursor: pointer;
+}
+
+.formulario-rescate textarea {
+    width: 100%;
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid #e2d8f5;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.1rem;
+    resize: vertical;
+    min-height: 100px; /* Suficiente espacio para que se explayen */
+}
+
+/* Para mejorar el espacio entre grupos */
+.diseno-form-grupo {
+    margin-bottom: 5px;
+}
+
+.diseno-form-grupo label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #444;
+    font-family: 'Montserrat', sans-serif; 
+}
+
+.btn-final-glow {
+    background: #7E57C2;
+    color: white;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.btn-final-glow:hover { background: #5e35b1; }
+
+.content-garantia {
+    margin-top: 10px; 
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+.garantia-text { 
+    font-family: 'Nunito', sans-serif; 
+    font-size: 1rem; color: #888; 
+    text-align: left; 
+
+}
+
+/* ==========================================
+   RESPONSIVE PARA CONTACTO FINAL
+   ========================================== */
+
+@media (max-width: 1024px) {
+    .contacto-grid {
+        grid-template-columns: 1fr; /* Pasamos a una sola columna */
+        gap: 40px;
+    }
+
+    .contacto-right {
+        order: 2; /* El formulario se queda abajo */
+    }
+
+    /* El formulario ya no necesita ser 'sticky' en móviles */
+    .formulario-rescate {
+        position: relative;
+        top: 0;
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .contacto-rescate-section {
+        padding: 4rem 1rem;
+    }
+
+    .title-white {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+
+    /* Ajuste del calendario para pantallas pequeñas */
+    .cal-widget {
+        height: 400px; /* Un poco más pequeño en móvil */
+    }
+
+    .calendar-iframe {
+        /* En móviles, a veces escalar a 0.85 es muy poco, 
+           ajustamos para que sea más legible */
+        width: 100%; 
+        transform: scale(1); /* Quitamos el zoom para que se vea nativo */
+        height: 100%;
+    }
+
+    .formulario-rescate h3 {
+        font-size: 1.4rem;
+    }
+
+    .beneficios-lista {
+        padding: 0 15px;
+    }
+
+    .btn-final-glow {
+        padding: 18px; /* Botón más alto y fácil de pulsar con el dedo */
+    }
+}

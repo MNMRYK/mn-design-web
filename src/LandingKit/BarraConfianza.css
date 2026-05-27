@@ -1,0 +1,43 @@
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  padding: 70px 0 20px;
+  background: #fcfcff;
+  position: relative;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 40px;
+  animation: scroll 30s linear infinite;
+  width: max-content; /* Asegura que el contenedor sea tan ancho como sus hijos */
+}
+
+.badge-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  border: 1px solid #e2d8f5;
+  border-radius: 50px;
+  background: #efebfc;
+  white-space: nowrap;
+}
+
+.badge-icon {
+  width: 28px;
+  height: 28px;
+  filter: invert(41%) sepia(45%) saturate(1115%) hue-rotate(226deg) brightness(86%) contrast(85%);
+}
+
+.badge-text {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #1A102D;
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); } /* Se desplaza justo la mitad (los primeros 8) */
+}

@@ -22,6 +22,7 @@ const PoliticaPrivacidad = lazy(() => import('./Legales/PoliticaPrivacidad.jsx')
 const AvisoLegal = lazy(() => import('./Legales/AvisoLegal.jsx'));
 const PoliticaCookies = lazy(() => import('./Legales/PoliticaCookies.jsx')); 
 const NotFound = lazy(() => import('./NotFound'));
+const LandingLayout = lazy(() => import('./LandingLayout'));
 
 // Importamos los CSS globales
 import "./App.css";
@@ -44,35 +45,44 @@ const PantallaCarga = () => (
   </div>
 );
 
+// Layout profesional para las páginas que SI llevan Navbar y Footer
+const MainLayout = ({ children }) => (
+  <>
+    <Navbar />
+    {children}
+    <Footer />
+  </>
+);
+
 function App() {
   return (
     <Router>
       <div className="app-wrapper">
         <main>
-          {/* El Navbar siempre visible arriba */}
-          <Navbar />
           
           {/* 🔥 2. EL FILTRO SUSPENSE: Envuelve a tus rutas */}
           <Suspense fallback={<PantallaCarga />}>
             {/* ESTE ES EL SEMÁFORO QUE CAMBIA LA PÁGINA */}
             <Routes>
-              <Route path="/" element={<Inicio />} />
-              <Route path="/nosotros" element={<Nosotros />} />
-              <Route path="/contacto" element={<Contacto />} />
-              <Route path="/disenoweb" element={<DisenoWeb />} />
-              <Route path="/e-commerce" element={<Ecommerce />} />
-              <Route path="/posicionamiento-seo" element={<PosicionamientoSeo />} />
-              <Route path="/redes-sociales" element={<RedesSociales />} />
-              <Route path="/portfolio" element={<Portfolio />} />
-              <Route path="/privacidad" element={<PoliticaPrivacidad />} />
-              <Route path="/aviso-legal" element={<AvisoLegal />} />
-              <Route path="/cookies" element={<PoliticaCookies />} />
+              {/* Páginas con Layout (Navbar + Footer) */}
+              <Route path="/" element={<MainLayout><Inicio /></MainLayout>} />
+              <Route path="/nosotros" element={<MainLayout><Nosotros /></MainLayout>} />
+              <Route path="/contacto" element={<MainLayout><Contacto /></MainLayout>} />
+              <Route path="/disenoweb" element={<MainLayout><DisenoWeb /></MainLayout>} />
+              <Route path="/e-commerce" element={<MainLayout><Ecommerce /></MainLayout>} />
+              <Route path="/posicionamiento-seo" element={<MainLayout><PosicionamientoSeo /></MainLayout>} />
+              <Route path="/redes-sociales" element={<MainLayout><RedesSociales /></MainLayout>} />
+              <Route path="/portfolio" element={<MainLayout><Portfolio /></MainLayout>} />
+              <Route path="/privacidad" element={<MainLayout><PoliticaPrivacidad /></MainLayout>} />
+              <Route path="/aviso-legal" element={<MainLayout><AvisoLegal /></MainLayout>} />
+              <Route path="/cookies" element={<MainLayout><PoliticaCookies /></MainLayout>} />
+
+              {/* TU LANDING (SOLA, SIN NAVBAR NI FOOTER) */}
+              <Route path="/rescate-kit-digital" element={<LandingLayout />} />
+              
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
-
-          {/* El Footer siempre visible abajo */}
-          <Footer />
 
           {/* 🔥 2. TU NUEVA BURBUJA DE TYPEBOT (Reemplaza o acompaña al botón anterior) */}
           <Bubble
@@ -113,7 +123,7 @@ function App() {
               `
             }}
             previewMessage={{
-              message: "¡Hola! ¿En qué puedo ayudarte? 🚀",
+              message: "¡Hola! ¿En qué puedo ayudarte?",
               avatarUrl: "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/hostAvatar?v=1779545605843",
               autoShowDelay: 3000, // Espera 3 segundos antes de asomarse
             }}
@@ -122,7 +132,7 @@ function App() {
 
         <CookieBanner />
 
-        {/* CONTENEDOR DE ALERTAS */}
+
         <Toaster 
           position="bottom-right" 
           reverseOrder={false}

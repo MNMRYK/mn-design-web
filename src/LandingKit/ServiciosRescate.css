@@ -1,0 +1,218 @@
+/* ==========================================
+   SECCIÓN SERVICIOS: CARRUSEL HORIZONTAL
+   ========================================== */
+
+.servicios-rescate-wrapper {
+  padding: 5rem 2rem;
+  background-color: #fcfcff; /* Mismo fondo que el contenedor padre */
+  text-align: center;
+  overflow: hidden; /* Evita scrolls horizontales en toda la página */
+  z-index: 1;
+}
+
+.servicios-title {
+  font-size: 3rem;
+  max-width: 1000px;
+  margin: 0 auto 4rem auto; /* Centrado absoluto con 4rem de espacio abajo */
+  color: #1a102d;
+  font-weight: 800;
+  font-family: 'Montserrat', 'Nunito', sans-serif;
+  text-align: center; /* Aseguramos que el texto por dentro también se centre */
+}
+
+.carousel-controls-container {
+  position: relative;
+  max-width: 1400px; /* Ancho máximo para el contenedor */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Área de scroll */
+.horizontal-scroll-area {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px 0;
+  pointer-events: auto;
+  
+  /* Ocultar barra de scroll nativa */
+  scrollbar-width: none; 
+  -ms-overflow-style: none;
+  
+  /* Máscara de degradado para que se difumine por los bordes laterales */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+}
+
+.horizontal-scroll-area::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tarjetas Verticales Alargadas */
+.servicio-card {
+  min-width: 320px; 
+  max-width: 320px;
+  
+  /* Ahora sí forzamos una altura mayor que el ancho para que sea vertical */
+  height: 450px; /* Permite crecer si el texto es muy largo, pero no la fuerza a ser vertical */
+  
+  background: #ffffff;
+  border: 1px solid #e2d8f5;
+  border-radius: 16px;
+  padding: 2.5rem 2rem; /* Reducimos un poco el padding vertical para que no se alargue */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  flex-shrink: 0;
+  
+  /* Centramos el contenido dentro de la tarjeta */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center; /* Esto centra verticalmente el icono, título y texto */
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+  border-color: #7E57C2;
+  box-shadow: 0 12px 30px rgba(126, 87, 194, 0.12);
+}
+
+.servicio-card:hover {
+  transform: translateY(-8px);
+  border-color: #7E57C2;
+  box-shadow: 0 12px 30px rgba(126, 87, 194, 0.12);
+}
+
+.servicio-icon {
+  margin-bottom: 1.5rem;
+  background-color: #efe8fd;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* El truco del filtro para pintar los SVG de negro a tu morado #7E57C2 */
+.servicio-icon img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: invert(41%) sepia(45%) saturate(1115%) hue-rotate(226deg) brightness(86%) contrast(85%);
+}
+
+.servicio-card h3 {
+  font-size: 1.5rem;
+  color: #1a102d;
+  margin-bottom: 1.2rem;
+  font-weight: 800;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.servicio-card p {
+  color: #202020;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  font-family: 'Nunito', sans-serif;
+}
+
+/* Flechas Laterales */
+.carousel-arrow {
+  background-color: #ffffff;
+  border: 1px solid #e2d8f5;
+  color: #7E57C2;
+  min-width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.carousel-arrow:hover {
+  background-color: #7E57C2;
+  color: #ffffff;
+  border-color: #7E57C2;
+}
+
+@media (max-width: 1024px) {
+  .carousel-controls-container {
+    gap: 20px; /* Reducimos un poco el gap para dar más espacio a las cards */
+  }
+
+  .carousel-arrow {
+    width: 40px; /* Flechas más pequeñas */
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .servicio-card {
+    /* Mantenemos 2 tarjetas visibles con un poco de aire */
+    min-width: calc(50% - 15px); 
+    max-width: none; /* Quitamos el ancho fijo para que se adapte al 50% */
+  }
+}
+
+@media (max-width: 768px) {
+  .servicios-title {
+    font-size: 2.2rem; /* Un poco más pequeño para que no rompa el layout */
+    margin-bottom: 2rem;
+  }
+  
+  .horizontal-scroll-area {
+    gap: 15px;
+    padding: 10px 15px;
+    -webkit-mask-image: none; /* ¡Fuera degradado! */
+    mask-image: none;
+  }
+
+  .servicio-card {
+    /* 🔥 AQUÍ ESTÁ EL CAMBIO: Permitimos que quepan dos al 45% del ancho */
+    min-width: 180px; /* Un mínimo para que no se vuelvan demasiado pequeñas */
+    max-width: 180px;
+    
+    height: 350px; /* Reducimos altura para que sea más equilibrado */
+    padding: 1.5rem 1rem;
+  }
+
+  .carousel-arrow {
+    display: none !important;
+  }
+
+  /* 3. Aseguramos que el carrusel tenga margen para que no se pegue al borde */
+  .carousel-controls-container {
+    padding: 0;
+  }
+
+  /* Reducimos textos para que no se vean gigantes en cards pequeñas */
+  .servicio-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .servicio-card p {
+    font-size: 0.9rem;
+  }
+
+  .servicio-icon {
+    width: 60px; /* Icono más pequeño */
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .servicio-icon img {
+    width: 30px;
+    height: 30px;
+  }
+}

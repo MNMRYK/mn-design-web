@@ -50,7 +50,7 @@
 
 .beneficios-header {
   text-align: center;
-  max-width: 800px;
+  max-width: 830px;
   margin-bottom: 20px;
 }
 
@@ -65,7 +65,7 @@
 .beneficios-description {
   color: var(--iris-glaze);
   opacity: 0.8;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
@@ -111,7 +111,7 @@
 }
 
 .beneficio-text {
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--iris-glaze);
   line-height: 1.3;
