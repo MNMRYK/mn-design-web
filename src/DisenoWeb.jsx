@@ -1,31 +1,17 @@
-import React, { useEffect, useRef, lazy, Suspense } from 'react'; // 🔥 Importamos herramientas
+import React, { useEffect } from 'react'; // 🔥 Importamos herramientas
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
 import { Helmet } from 'react-helmet-async';
-import { useInView } from 'framer-motion'; // 🔥 Importamos el sensor
 
-// 1. CARGA INMEDIATA: Hero
+// 🔥 IMPORTACIONES NORMALES Y SEGURAS 🔥
 import DisenoWebSiguiente from './DisenoWeb/DisenoWebSiguiente.jsx';
-
-// 2. CARGA DIFERIDA (LAZY): Componentes pesados
-const DisenoWebSeccionesEspeciales = lazy(() => import('./DisenoWeb/DisenoWebSeccionesEspeciales.jsx'));
-const ResponsiveShowcase = lazy(() => import('./DisenoWeb/ResponsiveShowcase.jsx'));
-const DisenoDoble = lazy(() => import('./DisenoWeb/DisenoDoble.jsx'));
+import DisenoWebSeccionesEspeciales from './DisenoWeb/DisenoWebSeccionesEspeciales.jsx';
+import ResponsiveShowcase from './DisenoWeb/ResponsiveShowcase.jsx';
+import DisenoDoble from './DisenoWeb/DisenoDoble.jsx';
 
 const DisenoWeb = () => {
-
-  // 🔥 SENSORES DE PROXIMIDAD 🔥
-  const refSecciones = useRef(null);
-  const isInViewSecciones = useInView(refSecciones, { once: true, margin: "400px" });
-
-  const refShowcase = useRef(null);
-  const isInViewShowcase = useInView(refShowcase, { once: true, margin: "400px" });
-
-  const refDoble = useRef(null);
-  const isInViewDoble = useInView(refDoble, { once: true, margin: "400px" });
-
 
   // 🔥 1. GUARDAMOS EL JSON EN UNA VARIABLE (Antes de los efectos)
   const schemaFAQ = {
@@ -159,33 +145,10 @@ const DisenoWeb = () => {
       
       <div className="disenoweb-page-wrapper">
         
-        {/* Renderizado inmediato */}
         <DisenoWebSiguiente />
-        
-        {/* 🔥 CARGA DIFERIDA CON SENSORES 🔥 */}
-        <div ref={refSecciones} style={{ minHeight: '80vh' }}>
-          {isInViewSecciones && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando planes y estructuras...</div>}>
-              <DisenoWebSeccionesEspeciales />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refShowcase} style={{ minHeight: '80vh' }}>
-          {isInViewShowcase && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando portfolio...</div>}>
-              <ResponsiveShowcase />
-            </Suspense>
-          )}
-        </div>
-
-        <div ref={refDoble} style={{ minHeight: '60vh' }}>
-          {isInViewDoble && (
-            <Suspense fallback={<div style={{ textAlign: 'center', padding: '2rem', color: '#ece8ff' }}>Cargando contacto...</div>}>
-              <DisenoDoble />
-            </Suspense>
-          )}
-        </div>
+        <DisenoWebSeccionesEspeciales />
+        <ResponsiveShowcase />
+        <DisenoDoble />
         
         {/* JSON-LD ÚNICO Y BIEN CERRADO */}
         <script
