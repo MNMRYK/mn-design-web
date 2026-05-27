@@ -28,26 +28,7 @@ const LandingLayout = () => {
         return () => { ScrollTrigger.getAll().forEach(t => t.kill()); lenis.destroy(); };
     }, []);
 
-   const schemaData = {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Rescate de Proyectos Web y Kit Digital",
-        "description": "Expertos en recuperar webs abandonadas tras el Kit Digital. Auditoría técnica, optimización SEO y rescate de e-commerce.",
-        "breadcrumb": {
-            "@type": "BreadcrumbList",
-            "itemListElement": [{
-                "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://mndesignweb.es/"
-            }, {
-                "@type": "ListItem", "position": 2, "name": "Rescate Kit Digital", "item": "https://mndesignweb.es/rescate"
-            }]
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "4.9",
-            "reviewCount": "89"
-        }
-    };
-
+    // Combinamos la información de WebPage con el esquema FAQ que tenías
     const schemaFAQ = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
@@ -84,12 +65,14 @@ const LandingLayout = () => {
         <HelmetProvider>
             <div className="landing-page-wrapper">
                 <Helmet>
-                    <title>Rescate de Proyectos Web y Kit Digital | MN Design Web</title>
+                    <title>MN Design Web | Rescate de Proyectos Web y Kit Digital</title>
                     <link rel="canonical" href="https://mndesignweb.es/rescate-kit-digital" />
                     <meta name="description" content="¿Tu web del Kit Digital no funciona o está abandonada? En MN Design Web rescatamos proyectos, optimizamos el SEO y relanzamos tu e-commerce. Soluciones profesionales en Alicante." />
+                    
+                    {/* He quitado la etiqueta del favicon de aquí. Asegúrate de tenerla SOLO en el public/index.html */}
 
                     {/* Open Graph (WhatsApp, Facebook, LinkedIn) */}
-                    <meta property="og:title" content="Rescate de Proyectos Web | MN Design Web" />
+                    <meta property="og:title" content="MN Design Web | Rescate de Proyectos Web" />
                     <meta property="og:description" content="¿Tu web del Kit Digital no funciona o está abandonada? Recuperamos y optimizamos tu proyecto para que empiece a vender." />
                     <meta property="og:url" content="https://mndesignweb.es/rescate-kit-digital" />
                     <meta property="og:type" content="website" />
@@ -107,28 +90,35 @@ const LandingLayout = () => {
                         dangerouslySetInnerHTML={{ 
                         __html: JSON.stringify([
                             schemaFAQ,
+                            // Aquí he metido la información de "WebPage" que tenías en schemaData
                             {
-                            "@context": "https://schema.org",
-                            "@type": "ProfessionalService",
-                            "name": "MN Design Web",
-                            "image": "https://mndesignweb.es/logo-card.png",
-                            "url": "https://mndesignweb.es/",
-                            "address": { "@type": "PostalAddress", "addressLocality": "Alicante", "addressCountry": "ES" },
-                            "priceRange": "$$"
+                                "@context": "https://schema.org",
+                                "@type": "WebPage",
+                                "name": "Rescate de Proyectos Web y Kit Digital",
+                                "description": "Expertos en recuperar webs abandonadas tras el Kit Digital. Auditoría técnica, optimización SEO y rescate de e-commerce."
                             },
                             {
-                            "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://mndesignweb.es/" },
-                                { "@type": "ListItem", "position": 2, "name": "Rescate de Proyectos", "item": "https://mndesignweb.es/rescate-kit-digital" }
-                            ]
+                                "@context": "https://schema.org",
+                                "@type": "ProfessionalService",
+                                "name": "MN Design Web",
+                                "image": "https://mndesignweb.es/logo-card.png",
+                                "url": "https://mndesignweb.es/",
+                                "address": { "@type": "PostalAddress", "addressLocality": "Alicante", "addressCountry": "ES" },
+                                "priceRange": "$$"
                             },
                             {
-                            "@context": "https://schema.org/",
-                            "@type": "Product",
-                            "name": "Servicios de Rescate Web MN Design Web",
-                            "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5", "bestRating": "5", "ratingCount": "22" }
+                                "@context": "https://schema.org",
+                                "@type": "BreadcrumbList",
+                                "itemListElement": [
+                                    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://mndesignweb.es/" },
+                                    { "@type": "ListItem", "position": 2, "name": "Rescate de Proyectos", "item": "https://mndesignweb.es/rescate-kit-digital" }
+                                ]
+                            },
+                            {
+                                "@context": "https://schema.org/",
+                                "@type": "Product",
+                                "name": "Servicios de Rescate Web MN Design Web",
+                                "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "bestRating": "5", "ratingCount": "89" }
                             }
                         ]) 
                         }}
