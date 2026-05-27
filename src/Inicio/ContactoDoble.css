@@ -21,14 +21,14 @@
 
 @media (max-width: 768px) {
   .contacto-section-wrapper {
-    padding: 60px 5px 30px;
+    padding: 60px 0px 30px;
   }
 
   .contacto-grid {
     /* Pasamos a una sola columna */
     grid-template-columns: 1fr; 
     gap: 40px; 
-    padding: 0 10px;
+    padding: 0 0px;
   }
   
   /* El Formulario (1er hijo) lo mandamos al final */

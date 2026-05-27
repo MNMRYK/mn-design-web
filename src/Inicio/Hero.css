@@ -203,7 +203,7 @@
 
   .btn-empezar, .btn-portfolio {
     width: 100%;            /* Ocupan el ancho de su contenedor */
-    max-width: 280px;       /* Pero nunca se hacen gigantes */
+    max-width: 240px;       /* Pero nunca se hacen gigantes */
     min-width: unset;
     padding: 15px;
     font-size: 0.95rem;

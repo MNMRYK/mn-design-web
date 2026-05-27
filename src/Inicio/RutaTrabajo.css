@@ -131,8 +131,14 @@
    ==================================================== */
 
 @media (max-width: 768px) {
-  
-  /* ... (aquí mantienes lo que ya tenías de .contacto-section-wrapper y .contacto-grid) ... */
+  .contacto-section-wrapper {
+    width: 100%;
+    min-height: 100vh; /* Obligatorio para que el 'pin' funcione bien */
+    display: flex;
+    padding: 40px 5%;
+    position: relative;
+  }
+
 
   .ruta-wrapper {
     padding: 30px 20px 30px; /* Reducimos el aire interno para ganar casi 60px de pantalla */
