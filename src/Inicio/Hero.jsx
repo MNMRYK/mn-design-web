@@ -17,9 +17,19 @@ const Hero = () => {
           Arquitectura Web <br />
           <span className="ampersand">&</span> <br />
           Estrategia Digital
-        </motion.h1>
 
-        {/* 2. BOTONES: Aparecen después del título para dar dinamismo */}
+        </motion.h1>
+        {/* 2. SUBTÍTULO: Aparece el último, cerrando la composición */}
+        <motion.p 
+          className="hero-subtitle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 1 }}
+        >
+          Creamos experiencias digitales de alto rendimiento enfocadas en convertir visitantes en clientes.
+        </motion.p>
+
+        {/* 3. BOTONES: Aparecen después del título para dar dinamismo */}
         <motion.div 
           className="hero-buttons"
           initial={{ opacity: 0, y: 10 }}
@@ -36,15 +46,7 @@ const Hero = () => {
           </Link>
         </motion.div>
 
-        {/* 3. SUBTÍTULO: Aparece el último, cerrando la composición */}
-        <motion.p 
-          className="hero-subtitle"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-        >
-          Creamos experiencias digitales de alto rendimiento enfocadas en convertir visitantes en clientes.
-        </motion.p>
+        
       </div>
     </section>
   );
