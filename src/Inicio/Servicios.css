@@ -147,7 +147,7 @@
   
   /* Reducimos un poco el padding superior en móvil para que no sea tan bestia */
   .servicios-section {
-    padding: 80px 25px 150px 25px; 
+    padding: 100px 25px 150px 25px; 
   }
 
   /* --- EL GRID MÁGICO --- */
