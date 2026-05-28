@@ -16,39 +16,47 @@ const ContactoRescate = () => {
         setEstaCargando(true);
 
         const dataToSend = {
-            access_key: "1bc2d285-71cb-4fe3-806f-530066ab6e15", // 
+            access_key: "1bc2d285-71cb-4fe3-806f-530066ab6e15",
             subject: "Nuevo Lead: Rescate Kit Digital",
             ...formData
         };
 
         toast.promise(
-            fetch("https://api.web3forms.com/submit", {
-                method: "POST",
-                headers: { "Content-Type": "application/json", Accept: "application/json" },
-                body: JSON.stringify(dataToSend)
-            }).then(async (res) => {
-                const result = await res.json();
+            Promise.all([
+                fetch("https://api.web3forms.com/submit", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json", Accept: "application/json" },
+                    body: JSON.stringify(dataToSend)
+                }),
+                fetch("https://hook.eu1.make.com/mxvqg7gwne43yab165v2uhtyw5yh115r", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(dataToSend)
+                })
+            ]).then(async (results) => {
+                const result = await results[0].json();
                 if (!result.success) throw new Error();
                 
-                // Limpiamos el formulario
+                // Limpiamos los campos
                 setFormData({ nombre: '', email: '', doc: '', frustracion: '' });
                 setEstaCargando(false);
 
-                // 🔥 AQUÍ ESTÁ EL RADAR 🔥
-                // Le avisamos a Google Analytics de que hemos conseguido un Lead
                 if (typeof window !== "undefined" && window.gtag) {
                     window.gtag('event', 'generate_lead', {
                         event_category: 'formulario',
                         event_label: 'rescate_kit_digital'
                     });
                 }
+                return result;
             }),
             {
                 loading: 'Validando datos...',
                 success: '¡Solicitud recibida! Te contactaremos pronto.',
                 error: 'Error al enviar. Inténtalo de nuevo.'
             }
-        );
+        ).catch(() => {
+            setEstaCargando(false);
+        });
     };
 
     const [esMovil, setEsMovil] = useState(window.innerWidth <= 1024);

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './FormularioContacto.css';
-import toast from 'react-hot-toast'; // 🔥 1. IMPORTAMOS LAS ALERTAS 🔥
+import toast from 'react-hot-toast'; 
 
 const opcionesServicio = [
   "Diseño Web",
@@ -19,7 +19,7 @@ const FormularioContacto = () => {
   });
 
   const [isSelectOpen, setIsSelectOpen] = useState(false);
-  const [estaCargando, setEstaCargando] = useState(false); // 🔥 Nuevo estado de carga 🔥
+  const [estaCargando, setEstaCargando] = useState(false); 
 
   const selectRef = useRef(null);
 
@@ -61,29 +61,41 @@ const FormularioContacto = () => {
       message: formData.mensaje,
     };
 
-    // 🔥 LA MAGIA DE TOAST.PROMISE 🔥
     toast.promise(
-      fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(dataToSend)
-      }).then(async (res) => {
+      Promise.all([
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(dataToSend)
+        }),
+        fetch("https://hook.eu1.make.com/mxvqg7gwne43yab165v2uhtyw5yh115r", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dataToSend)
+        })
+      ]).then(async (results) => {
+        const res = results[0]; 
         const result = await res.json();
+        
         if (!result.success) throw new Error();
         
         setFormData({ nombre: '', email: '', servicio: '', mensaje: '' });
         setEstaCargando(false);
+
+        if (typeof window !== "undefined" && window.gtag) {
+            window.gtag('event', 'generate_lead', {
+                event_category: 'formulario',
+                event_label: 'contacto_general'
+            });
+        }
+        
         return result;
-      }).catch((err) => {
-        setEstaCargando(false);
-        throw err;
       }),
       {
         loading: 'Enviando...',
         success: '¡Recibido! Te contactaremos pronto.',
         error: 'Error al enviar, intenta de nuevo.'
       },
-      // Estilos para que sigan el mismo look premium que el otro formulario
       {
         success: { 
             style: { borderLeft: '5px solid #00C851', borderRadius: '12px' } 

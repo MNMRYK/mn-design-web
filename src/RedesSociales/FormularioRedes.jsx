@@ -65,29 +65,39 @@ const FormularioRedes = () => {
 
     const dataToSend = {
       access_key: "1bc2d285-71cb-4fe3-806f-530066ab6e15",
-      subject: `Nuevo lead desde la web (Diseño)`,
+      subject: `Nuevo lead desde la web (Redes Sociales)`,
       from_name: formData.nombre,
       email: formData.email,
       message: `Intereses: ${formData.servicios.join(', ')}\n\nMensaje: ${formData.mensaje}`,
     };
 
-    // 🔥 LA MAGIA ARREGLADA: Promesa en 3 partes 🔥
+
     toast.promise(
-      // PARTE 1: La función que hace el envío
-      fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(dataToSend)
-      }).then(async (response) => {
-        const result = await response.json();
+      Promise.all([
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Accept: "application/json" },
+          body: JSON.stringify(dataToSend)
+        }),
+        fetch("https://hook.eu1.make.com/mxvqg7gwne43yab165v2uhtyw5yh115r", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dataToSend)
+        })
+      ]).then(async (results) => {
+        const result = await results[0].json();
         if (!result.success) throw new Error(); 
         
         setFormData({ nombre: '', email: '', servicios: [], mensaje: '' });
         setEstaCargando(false);
+
+        if (typeof window !== "undefined" && window.gtag) {
+            window.gtag('event', 'generate_lead', {
+                event_category: 'formulario',
+                event_label: 'Redes_Sociales' 
+            });
+        }
         return result;
-      }).catch((err) => {
-        setEstaCargando(false);
-        throw err; 
       }),
 
       // PARTE 2: Los textos de las notificaciones (¡React ahora los entenderá!)
