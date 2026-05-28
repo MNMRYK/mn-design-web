@@ -43,10 +43,36 @@
     color: #d8d8d8;
     text-decoration: none;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
 .footer-links a:hover {
     color: #ffffff;
+}
+
+/* RESPONSIVE: Tablets y Móviles */
+@media (max-width: 1024px) {
+    .footer-content {
+        /* Pasamos de 3 columnas a 1 sola para que todo respire */
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px; /* Un poco de aire entre el contacto, los links y el copyright */
+    }
+
+    .footer-contact {
+        flex-direction: column; /* Apilamos el mail y el teléfono uno debajo del otro */
+        gap: 10px; /* Reducimos el hueco gigante de 50px */
+        align-items: center; /* Centramos todo */
+        justify-content: center;
+    }
+
+    .footer-links {
+        justify-content: center; /* Aseguramos que los enlaces queden en el medio */
+    }
+
+    .footer-copyright {
+        text-align: center; /* Centramos el texto legal */
+    }
 }
 
 /* RESPONSIVE: Si la pantalla es pequeña, apilamos */
@@ -66,5 +92,9 @@
 
     .footer-contact, .footer-copyright {
         text-align: center;
+    }
+    .footer-links {
+        justify-content: center; 
+        gap: 15px; /* Reducimos el hueco entre enlaces en móvil */
     }
 }

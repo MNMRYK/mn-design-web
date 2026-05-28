@@ -55,24 +55,23 @@
 .servicio-card {
   min-width: 320px; 
   max-width: 320px;
-  
-  /* Ahora sí forzamos una altura mayor que el ancho para que sea vertical */
-  height: 450px; /* Permite crecer si el texto es muy largo, pero no la fuerza a ser vertical */
-  
+  height: 450px; 
   background: #ffffff;
   border: 1px solid #e2d8f5;
   border-radius: 16px;
-  padding: 2.5rem 2rem; /* Reducimos un poco el padding vertical para que no se alargue */
+  padding: 2.5rem 2rem; 
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   flex-shrink: 0;
   
-  /* Centramos el contenido dentro de la tarjeta */
+  /* Punto magnético para el scroll táctil */
+  scroll-snap-align: center;
+  
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: center; /* Esto centra verticalmente el icono, título y texto */
+  justify-content: center;
 }
 
 .servicio-card:hover {
@@ -146,73 +145,198 @@
   border-color: #7E57C2;
 }
 
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+/* ==========================================
+   RESPONSIVE TABLET (2 Tarjetas)
+   ========================================== */
 @media (max-width: 1024px) {
-  .carousel-controls-container {
-    gap: 20px; /* Reducimos un poco el gap para dar más espacio a las cards */
+  
+  /* Quitamos el padding lateral general para aprovechar toda la pantalla */
+  .servicios-rescate-wrapper {
+    padding: 4rem 0 !important; 
   }
 
-  .carousel-arrow {
-    width: 40px; /* Flechas más pequeñas */
-    height: 40px;
-    font-size: 1rem;
-  }
-
-  .servicio-card {
-    /* Mantenemos 2 tarjetas visibles con un poco de aire */
-    min-width: calc(50% - 15px); 
-    max-width: none; /* Quitamos el ancho fijo para que se adapte al 50% */
-  }
-}
-
-@media (max-width: 768px) {
   .servicios-title {
-    font-size: 2.2rem; /* Un poco más pequeño para que no rompa el layout */
-    margin-bottom: 2rem;
+    padding: 0 40px; /* Margen de seguridad para el título */
+  }
+
+  .carousel-controls-container {
+    display: block; 
+    width: 100%;
+    padding: 0; 
+    position: relative;
   }
   
   .horizontal-scroll-area {
-    gap: 15px;
-    padding: 10px 15px;
-    -webkit-mask-image: none; /* ¡Fuera degradado! */
+    /* 🔥 LA MAGIA PARA TABLET: 2 Tarjetas (290px x 2) + 1 Gap (20px) = 600px */
+    width: 600px; 
+    margin: 0 auto; 
+    gap: 20px;
+    padding: 10px 0; 
+    -webkit-mask-image: none;
     mask-image: none;
+    scroll-snap-type: x mandatory;
   }
 
   .servicio-card {
-    /* 🔥 AQUÍ ESTÁ EL CAMBIO: Permitimos que quepan dos al 45% del ancho */
-    min-width: 180px; /* Un mínimo para que no se vuelvan demasiado pequeñas */
-    max-width: 180px;
+    /* Tarjetas adaptadas a tablet */
+    min-width: 290px; 
+    max-width: 290px;
+    min-height: 400px; 
+    height: auto;
     
-    height: 350px; /* Reducimos altura para que sea más equilibrado */
-    padding: 1.5rem 1rem;
+    scroll-snap-align: start; /* Anclamos por la izquierda para que cuadren de dos en dos */
+    scroll-snap-stop: always;
   }
 
+  /* Flechas flotantes a los lados */
   .carousel-arrow {
-    display: none !important;
+    display: flex !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+    z-index: 20;
   }
 
-  /* 3. Aseguramos que el carrusel tenga margen para que no se pegue al borde */
+  /* Usamos tu nombre de clase o el truco first-of-type por seguridad */
+  .carousel-controls-container button:first-of-type,
+  .carousel-arrow.left-arrow {
+    left: 20px;
+  }
+
+  .carousel-controls-container button:last-of-type,
+  .carousel-arrow.right-arrow {
+    right: 20px;
+  }
+}
+
+/* 🔥 EL ARREGLO EXCLUSIVO PARA MÓVILES 🔥 */
+@media (max-width: 768px) {
+  /* 1. Quitamos los "muros" laterales de la sección para tener el 100% de la pantalla */
+  .servicios-rescate-wrapper {
+    padding: 4rem 0 !important; 
+  }
+
+  /* 2. Le damos el margen de seguridad solo al título para que no choque con los bordes */
+  .servicios-title {
+    font-size: 2.2rem; 
+    margin-bottom: 2rem;
+    padding: 0 20px; 
+  }
+
+  /* 3. Apagamos el flexbox que volvía locas a las flechas y usamos block */
   .carousel-controls-container {
-    padding: 0;
+    display: block; 
+    width: 100%;
+    padding: 0; 
+    position: relative;
+  }
+  
+  .horizontal-scroll-area {
+    width: 260px; 
+    margin: 0 auto; /* Centra la "ventana" de la tarjeta perfecta */
+    gap: 20px;
+    padding: 10px 0; 
+    -webkit-mask-image: none;
+    mask-image: none;
+    scroll-snap-type: x mandatory;
+  }
+  .servicio-card {
+    /* Recuperamos la forma rectangular vertical con medidas fijas */
+    min-width: 260px; 
+    max-width: 260px;
+    min-height: 360px; 
+    height: auto; 
+    padding: 1.5rem 1.1rem;
+    gap: 15px;
+    /* Anclaje magnético */
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
   }
 
-  /* Reducimos textos para que no se vean gigantes en cards pequeñas */
+  /* Flechas flotantes a los extremos de la pantalla (fuera del scroll) */
+ /* 4. Flechas libres a los extremos de la pantalla real */
+  .carousel-arrow {
+    display: flex !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    min-width: 45px; /* Un pelín más grandes para que el pulgar acierte mejor */
+    width: 45px;
+    height: 45px;
+    font-size: 1.2rem;
+    z-index: 20;
+  }
+
+  .carousel-arrow.left-arrow {
+    left: 10px; /* Pegadita al borde izquierdo del móvil */
+  }
+
+  .carousel-arrow.right-arrow {
+    right: 10px; /* Pegadita al borde derecho del móvil */
+  }
+
+  /* Ajustes de texto */
   .servicio-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 0.8rem;
   }
 
   .servicio-card p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .servicio-icon {
-    width: 60px; /* Icono más pequeño */
-    height: 60px;
+    width: 80px; 
+    height: 80px;
     margin-bottom: 1rem;
   }
   
   .servicio-icon img {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
   }
+}
+
+/* El motor de la animación */
+@keyframes subidaComodin {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* La clase "comodín" que le pondrás a tus contenedores padre */
+.fade-up-sencillo {
+  /* Le ponemos 0.8s de duración y 0.5s de retraso para que dé un respiro al cargar */
+  animation: subidaComodin 0.8s ease-out 0.5s both;
+}
+
+/* ==========================================
+   EFECTO REVELAR AL HACER SCROLL
+   ========================================== */
+
+/* Estado 1: Escondido (esperando a que el usuario baje) */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px); /* Un poco más abajo */
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Estado 2: ¡El usuario ha llegado! (El JS le pondrá esta clase) */
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0); /* Sube a su sitio */
 }

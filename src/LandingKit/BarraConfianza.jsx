@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './BarraConfianza.css';
 
 const badges = [
@@ -16,12 +16,31 @@ const badges = [
 ];
 
 export const BarraConfianza = () => {
+  useEffect(() => {
+    // Creamos al vigilante
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            // Si la sección entra un 15% en la pantalla...
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible'); // ¡La mostramos!
+                observer.unobserve(entry.target); // Dejamos de vigilarla
+            }
+        });
+    }, { threshold: 0.15 });
+
+    // Buscamos a todos los que tienen la clase escondida y los vigilamos
+    const elementos = document.querySelectorAll('.reveal-on-scroll');
+    elementos.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="marquee-container">
       <div className="marquee-content">
         {/* Duplicamos el array para el efecto infinito */}
         {[...badges, ...badges].map((badge, index) => (
-          <div className="badge-card" key={index}>
+          <div className="badge-card " key={index}>
             <img src={badge.icon} alt={badge.name} className="badge-icon" />
             <span className="badge-text">{badge.name}</span>
           </div>

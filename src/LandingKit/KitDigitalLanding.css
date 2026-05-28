@@ -278,12 +278,13 @@
     left: 0;
     top: 0;
     justify-content: center;
-    padding: 20px 0;
+    padding: 0px 0 30px;
   }
 
   /* Hero */
   .hero-split-container {
     padding: 2rem 1rem; /* Menos padding */
+    flex-direction: column;
   }
 
   .hero-title {
@@ -310,4 +311,49 @@
   .centered-hero-actions {
     gap: 20px;
   }
+}
+
+/* ==========================================
+   EFECTO FADE-IN-UP (Cascada visual Hero)
+   ========================================== */
+
+@keyframes fadeInUpSubtle {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 1. El cartelito superior entra el primero */
+.badge-premium {
+  opacity: 0;
+  animation: fadeInUpSubtle 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* 2. El título entra un instante después (0.2s) */
+.hero-title {
+  opacity: 0;
+  animation: fadeInUpSubtle 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.2s forwards;
+}
+
+/* 3. La descripción entra luego (0.4s) */
+.hero-description {
+  opacity: 0;
+  animation: fadeInUpSubtle 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+}
+
+/* 4. El botón aparece para rematar la lectura (0.6s) */
+.btn-primary-glow {
+  opacity: 0;
+  animation: fadeInUpSubtle 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s forwards;
+}
+
+/* 5. Finalmente, el carrusel de la derecha (0.8s) */
+.hero-right-carousel {
+  opacity: 0;
+  animation: fadeInUpSubtle 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.8s forwards;
 }

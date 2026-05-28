@@ -32,7 +32,8 @@ const ServiciosRescate = () => {
                 const firstCard = container.querySelector('.servicio-card');
                 if (!firstCard) return;
 
-                const cardWidth = firstCard.offsetWidth + 30; // 30px es el gap
+                const gap = parseInt(window.getComputedStyle(container).gap) || 0;
+                const cardWidth = firstCard.offsetWidth + gap; 
                 const middlePoint = container.scrollWidth / 2;
 
                 // Si hemos llegado a la mitad (donde empieza la lista clonada)
@@ -56,44 +57,54 @@ const ServiciosRescate = () => {
 
         startAutoScroll();
 
-        // Pausar si el usuario mete el ratón
         const handleMouseEnter = () => clearInterval(scrollInterval);
         const handleMouseLeave = () => startAutoScroll();
+        // Pausar también si tocan la pantalla con el dedo
+        const handleTouchStart = () => clearInterval(scrollInterval);
+        const handleTouchEnd = () => startAutoScroll();
 
         container.addEventListener('mouseenter', handleMouseEnter);
         container.addEventListener('mouseleave', handleMouseLeave);
+        container.addEventListener('touchstart', handleTouchStart, { passive: true });
+        container.addEventListener('touchend', handleTouchEnd);
 
         return () => {
             clearInterval(scrollInterval);
             container.removeEventListener('mouseenter', handleMouseEnter);
             container.removeEventListener('mouseleave', handleMouseLeave);
+            container.removeEventListener('touchstart', handleTouchStart);
+            container.removeEventListener('touchend', handleTouchEnd);
         };
     }, []);
 
     // Funciones para las flechas manuales
     const scrollLeft = () => {
         if (carruselRef.current) {
-            const firstCard = carruselRef.current.querySelector('.servicio-card');
-            carruselRef.current.style.scrollBehavior = 'smooth';
-            carruselRef.current.scrollLeft -= (firstCard.offsetWidth + 30);
+            const container = carruselRef.current;
+            const firstCard = container.querySelector('.servicio-card');
+            const gap = parseInt(window.getComputedStyle(container).gap) || 0;
+            container.style.scrollBehavior = 'smooth';
+            container.scrollLeft -= (firstCard.offsetWidth + gap);
         }
     };
 
     const scrollRight = () => {
         if (carruselRef.current) {
-            const firstCard = carruselRef.current.querySelector('.servicio-card');
-            carruselRef.current.style.scrollBehavior = 'smooth';
-            carruselRef.current.scrollLeft += (firstCard.offsetWidth + 30);
+            const container = carruselRef.current;
+            const firstCard = container.querySelector('.servicio-card');
+            const gap = parseInt(window.getComputedStyle(container).gap) || 0;
+            container.style.scrollBehavior = 'smooth';
+            container.scrollLeft += (firstCard.offsetWidth + gap);
         }
     };
 
     return (
         <section className="servicios-rescate-wrapper">
-            <h2 className="servicios-title">Todo lo que podemos hacer para rescatar tu negocio</h2>
+            <h2 className="servicios-title reveal-on-scroll">Todo lo que podemos hacer para rescatar tu negocio</h2>
             
-            <div className="carousel-controls-container">
+            <div className="carousel-controls-container reveal-on-scroll">
                 {/* Flecha Izquierda */}
-                <button className="carousel-arrow" onClick={scrollLeft} aria-label="Anterior">
+                <button className="carousel-arrow left-arrow" onClick={scrollLeft} aria-label="Anterior">
                     &#10094;
                 </button>
 
@@ -111,7 +122,7 @@ const ServiciosRescate = () => {
                 </div>
 
                 {/* Flecha Derecha */}
-                <button className="carousel-arrow" onClick={scrollRight} aria-label="Siguiente">
+                <button className="carousel-arrow right-arrow" onClick={scrollRight} aria-label="Siguiente">
                     &#10095;
                 </button>
             </div>

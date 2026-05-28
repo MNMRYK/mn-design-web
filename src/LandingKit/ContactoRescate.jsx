@@ -52,10 +52,10 @@ const ContactoRescate = () => {
 
     return (
         <section className="contacto-rescate-section">
-            <div className="contacto-grid">
+            <div id="validacion" className="contacto-grid">
                 
                 {/* LADO IZQUIERDO */}
-                <div className="contacto-left">
+                <div className="contacto-left reveal-on-scroll">
                     <h2 className="title-white">Reserva tu plaza para la auditoría de rescate</h2>
                     <div className="cal-widget">
                         <iframe 
@@ -97,7 +97,7 @@ const ContactoRescate = () => {
                 </div>
 
                 {/* LADO DERECHO: Formulario Premium */}
-                <div className="contacto-right">
+                <div className="contacto-right reveal-on-scroll">
                     <form className="formulario-rescate" onSubmit={handleSubmit}>
                         <h3>Valida tus datos de acceso</h3>
                         <p className="form-subtext">Necesitamos estos datos para verificar tu elegibilidad en el censo.</p>

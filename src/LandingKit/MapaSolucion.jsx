@@ -4,9 +4,9 @@ import './MapaSolucion.css';
 const MapaSolucion = () => {
     return (
         <section className="mapa-solucion-section">
-            <h2 className="mapa-title">Tu camino hacia la tranquilidad</h2>
+            <h2 className="mapa-title reveal-on-scroll">Tu camino hacia la tranquilidad</h2>
             
-            <div className="mapa-container">
+            <div className="mapa-container reveal-on-scroll">
                 {/* Paso 1 */}
                 <div className="paso-card">
                     <div className="numero">01</div>

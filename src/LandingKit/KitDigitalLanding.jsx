@@ -71,15 +71,17 @@ const KitDigitalLanding = () => {
 
     return (
         <div className="landing-premium-container">
-            <a href="https://mndesignweb.es/" className="global-logo" target="_blank" rel="noopener noreferrer">
-                <img src="/logo.png" alt="MN Design Web" />
-                <div className="texto-logo">
-                    <span className="siglas">MN</span>
-                    <span className="marca">Design Web</span>
-                </div>
-            </a>
+            
             
             <header className="hero-split-container">
+                <a href="https://mndesignweb.es/" className="global-logo" target="_blank" rel="noopener noreferrer">
+                    <img src="/logo.png" alt="MN Design Web" />
+                    <div className="texto-logo">
+                        <span className="siglas">MN</span>
+                        <span className="marca">Design Web</span>
+                    </div>
+                </a>
+
                 <div className="hero-split-grid">
                     
                     {/* LADO IZQUIERDO (60%) */}
