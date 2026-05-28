@@ -7,7 +7,8 @@ const ContactoRescate = () => {
         nombre: '', 
         email: '', 
         doc: '', 
-        frustracion: '' 
+        frustracion: '',
+        mensaje: ''
     });
     const [estaCargando, setEstaCargando] = useState(false);
 
@@ -21,7 +22,8 @@ const ContactoRescate = () => {
             nombre: formData.nombre,
             email: formData.email,
             doc: formData.doc,
-            frustracion: formData.frustracion
+            frustracion: formData.frustracion,
+            mensaje: formData.mensaje,
         };
 
         toast.promise(
@@ -41,7 +43,7 @@ const ContactoRescate = () => {
                 if (!result.success) throw new Error();
                 
                 // Limpiamos los campos
-                setFormData({ nombre: '', email: '', doc: '', frustracion: '' });
+                setFormData({ nombre: '', email: '', doc: '', frustracion: '', mensaje: '' });
                 setEstaCargando(false);
 
                 if (typeof window !== "undefined" && window.gtag) {
@@ -140,7 +142,7 @@ const ContactoRescate = () => {
                                 rows="3" 
                                 placeholder="Ej: La web va lenta, el antiguo agente no me responde, la tienda no vende nada..." 
                                 required 
-                                onChange={(e) => setFormData({...formData, frustracion: e.target.value})}
+                                onChange={(e) => setFormData({...formData, frustracion: e.target.value, mensaje: e.target.value})}
                             />
                         </div>
                         <label className="checkbox-label">
