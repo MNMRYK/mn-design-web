@@ -2,75 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './CookieBanner.css';
 
-// 🔥 1. FUNCIONES PARA INYECTAR SCRIPTS (Fuera del componente para que no se re-creen)
-const activarAnalytics = () => {
-  // Seguro: Si ya existe, no lo inyectamos de nuevo
-  if (document.getElementById('gtag-script')) return;
-
-  const scriptGtag = document.createElement('script');
-  scriptGtag.id = 'gtag-script';
-  scriptGtag.async = true;
-  scriptGtag.src = "https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z";
-  document.head.appendChild(scriptGtag);
-
-  const scriptConfig = document.createElement('script');
-  scriptConfig.id = 'gtag-config';
-  scriptConfig.innerHTML = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-36WYJMYT3Z');
-  `;
-  document.head.appendChild(scriptConfig);
-};
-
-const activarClarity = () => {
-  // Seguro: Si ya existe, no lo inyectamos de nuevo
-  if (document.getElementById('clarity-script')) return;
-
-  const scriptClarity = document.createElement('script');
-  scriptClarity.id = 'clarity-script';
-  scriptClarity.type = 'text/javascript';
-  scriptClarity.innerHTML = `
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "wuzaxaifa0");
-  `;
-  document.head.appendChild(scriptClarity);
-};
-
-
 const CookieBanner = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem('cookieConsent');
-    
     if (!consent) {
-      // Si no ha elegido nada, mostramos el banner
       setIsVisible(true);
-    } else if (consent === 'accepted') {
-      // 🔥 2. SI YA ACEPTÓ EN EL PASADO: Activamos los scripts silenciosamente al entrar
-      activarAnalytics();
-      activarClarity();
     }
   }, []);
 
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'accepted');
     setIsVisible(false);
-    
-    // 🔥 3. SI LE DA AL BOTÓN AHORA: Disparamos los scripts al instante
-    activarAnalytics();
-    activarClarity();
   };
 
   const handleDecline = () => {
     localStorage.setItem('cookieConsent', 'declined');
     setIsVisible(false);
-    // Si rechaza, simplemente ocultamos el banner y NO llamamos a las funciones
   };
 
   if (!isVisible) return null;
