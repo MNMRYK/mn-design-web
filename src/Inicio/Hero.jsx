@@ -41,9 +41,9 @@ const Hero = () => {
           </a>
           
           {/* Enlace directo a tu página de portfolio */}
-          <Link to="/portfolio" className="btn-portfolio">
-            Ver Portfolio
-          </Link>
+          <a href="/rescate-kit-digital" className="btn-varios">
+            Rescate Kit Digital
+          </a>
         </motion.div>
 
         

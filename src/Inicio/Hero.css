@@ -79,7 +79,7 @@
   margin-top: 10px;
 }
 
-.btn-empezar, .btn-portfolio {
+.btn-empezar, .btn-varios {
   display: flex; 
   align-items: center;
   justify-content: center;
@@ -87,13 +87,14 @@
   box-sizing: border-box; 
   text-shadow: none !important;
   font-family: 'Montserrat', sans-serif;
-  font-weight: 800;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
   padding: clamp(14px, 2.2vh, 20px) clamp(25px, 3vw, 40px);
   border-radius: 20px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   min-width: 180px;
+  letter-spacing: 0.9px;
 }
 
 .btn-empezar {
@@ -112,7 +113,7 @@
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
 }
 
-.btn-portfolio {
+.btn-varios {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.219);
   backdrop-filter: blur(10px);
@@ -121,7 +122,7 @@
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
 }
 
-.btn-portfolio:hover {
+.btn-varios:hover {
   color: var(--dark-violet) !important;
   background-color: var(--fondo-claro); 
   border-color: rgba(255, 255, 255, 0.4);
@@ -160,7 +161,7 @@
     gap: 30px;
   }
 
-  .btn-empezar, .btn-portfolio {
+  .btn-empezar, .btn-varios {
     padding: 20px 35px; /* Botones más grandes y táctiles */
     font-size: 1.1rem;
     min-width: 200px;
@@ -170,7 +171,7 @@
 
 @media (max-width: 850px) {
   .hero-buttons { gap: 15px; }
-  .btn-empezar, .btn-portfolio { min-width: 160px; }
+  .btn-empezar, .btn-varios { min-width: 160px; }
 }
 
 /* Ajustes para móviles (600px o menos) */
@@ -201,7 +202,7 @@
     gap: 15px;
   }
 
-  .btn-empezar, .btn-portfolio {
+  .btn-empezar, .btn-varios {
     width: 100%;            /* Ocupan el ancho de su contenedor */
     max-width: 240px;       /* Pero nunca se hacen gigantes */
     min-width: unset;
