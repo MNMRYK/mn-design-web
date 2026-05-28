@@ -18,7 +18,10 @@ const ContactoRescate = () => {
         const dataToSend = {
             access_key: "1bc2d285-71cb-4fe3-806f-530066ab6e15",
             subject: "Nuevo Lead: Rescate Kit Digital",
-            ...formData
+            nombre: formData.nombre,
+            email: formData.email,
+            doc: formData.doc,
+            frustracion: formData.frustracion
         };
 
         toast.promise(
