@@ -29,8 +29,19 @@ const ContactoRescate = () => {
             }).then(async (res) => {
                 const result = await res.json();
                 if (!result.success) throw new Error();
+                
+                // Limpiamos el formulario
                 setFormData({ nombre: '', email: '', doc: '', frustracion: '' });
                 setEstaCargando(false);
+
+                // 🔥 AQUÍ ESTÁ EL RADAR 🔥
+                // Le avisamos a Google Analytics de que hemos conseguido un Lead
+                if (typeof window !== "undefined" && window.gtag) {
+                    window.gtag('event', 'generate_lead', {
+                        event_category: 'formulario',
+                        event_label: 'rescate_kit_digital'
+                    });
+                }
             }),
             {
                 loading: 'Validando datos...',
@@ -52,10 +63,10 @@ const ContactoRescate = () => {
 
     return (
         <section className="contacto-rescate-section">
-            <div id="validacion" className="contacto-grid">
+            <div id="validacion" className="contacto-grid reveal-on-scroll">
                 
                 {/* LADO IZQUIERDO */}
-                <div className="contacto-left reveal-on-scroll">
+                <div className="contacto-left ">
                     <h2 className="title-white">Reserva tu plaza para la auditoría de rescate</h2>
                     <div className="cal-widget">
                         <iframe 
@@ -97,7 +108,7 @@ const ContactoRescate = () => {
                 </div>
 
                 {/* LADO DERECHO: Formulario Premium */}
-                <div className="contacto-right reveal-on-scroll">
+                <div className="contacto-right">
                     <form className="formulario-rescate" onSubmit={handleSubmit}>
                         <h3>Valida tus datos de acceso</h3>
                         <p className="form-subtext">Necesitamos estos datos para verificar tu elegibilidad en el censo.</p>
