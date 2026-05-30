@@ -30,6 +30,12 @@ const CookieBanner = () => {
     if (typeof window !== "undefined" && window.clarity) {
       window.clarity('consent');
     }
+
+    // 3. Le damos vía libre al Píxel de Meta
+    if (typeof window !== "undefined" && window.fbq) {
+      window.fbq('consent', 'grant');
+    }
+    
   };
 
   const handleDecline = () => {

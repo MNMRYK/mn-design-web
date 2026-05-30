@@ -8,6 +8,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>MN Design Web | Diseño Web en Alcoy, E-commerce y SEO</title>
 
+    <!-- 🔥 META PIXEL 🔥 -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+
+      // 🛑 CONTROL DE COOKIES PARA META
+      var localConsent = localStorage.getItem('cookieConsent');
+      if (localConsent !== 'accepted') {
+        fbq('consent', 'revoke'); // Bloqueado por defecto si no hay aceptación
+      }
+
+      fbq('init', '1627135808585120');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1627135808585120&ev=PageView&noscript=1"
+    /></noscript>
+    
     <!-- 1. GOOGLE CONSENT MODE: Estado por defecto -->
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -34,7 +58,7 @@
         });
       }
     </script>
-    
+
     <!-- 🔥 GOOGLE ANALYTICS 🔥 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z"></script>
     <script>
