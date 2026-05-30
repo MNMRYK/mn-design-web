@@ -72,7 +72,7 @@ const LandingLayout = () => {
                     {/* He quitado la etiqueta del favicon de aquí. Asegúrate de tenerla SOLO en el public/index.html */}
 
                     {/* Open Graph (WhatsApp, Facebook, LinkedIn) */}
-                    <meta property="og:title" content="MN Design Web | Rescate de Proyectos Web" />
+                    <meta property="og:title" content="MN Design Web | Rescate de Proyectos Web Kit Digital" />
                     <meta property="og:description" content="¿Tu web del Kit Digital no funciona o está abandonada? Recuperamos y optimizamos tu proyecto para que empiece a vender." />
                     <meta property="og:url" content="https://mndesignweb.es/rescate-kit-digital" />
                     <meta property="og:type" content="website" />
@@ -81,7 +81,7 @@ const LandingLayout = () => {
 
                     {/* Twitter Cards */}
                     <meta name="twitter:card" content="summary_large_image" />
-                    <meta name="twitter:title" content="Rescate de Proyectos Web | MN Design Web" />
+                    <meta name="twitter:title" content="Rescate de Proyectos Web Kit Digital | MN Design Web" />
                     <meta name="twitter:description" content="¿Tu web del Kit Digital no funciona? En MN Design Web rescatamos tu proyecto y lo ponemos a vender." />
                     <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
                     

@@ -15,11 +15,36 @@ const CookieBanner = () => {
   const handleAccept = () => {
     localStorage.setItem('cookieConsent', 'accepted');
     setIsVisible(false);
+
+    // 1. Le decimos a Google Analytics que actualice el estado a "Permitido"
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag('consent', 'update', {
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'analytics_storage': 'granted'
+      });
+    }
+
+    // 2. Le damos permiso a Microsoft Clarity para usar cookies
+    if (typeof window !== "undefined" && window.clarity) {
+      window.clarity('consent');
+    }
   };
 
   const handleDecline = () => {
     localStorage.setItem('cookieConsent', 'declined');
     setIsVisible(false);
+
+    // Si rechaza, nos aseguramos de que Google registre el rechazo
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag('consent', 'update', {
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'analytics_storage': 'denied'
+      });
+    }
   };
 
   if (!isVisible) return null;
