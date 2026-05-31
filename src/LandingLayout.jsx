@@ -76,14 +76,14 @@ const LandingLayout = () => {
                     <meta property="og:description" content="¿Tu web del Kit Digital no funciona o está abandonada? Recuperamos y optimizamos tu proyecto para que empiece a vender." />
                     <meta property="og:url" content="https://mndesignweb.es/rescate-kit-digital" />
                     <meta property="og:type" content="website" />
-                    <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+                    <meta property="og:image" content="https://mndesignweb.es/rescate-kit-digital.png" />
                     <meta property="og:site_name" content="MN Design Web" />
 
                     {/* Twitter Cards */}
                     <meta name="twitter:card" content="summary_large_image" />
                     <meta name="twitter:title" content="Rescate de Proyectos Web Kit Digital | MN Design Web" />
                     <meta name="twitter:description" content="¿Tu web del Kit Digital no funciona? En MN Design Web rescatamos tu proyecto y lo ponemos a vender." />
-                    <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+                    <meta name="twitter:image" content="https://mndesignweb.es/rescate-kit-digital.png" />
                     
                     <script
                         type="application/ld+json"
