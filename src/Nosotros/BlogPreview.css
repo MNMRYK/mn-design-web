@@ -178,3 +178,12 @@
         width: fit-content;
     }
 }
+
+/* Ajustes para móviles */
+@media (max-width: 400px) {
+    .blog-preview-section {
+        padding: 100px 24px 100px;
+        background-color: var(--white-iris, #f8f7fa); /* Ajusta a tu variable de fondo claro */
+        font-family: 'Nunito', sans-serif;
+    }
+}

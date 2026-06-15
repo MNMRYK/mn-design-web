@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './BlogPreview.css';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react'; 
 
 const BlogPreview = () => {
@@ -32,7 +33,14 @@ const BlogPreview = () => {
   };
 
   return (
-    <section className="blog-preview-section">
+    /* 🔥 Cambiamos section por motion.section y aplicamos tu animación 🔥 */
+    <motion.section 
+      className="blog-preview-section"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+    >
       <div className="blog-preview-container">
         
         {/* CABECERA */}
@@ -51,17 +59,13 @@ const BlogPreview = () => {
             </div>
         </div>
 
-
         {/* CUADRÍCULA DINÁMICA CON DATOS DE WORDPRESS */}
         <div className="blog-grid">
           {cargando ? (
             <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Cargando los últimos artículos de MN Design Web...</p>
           ) : (
             articulos.map((articulo) => {
-              // Extraemos la imagen destacada de WP (si no tiene, ponemos un color de fondo o imagen por defecto)
               const imagenDestacada = articulo._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/600x400?text=MN+Design+Web';
-              
-              // Extraemos la categoría principal (WordPress las mete en un array complejo)
               const nombreCategoria = articulo._embedded?.['wp:term']?.[0]?.[0]?.name || 'Blog';
 
               return (
@@ -72,7 +76,6 @@ const BlogPreview = () => {
                   </div>
                   <div className="blog-card-content">
                     <span className="blog-date">{formatearFecha(articulo.date)}</span>
-                    {/* WP devuelve el título con formato HTML, por eso usamos dangerouslySetInnerHTML para limpiar acentos y comillas */}
                     <h3 
                       className="blog-card-title" 
                       dangerouslySetInnerHTML={{ __html: articulo.title.rendered }} 
@@ -88,7 +91,7 @@ const BlogPreview = () => {
         </div>
 
       </div>
-    </section>
+    </motion.section>
   );
 };
 
