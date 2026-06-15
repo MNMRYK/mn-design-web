@@ -71,7 +71,7 @@ const ReservaYMapa = () => {
                     src="https://cal.com/mndesignweb/reunion-30-min" 
                     title="Reserva de citas"
                     frameBorder="0" 
-                    scrolling={esMovil ? "auto" : "no"}
+                    scrolling="auto"
                     className="calendar-iframe"
                 />
             </div>

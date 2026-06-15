@@ -19,9 +19,32 @@
   align-items: start; /* Hace que ambos bloques empiecen alineados por arriba */
 }
 
+@media (max-width: 1024px) {
+  .contacto-section-wrapper {
+    padding: 20px 15px 30px !important; /* Ajuste para tablet y móvil */
+  }
+  
+  .contacto-grid {
+    /* Pasamos a una sola columna para tablet y móvil */
+    grid-template-columns: 1fr; 
+    gap: 60px; 
+    padding: 0 0px; /* Si quieres darle un poco de aire lateral en tablet, prueba con padding: 0 20px; */
+  }
+  
+  /* El Formulario (1er hijo) lo mandamos al final */
+  .contacto-grid > *:nth-child(1) { 
+    order: 2; 
+  }
+
+  /* La Ruta de Trabajo (2do hijo) la subimos al principio */
+  .contacto-grid > *:nth-child(2) { 
+    order: 1; 
+  }
+}
+
 @media (max-width: 768px) {
   .contacto-section-wrapper {
-    padding: 60px 0px 30px;
+    padding: 50px 15px 50px !important;
   }
 
   .contacto-grid {

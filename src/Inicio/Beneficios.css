@@ -5,6 +5,7 @@
   height: auto;
   max-width: 1300px;
   padding: 50px 40px;
+  margin-bottom: 30px;
   background: linear-gradient(334deg, #7E57C2, #4c1986, #10001f);
   background-size: 180% 180%;
   animation: modo-movimiento 6s ease infinite;

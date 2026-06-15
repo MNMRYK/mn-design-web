@@ -14,6 +14,7 @@ import Soluciones from './Inicio/Soluciones';
 import Beneficios from './Inicio/Beneficios';
 import ContactoDoble from './Inicio/ContactoDoble';
 import CallToActionFinal from './Inicio/CallToActionFinal';
+import BlogPreview from './Nosotros/BlogPreview';
 
 const Inicio = () => {
   useEffect(() => {
@@ -65,6 +66,7 @@ const Inicio = () => {
         <section className="soluciones-section-wrapper"><Soluciones /></section>
         <section className="beneficios-wrapper"><Beneficios /></section>
         <section className="contacto-section-wrapper"><ContactoDoble /></section>
+        <section className="blog-preview-wrapper"><BlogPreview /></section>
         <CallToActionFinal />
       </div>
     </>

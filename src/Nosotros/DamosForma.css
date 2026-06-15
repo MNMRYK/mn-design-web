@@ -1,7 +1,6 @@
 .damos-forma-section {
   background-color: var(--white-iris, #efebfc);
-  padding: 100px 0 50px;
-  margin: 50px 0px 100px;
+  padding: 150px 0 20px;
   width: 100%;
 }
 
@@ -167,6 +166,13 @@
 
 /* --- TABLET (Pantallas medianas) --- */
 @media (max-width: 1024px) {
+  .damos-forma-section {
+    background-color: var(--white-iris, #efebfc);
+    padding: 100px 0 0px;
+    margin-bottom: -100px;
+    width: 100%;
+  }
+
   .mn-stack-card {
     /* 🔥 ¡FUERA LA ALTURA FIJA! Dejamos que crezca según el texto 🔥 */
     height: auto !important; 
@@ -183,7 +189,13 @@
 }
 
 /* --- MÓVIL (Pantallas pequeñas) --- */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
+  .damos-forma-section {
+    background-color: var(--white-iris, #efebfc);
+    padding: 100px 0 330px;
+    width: 100%;
+
+  }
   
   /* 🔥 1. ACERCAMOS EL TÍTULO A LAS TARJETAS 🔥 */
   .damos-forma-header .focus-container {

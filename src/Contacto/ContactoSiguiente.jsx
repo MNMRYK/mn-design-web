@@ -32,6 +32,21 @@ const ContactoSiguiente = () => {
           <p className="contacto-subtitle">
             Contacta y empecemos a construir algo increíble juntos. Creemos que la comunicación fluida es la base de un proyecto de éxito.
           </p>
+          <div className="hero-cta-container">
+            <a 
+              href="#calendario-reserva" 
+              className="btn-empezar"
+              onClick={(e) => {
+                e.preventDefault(); /* Evitamos el pestañeo brusco de la URL */
+                document.getElementById('calendario-reserva').scrollIntoView({ 
+                  behavior: 'smooth' 
+                });
+              }}
+            >
+              Agendar cita rápida
+            </a>
+          </div>
+
         </motion.div>
 
         {/* GRID PRINCIPAL */}
@@ -67,6 +82,19 @@ const ContactoSiguiente = () => {
                     Si prefieres el trato directo, nos desplazamos a tus instalaciones o nos reunimos en nuestro estudio para tratar todos los detalles de <strong>tu proyecto de forma cercana</strong>.
                   </p>
                 </div>
+                <a 
+                  href="#calendario-reserva" 
+                  className="btn-card-app"
+                  title="Agendar Presencial"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('calendario-reserva').scrollIntoView({ 
+                      behavior: 'smooth' 
+                    });
+                  }}
+                >
+                  <i className="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
 
               {/* Opción 2: Videollamada */}
@@ -80,6 +108,19 @@ const ContactoSiguiente = () => {
                     Si te encuentras lejos o buscas optimizar tu tiempo, coordinamos sesiones estratégicas por videollamada. Avanzamos garantizando una <strong>gestión ágil sin importar la distancia</strong>.
                   </p>
                 </div>
+                <a 
+                  href="#calendario-reserva" 
+                  className="btn-card-app"
+                  title="Agendar Videollamada"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('calendario-reserva').scrollIntoView({ 
+                      behavior: 'smooth' 
+                    });
+                  }}
+                >
+                  <i className="fa-solid fa-arrow-right"></i>
+                </a>
               </div>
             </div>
 

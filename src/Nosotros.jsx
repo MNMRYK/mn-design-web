@@ -8,7 +8,9 @@ import "lenis/dist/lenis.css";
 import NosotrosSiguiente from './Nosotros/NosotrosSiguiente';
 import MetodologiaSticky from './Nosotros/MetodologiaSticky';
 import DamosForma from './Nosotros/DamosForma';
-import CierreProximity from './Nosotros/CierreProximity';
+import BlogPreview from './Nosotros/BlogPreview';
+
+
 
 const Nosotros = () => {
 
@@ -80,7 +82,7 @@ const Nosotros = () => {
         <NosotrosSiguiente />
         <MetodologiaSticky />
         <DamosForma />
-        <CierreProximity />
+        <BlogPreview />
 
         <script
           type="application/ld+json"

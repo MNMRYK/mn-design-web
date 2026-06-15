@@ -76,6 +76,42 @@
   line-height: 1.6;
 }
 
+/* 1. Contenedor para centrar el botón del Hero */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px; /* Separación con el subtítulo */
+}
+
+/* El botón que nos pasaste (asegúrate de que los colores var encajan bien con el fondo) */
+.btn-empezar {
+  display: inline-flex; /* Mejor para etiquetas <a> */
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; 
+  box-sizing: border-box; 
+  text-shadow: none !important;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding: clamp(14px, 2.2vh, 20px) clamp(25px, 3vw, 40px);
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  min-width: 180px;
+  letter-spacing: 0.9px;
+  margin-top: 25px;
+  background-color: var(--electric-violet); /* Cambiado para asegurar buen contraste */
+  border: 1px solid rgba(255, 255, 255, 0.219);
+  color: #ffffff;
+}
+
+.btn-empezar:hover {
+  transform: scale(1.05);
+  background-color: #7E57C2;
+  box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.2);
+}
+
 /* GRID PRINCIPAL */
 .contacto-grid {
   display: grid;
@@ -123,6 +159,9 @@
   gap: 20px;
   align-items: flex-start;
   transition: all 0.3s ease;
+  position: relative; /* ¡CRÍTICO para anclar el botón! */
+  overflow: hidden;   /* ¡CRÍTICO para no romper el border-radius de 16px! */
+
 }
 
 .card-contacto:hover {
@@ -158,6 +197,42 @@
   margin: 0;
 }
 
+/* 3. El nuevo botón tipo APP para las tarjetas */
+.btn-card-app {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: var(--electric-violet);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px 0 0 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin: 0;
+}
+
+.btn-card-app i {
+  transition: transform 0.3s ease;
+}
+
+/* Efectito juguetón al hacer hover en la tarjeta */
+.card-contacto:hover .btn-card-app {
+  width: 55px;
+  height: 55px;
+  background-color: #7E57C2; 
+}
+
+.card-contacto:hover .btn-card-app i {
+  transform: translateX(3px) scale(1.1);
+}
+
 /* ====================================================
    RESPONSIVE (PC & TABLETS)
    ==================================================== */
@@ -174,8 +249,9 @@
 
   .contacto-grid {
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: 5px;
   }
+
 }
 
 /* ====================================================
@@ -207,6 +283,12 @@
     text-align: left; /* 🔥 Adiós al 'center' que rompía el diseño */
     display: block;
   }
+
+  
+  .card-contacto {
+    padding-bottom: 50px;
+  }
+  
   /* 🔥 EL ORDEN DEFINITIVO 🔥 */
   .contacto-grid {
     display: flex !important;
@@ -223,6 +305,21 @@
     order: 2 !important;
     position: static !important; /* 🔥 ESTO ES LO QUE TE LO ARREGLA */
     padding: 0 !important;
+  }
+
+  .hero-cta-container {
+    flex-direction: column; /* Apila los botones */
+    align-items: center;    /* Fuerza a que los botones estén centrados */
+    width: 100%;
+    gap: 15px;
+  }
+
+  .btn-empezar {
+    width: 100%;            /* Ocupan el ancho de su contenedor */
+    max-width: 240px;       /* Pero nunca se hacen gigantes */
+    min-width: unset;
+    padding: 15px;
+    font-size: 0.95rem;
   }
 }
 

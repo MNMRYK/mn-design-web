@@ -48,6 +48,7 @@ const Footer = () => {
               <ul>
                 <li><a href="/contacto">Contacto</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="https://blog.mndesignweb.es/">Blog</a></li>
               </ul>
             </div>
           </div>

@@ -93,6 +93,7 @@
 
 /* RESPONSIVE MÓVIL Y TABLET */
 @media (max-width: 1024px) {
+
   .metodologia-content { 
     grid-template-columns: 1fr; 
     gap: 0; 
@@ -102,12 +103,13 @@
     display: none; 
   }
   
+  /* 🔥 AQUÍ ESTÁ EL CAMBIO PRINCIPAL 🔥 */
   .metodologia-left-carousel {
     position: relative;
-    height: 450px; 
+    height: 350px; /* Reducimos la altura fija para que no sobre tanto espacio por abajo */
     display: flex;
     align-items: center;
-    overflow: hidden; /* 🔥 Evita que el texto salga por arriba o abajo al animarse */
+    overflow: hidden; 
   }
 
   .step-carousel-item { 
@@ -116,12 +118,11 @@
     left: 0;
     width: 100%;
     height: 100%;
-    padding: 0;
+    padding: 0 15px; /* Le damos un pelín de margen lateral para que el texto no toque el borde de la pantalla */
     display: flex;
     flex-direction: column;
     justify-content: center;
     
-    /* 🔥 LA CLAVE: Todo oculto por defecto, sin !important 🔥 */
     opacity: 0;
     pointer-events: none;
     transform: none;
