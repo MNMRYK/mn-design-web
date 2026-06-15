@@ -70,13 +70,13 @@ const Nosotros = () => {
         <meta property="og:description" content="Conoce al equipo detrás de MN Design Web. Creamos experiencias digitales únicas, desde e-commerce hasta webs con sistemas de reservas." />
         <meta property="og:url" content="https://mndesignweb.es/nosotros" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Sobre MN Design Web | Tu aliado digital" />
         <meta name="twitter:description" content="Conoce al equipo detrás de MN Design Web. Creamos experiencias digitales únicas." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
       </Helmet>
       <div className="nosotros-page-wrapper">
         <NosotrosSiguiente />
@@ -94,7 +94,7 @@ const Nosotros = () => {
                 "@type": "Organization",
                 "name": "MN Design Web",
                 "url": "https://mndesignweb.es/",
-                "logo": "https://mndesignweb.es/logo.png",
+                "logo": "https://mndesignweb.es/logo.webp",
                 "description": "Agencia de diseño web y desarrollo E-commerce profesional en Alicante."
               },
               {

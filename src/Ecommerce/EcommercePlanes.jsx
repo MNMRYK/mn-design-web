@@ -23,42 +23,42 @@ const EcommercePlanes = () => {
             icon: "fa-store", 
             title: "D2C: Tienda de Marca", 
             desc: "Tu marca directa al consumidor. Diseños únicos para potenciar tu identidad visual y fidelizar a tus clientes.",
-            img: "/ejemplos/d2d.jpg"
+            img: "/ejemplos/d2d.webp"
         },
         { 
             animation: animLibro, 
             icon: "fa-book-open", 
             title: "Infoproductos & Cursos", 
             desc: "Plataformas especializadas en la venta y entrega automática de cursos, ebooks y áreas privadas de contenido.",
-            img: "/ejemplos/educa.jpg"
+            img: "/ejemplos/educa.webp"
         },
         { 
             animation: animRelacion, 
             icon: "fa-handshake", 
             title: "B2B: Catálogo Mayorista", 
             desc: "Tiendas enfocadas a profesionales con gestión de precios personalizados, niveles de acceso y grandes volúmenes.",
-            img: "/ejemplos/catalogo.jpg"
+            img: "/ejemplos/catalogo.webp"
         },
         { 
             animation: animGblo, 
             icon: "fa-users", 
             title: "Marketplace Multivendedor", 
             desc: "Plataformas donde varios proveedores pueden vender sus productos bajo tu gestión centralizada.",
-            img: "/ejemplos/marketplace.jpg"
+            img: "/ejemplos/marketplace.webp"
         },
         { 
             animation: animCompletar, 
             icon: "fa-box-open", 
             title: "Suscripciones (Box)", 
             desc: "Modelos de venta recurrente ideales para cajas de suscripción, consumibles o servicios de pago mensual.",
-            img: "/ejemplos/suscripciones.jpg"
+            img: "/ejemplos/suscripciones.webp"
         },
         { 
             animation: animCronometro, 
             icon: "fa-rocket", 
             title: "Venta de Lanzamiento", 
             desc: "Estrategias de venta rápida o 'flash sale' con páginas optimizadas para generar urgencia y máxima conversión.",
-            img: "/ejemplos/lanzamiento.jpg"
+            img: "/ejemplos/lanzamiento.webp"
         }
     ];
 

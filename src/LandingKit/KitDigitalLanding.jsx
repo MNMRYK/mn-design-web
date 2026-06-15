@@ -75,7 +75,7 @@ const KitDigitalLanding = () => {
             
             <header className="hero-split-container">
                 <a href="https://mndesignweb.es/" className="global-logo" target="_blank" rel="noopener noreferrer">
-                    <img src="/logo.png" alt="MN Design Web" />
+                    <img src="/logo.webp" alt="MN Design Web" />
                     <div className="texto-logo">
                         <span className="siglas">MN</span>
                         <span className="marca">Design Web</span>

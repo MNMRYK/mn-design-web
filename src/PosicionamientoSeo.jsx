@@ -86,13 +86,13 @@ const PosicionamientoSeo = () => {
         <meta property="og:description" content="¿Tu web no vende? Optimizamos tu estructura y contenido para liderar los resultados en Google." />
         <meta property="og:url" content="https://mndesignweb.es/posicionamiento-seo" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Posicionamiento SEO en Alcoy 2026 | MN Design Web" />
         <meta name="twitter:description" content="¿Tu web no vende? Optimizamos tu estructura y contenido para liderar los resultados en Google." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
       </Helmet>
 
       <div className="PosicionamientoSeo-page-wrapper">

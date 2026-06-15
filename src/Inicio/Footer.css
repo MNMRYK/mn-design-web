@@ -35,7 +35,7 @@
   line-height: 1;
 }
 
-/* El circulito PNG */
+/* El circulito webp */
 .footer-logo-img {
   width: 50px; /* Ajusta esto para hacerlo más grande o más pequeño */
   height: auto;
@@ -217,7 +217,7 @@
     max-width: 100%;
   }
 
-  /* El circulito PNG */
+  /* El circulito webp */
   .footer-logo-img {
     width: 50px; /* Ajusta esto para hacerlo más grande o más pequeño */
     height: auto;

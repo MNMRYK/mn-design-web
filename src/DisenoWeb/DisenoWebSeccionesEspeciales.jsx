@@ -23,35 +23,35 @@ const DisenoWebSeccionesEspeciales = () => {
             icon: "fa-building", 
             title: "Webs Corporativas", 
             desc: "Presentan información clara de tu empresa, servicios y contacto directo con el cliente.",
-            img: "/ejemplos/corporativa.jpg" // <-- Cambia por tus imágenes reales
+            img: "/ejemplos/corporativa.webp" // <-- Cambia por tus imágenes reales
         },
         { 
             animation: animReserva,
             icon: "fa-calendar-days", 
             title: "Webs con Reserva", 
             desc: "Ideal para comercios que necesitan agendar citas y sincronizarlas de forma automática.",
-            img: "/ejemplos/reservas.jpg"
+            img: "/ejemplos/reservas.webp"
         },
         { 
             animation: animPortafolio,
             icon: "fa-palette", 
             title: "Portafolio", 
             desc: "Enfocado en mostrar el trabajo visual de artistas, fotógrafos o profesionales.",
-            img: "/ejemplos/portafolio.jpg"
+            img: "/ejemplos/portafolio.webp"
         },
         { 
             animation: animOnPage,
             icon: "fa-file-lines", 
             title: "On Page", 
             desc: "Todo el sitio web se desarrolla en una sola página fluida, ideal para lanzamientos rápidos.",
-            img: "/ejemplos/onpage.jpg"
+            img: "/ejemplos/onpage.webp"
         },
         { 
             animation: animLanding,
             icon: "fa-bullseye", 
             title: "Landing Page", 
             desc: "Páginas de aterrizaje diseñadas con el único objetivo de convertir visitas en clientes con cero distracciones.",
-            img: "/ejemplos/landingpage.jpg"
+            img: "/ejemplos/landingpage.webp"
         },
         // 🔥 NUEVA OPCIÓN 6: Academias y Membresías 🔥
         { 
@@ -59,7 +59,7 @@ const DisenoWebSeccionesEspeciales = () => {
             icon: "fa-graduation-cap", 
             title: "Academias & Membresías", 
             desc: "Plataformas de e-learning preparadas para vender cursos, infoproductos y gestionar áreas privadas.",
-            img: "/ejemplos/academia.jpg"
+            img: "/ejemplos/academia.webp"
         }
     ];
 
@@ -240,37 +240,37 @@ const DisenoWebSeccionesEspeciales = () => {
                         { 
                             title: "L'Essence", 
                             desc: "Restaurante con sistema de reservas online integrado y carta digital autogestionable.", 
-                            img: "/ejemplos/restaurant.png", // ⚠️ ¡Revisa si en tu carpeta se llama así o "restaurant.jpg"!
+                            img: "/ejemplos/restaurant.webp", // ⚠️ ¡Revisa si en tu carpeta se llama así o "restaurant.webp"!
                             url: "https://mnmryk.github.io/L-Essence-Restaurante/" 
                         },
                         { 
                             title: "Salón Belleza Luna", 
                             desc: "Sitio web 'soft & clean' con módulo de gestión de citas y panel de administración.", 
-                            img: "/ejemplos/salon.png", 
+                            img: "/ejemplos/salon.webp", 
                             url: "https://mnmryk.github.io/Belleza-Luna/" 
                         },
                         { 
                             title: "Tattoo & Gallery", 
                             desc: "Plataforma visual tipo galería para mostrar trabajos de artistas con alta fidelidad.", 
-                            img: "/ejemplos/tatto.png", // ⚠️ ¡Revisa si en tu carpeta se llama así o "tattoo.jpg"!
+                            img: "/ejemplos/tatto.webp", // ⚠️ ¡Revisa si en tu carpeta se llama así o "tattoo.webp"!
                             url: "https://mnmryk.github.io/tattoo-studio-cms/" 
                         },
                         { 
                             title: "Borcelle Carousel", 
                             desc: "Web experimental interactiva con múltiples diseños de carrusel y efectos de scroll dinámico.", 
-                            img: "/ejemplos/borcelle.png", 
+                            img: "/ejemplos/borcelle.webp", 
                             url: "https://mnmryk.github.io/borcelle-carousell/" 
                         },
                         { 
                             title: "Kit Glass Liquid", 
                             desc: "Ejemplo de interfaz de usuario (UI) enfocado en maquetación de contenido con efectos avanzados.", 
-                            img: "/ejemplos/kitliquid.png", 
+                            img: "/ejemplos/kitliquid.webp", 
                             url: "https://mnmryk.github.io/kit-glassliquid/" 
                         },
                         { 
                             title: "Buttons Effect", 
                             desc: "Muestra de componentes UI interactivos con microanimaciones y efectos visuales para botones.", 
-                            img: "/ejemplos/buttons.png", 
+                            img: "/ejemplos/buttons.webp", 
                             url: "https://mnmryk.github.io/buttons-effect/" 
                         }
                     ].map((proj, idx) => (

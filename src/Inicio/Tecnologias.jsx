@@ -29,7 +29,15 @@ const Tecnologias = () => {
           {[...techLogos, ...techLogos].map((tech, index) => (
             <div className="tech-card" key={index}>
               <div className="tech-icon-box">
-                <img src={tech.url} alt={tech.name} className="tech-svg" />
+                {/* Atributos width y height añadidos */}
+                <img 
+                  src={tech.url} 
+                  alt={tech.name} 
+                  className="tech-svg" 
+                  width="70" 
+                  height="70" 
+                  loading="lazy" 
+                />
               </div>
               <span className="tech-name">{tech.name}</span>
             </div>

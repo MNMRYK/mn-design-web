@@ -80,7 +80,7 @@ const NosotrosSiguiente = () => {
           <div className="image-placeholder">
             <div className="glass-shape glass-1"></div>
             <div className="glass-shape glass-2"></div>
-            <img src="/nosotros.jpg" alt="MN Design Web" className="nosotros-img" />
+            <img src="/nosotros.webp" alt="MN Design Web" className="nosotros-img" />
           </div>
         </motion.div>
 

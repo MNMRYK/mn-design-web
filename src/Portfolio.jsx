@@ -37,13 +37,13 @@ const Portfolio = () => {
         <meta property="og:description" content="Descubre cómo ayudamos a otras empresas a escalar su negocio con webs rápidas, seguras y listas para convertir." />
         <meta property="og:url" content="https://mndesignweb.es/portfolio" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Portfolio de Proyectos | MN Design Web" />
         <meta name="twitter:description" content="Descubre cómo ayudamos a otras empresas a escalar su negocio con webs rápidas, seguras y listas para convertir." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
       </Helmet>
 
       {/* 🔥 CONTENEDOR PRINCIPAL DONDE INYECTAMOS LAS SECCIONES 🔥 */}

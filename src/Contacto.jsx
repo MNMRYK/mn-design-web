@@ -67,13 +67,13 @@ const Contacto = () => {
         <meta property="og:description" content="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce." />
         <meta property="og:url" content="https://mndesignweb.es/contacto" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Contacto | MN Design Web" />
         <meta name="twitter:description" content="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
       </Helmet>
 
       <div className="contacto-page-wrapper">

@@ -134,13 +134,13 @@ const DisenoWeb = () => {
         <meta property="og:description" content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir." />
         <meta property="og:url" content="https://mndesignweb.es/disenoweb" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Diseño Web Profesional en Alcoy 2026 | MN Design Web" />
         <meta name="twitter:description" content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
       </Helmet>
       
       <div className="disenoweb-page-wrapper">
@@ -160,7 +160,7 @@ const DisenoWeb = () => {
                 "@context": "https://schema.org",
                 "@type": "ProfessionalService",
                 "name": "MN Design Web",
-                "image": "https://mndesignweb.es/logo-card.png",
+                "image": "https://mndesignweb.es/logo-card.webp",
                 "url": "https://mndesignweb.es/",
                 "address": { "@type": "PostalAddress", "addressLocality": "Alicante", "addressCountry": "ES" },
                 "priceRange": "$$"

@@ -75,13 +75,13 @@ const RedesSociales = () => {
         <meta property="og:description" content="Tu marca merece ser el centro de atención. Creamos contenido premium que convierte seguidores en clientes." />
         <meta property="og:url" content="https://mndesignweb.es/redes-sociales" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Estrategia y Gestión de Redes Sociales | MN Design Web" />
         <meta name="twitter:description" content="Tu marca merece ser el centro de atención. Creamos contenido premium que convierte seguidores en clientes." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
 
         {/* Esquemas JSON-LD */}
         <script type="application/ld+json">

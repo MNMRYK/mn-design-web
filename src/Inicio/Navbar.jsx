@@ -53,7 +53,7 @@ const Navbar = () => {
     >
       <a href="/" className="enlace-logo">
         <div className="logo">
-          <img src="/logo.png" alt="Logo MN Design Web" />
+          <img src="/logo.webp" alt="Logo MN Design Web" />
           <div className="texto-logo">
             <span className="siglas">MN</span>
             <span className="marca">Design Web</span>

@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="footer-brand">
             <a href="/" aria-label="Ir a inicio" className="footer-logo-link">
               {/* 1. Tu circulito */}
-              <img src="/favicon.png" alt="Símbolo MN" className="footer-logo-img" />
+              <img src="/favicon.webp" alt="Símbolo MN" className="footer-logo-img" />
               {/* 2. Tu texto original */}
               <h2 className="footer-logo">MN <span>Design Web</span></h2>
             </a>

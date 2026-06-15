@@ -85,13 +85,13 @@ const Ecommerce = () => {
         <meta property="og:description" content="¿Necesitas vender online? Desarrollamos tiendas rápidas, seguras y listas para convertir." />
         <meta property="og:url" content="https://mndesignweb.es/e-commerce" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Tienda Online Profesional | MN Design Web" />
         <meta name="twitter:description" content="¿Necesitas vender online? Desarrollamos tiendas rápidas, seguras y listas para convertir." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.png" />
+        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
       </Helmet>
 
       <div className="ecommerce-page-wrapper">
