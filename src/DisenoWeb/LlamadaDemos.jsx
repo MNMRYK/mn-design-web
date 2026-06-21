@@ -70,7 +70,7 @@ const LlamadaDemos = () => {
                   className="mac-img-scroll"
                   style={{
                     backgroundImage:
-                      "url('/mockups/mentor-b2b-img.webp')",
+                      "url('/mockups/demo-nutricion-mockup.webp')",
                   }}
                 ></div>
               </div>
