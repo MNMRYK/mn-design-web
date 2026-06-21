@@ -19,7 +19,7 @@ const Demos = () => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "name": "Demos y Proyectos de Diseño Web",
-    "description": "Explora nuestras demos interactivas y plantillas de alto rendimiento para clínicas, B2B y eventos.",
+    "description": "Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos.",
     "url": "https://mndesignweb.es/demos"
   };
 
@@ -133,7 +133,7 @@ const Demos = () => {
         <meta name="description" content="Explora nuestras demos interactivas y diseños de alto rendimiento. Páginas web preparadas para captar clientes en salud, B2B, hostelería y eventos." />
         
         <meta property="og:title" content="Demos y Prototipos | MN Design Web" />
-        <meta property="og:description" content="Explora nuestras demos interactivas y diseños de alto rendimiento. Descubre lo que podemos hacer por tu negocio." />
+        <meta property="og:description" content="Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos." />
         <meta property="og:url" content="https://mndesignweb.es/demos" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
@@ -146,7 +146,7 @@ const Demos = () => {
       </Helmet>
 
       <div className="demos-page-wrapper">
-        {/* Aquí llamamos a los hijos */}
+
         <HeaderDemos />
         <SeccionContactoDemo /> 
         <BlogPreview />
