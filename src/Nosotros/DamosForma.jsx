@@ -70,7 +70,7 @@ const DamosForma = () => {
 
                     return (
                         <ScrollStackItem key={index} itemClassName={`mn-stack-card ${item.isFinal ? 'final-card' : ''}`}>
-                            <div className="card-inner">
+                            <div className="card-inner tema-oscuro">
                                 <div className="card-text">
                                     <h3 className="card-title-dynamic">
                                         {mainTitle} <span className="title-gradient">{lastWord}</span>

@@ -141,6 +141,11 @@ const ScrollStack = ({
       syncTouch: true,    
       touchMultiplier: 1.5, 
       lerp: 0.1,
+
+      prevent: (node) => {
+        if (!node || !node.closest) return false;
+        return node.nodeName.includes('TYPEBOT') || node.closest('typebot-bubble') !== null;
+      }
     });
 
     lenis.on('scroll', handleScroll);
