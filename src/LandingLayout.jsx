@@ -21,6 +21,11 @@ const LandingLayout = () => {
             smoothWheel: true,
             smoothTouch: false,
             syncTouch: true,
+
+            prevent: (node) => {
+                if (!node || !node.closest) return false;
+                return node.nodeName.includes('TYPEBOT') || node.closest('typebot-bubble') !== null;
+            }
         });
 
         lenis.on('scroll', ScrollTrigger.update);

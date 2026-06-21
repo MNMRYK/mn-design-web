@@ -428,3 +428,18 @@
   }
 
 }
+
+@media (max-width: 344px) {
+  
+  .siglas {
+    font-size: 1.5rem; 
+  }
+  
+  .marca {
+    font-size: 1.2rem; 
+  }
+
+  .logo img {
+    height: 35px; /* Reducimos el pajarito */
+  }
+}

@@ -84,50 +84,51 @@ function App() {
             </Routes>
           </Suspense>
 
-          {/* 🔥 2. TU NUEVA BURBUJA DE TYPEBOT (Reemplaza o acompaña al botón anterior) */}
-          <Bubble
-            typebot="my-typebot-7uabkh3"
-            apiHost="https://typebot.io"
-            theme={{
-              button: { 
-                backgroundColor: "#7E57C2", 
-                size: "60px",
-                customIconSrc:
-                  "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/bubble-icon?v=1779549222783",
-              },
-              previewMessage: {
-                backgroundColor: "#fcfcff", // Corregido el doble ##
-                textColor: "#1A102D",
-                closeButtonBackgroundColor: "#efebfc",
-                closeButtonIconColor: "#1A102D",
-              },
-              customCss: `
-                /* Para navegadores Chrome, Edge y Safari */
-                .typebot-container .scrollable-container::-webkit-scrollbar {
-                  display: block !important;
-                  width: 8px !important;
-                }
-                .typebot-container .scrollable-container::-webkit-scrollbar-track {
-                  background-color: #fcfcff !important;
-                }
-                .typebot-container .scrollable-container::-webkit-scrollbar-thumb {
-                  background-color: #7E57C2 !important;
-                  border-radius: 8px !important;
-                }
-                
-                /* Para navegadores Firefox (que usan otro motor) */
-                .typebot-container .scrollable-container {
-                  scrollbar-width: thin !important;
-                  scrollbar-color: #7E57C2 #fcfcff !important;
-                }
-              `
-            }}
-            previewMessage={{
-              message: "¡Hola! ¿En qué puedo ayudarte?",
-              avatarUrl: "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/hostAvatar?v=1779545605843",
-              autoShowDelay: 3000, // Espera 3 segundos antes de asomarse
-            }}
-          />
+          <div data-lenis-prevent="true" style={{ overscrollBehavior: 'contain' }}>
+            <Bubble
+              typebot="my-typebot-7uabkh3"
+              apiHost="https://typebot.io"
+              theme={{
+                button: { 
+                  backgroundColor: "#7E57C2", 
+                  size: "60px",
+                  customIconSrc:
+                    "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/bubble-icon?v=1779549222783",
+                },
+                previewMessage: {
+                  backgroundColor: "#fcfcff", // Corregido el doble ##
+                  textColor: "#1A102D",
+                  closeButtonBackgroundColor: "#efebfc",
+                  closeButtonIconColor: "#1A102D",
+                },
+                customCss: `
+                  /* Para navegadores Chrome, Edge y Safari */
+                  .typebot-container .scrollable-container::-webkit-scrollbar {
+                    display: block !important;
+                    width: 8px !important;
+                  }
+                  .typebot-container .scrollable-container::-webkit-scrollbar-track {
+                    background-color: #fcfcff !important;
+                  }
+                  .typebot-container .scrollable-container::-webkit-scrollbar-thumb {
+                    background-color: #7E57C2 !important;
+                    border-radius: 8px !important;
+                  }
+                  
+                  /* Para navegadores Firefox (que usan otro motor) */
+                  .typebot-container .scrollable-container {
+                    scrollbar-width: thin !important;
+                    scrollbar-color: #7E57C2 #fcfcff !important;
+                  }
+                `
+              }}
+              previewMessage={{
+                message: "¡Hola! ¿En qué puedo ayudarte?",
+                avatarUrl: "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/hostAvatar?v=1779545605843",
+                autoShowDelay: 3000, // Espera 3 segundos antes de asomarse
+              }}
+            />
+          </div>
         </main>
 
         <CookieBanner />
