@@ -1,0 +1,231 @@
+/* ====================================================
+   CSS EXCLUSIVO: FormularioDemo.css
+   ==================================================== */
+
+.contacto-formulario-area {
+  /* Fondo muy suave para que destaque pero sin ser un parche blanco agresivo */
+  background: rgba(156, 70, 255, 0.03); 
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  padding: 40px 50px;
+  border-radius: 30px;
+  font-family: 'Nunito', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Centramos el texto de la cabecera porque este formulario es central, no lateral */
+.form-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-header h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2rem);
+  font-weight: 800;
+  color: var(--deep-eggplant, #1A102D);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-grupo label {
+  font-weight: 800;
+  color: var(--deep-eggplant, #1A102D);
+  font-size: 1.05rem;
+  margin-left: 5px;
+}
+
+/* Estilos de los campos de texto normales */
+.form-grupo input,
+.form-grupo textarea {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+  background: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  color: var(--deep-eggplant, #1A102D);
+  transition: all 0.3s ease;
+  outline: none;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+  box-sizing: border-box;
+}
+
+.form-grupo input::placeholder,
+.form-grupo textarea::placeholder {
+  color: rgba(26, 16, 45, 0.4);
+}
+
+.form-grupo input:focus,
+.form-grupo textarea:focus {
+  border-color: var(--electric-violet, #7E57C2);
+  box-shadow: 0 0 0 4px rgba(166, 114, 255, 0.15);
+}
+
+/* ==========================================
+   SELECTORES PERSONALIZADOS (Los 3 desplegables)
+   ========================================== */
+.custom-select-container {
+  position: relative;
+}
+
+.custom-select-trigger {
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+  background: #ffffff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  color: var(--deep-eggplant, #1A102D);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
+  box-sizing: border-box;
+}
+
+.custom-select-trigger.open,
+.custom-select-trigger:hover {
+  border-color: var(--electric-violet, #7E57C2);
+  box-shadow: 0 0 0 4px rgba(166, 114, 255, 0.15);
+}
+
+/* Si no ha elegido nada, se ve como un placeholder */
+.custom-select-trigger span {
+  color: rgba(26, 16, 45, 0.6); 
+}
+
+.custom-select-trigger i {
+  color: var(--electric-violet, #7E57C2);
+  transition: transform 0.3s ease;
+}
+
+.custom-select-trigger i.rotated {
+  transform: rotate(180deg);
+}
+
+/* --- LA LISTA FLOTANTE CON EFECTO BLUR REPARADO --- */
+.custom-options-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 100%;
+  margin: 0;
+  padding: 8px 0;
+  list-style: none;
+  border-radius: 15px;
+  z-index: 100;
+  animation: fadeInDown 0.2s ease-out;
+  background: transparent; /* Fondo transparente por el bug de Safari/Chrome */
+}
+
+/* El pseudo-elemento que hace de cristal */
+.custom-options-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; 
+  border-radius: 15px;
+  background: rgba(240, 224, 255, 0.85); /* Blanco/morado con opacidad */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(166, 114, 255, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.custom-option {
+  position: relative;
+  z-index: 1; /* Para que el texto quede encima del cristal */
+  padding: 12px 20px;
+  cursor: pointer;
+  color: var(--deep-eggplant, #1A102D);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.custom-option:hover {
+  background: rgba(166, 114, 255, 0.15);
+  color: var(--electric-violet, #7E57C2);
+  padding-left: 25px; /* Efecto dinámico al pasar el ratón */
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ==========================================
+   OTROS AJUSTES
+   ========================================== */
+.form-grupo textarea {
+  resize: vertical;
+  min-height: 90px;
+  height: auto;
+}
+
+/* Sobrescribir el fondo espantoso azul de autocompletado de Chrome */
+.form-grupo input:-webkit-autofill,
+.form-grupo textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important; 
+  -webkit-text-fill-color: var(--deep-eggplant, #1A102D) !important; 
+  transition: background-color 5000s ease-in-out 0s; 
+}
+
+/* EL BOTÓN GIGANTE */
+.btn-enviar-form {
+  padding: 15px 35px;
+  background: var(--electric-violet, #7E57C2);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  margin-top: 15px;
+  box-shadow: 0 10px 20px rgba(126, 87, 194, 0.25);
+}
+
+.btn-enviar-form:hover {
+  transform: translateY(-3px); /* Levita hacia arriba */
+  background-color: var(--dark-violet, #5E35B1);
+  box-shadow: 0 15px 30px rgba(126, 87, 194, 0.35);
+}
+
+.btn-enviar-form:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important; 
+}
+
+/* ==========================================
+   RESPONSIVE MÓVIL
+   ========================================== */
+@media (max-width: 767px) {
+  .contacto-formulario-area {
+    padding: 30px 20px; /* Reducimos paddings laterales en el móvil */
+    border-radius: 20px;
+  }
+}

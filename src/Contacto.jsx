@@ -8,6 +8,7 @@ import "lenis/dist/lenis.css";
 import ContactoSiguiente from './Contacto/ContactoSiguiente';
 import ReservaYMapa from './Contacto/ReservaYMapa';
 import Opiniones from './Contacto/Opiniones';
+import DemoContacto from './Contacto/DemoContacto.jsx';
 
 const Contacto = () => {
 
@@ -78,9 +79,9 @@ const Contacto = () => {
 
       <div className="contacto-page-wrapper">
         <ContactoSiguiente />
+        <DemoContacto />
         <ReservaYMapa />
         <Opiniones />
-          
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ 

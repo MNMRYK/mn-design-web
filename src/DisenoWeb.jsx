@@ -10,6 +10,7 @@ import DisenoWebSiguiente from './DisenoWeb/DisenoWebSiguiente.jsx';
 import DisenoWebSeccionesEspeciales from './DisenoWeb/DisenoWebSeccionesEspeciales.jsx';
 import ResponsiveShowcase from './DisenoWeb/ResponsiveShowcase.jsx';
 import DisenoDoble from './DisenoWeb/DisenoDoble.jsx';
+import LlamadaDemos from './DisenoWeb/LlamadaDemos.jsx';
 
 const DisenoWeb = () => {
 
@@ -147,6 +148,7 @@ const DisenoWeb = () => {
         
         <DisenoWebSiguiente />
         <DisenoWebSeccionesEspeciales />
+        <LlamadaDemos />
         <ResponsiveShowcase />
         <DisenoDoble />
         

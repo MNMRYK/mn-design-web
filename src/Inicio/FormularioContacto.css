@@ -110,6 +110,7 @@
 }
 
 /* --- LA LISTA FLOTANTE CON EFECTO BLUR --- */
+/* --- LA LISTA FLOTANTE CON EFECTO BLUR --- */
 .custom-options-list {
   position: absolute;
   top: calc(100% + 5px); /* Justo debajo del botón */
@@ -121,18 +122,36 @@
   border-radius: 15px;
   z-index: 100;
   
-  /* 🔥 LA MAGIA DEL CRISTAL 🔥 */
-  background: rgba(240, 224, 255, 0.7); /* Fondo blanco semitransparente */
-  backdrop-filter: blur(12px); /* El desenfoque */
+  /* Animación de entrada suave */
+  animation: fadeInDown 0.2s ease-out;
+
+  /* 🔥 LE QUITAMOS EL FONDO AQUÍ 🔥 */
+  background: transparent;
+}
+
+/* 🔥 LA MAGIA DEL CRISTAL AISLADA 🔥 */
+.custom-options-list::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Lo tiramos al fondo */
+  border-radius: 15px;
+  
+  background: rgba(240, 224, 255, 0.85); /* Un pelín más opaco para asegurar lectura */
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(166, 114, 255, 0.3);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  
-  /* Animación de entrada suave */
-  animation: fadeInDown 0.2s ease-out;
 }
 
 .custom-option {
+  /* 🔥 VITAL: Position relative para que el texto flote por encima del cristal 🔥 */
+  position: relative;
+  z-index: 1; 
+
   padding: 10px 20px;
   cursor: pointer;
   color: var(--deep-eggplant);

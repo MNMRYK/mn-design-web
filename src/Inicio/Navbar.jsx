@@ -83,7 +83,7 @@ const Navbar = () => {
               <li><a href="/redes-sociales">Redes Sociales</a></li>
             </ul>
           </li>
-          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/demos">Demos</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="/contacto" className="boton-contacto">Contacto</a></li>
         </ul>

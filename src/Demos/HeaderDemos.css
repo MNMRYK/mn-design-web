@@ -1,0 +1,758 @@
+/* ====================================================
+   EL CSS DEFINITIVO PARA LA PÁGINA DE DEMOS
+   ==================================================== */
+
+/* Contenedor principal y espaciado general */
+.secciones-demos-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 40px 24px 80px; 
+  display: flex;
+  flex-direction: column;
+  gap: 80px; 
+}
+
+.secciones-diseno-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 24px 80px; 
+  display: flex;
+  flex-direction: column;
+  gap: 80px; 
+}
+
+.secciones-contacto-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 10px 24px 80px; 
+  display: flex;
+  flex-direction: column;
+  gap: 80px; 
+}
+
+/* ====================================================
+   BREADCRUMB (MIGAS DE PAN)
+   ==================================================== */
+.contacto-badge {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  gap: 8px;
+  /* Reducimos un poco el margin-bottom para que no quede tan despegado del Hero */
+  margin-bottom: 20px; 
+}
+
+.breadcrumb-link {
+  color: var(--electric-violet, #7E57C2);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+  opacity: 0.6;
+}
+
+.breadcrumb-separator {
+  color: rgba(26, 16, 45, 0.3);
+}
+
+.breadcrumb-current {
+  color: rgba(26, 16, 45, 0.6);
+}
+
+/* ====================================================
+   ENCABEZADO HERO (CON EL MAC)
+   ==================================================== */
+.hero-demos-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: radial-gradient(circle at 90% 50%, rgba(0, 238, 255, 0.05), transparent 50%),
+              radial-gradient(circle at 10% 50%, rgba(126, 87, 194, 0.1), transparent 50%);
+  background-color: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+  border-radius: 30px;
+  padding: 50px 60px;
+  margin-bottom: 5px;
+  box-shadow: 0 20px 50px rgba(26, 16, 45, 0.04);
+  gap: 40px;
+}
+
+.hero-demos-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(126, 87, 194, 0.1);
+  color: var(--electric-violet, #7E57C2);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border: 1px solid rgba(126, 87, 194, 0.2);
+}
+
+.hero-demos-text h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--deep-eggplant, #1A102D);
+  line-height: 1.1;
+  margin: 0 0 20px 0;
+}
+
+.text-neon-glow {
+  background: linear-gradient(135deg, var(--electric-violet, #7E57C2), #5900ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0px 4px 15px rgba(111, 0, 255, 0.3));
+}
+
+.hero-demos-text p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.15rem;
+  color: rgba(26, 16, 45, 0.8);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ====================================================
+   BOTONES DEL HERO
+   ==================================================== */
+.hero-cta-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 35px;
+}
+
+/* Botón Principal (Sólido) */
+.btn-primary-hero {
+  background-color: var(--electric-violet, #7E57C2);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.9px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(126, 87, 194, 0.2);
+  border: 2px solid var(--electric-violet, #7E57C2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary-hero:hover {
+  background-color: transparent;
+  color: var(--electric-violet, #7E57C2);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(126, 87, 194, 0.15);
+}
+
+/* Botón Secundario (Borde / Fantasma) */
+.btn-secondary-hero {
+  background-color: transparent;
+  color: var(--electric-violet, #7E57C2);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  border: 2px solid rgba(126, 87, 194, 0.2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary-hero:hover {
+  border-color: var(--electric-violet, #7E57C2);
+  background-color: rgba(126, 87, 194, 0.05);
+  transform: translateY(-3px);
+}
+
+/* Ajuste móvil para los botones */
+@media (max-width: 767px) {
+  .hero-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+  }
+  
+  .btn-primary-hero, .btn-secondary-hero {
+    width: 100%;
+  }
+}
+
+/* El Mac Hero */
+.hero-demos-visual {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  min-width: 550px; 
+}
+
+.mac-mockup-hero {
+  width: 100%;
+  max-width: 550px;
+  min-width: 550px; 
+  flex-shrink: 0; 
+  background: var(--deep-eggplant, #1A102D);
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(26, 16, 45, 0.15);
+  overflow: hidden;
+  border: 1px solid rgba(126, 87, 194, 0.3);
+  animation: flotarMockup 6s ease-in-out infinite;
+}
+
+@keyframes flotarMockup {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.mac-head {
+  height: 40px;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  position: relative;
+}
+
+.mac-dots {
+  display: flex;
+  gap: 8px;
+}
+.mac-dots span {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.mac-dots span:nth-child(1) { background-color: #FF5F56; }
+.mac-dots span:nth-child(2) { background-color: #FFBD2E; }
+.mac-dots span:nth-child(3) { background-color: #27C93F; }
+
+.mac-url {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  padding: 4px 20px;
+  border-radius: 12px;
+  letter-spacing: 0.5px;
+}
+
+.mac-body {
+  height: 300px;
+  width: 100%;
+  background: #faf9fc;
+  overflow: hidden;
+  position: relative;
+}
+
+.mac-mockup-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+/* El estilo del indicador */
+.scroll-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  color: var(--electric-violet, #7E57C2);
+  background: rgba(126, 87, 194, 0.08);
+  padding: 6px 16px;
+  border-radius: 20px;
+  opacity: 0.8;
+  /* Animación suave de entrada */
+  animation: fadeIn 1s ease-in-out;
+}
+
+.scroll-hint i {
+  font-size: 0.9rem;
+  animation: bounceMouse 2s infinite;
+}
+
+@keyframes bounceMouse {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 0.8; }
+}
+
+.mac-img-scroll {
+  width: 100%;
+  height: 100%;
+  background-size: 115% auto; 
+  background-position: top center;
+  background-repeat: no-repeat; 
+  transition: background-position 5s ease-in-out; 
+  
+}
+
+.mac-mockup-hero:hover .mac-img-scroll {
+  background-position: 50% 100%;
+}
+
+.mac-img-scroll:hover {
+  cursor: grab; /* O 'pointer' si prefieres */
+}
+
+/* ====================================================
+   TÍTULOS DE SECCIONES
+   ==================================================== */
+.section-title-container {
+  margin-bottom: 40px;
+  text-align: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section-title-container h2 {
+  font-family: 'Montserrat', sans-serif;
+  background: var(--electric-violet, #7E57C2); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.125rem; 
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0 auto;
+  max-width: 800px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+/* ====================================================
+   LA CUADRÍCULA Y LAS TARJETAS PREMIUM
+   ==================================================== */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.demo-card-custom {
+  background: #ffffff;
+  border: 1px solid rgba(126, 87, 194, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(26, 16, 45, 0.03);
+  padding: 0; 
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative; 
+  overflow: hidden; 
+  transition: all 0.3s ease;
+}
+
+.demo-card-custom:hover {
+  transform: translateY(-5px);
+  border-color: rgba(126, 87, 194, 0.4);
+  box-shadow: 0 15px 40px rgba(126, 87, 194, 0.1);
+}
+
+.mockup-body {
+  height: 180px;
+  background: #faf9fc;
+  overflow: hidden;
+  position: relative;
+  border-top: 1px solid #353535;
+  border-bottom: 1px solid rgba(126, 87, 194, 0.1);
+}
+
+.project-img-scroll {
+  width: 100%;
+  height: 100%;
+  background-size: 100% auto; 
+  background-position: top center;
+  background-repeat: no-repeat;
+}
+
+.project-img-scroll {
+  transition: transform 0.4s ease;
+}
+
+/* Efecto zoom de la imagen al poner el ratón en la tarjeta */
+.demo-card-custom:hover .project-img-scroll {
+  transform: scale(1.05); 
+}
+
+.demo-meta {
+  padding: 30px 70px 30px 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1;
+}
+
+.demo-meta h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--deep-eggplant, #1A102D); 
+  margin: 0;
+}
+
+.demo-meta p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  color: rgba(26, 16, 45, 0.8); 
+  line-height: 1.6;
+  margin: 0;
+}
+
+.badge-destacado-custom {
+  background: var(--soft-lavender, #F2EFFF);
+  color: var(--electric-violet, #7E57C2);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  font-family: 'Nunito', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.btn-visitar-esquina {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50px;
+  height: 50px;
+  background-color: var(--electric-violet, #7E57C2);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px 0 0 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-visitar-esquina i {
+  transition: transform 0.3s ease;
+}
+
+.demo-card-custom:hover .btn-visitar-esquina {
+  width: 55px;
+  height: 55px;
+  background-color: var(--dark-violet, #5E35B1); 
+}
+
+.demo-card-custom:hover .btn-visitar-esquina i {
+  transform: translateX(4px) scale(1.1);
+}
+
+/* ====================================================
+   ESTILOS DEL NAVEGADOR FALSO (Faltaban aquí)
+   ==================================================== */
+.browser-mockup-complex {
+  width: 100%;
+  background: var(--dark-violet, #2D1B4E);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.tabs-head {
+  background-color: var(--deep-eggplant, #1A102D);
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-left: 20px;
+}
+
+.tabs-head .tab-open {
+  max-width: 130px;
+  height: 34px;
+  border-radius: 7px 7px 0 0;
+  background-color: var(--electric-violet, #7E57C2);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 6px 12px;
+  position: relative;
+}
+
+.tabs-head .tab-open .close-tab {
+  color: #ffffff;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.tabs-head .tab-open .close-tab:hover {
+  background-color: #5d5d5d;
+}
+
+/* Curvas de las pestañas */
+.tabs-head .tab-open .rounded-l {
+  position: absolute;
+  background-color: var(--electric-violet, #7E57C2);
+  width: 20px;
+  height: 24px;
+  bottom: 0;
+  right: 0;
+  transform: translate(100%);
+  overflow: hidden;
+}
+
+.tabs-head .tab-open .rounded-l .mask-round {
+  width: 100%;
+  height: 100%;
+  background-color: var(--deep-eggplant, #1A102D);
+  border-radius: 0 0 0 7px;
+}
+
+.tabs-head .tab-open .rounded-r {
+  position: absolute;
+  background-color: var(--dark-violet, #2D1B4E);
+  width: 20px;
+  height: 24px;
+  bottom: 0;
+  left: 0;
+  transform: translate(-100%);
+  overflow: hidden;
+}
+
+.tabs-head .tab-open .rounded-r .mask-round {
+  width: 100%;
+  height: 100%;
+  background-color: var(--deep-eggplant, #1A102D);
+  border-radius: 0 0 7px 0;
+}
+
+.tabs-head .tab-open span {
+  color: #fff;
+  font-size: 0.7rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+.tabs-head .window-opt {
+  display: flex;
+  align-items: center;
+  padding-right: 10px;
+}
+
+.tabs-head .window-opt button {
+  height: 30px;
+  width: 30px;
+  border: none;
+  background-color: transparent;
+  transition: 0.1s ease-out;
+  color: #ffffff;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.tabs-head .window-opt button:hover {
+  background-color: var(--dark-violet, #2D1B4E);
+}
+
+.tabs-head .window-opt .window-close:hover {
+  background-color: #FF5F56;
+}
+
+/* Barra de dirección URL */
+.head-browser {
+  width: 100%;
+  height: 44px;
+  background-color: var(--electric-violet, #7E57C2);
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+
+.head-browser input {
+  background-color: var(--deep-eggplant, #1A102D);
+  border: 2px solid transparent;
+  height: 100%;
+  border-radius: 20px;
+  outline: none;
+  color: #ffffff;
+  padding: 0 45px 0 16px;
+  flex: 1;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  transition: 0.2s ease-in-out;
+}
+
+.head-browser input:hover {
+  background-color: rgba(126, 87, 194, 0.4);
+}
+
+.head-browser input:focus {
+  border-color: var(--electric-violet, #7E57C2);
+  background-color: var(--deep-eggplant, #1A102D);
+}
+
+.head-browser button {
+  width: 28px;
+  height: 28px;
+  border: none;
+  background-color: transparent;
+  color: #ffffff;
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.head-browser button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.head-browser button:hover:not(:disabled) {
+  background-color: var(--electric-violet, #7E57C2);
+}
+
+.head-browser .star {
+  color: #ffffff;
+  position: absolute;
+  right: 60px; 
+  font-size: 12px;
+  opacity: 0.5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none; 
+}
+
+/* ====================================================
+   RESPONSIVE - TABLET Y MÓVIL
+   ==================================================== */
+@media (max-width: 1024px) {
+  .hero-demos-container {
+    flex-direction: column;
+    text-align: center;
+    padding: 40px 30px;
+  }
+  
+  .hero-demos-text h1 {
+    font-size: 2.8rem;
+  }
+  
+  .hero-demos-visual {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .secciones-diseno-wrapper {
+    padding: 0px 24px 40px; 
+  }
+
+  .secciones-demos-wrapper {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    gap: 60px;
+  }
+
+  .secciones-contacto-wrapper {
+    padding: 80px 24px 80px; 
+  }
+
+
+  .section-title-container h2 {
+    font-size: 2rem;
+  }
+  
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  /* 🔥 AQUÍ ESTABA TU FALLO: Hemos dejado el padding a 0 para que no rompa el diseño 🔥 */
+  .demo-card-custom {
+    padding: 0; 
+  }
+  
+  /* Ahora la versión móvil le aplica el padding solo al texto, como en PC */
+  .demo-meta {
+    padding: 25px 65px 25px 20px;
+  }
+  
+  .demo-meta h3 {
+    font-size: 1.25rem;
+  }
+  
+  .demo-meta p {
+    font-size: 1rem;
+  }
+
+  .hero-demos-visual, .mac-mockup-hero {
+    min-width: 100%;
+  }
+}
+

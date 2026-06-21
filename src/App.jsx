@@ -17,7 +17,7 @@ const DisenoWeb = lazy(() => import('./DisenoWeb.jsx'));
 const Ecommerce = lazy(() => import('./Ecommerce.jsx'));
 const PosicionamientoSeo = lazy(() => import('./PosicionamientoSeo.jsx'));
 const RedesSociales = lazy(() => import('./RedesSociales.jsx'));
-const Portfolio = lazy(() => import('./Portfolio.jsx'));
+const Demos = lazy(() => import('./Demos.jsx'));
 const PoliticaPrivacidad = lazy(() => import('./Legales/PoliticaPrivacidad.jsx'));
 const AvisoLegal = lazy(() => import('./Legales/AvisoLegal.jsx'));
 const PoliticaCookies = lazy(() => import('./Legales/PoliticaCookies.jsx')); 
@@ -72,7 +72,7 @@ function App() {
               <Route path="/e-commerce" element={<MainLayout><Ecommerce /></MainLayout>} />
               <Route path="/posicionamiento-seo" element={<MainLayout><PosicionamientoSeo /></MainLayout>} />
               <Route path="/redes-sociales" element={<MainLayout><RedesSociales /></MainLayout>} />
-              <Route path="/portfolio" element={<MainLayout><Portfolio /></MainLayout>} />
+              <Route path="/demos" element={<MainLayout><Demos /></MainLayout>} />
               <Route path="/privacidad" element={<MainLayout><PoliticaPrivacidad /></MainLayout>} />
               <Route path="/aviso-legal" element={<MainLayout><AvisoLegal /></MainLayout>} />
               <Route path="/cookies" element={<MainLayout><PoliticaCookies /></MainLayout>} />

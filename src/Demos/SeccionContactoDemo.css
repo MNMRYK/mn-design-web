@@ -1,0 +1,32 @@
+/* Centrado general y ancho máximo */
+.demo-form-section-wrapper {
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px auto 100px auto; 
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+}
+
+/* El Grid que separa en dos columnas */
+.demo-contacto-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr; 
+  gap: 60px;
+  width: 100%;
+  align-items: start;
+}
+
+/* Responsive para Tablet y Móvil */
+@media (max-width: 991px) {
+  .demo-contacto-layout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .demo-form-section-wrapper {
+    margin: 35px auto 75px auto;
+  }
+}
