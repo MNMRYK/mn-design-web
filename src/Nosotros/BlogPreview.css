@@ -1,6 +1,12 @@
 /* Contenedor principal */
 .blog-preview-section {
-  padding: 10px 24px 120px;
+  padding: 20px 24px 120px;
+  background-color: var(--white-iris, #f8f7fa); /* Ajusta a tu variable de fondo claro */
+  font-family: 'Nunito', sans-serif;
+}
+
+.blog-preview-section-inicio {
+  padding: 20px 24px 100px;
   background-color: var(--white-iris, #f8f7fa); /* Ajusta a tu variable de fondo claro */
   font-family: 'Nunito', sans-serif;
 }
@@ -182,8 +188,14 @@
 /* Ajustes para móviles */
 @media (max-width: 400px) {
     .blog-preview-section {
-        padding: 100px 24px 100px;
-        background-color: var(--white-iris, #f8f7fa); /* Ajusta a tu variable de fondo claro */
-        font-family: 'Nunito', sans-serif;
+      padding: 130px 24px 100px;
+      background-color: var(--white-iris, #f8f7fa); /* Ajusta a tu variable de fondo claro */
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .blog-preview-section-inicio {
+      padding: 90px 24px 100px;
+      background-color: var(--white-iris, #f8f7fa); /* Ajusta a tu variable de fondo claro */
+      font-family: 'Nunito', sans-serif;
     }
 }

@@ -14,7 +14,7 @@ import Soluciones from './Inicio/Soluciones';
 import Beneficios from './Inicio/Beneficios';
 import ContactoDoble from './Inicio/ContactoDoble';
 import CallToActionFinal from './Inicio/CallToActionFinal';
-import BlogPreview from './Nosotros/BlogPreview';
+import BlogPreview from './Inicio/BlogPreview';
 
 const Inicio = () => {
   useEffect(() => {

@@ -719,6 +719,10 @@
     gap: 60px;
   }
 
+  .hero-demos-container {
+    margin-bottom: 30px;
+  }
+
   .secciones-contacto-wrapper {
     padding: 80px 24px 80px; 
   }

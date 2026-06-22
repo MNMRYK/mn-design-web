@@ -94,6 +94,10 @@
 /* RESPONSIVE MÓVIL Y TABLET */
 @media (max-width: 1024px) {
 
+  .metodologia-outer {
+    margin-bottom: 20px;
+  }
+
   .metodologia-content { 
     grid-template-columns: 1fr; 
     gap: 0; 

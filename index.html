@@ -1,102 +1,176 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
   <head>
-
-    <meta charset="UTF-8">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta charset="UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=5.0"
+    />
     <title>MN Design Web | Diseño Web en Alcoy, E-commerce y SEO</title>
 
     <!-- 🔥 META PIXEL 🔥 -->
     <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js",
+      );
 
       // 🛑 CONTROL DE COOKIES PARA META
-      var localConsent = localStorage.getItem('cookieConsent');
-      if (localConsent !== 'accepted') {
-        fbq('consent', 'revoke'); // Bloqueado por defecto si no hay aceptación
+      var localConsent = localStorage.getItem("cookieConsent");
+      if (localConsent !== "accepted") {
+        fbq("consent", "revoke"); // Bloqueado por defecto si no hay aceptación
       }
 
-      fbq('init', '1627135808585120');
-      fbq('track', 'PageView');
+      fbq("init", "1627135808585120");
+      fbq("track", "PageView");
     </script>
-    
+
     <!-- 1. GOOGLE CONSENT MODE: Estado por defecto -->
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() {
+        dataLayer.push(arguments);
+      }
 
       // Miramos si ya hay una decisión guardada
-      var localConsent = localStorage.getItem('cookieConsent');
-      
-      if (localConsent === 'accepted') {
-        gtag('consent', 'default', {
-          'ad_storage': 'granted',
-          'ad_user_data': 'granted',
-          'ad_personalization': 'granted',
-          'analytics_storage': 'granted'
+      var localConsent = localStorage.getItem("cookieConsent");
+
+      if (localConsent === "accepted") {
+        gtag("consent", "default", {
+          ad_storage: "granted",
+          ad_user_data: "granted",
+          ad_personalization: "granted",
+          analytics_storage: "granted",
         });
       } else {
         // Si no ha aceptado o acaba de entrar, lo denegamos todo
-        gtag('consent', 'default', {
-          'ad_storage': 'denied',
-          'ad_user_data': 'denied',
-          'ad_personalization': 'denied',
-          'analytics_storage': 'denied',
-          'wait_for_update': 500
+        gtag("consent", "default", {
+          ad_storage: "denied",
+          ad_user_data: "denied",
+          ad_personalization: "denied",
+          analytics_storage: "denied",
+          wait_for_update: 500,
         });
       }
     </script>
 
     <!-- 🔥 GOOGLE ANALYTICS 🔥 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-36WYJMYT3Z');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-36WYJMYT3Z");
     </script>
 
     <!-- 🔥 MICROSOFT CLARITY 🔥 -->
     <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      (function (c, l, a, r, i, t, y) {
+        c[a] =
+          c[a] ||
+          function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+        t = l.createElement(r);
+        t.async = 1;
+        t.src = "https://www.clarity.ms/tag/" + i;
+        y = l.getElementsByTagName(r)[0];
+        y.parentNode.insertBefore(t, y);
       })(window, document, "clarity", "script", "wuzaxaifa0");
     </script>
 
-    <meta name="description" content="Diseño web profesional en Alcoy. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!">
-    <link rel="canonical" href="https://mndesignweb.es/">
+    <!-- 🔥 DESCRIPCIONES UNIFICADAS 🔥 -->
+    <meta
+      name="description"
+      content="Diseño web profesional en Alcoy. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+    />
+    <link rel="canonical" href="https://mndesignweb.es/" />
     <link rel="icon" href="/favicon_v2.webp" type="image/webp" />
     <link rel="apple-touch-icon" href="/favicon_v2.webp" />
-    <meta name="theme-color" content="#efebfc">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#efebfc" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" as="style">
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-    
-    <meta property="og:title" content="MN Design Web | Diseño Web en Alcoy">
-    <meta property="og:description" content="Creamos tu sitio ideal: Webs a medida, E-commerce y SEO.">
-    <meta property="og:image" content="https://mndesignweb.es/logo-card.webp">
-    <meta property="og:url" content="https://mndesignweb.es/">
-    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
+      as="style"
+    />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
-  
+    <!-- 🔥 OPEN GRAPH 🔥 -->
+    <meta
+      property="og:title"
+      content="MN Design Web | Diseño Web en Alcoy, E-commerce y SEO"
+    />
+    <meta
+      property="og:description"
+      content="Diseño web profesional en Alcoy. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+    />
+    <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
+    <meta property="og:url" content="https://mndesignweb.es/" />
+    <meta property="og:type" content="website" />
+
+    <!-- 🔥 TWITTER CARDS AÑADIDAS 🔥 -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="MN Design Web | Diseño Web en Alcoy, E-commerce y SEO"
+    />
+    <meta
+      name="twitter:description"
+      content="Diseño web profesional en Alcoy. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+    />
+    <meta
+      name="twitter:image"
+      content="https://mndesignweb.es/logo-card.webp"
+    />
 
     <script type="application/ld+json">
       {
@@ -159,14 +233,17 @@
         ]
       }
     </script>
-
   </head>
 
   <body>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1627135808585120&ev=PageView&noscript=1"
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1627135808585120&ev=PageView&noscript=1"
     /></noscript>
-    
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

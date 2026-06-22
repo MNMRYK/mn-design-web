@@ -111,11 +111,13 @@ const Contacto = () => {
                 "@context": "https://schema.org/",
                 "@type": "Product",
                 "name": "Servicios Profesionales MN Design Web",
+                "image": "https://mndesignweb.es/logo-card.webp", /* 🔥 LA IMAGEN OBLIGATORIA 🔥 */
+                "description": "Servicios de diseño web profesional, tiendas online y posicionamiento en Alicante.",
                 "aggregateRating": { 
                   "@type": "AggregateRating", 
                   "ratingValue": "5", 
                   "bestRating": "5", 
-                  "ratingCount": "25" 
+                  "ratingCount": "25"
                 }
               }
             ]) 

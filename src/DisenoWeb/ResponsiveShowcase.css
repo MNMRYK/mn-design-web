@@ -351,7 +351,7 @@
    ==================================================== */
 @media (max-width: 767px) {
   .seccion-responsive-showcase {
-    padding: 60px 20px 30px; /* Alineamos con los márgenes de la chuleta */
+    padding: 80px 20px 50px; /* Alineamos con los márgenes de la chuleta */
   }
 
   .responsive-flex-container {
