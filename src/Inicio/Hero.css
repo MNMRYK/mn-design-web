@@ -30,7 +30,58 @@
   justify-content: center;
   width: 100%;
   max-width: 1000px;
-  gap: clamp(20px, 4vh, 40px); /* El espacio entre elementos crece o encoge según la pantalla */
+  gap: 40px; /* El espacio entre elementos crece o encoge según la pantalla */
+}
+
+/* ====================================================
+   ANIMACIONES LIGERAS CSS NATIVO (Adiós Framer Motion)
+   ==================================================== */
+
+/* Ocultamos los elementos al inicio para que no den un "pantallazo" antes de animarse */
+.animate-fade-up,
+.animate-fade-in-delayed,
+.animate-fade-up-delayed {
+  opacity: 0;
+}
+
+/* 1. Animación del Título (Movimiento hacia arriba) */
+.animate-fade-up {
+  /* Duración 1s, curva suave, y se queda en el estado final (forwards) */
+  animation: fadeUp 1s ease-out forwards;
+}
+
+/* 3. Animación de los Botones (Movimiento hacia arriba con retraso) */
+.animate-fade-up-delayed {
+  /* 0.8s de duración, 0.5s de retraso (delay) */
+  animation: fadeUp 0.8s ease-out 0.5s forwards;
+}
+
+/* 2. Animación del Subtítulo (Solo fade in, con más retraso) */
+.animate-fade-in-delayed {
+  /* 1s de duración, 1s de retraso */
+  animation: fadeIn 1s ease-out 1s forwards;
+}
+
+/* --- KEYFRAMES (La magia) --- */
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* ==========================================
