@@ -7,43 +7,43 @@ const testimonios = [
     nombre: "Javier",
     usuario: "@javi_ecommerce",
     texto: "La configuración de la tienda y el mantenimiento han sido impecables. Un servicio de 10.",
-    img: "https://randomuser.me/api/portraits/men/32.webp"
+    img: "/testimonios/1.webp"
   },
   {
     nombre: "Alvaro",
     usuario: "@Alvaro_dev",
     texto: "¡Las integraciones del Píxel y los eventos van como un tiro! Brutal trabajar juntos.",
-    img: "https://randomuser.me/api/portraits/men/46.webp"
+    img: "/testimonios/2.webp"
   },
   {
     nombre: "Elena",
     usuario: "@elena_mkt",
     texto: "El diseño es alucinante y la web va rapidísima. Justo lo que mi negocio necesitaba.",
-    img: "https://randomuser.me/api/portraits/women/44.webp"
+    img: "/testimonios/3.webp"
   },
   {
     nombre: "Laura",
     usuario: "@laura_bcn",
     texto: "El rediseño ha quedado espectacular, súper intuitivo y con una estética premium de locos.",
-    img: "https://randomuser.me/api/portraits/women/68.webp"
+    img: "/testimonios/4.webp"
   },
   {
     nombre: "Sofía",
     usuario: "@sofia_studio",
     texto: "Atención al detalle brutal. Captó la idea de mi marca desde el primer segundo. Recomendadísima.",
-    img: "https://randomuser.me/api/portraits/women/17.webp"
+    img: "/testimonios/5.webp"
   },
   {
     nombre: "Miguel",
     usuario: "@miguel_tech",
     texto: "El plan de mantenimiento es una tranquilidad enorme. Relación calidad-precio insuperable, siempre al pie del cañón.",
-    img: "https://randomuser.me/api/portraits/men/22.webp"
+    img: "/testimonios/6.webp"
   },
   {
     nombre: "Pablo",
     usuario: "@pablo_emprende",
     texto: "La sesión de asesoramiento fue un antes y un después. Salí con las ideas súper claras y una estrategia ganadora.",
-    img: "https://randomuser.me/api/portraits/men/64.webp"
+    img: "/testimonios/7.webp"
   }
 ];
 

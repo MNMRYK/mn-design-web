@@ -88,7 +88,7 @@ const ContactoRescate = () => {
                             className="calendar-iframe"
                             width="100%"
                             height="100%"
-                            scrolling={esMovil ? "auto" : "no"}
+                            scrolling="auto"
                             frameBorder="0"
                         />
                     </div>

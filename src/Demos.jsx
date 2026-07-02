@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 
-// Importamos los componentes hijos (que crearemos en el siguiente paso)
 import HeaderDemos from "./Demos/HeaderDemos";
 import BlogPreview from "./Nosotros/BlogPreview";
 import SeccionContactoDemo from "./Demos/SeccionContactoDemo";

@@ -49,6 +49,13 @@ const bloquesDemos = [
           "Variante visual con optimización de carga para campañas de captación.",
         url: "https://mnmryk.github.io/demo-nutricion-2/",
       },
+      {
+        slug: "demo-fisioterapia", 
+        titulo: "Clínica de Fisioterapia", 
+        tag: "Fisioterapia",
+        detalles: "Diseño enfocado en la conversión clínica. Destaca por su evaluador de dolor interactivo desarrollado a medida, combinando una interfaz limpia con una imagen de máxima autoridad médica y deportiva.",
+        url: "https://mnmryk.github.io/demo-fisioterapia/",
+      },
     ],
   },
   {
@@ -71,6 +78,13 @@ const bloquesDemos = [
         detalles:
           "Estética violeta y cyan neón. Incluye cuenta atrás en JS nativo, agenda interactiva y marquesina animada en CSS.",
         url: "https://mnmryk.github.io/demo-evento-B2B/",
+      },
+      {
+        slug: "demo-inmobiliaria-b2b",
+        titulo: "Consultoría Inmobiliaria B2B",
+        tag: "Web B2B",
+        detalles: "Estructura corporativa de alto impacto para captación de inversores. Uso de tipografías contundentes, contraste estratégico y optimización visual diseñada para embudos de venta High Ticket.",
+        url: "https://mnmryk.github.io/demo-inmobiliaria/",
       },
     ],
   },
@@ -95,6 +109,13 @@ const bloquesDemos = [
           "Tonos nude/salvia. Diseño con imágenes en arco, paneles traslúcidos y formulario profesional con control de alergias.",
         url: "https://mnmryk.github.io/demo-evento-salones/",
       },
+      {
+        slug: "demo-micropigmentacion",
+        titulo: "Cursos de Micropigmentación",
+        tag: "Academia Micropigmentación",
+        detalles: "Puro lujo silencioso. Estética minimalista en tonos nude y tipografía serif elegante. Arquitectura web pensada para unificar la reserva de tratamientos exclusivos con un portal formativo para alumnas.",
+        url: "https://mnmryk.github.io/demo-micropigmentacion/",
+      }
     ],
   },
   {

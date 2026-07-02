@@ -101,7 +101,7 @@
   border-radius: 50%;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   /* 🔥 Añade esto para que las fotos encajen perfectas 🔥 */
-  object-fit: contain; 
+  object-fit: cover; 
 }
 
 .review-user-info {

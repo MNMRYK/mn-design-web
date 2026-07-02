@@ -189,19 +189,6 @@
   transform: translateY(-3px);
 }
 
-/* Ajuste móvil para los botones */
-@media (max-width: 767px) {
-  .hero-cta-buttons {
-    flex-direction: column;
-    width: 100%;
-    margin-top: 25px;
-  }
-  
-  .btn-primary-hero, .btn-secondary-hero {
-    width: 100%;
-  }
-}
-
 /* El Mac Hero */
 .hero-demos-visual {
   flex: 1;
@@ -492,7 +479,7 @@
 }
 
 /* ====================================================
-   ESTILOS DEL NAVEGADOR FALSO (Faltaban aquí)
+   ESTILOS DEL NAVEGADOR FALSO 
    ==================================================== */
 .browser-mockup-complex {
   width: 100%;
@@ -731,6 +718,21 @@
   .section-title-container h2 {
     font-size: 2rem;
   }
+
+  .hero-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-primary-hero, .btn-secondary-hero {
+    width: 80%;
+    padding: 14px 20px;
+    font-size: 0.95rem;
+  }
+
   
   .portfolio-grid {
     grid-template-columns: 1fr;
@@ -757,6 +759,26 @@
 
   .hero-demos-visual, .mac-mockup-hero {
     min-width: 100%;
+    width: 100%;
+  }
+
+  .mac-body {
+    height: 200px; /* Quitamos los 300px fijos */
+    aspect-ratio: 16 / 10; /* Magia: le damos la proporción real de una pantalla de Mac */
+  }
+
+  .mac-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .mac-dots span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+  }
+
+  .mockup-body {
+    height: 160px; 
   }
 }
 
