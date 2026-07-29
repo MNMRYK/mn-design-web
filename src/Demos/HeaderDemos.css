@@ -353,6 +353,63 @@
   margin-bottom: 20px;
 }
 
+.ctas-container {
+  display: flex;
+  gap: 16px; /* Espacio entre los dos botones */
+  justify-content: center; /* Los centra horizontalmente */
+  align-items: center;
+  flex-wrap: wrap; /* Por si en móviles no caben, que el segundo baje de línea de forma elegante */
+}
+
+.btn-landing-redirect {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background-color: transparent;
+  color: var(--electric-violet, #7E57C2);
+  border: 1px solid var(--electric-violet, #7E57C2);
+  padding: 15px 24px;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.btn-landing-redirect:hover {
+  background-color: var(--electric-violet, #7E57C2);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px rgba(126, 87, 194, 0.2);
+}
+
+.btn-landing-secundario {
+  background-color: var(--electric-violet, #7E57C2);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.9px;
+  padding: 14px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 10px 20px rgba(126, 87, 194, 0.2);
+  border: 2px solid var(--electric-violet, #7E57C2);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-landing-secundario :hover {
+  background-color: transparent;
+  color: var(--electric-violet, #7E57C2);
+  transform: translateY(-3px);
+  box-shadow: 0 15px 25px rgba(126, 87, 194, 0.15);
+}
+
 /* ====================================================
    LA CUADRÍCULA Y LAS TARJETAS PREMIUM
    ==================================================== */

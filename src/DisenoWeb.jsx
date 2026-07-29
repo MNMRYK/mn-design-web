@@ -1,11 +1,10 @@
-import React, { useEffect } from "react"; // 🔥 Importamos herramientas
+import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import { Helmet } from "react-helmet-async";
 
-// 🔥 IMPORTACIONES NORMALES Y SEGURAS 🔥
 import DisenoWebSiguiente from "./DisenoWeb/DisenoWebSiguiente.jsx";
 import DisenoWebSeccionesEspeciales from "./DisenoWeb/DisenoWebSeccionesEspeciales.jsx";
 import ResponsiveShowcase from "./DisenoWeb/ResponsiveShowcase.jsx";
@@ -13,7 +12,6 @@ import DisenoDoble from "./DisenoWeb/DisenoDoble.jsx";
 import LlamadaDemos from "./DisenoWeb/LlamadaDemos.jsx";
 
 const DisenoWeb = () => {
-  // 🔥 1. GUARDAMOS EL JSON EN UNA VARIABLE (Antes de los efectos)
   const schemaFAQ = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -138,7 +136,6 @@ const DisenoWeb = () => {
         <title>Diseño Web Profesional en Alcoy 2026 | MN Design Web</title>
         <link rel="canonical" href="https://mndesignweb.es/disenoweb" />
 
-        {/* 🔥 TODAS LAS DESCRIPCIONES UNIFICADAS 🔥 */}
         <meta
           name="description"
           content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoy."
@@ -222,7 +219,6 @@ const DisenoWeb = () => {
                 "@context": "https://schema.org/",
                 "@type": "Product",
                 name: "Servicios de Diseño Web MN Design Web",
-                // 🔥 AÑADIDA LA IMAGEN Y DESCRIPCIÓN PARA EVITAR EL ERROR CRÍTICO 🔥
                 image: "https://mndesignweb.es/logo-card.webp",
                 description:
                   "Desarrollo y diseño de páginas web corporativas, sitios con reservas y tiendas online.",

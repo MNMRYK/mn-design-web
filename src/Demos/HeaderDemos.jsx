@@ -6,6 +6,8 @@ import "./HeaderDemos.css"; // Tu archivo de estilos
 const bloquesDemos = [
   {
     categoria: "Webs de Psicología y Nutrición",
+    cta: { texto: "Explorar Plataforma Portal Salud", url: "https://descubre.mndesignweb.es/clinicas/" },
+    cta2: { texto: "Webs Psicólogos", url: "https://descubre.mndesignweb.es/psicologos/" },
     descripcion:
       "Estructuras diseñadas para transmitir confianza, autoridad y privacidad. Ideales para profesionales que necesitan automatizar su agenda y captar pacientes.",
     demos: [
@@ -120,6 +122,7 @@ const bloquesDemos = [
   },
   {
     categoria: "Invitaciones Eventos Boda Digitales",
+    cta: { texto: "Ver funciones de la invitación", url: "https://descubre.mndesignweb.es/bodas/" },
     descripcion:
       "Modelos interactivos a medida para eventos sociales de alto nivel. Una alternativa ecológica, moderna y exclusiva a las invitaciones tradicionales.",
     demos: [
@@ -244,6 +247,30 @@ const HeaderDemos = () => {
             <div className="section-title-container">
               <h2>{bloque.categoria}</h2>
               <p className="section-subtitle">{bloque.descripcion}</p>
+              <div className="ctas-container">
+                {bloque.cta && (
+                  <a 
+                    href={bloque.cta.url} 
+                    className="btn-landing-redirect"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    {bloque.cta.texto} <i className="fas fa-arrow-right"></i>
+                  </a>
+                )}
+                
+                {/* RENDERIZADO DEL SEGUNDO BOTÓN */}
+                {bloque.cta2 && (
+                  <a 
+                    href={bloque.cta2.url} 
+                    className="btn-landing-redirect btn-landing-secundario"
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                  >
+                    {bloque.cta2.texto} <i className="fas fa-arrow-right"></i>
+                  </a>
+                )}
+              </div>
             </div>
 
             <div className="portfolio-grid">

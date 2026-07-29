@@ -36,7 +36,7 @@ const Nosotros = () => {
         name: "¿Qué tipo de proyectos soléis realizar?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "Nos especializamos en diseño web estratégico, desarrollo E-commerce y sistemas de reservas. Ayudamos a negocios locales en Alicante y empresas de toda España a digitalizarse de forma profesional y eficiente.",
+          text: "Nos especializamos en diseño web estratégico, desarrollo E-commerce, sistemas de reservas y plataformas SaaS a medida. Ayudamos a negocios locales en Alicante y empresas de toda España a digitalizarse de forma profesional y eficiente.",
         },
       },
     ],

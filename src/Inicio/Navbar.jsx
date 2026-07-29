@@ -81,9 +81,12 @@ const Navbar = () => {
               <li><a href="/e-commerce">E-commerce</a></li>
               <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
               <li><a href="/redes-sociales">Redes Sociales</a></li>
+              <li><a href="https://descubre.mndesignweb.es/bodas/">Invitaciones Digitales</a></li>
+              <li><a href="https://descubre.mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
             </ul>
           </li>
           <li><a href="/demos">Demos</a></li>
+          <li><a href="https://blog.mndesignweb.es/">Blog</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="/contacto" className="boton-contacto">Contacto</a></li>
         </ul>

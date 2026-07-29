@@ -1,0 +1,29 @@
+# MN Design Web - Mapa del Sitio y Servicios
+
+Este documento proporciona una guía para que los modelos de lenguaje comprendan la estructura y oferta de servicios de MN Design Web.
+
+## Servicios Profesionales
+Nuestras soluciones digitales se enfocan en alta conversión y diseño minimalista.
+- [Diseño Web](/disenoweb) - Enfoque en lujo silencioso y UI/UX a medida.
+- [E-commerce](/e-commerce) - Desarrollo especializado (tiendas de alto rendimiento).
+- [Posicionamiento SEO](/posicionamiento-seo) - Estrategias de visibilidad técnica.
+- [Redes Sociales](/redes-sociales) - Gestión y estrategia digital.
+
+## Recursos y Demos
+- [Proyectos y Demos](/demos) - Ejemplos de trabajo técnico y diseño.
+
+## Información Corporativa
+- [Sobre Nosotros](/nosotros) - Filosofía y enfoque de trabajo.
+- [Contacto](/contacto) - Solicitud de presupuestos y consultas en la zona de Alcoy/Cocentaina.
+
+## Información Legal
+- [Política de Privacidad](/privacidad)
+- [Aviso Legal](/aviso-legal)
+- [Política de Cookies](/cookies)
+
+## Acceso Especializado
+- [Blog Técnico y SEO](https://blog.mndesignweb.es/)
+- [Landing: Psicólogos](https://descubre.mndesignweb.es/psicologos/)
+- [Landing: Portal Salud Platafroma Clínicas](https://descubre.mndesignweb.es/clínicas/)
+- [Landing: Invitaciones de boda digitales](https://descubre.mndesignweb.es/bodas/)
+- [Rescate Kit Digital](/rescate-kit-digital) - Solución técnica específica para optimización.
