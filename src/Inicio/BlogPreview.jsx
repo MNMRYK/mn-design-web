@@ -13,7 +13,7 @@ const BlogPreview = () => {
     const obtenerArticulos = async () => {
       try {
         // 🔥 Esta es la URL mágica de tu WP que trae los 3 últimos posts con sus imágenes (embed)
-        const respuesta = await fetch('https://blog.mndesignweb.es/wp-json/wp/v2/posts?_embed&per_page=3');
+        const respuesta = await fetch('https://mndesignweb.es/blog/wp-json/wp/v2/posts?_embed&per_page=3');
         const datos = await respuesta.json();
         setArticulos(datos);
         setCargando(false);
@@ -49,7 +49,7 @@ const BlogPreview = () => {
                 
                 <div className="blog-top-row">
                     <h2 className="blog-title">Aprende y crece con nosotros</h2>
-                    <a href="https://blog.mndesignweb.es/" target="_blank" rel="noopener noreferrer" className="btn-ver-blog">
+                    <a href="https://mndesignweb.es/blog/" target="_blank" rel="noopener noreferrer" className="btn-ver-blog">
                     Ver todos los artículos
                     </a>
                 </div>

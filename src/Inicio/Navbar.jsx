@@ -86,7 +86,7 @@ const Navbar = () => {
             </ul>
           </li>
           <li><a href="/demos">Demos</a></li>
-          <li><a href="https://blog.mndesignweb.es/">Blog</a></li>
+          <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="/contacto" className="boton-contacto">Contacto</a></li>
         </ul>
