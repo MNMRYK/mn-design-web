@@ -26,8 +26,8 @@ const Hero = () => {
             Empezar proyecto
           </a>
 
-          <a href="/rescate-kit-digital" className="btn-varios">
-            Rescate Kit Digital
+          <a href="https://descubre.mndesignweb.es/clinicas/" className="btn-varios">
+            Software Portal Clínico
           </a>
         </div>
       </div>

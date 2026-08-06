@@ -29,7 +29,7 @@ const Soluciones = () => {
                     <div className="solucion-icon-box"><i className="fas fa-code"></i></div>
                     <h3 className="solucion-card-title">Diseño a Medida</h3>
                     <p className="solucion-card-text">
-                        Webs ultra-rápidas, sin límites de diseño y optimizadas al 100% para Google.
+                        Plataformas SaaS y Webs ultra-rápidas, sin límites de diseño y optimizadas al 100% para Google.
                     </p>
                     <a href="/disenoweb#portfolio" className="solucion-card-btn">
                         SABER MÁS <i className="fas fa-chevron-right"></i>

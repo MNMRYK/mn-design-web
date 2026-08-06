@@ -55,7 +55,7 @@ const bloquesDemos = [
         slug: "demo-fisioterapia", 
         titulo: "Clínica de Fisioterapia", 
         tag: "Fisioterapia",
-        detalles: "Diseño enfocado en la conversión clínica. Destaca por su evaluador de dolor interactivo desarrollado a medida, combinando una interfaz limpia con una imagen de máxima autoridad médica y deportiva.",
+        detalles: "Destaca por su evaluador de dolor interactivo desarrollado a medida, combinando una interfaz limpia con una imagen de máxima autoridad médica y deportiva.",
         url: "https://mnmryk.github.io/demo-fisioterapia/",
       },
     ],
