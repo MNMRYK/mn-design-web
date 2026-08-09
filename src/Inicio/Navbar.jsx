@@ -83,6 +83,8 @@ const Navbar = () => {
               <li><a href="/redes-sociales">Redes Sociales</a></li>
               <li><a href="https://descubre.mndesignweb.es/bodas/">Invitaciones Digitales</a></li>
               <li><a href="https://descubre.mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
+                <li><a href="https://descubre.mndesignweb.es/psicologos/">Psicólogos Portal Salud</a></li>
+                <li><a href="https://descubre.mndesignweb.es/aprende-shopify/">Aprende Shopify</a></li>
             </ul>
           </li>
           <li><a href="/demos">Demos</a></li>

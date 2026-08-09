@@ -39,7 +39,8 @@ const Footer = () => {
                 <li><a href="/e-commerce">E-commerce / Tienda Online</a></li>
                 <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
                 <li><a href="https://descubre.mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
-                <li><a href="https://descubre.mndesignweb.es/bodas/">Invitaciones Boda Digitales</a></li>
+                <li><a href="https://descubre.mndesignweb.es/psicologos/">Psicólogos Portal Salud</a></li>
+                <li><a href="https://descubre.mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
               </ul>
             </div>
 
@@ -48,7 +49,9 @@ const Footer = () => {
               <ul>
                 <li><a href="/contacto">Contacto</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="https://descubre.mndesignweb.es/aprende-shopify/">Aprende Shopify</a></li>
                 <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
+                
               </ul>
             </div>
           </div>
