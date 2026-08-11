@@ -68,6 +68,75 @@
   text-align: center; /* phrase 1 centers itself */
 }
 
+/* ====================================================
+   NUEVOS BOTONES DE ACCIÓN (Reemplazo del texto de tipeo)
+   ==================================================== */
+.seo-hero-botones {
+    display: flex;
+    gap: 16px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.seo-btn-hero-primario,
+.seo-btn-hero-secundario {
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+.seo-btn-hero-primario {
+    background: var(--electric-violet, #7E57C2); 
+    color: #ffffff;
+    border: 2px solid var(--electric-violet, #7E57C2);
+    box-shadow: 0 4px 15px rgba(126, 87, 194, 0.2);
+}
+
+.seo-btn-hero-primario:hover {
+    background: var(--dark-violet, #5e35b1);
+    border-color: var(--dark-violet, #5e35b1);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
+}
+
+.seo-btn-hero-secundario {
+    background: transparent;
+    color: var(--electric-violet, #7E57C2);
+    border: 2px solid rgba(126, 87, 194, 0.3);
+}
+
+.seo-btn-hero-secundario:hover {
+    background: var(--electric-violet, #7E57C2);
+    color: #ffffff;
+    border-color: var(--electric-violet, #7E57C2);
+    transform: translateY(-3px);
+}
+
+/* ====================================================
+   RESPONSIVE - MÓVIL
+   ==================================================== */
+@media (max-width: 767px) {
+    .seo-hero-botones {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    
+    .seo-btn-hero-primario,
+    .seo-btn-hero-secundario {
+        width: 100%;
+    }
+}
+
 /* Grid principal */
 .seo-main-grid { 
   display: grid; 

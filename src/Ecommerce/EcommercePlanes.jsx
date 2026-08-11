@@ -1,88 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion'; 
+import React from 'react';
+import { motion } from 'framer-motion'; 
 import './EcommercePlanes.css';
 
-import Lottie from "lottie-react";
-import animCarrito from "../assets/animations/ecommerce/carrito.json";
-import animCompletar from "../assets/animations/ecommerce/completar.json";
-import animCronometro from "../assets/animations/ecommerce/cronometro.json";
-import animGblo from "../assets/animations/ecommerce/glob.json";
-import animLibro from "../assets/animations/ecommerce/libro.json";
-import animRelacion from "../assets/animations/ecommerce/relacion.json";
-
-
-const LottiePlayer = Lottie.default || Lottie;
-
 const EcommercePlanes = () => {
-    const [imagenModal, setImagenModal] = useState(null);
 
-    // Lista de estructuras con la Opción 6 añadida y rutas de imagen
+    // Lista de estructuras simplificada y limpia (sin imágenes de ejemplo)
     const estructuras = [
         { 
-            animation: animCarrito, // Ajusta a la animación que más encaje
-            icon: "fa-store", 
-            title: "D2C: Tienda de Marca", 
-            desc: "Tu marca directa al consumidor. Diseños únicos para potenciar tu identidad visual y fidelizar a tus clientes.",
-            img: "/ejemplos/d2d.webp"
+            id: "shopify",
+            img: "/ecommerce/shopify-3d.webp", // Cámbialo por la ruta de tu imagen guardada
+            title: "Shopify", 
+            subtitle: "Líder en facilidad",
+            ventajas: [
+                "Rápida puesta en marcha y facilidad de uso.",
+                "Ecosistema completo con apps y temas.",
+                "Seguridad y alojamiento incluidos.",
+                "Soporte técnico 24/7."
+            ]
         },
         { 
-            animation: animLibro, 
-            icon: "fa-book-open", 
-            title: "Infoproductos & Cursos", 
-            desc: "Plataformas especializadas en la venta y entrega automática de cursos, ebooks y áreas privadas de contenido.",
-            img: "/ejemplos/educa.webp"
+            id: "woocommerce",
+            img: "/ecommerce/woo-3d.webp", 
+            title: "WooCommerce", 
+            subtitle: "Personalización total",
+            ventajas: [
+                "Control absoluto sobre tu plataforma (auto-alojado).",
+                "Altamente personalizable y flexible.",
+                "Sin cuotas mensuales de plataforma fijas.",
+                "Ideal para integraciones complejas."
+            ]
         },
         { 
-            animation: animRelacion, 
-            icon: "fa-handshake", 
-            title: "B2B: Catálogo Mayorista", 
-            desc: "Tiendas enfocadas a profesionales con gestión de precios personalizados, niveles de acceso y grandes volúmenes.",
-            img: "/ejemplos/catalogo.webp"
+            id: "astro",
+            img: "/ecommerce/astro-3d.webp", 
+            title: "E-commerce Astro", 
+            subtitle: "Velocidad y control",
+            ventajas: [
+                "Rendimiento ultrarrápido (código a medida).",
+                "Arquitectura de islas para interactividad.",
+                "Desarrollo adaptado a necesidades únicas.",
+                "Mejor SEO y experiencia de usuario."
+            ]
         },
         { 
-            animation: animGblo, 
-            icon: "fa-users", 
-            title: "Marketplace Multivendedor", 
-            desc: "Plataformas donde varios proveedores pueden vender sus productos bajo tu gestión centralizada.",
-            img: "/ejemplos/marketplace.webp"
-        },
-        { 
-            animation: animCompletar, 
-            icon: "fa-box-open", 
-            title: "Suscripciones (Box)", 
-            desc: "Modelos de venta recurrente ideales para cajas de suscripción, consumibles o servicios de pago mensual.",
-            img: "/ejemplos/suscripciones.webp"
-        },
-        { 
-            animation: animCronometro, 
-            icon: "fa-rocket", 
-            title: "Venta de Lanzamiento", 
-            desc: "Estrategias de venta rápida o 'flash sale' con páginas optimizadas para generar urgencia y máxima conversión.",
-            img: "/ejemplos/lanzamiento.webp"
+            id: "academia",
+            img: "/ecommerce/academia-3d.webp", 
+            title: "Academia", 
+            subtitle: "Cursos y control",
+            ventajas: [
+                "Automatización de entrega de cursos (código a medida).",
+                "Áreas privadas y gestión de alumnos.",
+                "Herramientas exclusivas para educadores.",
+                "Escalabilidad para grandes volúmenes."
+            ]
         }
     ];
-
-    // 🔥 EL EFECTO CON CANDADO DOBLE 🔥
-    useEffect(() => {
-        if (imagenModal) {
-            document.body.style.overflow = 'hidden';
-            document.documentElement.style.overflow = 'hidden'; // Bloquea el HTML también
-        } else {
-            document.body.style.overflow = 'unset';
-            document.documentElement.style.overflow = 'unset';
-        }
-
-        return () => {
-            document.body.style.overflow = 'unset';
-            document.documentElement.style.overflow = 'unset';
-        };
-    }, [imagenModal]);
-
 
     return (
         <div className="ec-secciones-extras-wrapper">
         
-        {/* ===================================================
+            {/* ===================================================
             SECCIÓN 1: PLANES PREMIUM
             =================================================== */}
             <motion.section 
@@ -98,7 +75,7 @@ const EcommercePlanes = () => {
                 </div>
 
                 <div className="ec-planes-grid">
-                    {/* Plan Básico: Enfocado en el lanzamiento */}
+                    {/* Plan Básico */}
                     <motion.div className="ec-plan-card" whileHover={{ y: -8 }}>
                         <h3>Básico</h3>
                         <div className="ec-plan-precio">Ideal para despegar</div>
@@ -119,7 +96,7 @@ const EcommercePlanes = () => {
                         </a>
                     </motion.div>
 
-                    {/* Plan Impulso: Enfocado en crecimiento y ventas */}
+                    {/* Plan Impulso */}
                     <motion.div className="ec-plan-card destacado" whileHover={{ scale: 1.03, y: -8 }}>
                         <span className="ec-badge-destacado">MÁS SOLICITADO</span>
                         <h3>Impulso</h3>
@@ -141,7 +118,7 @@ const EcommercePlanes = () => {
                         </a>
                     </motion.div>
 
-                    {/* Plan Esencial: Enfocado en automatización y escalabilidad */}
+                    {/* Plan Esencial */}
                     <motion.div className="ec-plan-card" whileHover={{ y: -8 }}>
                         <h3>Esencial</h3>
                         <div className="ec-plan-precio">Soporte y Estrategia 360°</div>
@@ -164,7 +141,7 @@ const EcommercePlanes = () => {
                 </div>
             </motion.section>
 
-        {/* ===================================================
+            {/* ===================================================
             SECCIÓN 2: ESTRUCTURAS MÁS DEMANDADAS
             =================================================== */}
             <motion.section 
@@ -175,68 +152,85 @@ const EcommercePlanes = () => {
                 transition={{ duration: 0.6 }}
             >
                 <div className="ec-section-title-container">
-                    <h2>¿Qué estructura necesita tu presencia digital?</h2>
+                    <h2>¿Qué necesita tu E-Commerce?</h2>
                 </div>
 
-                <div className="ec-estructuras-grid">
+                <div className="ec-estructuras-grid-v2">
                     {estructuras.map((est, idx) => (
-                        <motion.div key={idx} className="ec-estructura-item" whileHover={{ y: -5 }}>
-                            <div className="ec-estructura-icon-wrapper" style={{ width: '80px', height: '80px', margin: '0 auto' }}>
-                                {/* 🔥 USAMOS EL COMPONENTE PARCHEADO LottiePlayer EN VEZ DE Lottie 🔥 */}
-                                <LottiePlayer 
-                                  animationData={est.animation} 
-                                  loop={true} 
-                                  autoplay={true} 
-                                  style={{ width: '60px', height: '60px' }}
-                                />
-                            </div>
-                            <div className="ec-estructura-info">
-                                <h4>{est.title}</h4>
-                                <div className="ec-estructura-contenido-row">
-                                    <p>{est.desc}</p>
-                                </div>
+                        <motion.div key={idx} className="ec-estructura-item-v2" whileHover={{ y: -5 }}>
+                            
+                            {/* Bloque superior: Imagen */}
+                            <div className="ec-estructura-img-wrapper">
+                                <img src={est.img} alt={est.title} />
                             </div>
                             
-                            {/* 🔥 El botón lo sacamos de la row de texto para posicionarlo libremente 🔥 */}
-                            <button 
-                                className="ec-btn-ver-ejemplo" 
-                                onClick={() => setImagenModal(est.img)}
-                                title="Ver ejemplo"
-                            >
-                                <i className="fa-solid fa-arrow-right"></i>
-                            </button>
+                            {/* Bloque inferior: Textos y lista de ventajas */}
+                            <div className="ec-estructura-info-v2">
+                                <h4>{est.title} <br/><span>({est.subtitle})</span></h4>
+                                
+                                <ul className="ec-ventajas-list">
+                                    {est.ventajas.map((ventaja, i) => (
+                                        <li key={i}>
+                                            <i className="fa-solid fa-circle-check"></i> 
+                                            {ventaja}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
                             
                         </motion.div>
                     ))}
                 </div>
             </motion.section>
 
-           <AnimatePresence>
-                {imagenModal && (
-                    <motion.div 
-                        className="ec-modal-overlay"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setImagenModal(null)} // Cierra al hacer clic fuera
-                    >
-                        <motion.div 
-                        className="ec-modal-content"
-                        initial={{ scale: 0.9, y: 20 }}
-                        animate={{ scale: 1, y: 0 }}
-                        exit={{ scale: 0.9, y: 20 }}
-                        onClick={(e) => e.stopPropagation()} // Evita que se cierre al clicar la foto
-                        >
-                        <button className="ec-modal-close-btn" onClick={() => setImagenModal(null)}>
-                            <i className="fa-solid fa-xmark"></i>
-                        </button>
-                        <div className="ec-modal-body-img">
-                            <img src={imagenModal} alt="Ejemplo de estructura web" />
+            {/* ===================================================
+            SECCIÓN 3: PROMOCIÓN MENTORÍAS SHOPIFY
+            =================================================== */}
+            <motion.section 
+                className="ec-promo-shopify tema-oscuro"
+                initial={{ opacity: 0, scale: 0.95, y: 30 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.6 }}
+            >
+                <div className="ec-promo-content">
+                    <div className="ec-promo-text">
+                        <div className="ec-promo-badge">
+                            <i className="fa-brands fa-shopify"></i> Especialistas en Liquid
                         </div>
-                        </motion.div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
+                        <h2>Toma el control operativo de tu Shopify <br/><span>sin miedo a romper nada</span></h2>
+                        <p>Mentoría técnica 1 a 1 para dueños de e-commerce que quieren dejar de perder ventas por fallos de configuración.</p>
+                        
+                        <div className="ec-promo-buttons">
+                            {/* Botón principal a la landing general */}
+                            <a 
+                                href="https://descubre.mndesignweb.es/aprende-shopify/#precios" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="ec-btn-shopify-primary"
+                            >
+                                Ver sesiones y precios
+                            </a>
+                            
+                            {/* Botón secundario directo a la sección de descarga (anclado al ID del form) */}
+                            <a 
+                                href="https://descubre.mndesignweb.es/aprende-shopify/#recurso-gratis" 
+                                target="_blank" 
+                                rel="noopener noreferrer" 
+                                className="ec-btn-shopify-secondary"
+                            >
+                                <i className="fa-solid fa-file-pdf" style={{ marginRight: '8px' }}></i>
+                                Descargar Arsenal Secreto
+                            </a>
+                        </div>
+                    </div>
+                    
+                    {/* He puesto la ruta de la imagen flotante que pasaste en tu código */}
+                    <div className="ec-promo-image">
+                        <img src="/ecommerce/2.webp" alt="Mentorías Shopify MN Design Web" />
+                    </div>
+                </div>
+            </motion.section>
 
         </div>
     );

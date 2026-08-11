@@ -115,7 +115,6 @@ const Nosotros = () => {
       <div className="nosotros-page-wrapper">
         <NosotrosSiguiente />
         <MetodologiaSticky />
-        <DamosForma />
         <BlogPreview />
 
         <script

@@ -16,24 +16,24 @@
 }
 
 .section-title-container h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: var(--electric-violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-size: 2.5rem;
   font-weight: 800;
-  display: block; /* ya está presente */
+  display: block;
   text-align: left;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
 .section-subtitle {
-  display: block; /* ya está presente */
+  display: block;
   text-align: center;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.125rem; 
+  font-family: "Nunito", sans-serif;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: rgba(26, 16, 45, 0.8);
   margin: 0;
@@ -45,15 +45,14 @@
    ==================================================== */
 .planes-grid {
   display: grid;
-  /* 🔥 EL CAMBIO: Cambiamos 1fr por repeat(3, 1fr) para que salgan en fila en PC 🔥 */
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   align-items: center;
 }
 
 .plan-card {
   background: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   border: 1px solid rgba(126, 87, 194, 0.15);
   padding: 40px 30px;
   border-radius: 24px;
@@ -65,7 +64,11 @@
 
 /* Tarjeta Destacada "Impulso" */
 .plan-card.destacado {
-  background: linear-gradient(145deg, #ffffff 0%, rgba(126, 87, 194, 0.05) 100%);
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    rgba(126, 87, 194, 0.05) 100%
+  );
   border: 2px solid var(--electric-violet);
   box-shadow: 0 20px 40px rgba(126, 87, 194, 0.1);
 }
@@ -85,7 +88,7 @@
 }
 
 .plan-card h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   color: var(--deep-eggplant);
   margin-bottom: 8px;
@@ -109,7 +112,6 @@
 }
 
 .plan-features li {
-  
   color: rgba(26, 16, 45, 0.8);
   display: flex;
   align-items: flex-start;
@@ -123,17 +125,18 @@
 }
 
 /* Botones de los planes */
-.btn-plan-primario, .btn-plan-secundario {
+.btn-plan-primario,
+.btn-plan-secundario {
   font-size: 1rem;
   width: 100%;
   padding: 14px;
   border-radius: 12px;
   font-weight: 700;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: auto;
-  display: inline-flex;     /* Centra el texto de forma limpia */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
@@ -167,9 +170,9 @@
    ==================================================== */
 
 .estructuras-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
 }
 
 .estructura-item {
@@ -177,17 +180,14 @@
   align-items: flex-start;
   gap: 24px;
   background: #ffffff;
-  /* 🔥 Margen por la derecha para que el texto no pise el botón 🔥 */
-  padding: 24px 70px 24px 24px; 
+  padding: 24px 70px 24px 24px;
   border-radius: 16px;
   border: 1px solid rgba(126, 87, 194, 0.1);
   box-shadow: 0 4px 15px rgba(26, 16, 45, 0.01);
   text-align: left;
   transition: border-color 0.3s ease;
-  
-  /* 🔥 TRUCO CLAVE PARA EL BOTÓN ESQUINERO 🔥 */
-  position: relative; 
-  overflow: hidden;   
+  position: relative;
+  overflow: hidden;
 }
 
 .estructura-item:hover {
@@ -214,13 +214,12 @@
 }
 
 .estructura-info h4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.2rem;
   color: var(--deep-eggplant);
   margin-bottom: 4px;
 }
 
-/* 🔥 ESTE ES EL ÚNICO QUE TIENE QUE QUEDAR 🔥 */
 .estructura-contenido-row {
   display: block;
   width: 100%;
@@ -229,13 +228,12 @@
 
 .estructura-contenido-row p {
   margin: 0;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1rem;
   color: rgba(26, 16, 45, 0.7);
   line-height: 1.6;
 }
 
-/* 🔥 EL NUEVO BOTÓN TIPO APP 🔥 */
 .btn-ver-ejemplo {
   position: absolute;
   bottom: 0;
@@ -245,7 +243,7 @@
   background-color: var(--electric-violet);
   color: #ffffff;
   border: none;
-  border-radius: 20px 0 0 0; 
+  border-radius: 20px 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -259,11 +257,10 @@
   transition: transform 0.3s ease;
 }
 
-/* Efectito juguetón al hacer hover en la tarjeta */
 .estructura-item:hover .btn-ver-ejemplo {
   width: 55px;
   height: 55px;
-  background-color: #7E57C2; 
+  background-color: #7e57c2;
 }
 
 .estructura-item:hover .btn-ver-ejemplo i {
@@ -271,7 +268,7 @@
 }
 
 /* ====================================================
-   ESTILOS DE LA VENTANA EMERGENTE (MODAL) - LA DEFINITIVA
+   ESTILOS DE LA VENTANA EMERGENTE (MODAL)
    ==================================================== */
 
 .modal-overlay {
@@ -283,10 +280,9 @@
   background: rgba(26, 16, 45, 0.75);
   backdrop-filter: blur(8px);
   z-index: 9999;
-  
   display: flex;
   justify-content: center;
-  align-items: center; /* Centramos la caja blanca perfectamente */
+  align-items: center;
   padding: 20px;
 }
 
@@ -294,20 +290,16 @@
   background: #ffffff;
   border-radius: 20px;
   width: 100%;
-  max-width: 800px; 
-  /* 🔥 1. LIMITAMOS LA CAJA: No puede ser más alta que el 90% de la pantalla */
-  max-height: 90vh; 
+  max-width: 800px;
+  max-height: 90vh;
   position: relative;
-  
-  /* 🔥 2. FLEXBOX: Para que la zona de la imagen rellene el espacio y active el scroll */
   display: flex;
   flex-direction: column;
 }
 
-/* El botón de la X (Lo dejamos asomando un pelín) */
 .modal-close-btn {
   position: absolute;
-  top: -15px; 
+  top: -15px;
   right: -15px;
   background: #ffffff;
   border: 2px solid var(--electric-violet);
@@ -322,7 +314,7 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
 
 .modal-close-btn:hover {
@@ -332,13 +324,10 @@
 }
 
 .modal-body-img {
-  /* 🔥 3. EL CONTENEDOR TOMA EL CONTROL DEL SCROLL */
-  flex: 1; /* Ocupa todo el alto permitido por la caja blanca */
-  overflow-y: auto; /* Activa la barra de scroll interna */
-  border-radius: 20px; 
-  
-  /* 🔥 4. LA MAGIA ANTI-FONDO: Prohíbe que el scroll "salpique" a la web de atrás */
-  overscroll-behavior: contain; 
+  flex: 1;
+  overflow-y: auto;
+  border-radius: 20px;
+  overscroll-behavior: contain;
 }
 
 .modal-body-img img {
@@ -347,7 +336,6 @@
   display: block;
 }
 
-/* Estilo para que la barrita de scroll sea morada y fina */
 .modal-body-img::-webkit-scrollbar {
   width: 8px;
 }
@@ -363,12 +351,13 @@
 .ec-modal-body-img::-webkit-scrollbar-thumb:hover {
   background: rgba(126, 87, 194, 0.8);
 }
+
 /* ====================================================
    SECCIÓN 3: PORTFOLIO MOCKUP PREMIUM (UIVERSE)
    ==================================================== */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 40px;
 }
 
@@ -376,32 +365,35 @@
   background: #ffffff;
   border-radius: 20px;
   border: 1px solid rgba(126, 87, 194, 0.15);
-  overflow: hidden; /* Vital para que recorte el botón por la derecha */
+  overflow: hidden;
   box-shadow: 0 10px 30px rgba(26, 16, 45, 0.03);
   display: flex;
   flex-direction: column;
-  position: relative; /* 🔥 AÑADIDO: Obligatorio para posicionar el botón esquinero 🔥 */
+  position: relative;
 }
 
-/* 🔥 ESTILOS DEL NUEVO NAVEGADOR COMPLEJO 🔥 */
 .browser-mockup-complex {
   width: 100%;
-  background: var(--dark-violet); /* El color de fondo del buscador */
+  background: var(--dark-violet);
   display: flex;
   flex-direction: column;
   position: relative;
 }
 
 .tabs-head {
-  background-color: var(--deep-eggplant); /* El fondo más oscuro para el marco superior */
+  background-color: var(--deep-eggplant);
   height: 40px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   padding-left: 20px;
 }
+
+/* 🔥 AQUÍ ESTÁ EL ARREGLO PARA QUE EL TÍTULO NO SE CORTE 🔥 */
 .tabs-head .tab-open {
-  max-width: 130px;
+  width: fit-content; /* Dejamos que crezca según el texto */
+  min-width: 150px;
+  max-width: 85%; /* Límite de seguridad para que no pise los botones derechos */
   height: 34px;
   border-radius: 7px 7px 0 0;
   background-color: var(--electric-violet);
@@ -409,7 +401,7 @@
   gap: 8px;
   align-items: flex-start;
   justify-content: space-between;
-  padding: 6px 12px;
+  padding: 6px 12px 6px 16px;
   position: relative;
 }
 
@@ -423,19 +415,19 @@
   height: 16px;
   border-radius: 50%;
   cursor: pointer;
+  margin-top: 3px;
 }
 
 .tabs-head .tab-open .close-tab:hover {
   background-color: #5d5d5d;
 }
 
-/* Curvas de las pestañas (Truco de máscaras) */
 .tabs-head .tab-open .rounded-l {
   position: absolute;
   background-color: var(--electric-violet);
   width: 20px;
   height: 24px;
-  bottom: 0; /* LA MAGIA: Cambiamos top: 0 por bottom: 0 */
+  bottom: 0;
   right: 0;
   transform: translate(100%);
   overflow: hidden;
@@ -453,7 +445,7 @@
   background-color: var(--dark-violet);
   width: 20px;
   height: 24px;
-  bottom: 0; /* LA MAGIA: Cambiamos top: 0 por bottom: 0 */
+  bottom: 0;
   left: 0;
   transform: translate(-100%);
   overflow: hidden;
@@ -466,19 +458,20 @@
   border-radius: 0 0 7px 0;
 }
 
-/* Texto de la pestaña */
+/* 🔥 Y AQUÍ AUMENTAMOS UN PELÍN EL TAMAÑO PARA QUE SE LEA MEJOR 🔥 */
 .tabs-head .tab-open span {
   color: #fff;
-  font-size: 0.7rem;
-  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   flex: 1;
+  padding-right: 10px;
+  margin-top: 1px;
 }
 
-/* Botones de control de ventana (Minimizar, Maximizar, Cerrar) */
 .tabs-head .window-opt {
   display: flex;
   align-items: center;
@@ -501,10 +494,9 @@
 }
 
 .tabs-head .window-opt .window-close:hover {
-  background-color: #FF5F56;
+  background-color: #ff5f56;
 }
 
-/* Barra de dirección URL */
 .head-browser {
   width: 100%;
   height: 44px;
@@ -516,7 +508,6 @@
   position: relative;
 }
 
-/* 🔥 2. LA ESTRELLA Y LA BARRA DE DIRECCIONES 🔥 */
 .head-browser input {
   background-color: var(--deep-eggplant);
   border: 2px solid transparent;
@@ -524,10 +515,9 @@
   border-radius: 20px;
   outline: none;
   color: var(--white-iris);
-  /* Le damos mucho más margen interior a la derecha (45px) para no pisar la estrella */
   padding: 0 45px 0 16px;
   flex: 1;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 0.8rem;
   transition: 0.2s ease-in-out;
 }
@@ -568,25 +558,21 @@
 .head-browser .star {
   color: var(--white-iris);
   position: absolute;
-  /* Empujamos la estrella más a la izquierda para que respire */
-  right: 60px; 
+  right: 60px;
   font-size: 12px;
   opacity: 0.5;
   display: flex;
   align-items: center;
   justify-content: center;
-  pointer-events: none; /* Evita que el ratón interactúe con ella sin querer */
+  pointer-events: none;
 }
 
-/* ----------------------------------------------------
-   MANTENEMOS EL RESTO IGUAL (FOTO SCROLL Y META) 
-   ---------------------------------------------------- */
 .mockup-body {
   height: 200px;
   background: #faf9fc;
   overflow: hidden;
   position: relative;
-  border-top: 1px solid #353535; /* Fina línea oscura de separación */
+  border-top: 1px solid #353535;
 }
 
 .project-img-scroll {
@@ -594,11 +580,11 @@
   height: 100%;
   background-size: cover;
   background-position: top center;
-  transition: background-position 4s ease-in-out; 
+  transition: background-position 4s ease-in-out;
 }
 
 .portfolio-card:hover .project-img-scroll {
-  background-position: bottom center; 
+  background-position: bottom center;
 }
 
 .img-placeholder {
@@ -612,7 +598,6 @@
 }
 
 .portfolio-meta {
-  /* 🔥 AÑADIDO: Le damos 70px de margen derecho para que el texto no pise el botón 🔥 */
   padding: 20px 70px 20px 20px;
   text-align: left;
   display: flex;
@@ -622,14 +607,13 @@
 }
 
 .portfolio-meta p {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem; 
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
   line-height: 1.4;
   color: rgba(26, 16, 45, 0.8);
   margin: 0;
 }
 
-/* 🔥 EL NUEVO BOTÓN ESQUINERO DEL PORTFOLIO 🔥 */
 .btn-visitar-esquina {
   position: absolute;
   bottom: 0;
@@ -639,26 +623,24 @@
   background-color: var(--electric-violet);
   color: #ffffff;
   border: none;
-  /* Redondeamos solo la esquina superior izquierda */
-  border-radius: 20px 0 0 0; 
+  border-radius: 20px 0 0 0;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 1.1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  text-decoration: none; /* Como es una etiqueta <a>, esto quita el subrayado azul feo */
+  text-decoration: none;
 }
 
 .btn-visitar-esquina i {
   transition: transform 0.3s ease;
 }
 
-/* Efectito al pasar el ratón por la tarjeta completa del portfolio */
 .portfolio-card:hover .btn-visitar-esquina {
   width: 55px;
   height: 55px;
-  background-color: var(--dark-violet); 
+  background-color: var(--dark-violet);
 }
 
 .portfolio-card:hover .btn-visitar-esquina i {
@@ -674,36 +656,32 @@
     gap: 80px;
   }
 
-  /* --- ARREGLO DE PLANES EN TABLET (2 arriba, 1 abajo) --- */
   .planes-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columnas */
-    gap: 20px; 
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
-  /* El plan destacado (el del medio) ocupa las 2 columnas y va abajo */
   .plan-card.destacado {
-    grid-column: span 2; 
-    width: 90%;          /* Mucho más ancha que antes */
-    max-width: 500px;    /* Punto dulce para que no se deforme */
+    grid-column: span 2;
+    width: 90%;
+    max-width: 500px;
     margin: 0 auto;
-    order: 3;         /* Forzamos que se vaya a la posición 3 (abajo) */
+    order: 3;
     align-items: center;
     text-align: center;
   }
 
-  /* Los otros planes se quedan arriba */
   .plan-card:not(.destacado) {
     grid-column: auto;
-    order: 0;         /* Se quedan en su orden normal arriba */
+    order: 0;
   }
 
   .plan-card.destacado .btn-plan-primario {
     width: auto;
     min-width: 350px;
   }
-  
-  /* Ajustamos las otras secciones para tablet */
+
   .estructuras-grid,
   .portfolio-grid {
     grid-template-columns: 1fr 1fr;
@@ -711,10 +689,9 @@
   }
 
   .section-subtitle {
-    display: block; /* ya está presente */
+    display: block;
     text-align: left;
   }
-  
 }
 
 /* ====================================================
@@ -725,50 +702,44 @@
     margin-bottom: 30px;
   }
 
-  /* 1. Aplicamos los paddings de móvil de la chuleta */
   .secciones-extras-wrapper {
     padding: 50px 20px 60px;
-    gap: 100px; /* Separación de bloques más corta en móvil */
+    gap: 100px;
   }
-  
-  /* 2. Ajustamos los Títulos (H2) a 2.6rem según chuleta */
+
   .section-title-container h2 {
     font-size: 2rem !important;
     line-height: 1.1;
   }
 
   .section-subtitle {
-    display: block; /* ya está presente */
+    display: block;
     text-align: left;
   }
 
-  /* 3. Todos los grids pasan a 1 sola columna vertical */
   .planes-grid,
   .estructuras-grid,
   .portfolio-grid {
-    grid-template-columns: 1fr; 
-    gap: 20px; /* Espaciado estándar móvil */
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  /* Reset del span para que en móvil sea normal */
   .planes-grid .plan-card:last-child {
     grid-column: span 1;
     max-width: none;
     margin: 0;
   }
 
-  /* 4. Ajustes específicos para que las tarjetas respiren en móvil */
   .plan-card {
-    padding: 30px 20px; /* Un poco menos de padding interior en móvil */
+    padding: 30px 20px;
   }
 
   .estructura-item {
-    /* Mantenemos el padding derecho de 70px para no pisar el botón */
-    padding: 20px 70px 20px 20px; 
+    padding: 20px 70px 20px 20px;
   }
 
   .estructura-info h4 {
-    font-size: 1.15rem; /* H3/H4 un pelín más pequeño en móvil */
+    font-size: 1.15rem;
   }
 
   .estructura-contenido-row p,
@@ -776,11 +747,10 @@
     font-size: 1.05rem;
   }
 
-  /* 5. Aseguramos que la barra del mockup no se rompa en pantallas muy finas */
   .head-browser input {
-    padding: 0 35px 0 10px; /* Reducimos un poco el padding interior */
+    padding: 0 35px 0 10px;
   }
   .head-browser .star {
-    right: 45px; 
+    right: 45px;
   }
 }

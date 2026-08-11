@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './EcommerceSiguiente.css';
 import OrbitingCircles from './OrbitingCircles';
@@ -9,55 +9,6 @@ import animPago from "../assets/animations/ecommerce/pago.json";
 import animVer from "../assets/animations/ecommerce/ver.json";
 import animGestionn from "../assets/animations/ecommerce/gestion.json";
 import aniDiseno from '../assets/animations/diseno-de-interfaz-de-usuario.json';
-
-/* =========================================================
-   COMPONENTE 1: EFECTO TEXTO DECODIFICADO (Corregido y Suave)
-   ========================================================= */
-const EfectoDecodificador = ({ text }) => {
-  const [displayText, setDisplayText] = useState(text);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%&*';
-
-  const dispararEfecto = () => {
-    if (isAnimating) return; // Si ya está animando, no hacemos nada
-    setIsAnimating(true);
-    let iteration = 0;
-
-    const interval = setInterval(() => {
-      setDisplayText(
-        text.split('').map((letter, index) => {
-          if (index < iteration) return text[index]; // Letra ya resuelta
-          
-          // 🔥 EL SECRETO: Si es un espacio, lo dejamos en paz para no romper los márgenes
-          if (letter === ' ') return ' '; 
-          
-          return chars[Math.floor(Math.random() * chars.length)];
-        }).join('')
-      );
-
-      if (iteration >= text.length) {
-        clearInterval(interval);
-        setIsAnimating(false);
-      }
-      
-      iteration += 1.5; // 🔥 Aumentamos la velocidad a 1.5 para que vaya rápido y "poco a poco"
-    }, 20); // Intervalo más corto (20ms) para que sea súper fluido
-  };
-
-  // Lanzamos el efecto de forma automática la primera vez que carga
-  useEffect(() => {
-    dispararEfecto();
-  }, []);
-
-  return (
-    <span 
-      onMouseEnter={dispararEfecto} // Y se repite si le pasan el ratón por encima
-      style={{ display: 'inline-block' }}
-    >
-      {displayText}
-    </span>
-  );
-};
 
 const LottiePlayer = Lottie.default || Lottie;
 
@@ -80,6 +31,21 @@ const EcommerceSiguiente = () => {
         animation: animGestionn 
         }
     ];
+
+    // 🔥 NUEVO: Función para el scroll suave 🔥
+    const scrollToForm = (e) => {
+        e.preventDefault(); // Evita el salto brusco
+        
+        // Buscamos la sección de destino (Asegúrate de poner este ID abajo)
+        const formElement = document.querySelector("#formulario-ecommerce");
+        
+        if (formElement) {
+            formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+            console.error("❌ ERROR: No encuentro ninguna etiqueta con id='formulario-ecommerce'");
+            alert("¡Falta ponerle el id='formulario-ecommerce' a la sección del formulario de abajo!");
+        }
+    };
 
     return (
         <section className="ecommerce-section">
@@ -123,13 +89,30 @@ const EcommerceSiguiente = () => {
                                 En <strong>MN Design Web</strong>, nos enfocamos en entregar herramientas que generen beneficios. Desarrollamos cada página respetando los estándares internacionales de programación y optimizando la estructura para el <strong>posicionamiento en buscadores</strong>. Gracias al uso de datos estructurados, facilitamos que Google indexe tu contenido con total eficacia.
                             </p>
 
-                            {/* AQUÍ VA EL NUEVO EFECTO DECODIFICADOR AL PASAR EL RATÓN */}
-                            <motion.p 
-                                className="ec-texto-destacado"
-                                whileHover={{ scale: 1.02 }}
+                            {/* Contenedor de Botones */}
+                            <motion.div 
+                                className="ec-hero-botones"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.5 }}
                             >
-                                <EfectoDecodificador text="Ya sea para automatizar tus ventas o escalar tu facturación, diseñamos la plataforma de e-commerce que tu negocio necesita para crecer." />
-                            </motion.p>
+                                {/* 🔥 Aquí añadimos el onClick 🔥 */}
+                                <a 
+                                    href="#formulario-ecommerce" 
+                                    onClick={scrollToForm}
+                                    className="ec-btn-hero-primario"
+                                >
+                                    Solicitar Presupuesto
+                                </a>
+                                <a 
+                                    href="https://descubre.mndesignweb.es/aprende-shopify/" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    className="ec-btn-hero-secundario"
+                                >
+                                    Mentorías Shopify
+                                </a>
+                            </motion.div>
                         </motion.div>
                     </div>
 
@@ -150,7 +133,6 @@ const EcommerceSiguiente = () => {
                             </div>
 
                             {/* ÓRBITA INTERIOR (Funcionalidades): 6 Iconos */}
-                            {/* Radio a 120 para que quepan los 6 sin pisarse */}
                             <OrbitingCircles radius={120} duration={30}>
                                 <div className="orbit-icon-bubble" title="Seguridad">
                                     <img src="/iconos/escudo.svg" alt="Seguridad" />
@@ -164,7 +146,6 @@ const EcommerceSiguiente = () => {
                                 <div className="orbit-icon-bubble" title="Carrito Optimizado">
                                     <img src="/iconos/tienda-online.svg" alt="Tienda" />
                                 </div>
-                                {/* Los 2 nuevos que bajamos aquí */}
                                 <div className="orbit-icon-bubble" title="Pagos Seguros">
                                     <img src="/iconos/transferencia-movil.svg" alt="Pagos" />
                                 </div>
@@ -179,14 +160,11 @@ const EcommerceSiguiente = () => {
                                     <img src="/shopify.svg" alt="Shopify" />
                                 </div>
                                 <div className="orbit-icon-bubble" title="WooCommerce">
-                                    {/* Ojo: asegúrate de subir un icono-woocommerce.svg a tu carpeta public */}
                                     <img src="/iconos/woocommerce.svg" alt="WooCommerce" /> 
                                 </div>
                                 <div className="orbit-icon-bubble" title="PrestaShop">
-                                    {/* Ojo: asegúrate de subir un icono-prestashop.svg a tu carpeta public */}
                                     <img src="/prestashop.svg" alt="PrestaShop" />
                                 </div>
-                                {/* El nuevo que subimos aquí */}
                                 <div className="orbit-icon-bubble custom-code-bubble" title="Desarrollo a Medida">
                                     <img src="/iconos/codigo.svg" alt="Codigo" />
                                 </div>
@@ -204,7 +182,6 @@ const EcommerceSiguiente = () => {
                 </div>
 
                 {/* Grid de servicios */}
-                {/* Grid de servicios */}
                 <div className="ecommerce-features">
                     {features.map((feature, index) => (
                         <motion.div 
@@ -214,10 +191,8 @@ const EcommerceSiguiente = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.5, delay: index * 0.15 }}
-                            whileHover={{ y: -5 }} /* Pequeño saltito al hacer hover */
+                            whileHover={{ y: -5 }}
                         >
-                            {/* 🔥 ANIMACIÓN DE LAS TARJETAS EN CASCADA 🔥 */}
-
                             {/* Contenedor de la animación */}
                             <div className="feat-animation-wrapper">
                                 <LottiePlayer 

@@ -9,40 +9,7 @@ import animAnalitica from "../assets/animations/redes/analitica.json";
 import animCliente from "../assets/animations/redes/cliente.json";
 import animPremium from '../assets/animations/redes/premium.json';
 
-const TypingAnimation = ({ text }) => {
-  // Separamos primero por palabras para que el navegador no las rompa
-  const words = text.split(" ");
-
-    return (
-        <motion.span
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-50px" }}
-        variants={{
-            visible: { transition: { staggerChildren: 0.015 } }, // Un poco más rápido para que sea fluido
-            hidden: {}
-        }}
-        >
-        {words.map((word, wordIndex) => (
-            // Envolvemos cada palabra en un span que no se puede romper (nowrap)
-            <span key={wordIndex} style={{ display: "inline-block", whiteSpace: "nowrap", marginRight: "0.25em" }}>
-            {word.split("").map((char, charIndex) => (
-                <motion.span
-                key={charIndex}
-                variants={{
-                    hidden: { opacity: 0, display: "none" },
-                    visible: { opacity: 1, display: "inline-block" }
-                }}
-                >
-                {char}
-                </motion.span>
-            ))}
-            </span>
-        ))}
-        </motion.span>
-    );
-};
-
+// Mantenemos el contador animado de la tarjeta flotante
 const ContadorAnimado = ({ end, duration = 1.5 }) => {
     const [count, setCount] = useState(0);
 
@@ -68,13 +35,28 @@ const LottiePlayer = Lottie.default || Lottie;
 
 const RedesSocialesSiguiente = () => {
 
-    // 🔥 Marketing de alto impacto para Redes Sociales
+    // Marketing de alto impacto para Redes Sociales
     const features = [
         { title: "Contenido que Vende", animation: animContenido },
         { title: "Clientes, no solo Likes", animation: animCliente },
         { title: "Imagen 100% Profesional", animation: animPremium },
         { title: "Resultados Demostrables", animation: animAnalitica }
     ];
+
+    // 🔥 NUEVO: Función para el scroll suave 🔥
+    const scrollToForm = (e) => {
+        e.preventDefault(); 
+        
+        // ⚠️ Asegúrate de que el contenedor de tu formulario tiene id="contacto"
+        const formElement = document.querySelector("#contacto");
+        
+        if (formElement) {
+            formElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        } else {
+            console.error("❌ ERROR: No encuentro ninguna etiqueta con id='contacto'");
+            alert("¡Falta ponerle el id='contacto' a la sección del formulario de abajo!");
+        }
+    };
 
     return (
         <section className="rs-section">
@@ -101,9 +83,28 @@ const RedesSocialesSiguiente = () => {
                             <p>
                                 Construimos una narrativa visual y textual que demuestra por qué el cliente debe elegirte a ti y no a tu competencia. Diseñamos contenido estratégico que humaniza tu marca, te posiciona como líder de tu sector y transforma a tus seguidores en clientes fieles.
                             </p>
-                            <motion.p className="rs-texto-destacado" whileHover={{ scale: 1.02 }}>
-                                <TypingAnimation text="Un perfil inactivo o sin estrategia es como tener el escaparate de tu negocio apagado. Hagamos que tu marca sea la única opción que tu cliente ideal quiera seguir, recomendar y comprar." /> 
-                            </motion.p>
+                            
+                            {/* 🔥 NUEVO: Contenedor de Botones (Adiós a la animación de texto) */}
+                            <motion.div 
+                                className="rs-hero-botones"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.5, duration: 0.5 }}
+                            >
+                                <a 
+                                    href="#contacto" 
+                                    onClick={scrollToForm}
+                                    className="rs-btn-hero-primario"
+                                >
+                                    Solicitar Presupuesto
+                                </a>
+                                <a 
+                                    href="http://mndesignweb.es/contacto#calendario-reserva" 
+                                    className="rs-btn-hero-secundario"
+                                >
+                                    Agendar Consultoría
+                                </a>
+                            </motion.div>
                         </motion.div>
                     </div>
 
@@ -180,7 +181,6 @@ const RedesSocialesSiguiente = () => {
                     {features.map((feature, index) => (
                         <motion.div key={index} className="rs-feat-card" whileHover={{ y: -5 }}>
                             <div className="rs-feat-animation-wrapper">
-                                {/* 🔥 AHORA SÍ ESTÁ LA ETIQUETA LOTTIE 🔥 */}
                                 <LottiePlayer 
                                     animationData={feature.animation} 
                                     loop={true} 

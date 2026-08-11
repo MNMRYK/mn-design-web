@@ -3,7 +3,7 @@
   width: 100vw;
   min-height: auto;
   height: auto;  
-  padding: 120px 40px 140px;
+  padding: 120px 40px 80px;
   text-align: center;
   z-index: 2; /* Mucho mayor que el del Hero */
   background-color: var(--white-iris);
@@ -114,12 +114,202 @@
   gap: 15px;
 }
 
+/* ====================================================
+   SECCIÓN 3: PROMOCIÓN MENTORÍAS SHOPIFY (BANNER)
+   ==================================================== */
+.ec-promo-shopify {
+  /* Degradado con los verdes de Shopify de tu landing */
+  background: linear-gradient(
+    135deg,
+    var(--dark-green, #004c3f) 0%,
+    var(--shopify-green, #008060) 100%
+  );
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 128, 96, 0.25);
+  margin-bottom: 100px; /* Separación con la sección anterior */
+}
+
+.ec-promo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  gap: 50px;
+}
+
+.ec-promo-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Etiquetita superior */
+.ec-promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  color: #ffffff;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Nunito", sans-serif;
+}
+
+.ec-promo-text h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  font-weight: 800;
+}
+
+.ec-promo-text h2 span {
+  color: #61ffc6; /* Un verde menta luminoso para resaltar el "sin miedo" */
+}
+
+.ec-promo-text p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+/* Botones */
+.ec-promo-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ec-btn-shopify-primary,
+.ec-btn-shopify-secondary {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ec-btn-shopify-primary {
+  background: #ffffff;
+  color: #004c3f;
+  border: 2px solid #ffffff;
+}
+
+.ec-btn-shopify-primary:hover {
+  background: transparent;
+  color: #ffffff;
+  transform: translateY(-3px);
+}
+
+.ec-btn-shopify-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.ec-btn-shopify-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Imagen flotante */
+.ec-promo-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ec-promo-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 400px;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+  transition: transform 0.5s ease;
+}
+
+.ec-promo-image img:hover {
+  transform: translateY(-12px) scale(1.02);
+}
+
+
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
 
+  .ec-promo-shopify {
+    width: 90%;
+    margin: 0 auto 80px auto; /* Centrado y mantiene separación abajo */
+    border-radius: 20px;
+  }
+
+  /* Resto de tus estilos responsive que ya tenías... */
+  .ec-planes-grid,
+  .ec-estructuras-grid-v2 {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .ec-plan-card.destacado {
+    grid-column: span 1;
+    max-width: none;
+    margin: 0;
+  }
+
+  .ec-plan-card {
+    padding: 30px 20px;
+  }
+
+  .ec-promo-content {
+    padding: 40px 24px;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+  .ec-promo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ec-promo-text h2 {
+    font-size: 1.8rem;
+  }
+  .ec-promo-text p {
+    font-size: 1.05rem;
+  }
+  .ec-promo-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ec-btn-shopify-primary,
+  .ec-btn-shopify-secondary {
+    width: 100%;
+  }
+  .ec-promo-image {
+    margin-top: 10px;
+  }
+
   .soluciones-section {
-    padding: 100px 40px 110px;
+    padding: 100px 40px 80px;
   }
 
   .soluciones-grid {

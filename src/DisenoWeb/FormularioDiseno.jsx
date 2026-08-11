@@ -145,14 +145,14 @@ const FormularioDiseno = () => {
   };
 
   return (
-    <div className="diseno-formulario-area">
+    <div id="contacto" className="diseno-formulario-area">
       <div className="diseno-form-header">
         <h2>Cuéntanos tu proyecto</h2>
       </div>
 
       <form id="diseno-form" onSubmit={handleSubmit}>
-        {/* ... inputs normales de Nombre y Email (están igual) ... */}
-        <div className="diseno-form-grupo">
+
+        <div  className="diseno-form-grupo">
           <label htmlFor="nombre">Nombre *</label>
           <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Tu nombre" required />
         </div>

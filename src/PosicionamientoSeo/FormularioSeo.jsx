@@ -147,7 +147,7 @@ const FormularioSeo = () => {
   };
 
   return (
-    <div className="seo-formulario-area">
+    <div id="contacto" className="seo-formulario-area">
       <div className="seo-form-header">
         <h2>Cuéntanos tu proyecto</h2>
       </div>

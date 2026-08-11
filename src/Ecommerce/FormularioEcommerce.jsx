@@ -146,7 +146,7 @@ const FormularioEcommerce = () => {
   };
 
   return (
-    <div className="ecommerce-formulario-area">
+    <div id="formulario-ecommerce" className="ecommerce-formulario-area">
       <div className="ecommerce-form-header">
         <h2>Cuéntanos tu proyecto</h2>
       </div>

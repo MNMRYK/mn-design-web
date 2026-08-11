@@ -147,13 +147,12 @@ const FormularioRedes = () => {
   };
 
   return (
-    <div className="redes-formulario-area">
+    <div id="contacto"className="redes-formulario-area">
       <div className="redes-form-header">
         <h2>Cuéntanos tu proyecto</h2>
       </div>
 
       <form id="redes-form" onSubmit={handleSubmit}>
-        {/* ... inputs normales de Nombre y Email (están igual) ... */}
         <div className="redes-form-grupo">
           <label htmlFor="nombre">Nombre *</label>
           <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Tu nombre" required />

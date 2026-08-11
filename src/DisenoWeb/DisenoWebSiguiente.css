@@ -5,7 +5,7 @@
   min-height: 100vh;
   background-color: var(--white-iris);
   color: var(--deep-eggplant);
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   padding: 120px 25px 80px;
 }
 
@@ -18,14 +18,14 @@
 }
 
 .diseno-badge {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   gap: 8px;
   margin-bottom: 40px;
 }
@@ -36,9 +36,15 @@
   transition: opacity 0.3s ease;
 }
 
-.breadcrumb-link:hover { opacity: 0.6; }
-.breadcrumb-separator { color: rgba(26, 16, 45, 0.3); }
-.breadcrumb-current { color: rgba(26, 16, 45, 0.6); }
+.breadcrumb-link:hover {
+  opacity: 0.6;
+}
+.breadcrumb-separator {
+  color: rgba(26, 16, 45, 0.3);
+}
+.breadcrumb-current {
+  color: rgba(26, 16, 45, 0.6);
+}
 
 /* --- HEADER SUPERIOR (Alineado Izquierda) --- */
 .detalle-header {
@@ -53,7 +59,7 @@
   color: var(--deep-eggplant);
   margin-bottom: 20px;
   line-height: 1.3;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .title-phrase-one {
@@ -71,10 +77,63 @@
   margin-top: 50px;
 }
 
+/* ====================================================
+   NUEVOS BOTONES DE ACCIÓN (Reemplazo del texto decodificador)
+   ==================================================== */
+.dw-hero-botones {
+  display: flex;
+  gap: 16px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.dw-btn-hero-primario,
+.dw-btn-hero-secundario {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.dw-btn-hero-primario {
+  background: var(--electric-violet, #7e57c2);
+  color: #ffffff;
+  border: 2px solid var(--electric-violet, #7e57c2);
+  box-shadow: 0 4px 15px rgba(126, 87, 194, 0.2);
+}
+
+.dw-btn-hero-primario:hover {
+  background: var(--dark-violet, #5e35b1);
+  border-color: var(--dark-violet, #5e35b1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
+}
+
+.dw-btn-hero-secundario {
+  background: transparent;
+  color: var(--electric-violet, #7e57c2);
+  border: 2px solid rgba(126, 87, 194, 0.3);
+}
+
+.dw-btn-hero-secundario:hover {
+  background: var(--electric-violet, #7e57c2);
+  color: #ffffff;
+  border-color: var(--electric-violet, #7e57c2);
+  transform: translateY(-3px);
+}
+
 /* --- CONTENIDO PRINCIPAL --- */
 .detalle-content-grid {
   display: grid;
-  gap: 48px; 
+  gap: 48px;
   align-items: flex-start; /* Hace que el texto y el Beam empiecen juntos arriba */
 }
 
@@ -85,8 +144,8 @@
 }
 
 .detalle-textos p {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.125rem; 
+  font-family: "Nunito", sans-serif;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: rgba(26, 16, 45, 0.8);
   margin: 0;
@@ -104,12 +163,16 @@
   color: var(--deep-eggplant) !important;
   border-left: 4px solid var(--electric-violet);
   margin-top: 15px;
-  background: linear-gradient(135deg, rgba(126, 87, 194, 0.08) 0%, rgba(126, 87, 194, 0.02) 100%);
-  padding: 25px; 
+  background: linear-gradient(
+    135deg,
+    rgba(126, 87, 194, 0.08) 0%,
+    rgba(126, 87, 194, 0.02) 100%
+  );
+  padding: 25px;
   border-radius: 0 16px 16px 0;
   cursor: crosshair; /* Toque hacker para el descifrado */
   transition: box-shadow 0.3s ease;
-  display: block; 
+  display: block;
   min-height: 85px;
 }
 
@@ -124,7 +187,7 @@
   position: relative;
   width: 100%;
   border-radius: 30px;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(126, 87, 194, 0.15);
   padding: 40px;
   margin-top: -100px;
@@ -143,7 +206,7 @@
   align-items: center;
   position: relative;
   z-index: 2;
-  height: 100%; 
+  height: 100%;
 }
 
 .beam-columna {
@@ -176,15 +239,18 @@
 .nodo-final {
   width: 120px; /* Hacemos el final un poco más grande para que tu Lottie luzca */
   height: 120px;
-  background: var(--white-iris); /* Fondo claro para que resalte el Lottie si tiene color */
+  background: var(
+    --white-iris
+  ); /* Fondo claro para que resalte el Lottie si tiene color */
   border: 3px solid var(--electric-violet);
   border-radius: 20px;
 }
 
 .beam-caminos {
   position: absolute;
-  top: 50%; 
-  left: 0; right: 0; 
+  top: 50%;
+  left: 0;
+  right: 0;
   transform: translateY(-50%); /* Lo centramos clavao */
   height: 400px;
   z-index: 1;
@@ -229,7 +295,7 @@
   background-color: #ffffff;
   padding: 24px;
   border-radius: 16px;
-  border: 1px solid rgba(126, 87, 194, 0.2); 
+  border: 1px solid rgba(126, 87, 194, 0.2);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
   display: flex;
@@ -262,7 +328,7 @@
 }
 
 .detalle-card-opcion h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 8px;
@@ -270,7 +336,7 @@
 }
 
 .detalle-card-opcion p {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1rem;
   color: rgba(26, 16, 45, 0.7);
   line-height: 1.6;
@@ -282,11 +348,11 @@
    ==================================================== */
 @media (min-width: 1025px) {
   .detalle-content-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
   }
-  .detalle-cards-grid { 
-      grid-template-columns: 1fr 1fr; 
+  .detalle-cards-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -295,17 +361,17 @@
    ==================================================== */
 @media (min-width: 768px) and (max-width: 1024px) {
   .detalle-content-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
-  .detalle-cards-grid { 
-      grid-template-columns: 1fr 1fr; 
+  .detalle-cards-grid {
+    grid-template-columns: 1fr 1fr;
   }
   .detalle-imagen-wrapper {
-      margin-top: 0 !important; /* 🔥 MAGIA TABLET: Quitamos el -100px para que no se suba al texto */
+    margin-top: 0 !important; /* 🔥 MAGIA TABLET: Quitamos el -100px para que no se suba al texto */
   }
   .diseno-text-gradient {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 }
 
@@ -317,13 +383,24 @@
     padding: 100px 20px 50px;
   }
 
+  .dw-hero-botones {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .dw-btn-hero-primario,
+  .dw-btn-hero-secundario {
+    width: 100%;
+  }
+
   /* --- TÍTULOS --- */
   .detalle-header {
-    text-align: left; 
+    text-align: left;
   }
-  
-  .diseno-title { 
-    font-size: 2.6rem !important; 
+
+  .diseno-title {
+    font-size: 2.6rem !important;
     line-height: 1.1;
     display: flex;
     flex-direction: column;
@@ -335,8 +412,8 @@
     width: 100%;
   }
 
-  .diseno-text-gradient { 
-    font-size: 2rem !important; 
+  .diseno-text-gradient {
+    font-size: 2rem !important;
     margin-top: 40px !important;
     text-align: left !important; /* 🔥 Título morado a la IZQUIERDA */
     display: block;
@@ -346,35 +423,36 @@
   /* --- BEAM (CORTAMOS LAS LÍNEAS) --- */
   .detalle-imagen-wrapper {
     min-height: 300px; /* Reducimos la altura */
-    margin-top: 0px !important; 
-    padding: 20px 25px !important; 
+    margin-top: 0px !important;
+    padding: 20px 25px !important;
     overflow: hidden !important; /* 🔥 ESTO ES LO QUE CORTA LAS LÍNEAS PARA QUE NO SE SALGAN */
   }
-  
-  .beam-container { 
-    max-width: 100%; 
-    padding: 0; 
+
+  .beam-container {
+    max-width: 100%;
+    padding: 0;
   }
 
   /* Hacemos los iconos más pequeños en móvil para que entren bien en la caja */
-  .beam-columna, .beam-caminos {
+  .beam-columna,
+  .beam-caminos {
     height: 250px !important; /* Acortamos la altura del SVG para que coincida */
   }
 
   .beam-nodo {
-    width: 45px !important; 
-    height: 45px !important; 
+    width: 45px !important;
+    height: 45px !important;
     font-size: 1.2rem !important;
   }
 
   .nodo-final {
-    width: 80px !important; 
+    width: 80px !important;
     height: 80px !important;
   }
 
   /* --- TARJETAS --- */
-  .detalle-cards-grid { 
-    grid-template-columns: 1fr; 
+  .detalle-cards-grid {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 }

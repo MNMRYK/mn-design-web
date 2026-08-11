@@ -2,7 +2,7 @@
   min-height: 100vh;
   background-color: var(--white-iris);
   color: var(--deep-eggplant);
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   padding: 120px 25px 80px;
 }
 
@@ -15,17 +15,16 @@
 }
 
 .ecommerce-badge {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 2px;
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   gap: 8px;
   margin-bottom: 40px;
-  
 }
 
 .breadcrumb-link {
@@ -34,9 +33,15 @@
   transition: opacity 0.3s ease;
 }
 
-.breadcrumb-link:hover { opacity: 0.6; }
-.breadcrumb-separator { color: rgba(26, 16, 45, 0.3); }
-.breadcrumb-current { color: rgba(26, 16, 45, 0.6); }
+.breadcrumb-link:hover {
+  opacity: 0.6;
+}
+.breadcrumb-separator {
+  color: rgba(26, 16, 45, 0.3);
+}
+.breadcrumb-current {
+  color: rgba(26, 16, 45, 0.6);
+}
 
 /* Ajustes del título para que encaje bien en la columna */
 .ecommerce-header {
@@ -51,7 +56,7 @@
   color: var(--deep-eggplant);
   margin-bottom: 20px;
   line-height: 1.3;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   text-align: left;
 }
 
@@ -65,15 +70,68 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-size: 2.5rem;
-  display: block; 
+  display: block;
   text-align: left;
   margin-top: 50px; /* Reducido para agrupar mejor el título */
+}
+
+/* ====================================================
+   NUEVOS BOTONES DE ACCIÓN (Reemplazo del texto decodificador)
+   ==================================================== */
+.ec-hero-botones {
+  display: flex;
+  gap: 16px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.ec-btn-hero-primario,
+.ec-btn-hero-secundario {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.ec-btn-hero-primario {
+  background: var(--electric-violet, #7e57c2);
+  color: #ffffff;
+  border: 2px solid var(--electric-violet, #7e57c2);
+  box-shadow: 0 4px 15px rgba(126, 87, 194, 0.2);
+}
+
+.ec-btn-hero-primario:hover {
+  background: var(--dark-violet, #5e35b1);
+  border-color: var(--dark-violet, #5e35b1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
+}
+
+.ec-btn-hero-secundario {
+  background: transparent;
+  color: var(--electric-violet, #7e57c2);
+  border: 2px solid rgba(126, 87, 194, 0.3);
+}
+
+.ec-btn-hero-secundario:hover {
+  background: var(--electric-violet, #7e57c2);
+  color: #ffffff;
+  border-color: var(--electric-violet, #7e57c2);
+  transform: translateY(-3px);
 }
 
 /* --- CONTENIDO PRINCIPAL --- */
 .ecommerce-main-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr; 
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 80px;
   align-items: flex-start; /* 🔥 Cambio importante: alinea arriba, no al centro */
   margin-bottom: 60px;
@@ -85,8 +143,8 @@
 }
 
 .ecommerce-columna-izq p {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.125rem; 
+  font-family: "Nunito", sans-serif;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: rgba(26, 16, 45, 0.8);
   margin: 0;
@@ -109,12 +167,16 @@
   color: var(--deep-eggplant) !important;
   border-left: 4px solid var(--electric-violet);
   margin-top: 15px;
-  background: linear-gradient(135deg, rgba(126, 87, 194, 0.08) 0%, rgba(126, 87, 194, 0.02) 100%);
-  padding: 25px; 
+  background: linear-gradient(
+    135deg,
+    rgba(126, 87, 194, 0.08) 0%,
+    rgba(126, 87, 194, 0.02) 100%
+  );
+  padding: 25px;
   border-radius: 0 16px 16px 0;
   cursor: crosshair; /* Toque hacker para el descifrado */
   transition: box-shadow 0.3s ease;
-  display: block; 
+  display: block;
   min-height: 85px;
 }
 
@@ -147,7 +209,7 @@
 }
 
 .feat-animation-wrapper {
-  width: 80px;  /* Ajusta este tamaño según lo grande que quieras el icono */
+  width: 80px; /* Ajusta este tamaño según lo grande que quieras el icono */
   height: 80px;
   display: flex;
   align-items: center;
@@ -155,7 +217,7 @@
 }
 
 .feat-card span {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   color: var(--deep-eggplant);
   text-align: center;
@@ -181,7 +243,7 @@
   position: relative;
   width: 100%;
   border-radius: 30px;
-  background: rgba(255,255,255,0.4);
+  background: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(126, 87, 194, 0.15);
   padding: 40px;
   margin-top: -50px;
@@ -189,7 +251,7 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 20px 40px rgba(26, 16, 45, 0.05);
-  min-height: 500px; 
+  min-height: 500px;
 }
 
 .orbit-wrapper {
@@ -199,7 +261,8 @@
 }
 
 .orbit-icon-bubble img {
-  filter: invert(37%) sepia(28%) saturate(1605%) hue-rotate(224deg) brightness(97%) contrast(85%);  /* ¡Copia aquí el código que te dio la web! */
+  filter: invert(37%) sepia(28%) saturate(1605%) hue-rotate(224deg)
+    brightness(97%) contrast(85%); /* ¡Copia aquí el código que te dio la web! */
 }
 
 /* ====================================================
@@ -224,7 +287,6 @@
   box-shadow: 0 0 20px rgba(126, 87, 194, 0.2);
 }
 
-
 /* Estilo especial opcional para el icono de Código a medida (para que destaque) */
 .custom-code-bubble {
   border: 2px solid var(--electric-violet);
@@ -236,12 +298,12 @@
    ==================================================== */
 @media (min-width: 1025px) {
   .ecommerce-main-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
   }
 
-  .ecommerce-features { 
-      grid-template-columns: repeat(4, 1fr); 
+  .ecommerce-features {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 /* ====================================================
@@ -249,17 +311,17 @@
    ==================================================== */
 @media (min-width: 768px) and (max-width: 1024px) {
   .ecommerce-main-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
   }
-  .ecommerce-features { 
-      grid-template-columns: 1fr 1fr; 
+  .ecommerce-features {
+    grid-template-columns: 1fr 1fr;
   }
   .ecommerce-imagen-wrapper {
-      margin-top: 0 !important; 
+    margin-top: 0 !important;
   }
   .ec-text-gradient {
-      font-size: 2rem;
+    font-size: 2rem;
   }
 }
 
@@ -273,7 +335,7 @@
 
   /* 🔥 REORDENACIÓN Y COLUMNA EN MÓVIL 🔥 */
   .ecommerce-main-grid {
-    display: flex;         /* Cambiamos de grid a flex para reordenar */
+    display: flex; /* Cambiamos de grid a flex para reordenar */
     flex-direction: column; /* Apilamos en columna */
     gap: 40px;
   }
@@ -286,9 +348,9 @@
   /* 🔥 SOLUCIÓN ORBITA: Escalado dinámico 🔥 */
   .ecommerce-imagen-wrapper {
     order: 2;
-    min-height: 330px; 
+    min-height: 330px;
     margin-top: 10px !important; /* Damos un poco más de aire */
-    padding: 10px !important; 
+    padding: 10px !important;
     overflow: hidden !important;
     display: flex;
     justify-content: center;
@@ -297,7 +359,7 @@
 
   .orbit-wrapper {
     /* Aquí está el truco: escalamos la animación al 65% en móvil */
-    transform: scale(0.65); 
+    transform: scale(0.65);
     transform-origin: center center;
     /* Aseguramos que ocupe el espacio sin romper el layout */
     width: 100%;
@@ -306,26 +368,26 @@
 
   /* --- TÍTULOS --- */
   .ecommerce-header {
-    text-align: left; 
+    text-align: left;
   }
-  
-  .ecommerce-title { 
-    font-size: 2.6rem !important; 
+
+  .ecommerce-title {
+    font-size: 2.6rem !important;
     line-height: 1.1;
     display: flex;
     flex-direction: column;
   }
 
   .ec-title-phrase-one {
-    text-align: center !important; 
+    text-align: center !important;
     display: block;
     width: 100%;
   }
 
-  .ec-text-gradient { 
-    font-size: 2rem !important; 
+  .ec-text-gradient {
+    font-size: 2rem !important;
     margin-top: 40px !important;
-    text-align: left !important; 
+    text-align: left !important;
     display: block;
     width: 100%;
   }
@@ -334,5 +396,16 @@
   .ecommerce-features {
     grid-template-columns: 1fr 1fr;
     gap: 15px;
+  }
+
+  .ec-hero-botones {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+
+  .ec-btn-hero-primario,
+  .ec-btn-hero-secundario {
+    width: 100%;
   }
 }

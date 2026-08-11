@@ -3,7 +3,7 @@
   min-height: 100vh;
   background-color: var(--white-iris);
   color: var(--deep-eggplant);
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   padding: 120px 25px 80px;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .rs-badge {
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -27,16 +27,26 @@
   margin-bottom: 40px;
 }
 
-.breadcrumb-link { color: var(--electric-violet); text-decoration: none; transition: opacity 0.3s ease; }
-.breadcrumb-link:hover { opacity: 0.6; }
-.breadcrumb-separator { color: rgba(26, 16, 45, 0.3); }
-.breadcrumb-current { color: rgba(26, 16, 45, 0.6); }
+.breadcrumb-link {
+  color: var(--electric-violet);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+.breadcrumb-link:hover {
+  opacity: 0.6;
+}
+.breadcrumb-separator {
+  color: rgba(26, 16, 45, 0.3);
+}
+.breadcrumb-current {
+  color: rgba(26, 16, 45, 0.6);
+}
 
 /* Títulos */
-.rs-header { 
-    text-align: left; 
-    margin-bottom: 20px; 
-    width: 100%; 
+.rs-header {
+  text-align: left;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 .rs-title {
@@ -45,10 +55,12 @@
   color: var(--deep-eggplant);
   margin-bottom: 20px;
   line-height: 1.3;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
-.rs-title-phrase-one { text-align: center; }
+.rs-title-phrase-one {
+  text-align: center;
+}
 
 .rs-text-gradient {
   background: var(--electric-violet);
@@ -56,22 +68,22 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-size: 2.5rem;
-  display: block; 
+  display: block;
   margin-top: 50px;
 }
 
 /* Grid Principal */
 .rs-main-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr; 
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 80px;
   align-items: flex-start;
   margin-bottom: 60px;
 }
 
-.rs-columna-izq { 
-    display: flex; 
-    flex-direction: column; 
+.rs-columna-izq {
+  display: flex;
+  flex-direction: column;
 }
 
 .rs-columna-der {
@@ -82,17 +94,17 @@
   margin-top: -100px;
 }
 
-.rs-detalle-textos { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 20px; 
+.rs-detalle-textos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.rs-detalle-textos p { 
-    font-size: 1.125rem; 
-    line-height: 1.6; 
-    color: rgba(26, 16, 45, 0.8); 
-    margin: 0; 
+.rs-detalle-textos p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(26, 16, 45, 0.8);
+  margin: 0;
 }
 
 .rs-detalle-textos p strong {
@@ -106,8 +118,12 @@
   color: var(--deep-eggplant) !important;
   border-left: 4px solid var(--electric-violet);
   margin-top: 15px;
-  background: linear-gradient(135deg, rgba(126, 87, 194, 0.08) 0%, rgba(126, 87, 194, 0.02) 100%);
-  padding: 25px; 
+  background: linear-gradient(
+    135deg,
+    rgba(126, 87, 194, 0.08) 0%,
+    rgba(126, 87, 194, 0.02) 100%
+  );
+  padding: 25px;
   border-radius: 0 16px 16px 0;
   cursor: crosshair;
   transition: box-shadow 0.3s ease;
@@ -116,10 +132,63 @@
 }
 
 /* ====================================================
+   NUEVOS BOTONES DE ACCIÓN (Reemplazo del texto animado)
+   ==================================================== */
+.rs-hero-botones {
+  display: flex;
+  gap: 16px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.rs-btn-hero-primario,
+.rs-btn-hero-secundario {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.rs-btn-hero-primario {
+  background: var(--electric-violet, #7e57c2);
+  color: #ffffff;
+  border: 2px solid var(--electric-violet, #7e57c2);
+  box-shadow: 0 4px 15px rgba(126, 87, 194, 0.2);
+}
+
+.rs-btn-hero-primario:hover {
+  background: var(--dark-violet, #5e35b1);
+  border-color: var(--dark-violet, #5e35b1);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
+}
+
+.rs-btn-hero-secundario {
+  background: transparent;
+  color: var(--electric-violet, #7e57c2);
+  border: 2px solid rgba(126, 87, 194, 0.3);
+}
+
+.rs-btn-hero-secundario:hover {
+  background: var(--electric-violet, #7e57c2);
+  color: #ffffff;
+  border-color: var(--electric-violet, #7e57c2);
+  transform: translateY(-3px);
+}
+
+/* ====================================================
    TARJETA UI ANALÍTICAS (MÁS GRANDE Y PROTAGONISTA)
    ==================================================== */
 .rs-analytics-card {
-  background: var(--deep-eggplant); 
+  background: var(--deep-eggplant);
   border-radius: 24px;
   padding: 50px; /* Más padding interno */
   width: 100%;
@@ -139,9 +208,19 @@
   padding-bottom: 15px;
 }
 
-.rs-card-title-group { display: flex; align-items: center; gap: 10px; }
-.rs-card-title-group h4 { margin: 0; font-size: 1.2rem; font-weight: 700; }
-.rs-icon-chart { font-size: 1.5rem; }
+.rs-card-title-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.rs-card-title-group h4 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.rs-icon-chart {
+  font-size: 1.5rem;
+}
 
 .rs-live-badge {
   background: rgba(46, 213, 115, 0.15);
@@ -171,7 +250,7 @@
 .rs-metric-item h3 {
   font-size: 2.5rem; /* Números más espectaculares */
   margin: 0 0 10px 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 800;
 }
 
@@ -227,16 +306,17 @@
   transition: 0.3s;
 }
 
-.rs-feat-card:hover { 
-    background: white; 
-    box-shadow: 0 10px 30px rgba(126, 87, 194, 0.1); 
+.rs-feat-card:hover {
+  background: white;
+  box-shadow: 0 10px 30px rgba(126, 87, 194, 0.1);
 }
 
-.rs-feat-animation-wrapper {width: 80px; 
-  height: 80px; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
+.rs-feat-animation-wrapper {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* ====================================================
@@ -245,75 +325,85 @@
 
 /* 1. Ajustes para Tablets y Pantallas medianas */
 @media (max-width: 1024px) {
-    .rs-main-grid {
-        grid-template-columns: 1fr; /* Apilamos contenido en tablets pequeñas */
-        gap: 40px;
-    }
-    .rs-columna-der {
-        margin-top: 0; /* Eliminamos el margen negativo para que la tarjeta no choque */
-        margin-bottom: 40px;
-    }
+  .rs-main-grid {
+    grid-template-columns: 1fr; /* Apilamos contenido en tablets pequeñas */
+    gap: 40px;
+  }
+  .rs-columna-der {
+    margin-top: 0; /* Eliminamos el margen negativo para que la tarjeta no choque */
+    margin-bottom: 40px;
+  }
 }
 
 /* 2. Ajustes para Móviles */
 @media (max-width: 768px) {
-    .rs-section {
-        padding: 100px 20px 50px; 
-    }
+  .rs-section {
+    padding: 100px 20px 50px;
+  }
 
-    .rs-main-grid { 
-        grid-template-columns: 1fr; 
-        gap: 20px; /* 🔥 Reducimos el gap aquí también 🔥 */
-        margin-bottom: 20px; /* 🔥 Controlamos el margen inferior en móvil 🔥 */
-    }
+  .rs-hero-botones {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
 
-    .rs-columna-der {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      margin-top: 20px;
-    }
+  .rs-btn-hero-primario,
+  .rs-btn-hero-secundario {
+    width: 100%;
+  }
 
-    .rs-title {
-      font-size: 2.6rem;
-      line-height: 1.1;
-      display: flex;
-      flex-direction: column;
-    }
+  .rs-main-grid {
+    grid-template-columns: 1fr;
+    gap: 20px; /* 🔥 Reducimos el gap aquí también 🔥 */
+    margin-bottom: 20px; /* 🔥 Controlamos el margen inferior en móvil 🔥 */
+  }
 
-    .rs-text-gradient {
-      font-size: 2rem !important; 
-      margin-top: 40px !important;
-      text-align: left !important; 
-      display: block;
-      width: 100%;
-    }
+  .rs-columna-der {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
 
-    .rs-analytics-card {
-        padding: 30px; /* Tarjeta más compacta */
-        max-width: 100%; /* Que ocupe todo el ancho */
-    }
+  .rs-title {
+    font-size: 2.6rem;
+    line-height: 1.1;
+    display: flex;
+    flex-direction: column;
+  }
 
-    .rs-metric-item h3 {
-        font-size: 1.8rem;
-    }
+  .rs-text-gradient {
+    font-size: 2rem !important;
+    margin-top: 40px !important;
+    text-align: left !important;
+    display: block;
+    width: 100%;
+  }
 
-    .rs-features {
-        grid-template-columns: 1fr; /* En móvil, una columna es mejor para no apretar los textos */
-        gap: 20px;
-    }
+  .rs-analytics-card {
+    padding: 30px; /* Tarjeta más compacta */
+    max-width: 100%; /* Que ocupe todo el ancho */
+  }
 
-    .rs-feat-card {
-        padding: 20px;
-        flex-direction: row; /* Icono a la izquierda, texto a la derecha */
-        text-align: left;
-        gap: 5px;
-    }
+  .rs-metric-item h3 {
+    font-size: 1.8rem;
+  }
 
-    .rs-feat-animation-wrapper {
-        width: 60px; /* Iconos más pequeños en móvil */
-        height: 60px;
-    }
+  .rs-features {
+    grid-template-columns: 1fr; /* En móvil, una columna es mejor para no apretar los textos */
+    gap: 20px;
+  }
+
+  .rs-feat-card {
+    padding: 20px;
+    flex-direction: row; /* Icono a la izquierda, texto a la derecha */
+    text-align: left;
+    gap: 5px;
+  }
+
+  .rs-feat-animation-wrapper {
+    width: 60px; /* Iconos más pequeños en móvil */
+    height: 60px;
+  }
 }
-

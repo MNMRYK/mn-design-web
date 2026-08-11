@@ -19,21 +19,26 @@
   transition: top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-
 /* 🔥 TRUCO MAGISTRAL: EL FONDO FANTASMA 🔥
    Ponemos el cristal en un ::before separado para que no rompa el blur de los hijos */
 .navbar-header::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   border-radius: 50px;
   z-index: 2; /* Lo mandamos detrás del texto */
-  transition: background 0.4s ease, box-shadow 0.4s ease, border 0.4s ease, backdrop-filter 0.4s ease;
+  transition:
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    border 0.4s ease,
+    backdrop-filter 0.4s ease;
 }
 
 /* Transición para los colores de texto */
 .navbar-header * {
-  transition: color 0.4s ease, filter 0.4s ease;
+  transition:
+    color 0.4s ease,
+    filter 0.4s ease;
   z-index: 2; /* Lo mandamos detrás del texto */
 }
 
@@ -41,17 +46,21 @@
    ESTADO 1: ARRIBA DEL TODO (EN EL HERO OSCURO) 
    ==================================================== */
 .navbar-header.top::before {
-  background: rgba(156, 70, 255, 0.3); 
-  background: rgba(156, 70, 255, 0.3); 
+  background: rgba(156, 70, 255, 0.3);
+  background: rgba(156, 70, 255, 0.3);
   -webkit-backdrop-filter: blur(20px) !important;
   backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
 }
 
-.navbar-header.top .siglas { color: var(--dark-violet) !important; }
+.navbar-header.top .siglas {
+  color: var(--dark-violet) !important;
+}
 .navbar-header.top .menu-principal a,
-.navbar-header.top .marca { color: var(--white-iris) !important; }
+.navbar-header.top .marca {
+  color: var(--white-iris) !important;
+}
 .navbar-header.top .boton-contacto {
   color: var(--white-iris) !important;
   border-color: rgba(255, 255, 255, 0.4);
@@ -61,10 +70,10 @@
    ESTADO 2: SCROLLEANDO (EN LAS SECCIONES CLARAS)
    ==================================================== */
 .navbar-header.scrolled::before {
-  background: rgba(156, 70, 255, 0.3); 
+  background: rgba(156, 70, 255, 0.3);
   -webkit-backdrop-filter: blur(20px) !important;
   backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
 }
 
@@ -119,20 +128,20 @@
   text-decoration: none !important;
 }
 
-.siglas { 
-  font-family: 'Nunito', sans-serif;
-  font-weight: 900; 
-  font-size: 2.2rem; 
+.siglas {
+  font-family: "Nunito", sans-serif;
+  font-weight: 900;
+  font-size: 2.2rem;
   color: var(--fondo-oscuro);
 }
 
-.marca { 
-  font-family: 'Nunito', sans-serif;
+.marca {
+  font-family: "Nunito", sans-serif;
   color: var(--dark-violet);
-  font-size: 1.9rem; 
-  font-weight: 900; 
+  font-size: 1.9rem;
+  font-weight: 900;
   opacity: 0.8;
-} 
+}
 
 /* --- MENÚ PRINCIPAL --- */
 .menu-principal {
@@ -147,7 +156,7 @@
 
 .menu-principal a {
   display: inline-block;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   color: var(--dark-violet);
   text-decoration: none;
   font-size: 1.15rem;
@@ -156,7 +165,7 @@
 }
 
 .menu-principal a:hover {
-  filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
   transform: scale(1.1);
 }
 
@@ -203,10 +212,10 @@
   list-style: none;
   padding: 15px;
   margin: 0;
-  background: rgba(156, 70, 255, 0.30); /* Un poco más sutil */
+  background: rgba(156, 70, 255, 0.3); /* Un poco más sutil */
   -webkit-backdrop-filter: blur(20px) !important;
   backdrop-filter: blur(20px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.3); 
+  border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
   border-radius: 20px;
   opacity: 0;
@@ -237,7 +246,7 @@
   display: block;
   padding: 8px 12px;
   border-radius: 10px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 700;
   font-size: 1rem;
   color: var(--dark-violet);
@@ -270,9 +279,8 @@
    📱 RESPONSIVE NAVBAR (Móviles y Tablets pequeñas)
    ==================================================== */
 @media (max-width: 1052px) {
-  
   .navbar-header {
-    width: 80%;      /* Un poquito más ancho en móvil */
+    width: 80%; /* Un poquito más ancho en móvil */
     padding: 0 20px; /* Menos padding lateral para aprovechar espacio */
   }
 
@@ -280,18 +288,18 @@
   .logo img {
     height: 45px; /* Reducimos el pajarito */
   }
-  
+
   .siglas {
     font-size: 2rem; /* MN un poco más pequeño */
   }
-  
+
   .marca {
     font-size: 1.5rem; /* Design Web más pequeño */
   }
 
   /* --- MOSTRAR EL BOTÓN HAMBURGUESA --- */
   .menu-toggle {
-    display: block; 
+    display: block;
     background: transparent;
     border: none;
     color: var(--white-iris); /* Color por defecto (arriba) */
@@ -311,13 +319,13 @@
   .menu-principal {
     position: absolute;
     /* La bajamos un pelín más para que parezca una isla flotante */
-    top: calc(100% + 5px); 
+    top: calc(100% + 5px);
     left: 0;
-    right: 0; 
-    background: rgba(156, 70, 255, 0.30); 
+    right: 0;
+    background: rgba(156, 70, 255, 0.3);
     -webkit-backdrop-filter: blur(20px) !important;
     backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.3); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-shadow: 0 8px 32px 0 rgba(92, 0, 150, 0.15);
     border-radius: 20px;
     flex-direction: column;
@@ -326,7 +334,9 @@
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px) scale(0.97);
-    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition:
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      transform 350ms cubic-bezier(0.34, 1.56, 0.64, 1);
     pointer-events: none;
     z-index: 1000;
   }
@@ -352,14 +362,16 @@
   /* Textos blancos para que destaquen sobre el cristal oscuro */
   .menu-principal a {
     display: block;
-    font-size: 1.15rem;       
+    font-size: 1.15rem;
     text-align: left;
     width: 100%;
   }
   /* 2. Anulamos el efecto "Scale" gigante al hacer hover en móvil */
   .menu-principal a:hover {
     transform: none !important; /* Le decimos que NO crezca */
-    filter: drop-shadow(0 0 5px rgba(255,255,255,0.4)); /* Mantenemos solo el brillito elegante */
+    filter: drop-shadow(
+      0 0 5px rgba(255, 255, 255, 0.4)
+    ); /* Mantenemos solo el brillito elegante */
   }
 
   /* El botón de contacto dentro de la caja */
@@ -372,11 +384,11 @@
 
   /* --- SUBMENÚ ESPECIALIDADES (SE ABRE EN ACORDEÓN DENTRO DE LA CAJA) --- */
   .desplegable {
-    position: static; 
+    position: static;
     /* 🔥 MATAMOS AL FANTASMA DEL ESCRITORIO 🔥 */
-    background: transparent !important; 
+    background: transparent !important;
     -webkit-backdrop-filter: none !important; /* Anulamos el blur heredado en Safari */
-    backdrop-filter: none !important;        /* Anulamos el blur heredado */
+    backdrop-filter: none !important; /* Anulamos el blur heredado */
     border: none;
     box-shadow: none;
     padding: 0;
@@ -388,15 +400,15 @@
 
   /* Mostrar submenú cuando tocamos "Especialidades" */
   .tiene-desplegable.abierto .desplegable {
-    max-height: 300px; 
-    padding-top: 15px;     
-    padding-left: 15px;  /* Le damos un poco de sangría para que parezca submenú */
+    max-height: 300px;
+    padding-top: 15px;
+    padding-left: 15px; /* Le damos un poco de sangría para que parezca submenú */
   }
 
   /* Enlaces del submenú un pelín más pequeños y con otra opacidad */
   .desplegable a {
     font-size: 1rem;
-    padding: 8px 0;
+    padding: 5px 0;
   }
 
   .desplegable a:hover {
@@ -407,36 +419,60 @@
 /* ====================================================
    📱 SÓLO MÓVILES: ACHICAR TEXTOS (De 950px hacia abajo)
    ==================================================== */
-@media (max-width: 950px) {
-  
-  .siglas {
-    font-size: 1.6rem; 
+
+@media (max-width: 1052px) {
+  /* 1. Hacemos que el menú principal en móvil pueda hacer scroll si la pantalla es pequeña */
+  .menu-principal {
+    max-height: 80vh; /* Para que nunca rebase la altura del móvil */
+    overflow-y: auto; /* Permite deslizar si hay muchos elementos */
+    scrollbar-width: none;
   }
-  
+
+  .menu-principal::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+
+  /* 2. Quitamos el límite estricto de 300px y dejamos que crezca de forma fluida según los elementos */
+  .tiene-desplegable.abierto .desplegable {
+    max-height: none; /* Adiós al límite de altura fija */
+    padding-top: 15px;
+    padding-left: 15px;
+  }
+
+  /* 3. Aseguramos que el desplegable interior no oculte nada */
+  .desplegable {
+    max-height: 0;
+    overflow: visible; /* Cambiado de hidden a visible para que nomascare */
+  }
+}
+
+@media (max-width: 950px) {
+  .siglas {
+    font-size: 1.6rem;
+  }
+
   .marca {
-    font-size: 1.3rem; 
+    font-size: 1.3rem;
   }
 }
 
 @media (max-width: 380px) {
-
   .logo {
     display: flex;
     align-items: center;
     gap: 2px;
     text-decoration: none;
   }
-
 }
 
 @media (max-width: 344px) {
-  
   .siglas {
-    font-size: 1.5rem; 
+    font-size: 1.5rem;
   }
-  
+
   .marca {
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
   }
 
   .logo img {

@@ -8,7 +8,7 @@
   padding: 40px 24px 50px;
   display: flex;
   flex-direction: column;
-  gap: 100px; /* Separación generosa entre bloques */
+  gap: 100px;
 }
 
 .ec-section-title-container {
@@ -16,13 +16,13 @@
 }
 
 .ec-section-title-container h2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background: var(--electric-violet);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-size: 2.5rem;
-  display: block; /* ya está presente */
+  display: block;
   text-align: left;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -30,8 +30,8 @@
 }
 
 .ec-section-subtitle {
-  font-family: 'Nunito', sans-serif;
-  font-size: 1.125rem; 
+  font-family: "Nunito", sans-serif;
+  font-size: 1.125rem;
   line-height: 1.6;
   color: rgba(26, 16, 45, 0.8);
   margin: 0;
@@ -43,15 +43,14 @@
    ==================================================== */
 .ec-planes-grid {
   display: grid;
-  /* 🔥 EL CAMBIO: Cambiamos 1fr por repeat(3, 1fr) para que salgan en fila en PC 🔥 */
-  grid-template-columns: repeat(3, 1fr); 
+  grid-template-columns: repeat(3, 1fr);
   gap: 32px;
   align-items: center;
 }
 
 .ec-plan-card {
   background: #ffffff;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   border: 1px solid rgba(126, 87, 194, 0.15);
   padding: 40px 30px;
   border-radius: 24px;
@@ -63,7 +62,11 @@
 
 /* Tarjeta Destacada "Impulso" */
 .ec-plan-card.destacado {
-  background: linear-gradient(145deg, #ffffff 0%, rgba(126, 87, 194, 0.05) 100%);
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    rgba(126, 87, 194, 0.05) 100%
+  );
   border: 2px solid var(--electric-violet);
   box-shadow: 0 20px 40px rgba(126, 87, 194, 0.1);
 }
@@ -83,7 +86,7 @@
 }
 
 .ec-plan-card h3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 1.5rem;
   color: var(--deep-eggplant);
   margin-bottom: 8px;
@@ -107,7 +110,6 @@
 }
 
 .ec-plan-features li {
-  
   color: rgba(26, 16, 45, 0.8);
   display: flex;
   align-items: flex-start;
@@ -121,17 +123,18 @@
 }
 
 /* Botones de los planes */
-.ec-btn-plan-primario, .ec-btn-plan-secundario {
+.ec-btn-plan-primario,
+.ec-btn-plan-secundario {
   font-size: 1rem;
   width: 100%;
   padding: 14px;
   border-radius: 12px;
   font-weight: 700;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease;
   margin-top: auto;
-  display: inline-flex;     
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   text-decoration: none !important;
@@ -162,235 +165,263 @@
 }
 
 /* ====================================================
-   SECCIÓN 2: ESTRUCTURAS (LISTADO INTERACTIVO ELEGANTE)
+   SECCIÓN 2: ESTRUCTURAS (LISTADO 4 COLUMNAS)
    ==================================================== */
 
-.ec-estructuras-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 24px;
+.ec-estructuras-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas para escritorio */
+  gap: 24px;
 }
 
-.ec-estructura-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
+/* Tarjeta vertical */
+.ec-estructura-item-v2 {
   background: #ffffff;
-  /* 🔥 Margen por la derecha para que el texto no pise el botón 🔥 */
-  padding: 24px 70px 24px 24px; 
   border-radius: 16px;
   border: 1px solid rgba(126, 87, 194, 0.1);
-  box-shadow: 0 4px 15px rgba(26, 16, 45, 0.01);
-  text-align: left;
-  transition: border-color 0.3s ease;
-  
-  /* 🔥 TRUCO CLAVE PARA EL BOTÓN ESQUINERO 🔥 */
-  position: relative; 
-  overflow: hidden;   
-}
-
-.ec-estructura-item:hover {
-  border-color: rgba(126, 87, 194, 0.3);
-}
-
-.ec-estructura-icon-wrapper {
-  width: 54px;
-  height: 54px;
-  background: var(--soft-lavender);
-  color: var(--electric-violet);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.4rem;
-  flex-shrink: 0;
-}
-
-.ec-estructura-info {
+  box-shadow: 0 4px 15px rgba(26, 16, 45, 0.05);
   display: flex;
   flex-direction: column;
-  width: 100%;
-}
-
-.ec-estructura-info h4 {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.2rem;
-  color: var(--deep-eggplant);
-  margin-bottom: 4px;
-}
-
-/* 🔥 ESTE ES EL ÚNICO QUE TIENE QUE QUEDAR 🔥 */
-.ec-estructura-contenido-row {
-  display: block;
-  width: 100%;
-  margin-top: 4px;
-}
-
-.ec-estructura-contenido-row p {
-  margin: 0;
-  font-family: 'Nunito', sans-serif;
-  font-size: 1rem;
-  color: rgba(26, 16, 45, 0.7);
-  line-height: 1.6;
-}
-
-/* 🔥 EL NUEVO BOTÓN TIPO APP 🔥 */
-.ec-btn-ver-ejemplo {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 50px;
-  height: 50px;
-  background-color: var(--electric-violet);
-  color: #ffffff;
-  border: none;
-  border-radius: 20px 0 0 0; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.1rem;
-  cursor: pointer;
+  position: relative;
+  overflow: hidden;
   transition: all 0.3s ease;
-  margin: 0;
 }
 
-.ec-btn-ver-ejemplo i {
-  transition: transform 0.3s ease;
+.ec-estructura-item-v2:hover {
+  border-color: rgba(126, 87, 194, 0.4);
+  box-shadow: 0 8px 25px rgba(126, 87, 194, 0.15);
 }
 
-/* Efectito juguetón al hacer hover en la tarjeta */
-.ec-estructura-item:hover .ec-btn-ver-ejemplo {
-  width: 55px;
-  height: 55px;
-  background-color: #7E57C2; 
-}
-
-.ec-estructura-item:hover .ec-btn-ver-ejemplo i {
-  transform: translateX(3px) scale(1.1);
-}
-
-/* ====================================================
-   ESTILOS DE LA VENTANA EMERGENTE (MODAL) - LA DEFINITIVA
-   ==================================================== */
-
-.ec-modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(26, 16, 45, 0.75);
-  backdrop-filter: blur(8px);
-  z-index: 9999;
-  
+/* Caja superior para tu imagen */
+.ec-estructura-img-wrapper {
+  width: 100%;
+  height: 180px;
+  background: #ffffff;
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center; /* Centramos la caja blanca perfectamente */
   padding: 20px;
 }
 
-.ec-modal-content {
-  background: #ffffff;
-  border-radius: 20px;
-  width: 100%;
-  max-width: 800px; 
-  /* 🔥 1. LIMITAMOS LA CAJA: No puede ser más alta que el 90% de la pantalla */
-  max-height: 90vh; 
-  position: relative;
-  
-  /* 🔥 2. FLEXBOX: Para que la zona de la imagen rellene el espacio y active el scroll */
+.ec-estructura-img-wrapper img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.ec-estructura-item-v2:hover .ec-estructura-img-wrapper img {
+  transform: scale(1.05);
+}
+
+/* Caja de texto inferior */
+.ec-estructura-info-v2 {
+  padding: 24px; /* LIMPIO: Padding equilibrado para todos los lados */
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
-/* El botón de la X (Lo dejamos asomando un pelín) */
-.ec-modal-close-btn {
-  position: absolute;
-  top: -15px; 
-  right: -15px;
-  background: #ffffff;
-  border: 2px solid var(--electric-violet);
+.ec-estructura-info-v2 h4 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  color: var(--deep-eggplant);
+  margin-top: 0;
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.ec-estructura-info-v2 h4 span {
+  font-size: 1.125rem;
+  font-weight: 700;
   color: var(--electric-violet);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+}
+
+/* Lista de ventajas con checks */
+.ec-ventajas-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ec-ventajas-list li {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  color: rgba(26, 16, 45, 0.8);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.ec-ventajas-list li i {
+  color: var(--electric-violet);
+  margin-top: 3px;
+  font-size: 1rem;
+}
+
+/* ====================================================
+   SECCIÓN 3: PROMOCIÓN MENTORÍAS SHOPIFY (BANNER)
+   ==================================================== */
+.ec-promo-shopify {
+  /* Degradado con los verdes de Shopify de tu landing */
+  background: linear-gradient(
+    135deg,
+    var(--dark-green, #004c3f) 0%,
+    var(--shopify-green, #008060) 100%
+  );
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 128, 96, 0.25);
+  margin-top: 20px; /* Separación con la sección anterior */
+}
+
+.ec-promo-content {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  justify-content: space-between;
+  padding: 40px;
+  gap: 50px;
 }
 
-.ec-modal-close-btn:hover {
-  background: var(--electric-violet);
+.ec-promo-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+/* Etiquetita superior */
+.ec-promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
   color: #ffffff;
-  transform: rotate(90deg);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: "Nunito", sans-serif;
 }
 
-.ec-modal-body-img {
-  /* 🔥 3. EL CONTENEDOR TOMA EL CONTROL DEL SCROLL */
-  flex: 1; /* Ocupa todo el alto permitido por la caja blanca */
-  overflow-y: auto; /* Activa la barra de scroll interna */
-  border-radius: 20px; 
-  
-  /* 🔥 4. LA MAGIA ANTI-FONDO: Prohíbe que el scroll "salpique" a la web de atrás */
-  overscroll-behavior: contain; 
+.ec-promo-text h2 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  font-weight: 800;
 }
 
-.ec-modal-body-img img {
-  width: 100%;
-  height: auto;
-  display: block;
+.ec-promo-text h2 span {
+  color: #61ffc6; /* Un verde menta luminoso para resaltar el "sin miedo" */
 }
 
-/* Estilo para que la barrita de scroll sea morada y fina */
-.ec-modal-body-img::-webkit-scrollbar {
-  width: 8px;
+.ec-promo-text p {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+  margin-bottom: 35px;
 }
-.ec-modal-body-img::-webkit-scrollbar-track {
+
+/* Botones */
+.ec-promo-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ec-btn-shopify-primary,
+.ec-btn-shopify-secondary {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: 12px;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.ec-btn-shopify-primary {
+  background: #ffffff;
+  color: #004c3f;
+  border: 2px solid #ffffff;
+}
+
+.ec-btn-shopify-primary:hover {
   background: transparent;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  color: #ffffff;
+  transform: translateY(-3px);
 }
-.ec-modal-body-img::-webkit-scrollbar-thumb {
-  background: rgba(126, 87, 194, 0.4);
-  border-radius: 10px;
+
+.ec-btn-shopify-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
 }
-.ec-modal-body-img::-webkit-scrollbar-thumb:hover {
-  background: rgba(126, 87, 194, 0.8);
+
+.ec-btn-shopify-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: #ffffff;
+  transform: translateY(-3px);
+}
+
+/* Imagen flotante */
+.ec-promo-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ec-promo-image img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+  max-height: 400px;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.3));
+  transition: transform 0.5s ease;
+}
+
+.ec-promo-image img:hover {
+  transform: translateY(-12px) scale(1.02);
 }
 
 /* ====================================================
    RESPONSIVE - TABLET (Entre 768px y 1024px)
    ==================================================== */
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* Padding y gaps generales */
   .ec-secciones-extras-wrapper {
     padding: 50px 25px 60px;
     gap: 80px;
   }
 
-  /* --- ARREGLO DE PLANES EN TABLET --- */
   .ec-planes-grid {
-    grid-template-columns: 1fr 1fr; /* 2 columnas */
-    gap: 20px; 
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
   }
 
-  /* La tarjeta destacada ocupa todo el ancho abajo */
   .ec-plan-card.destacado {
-    grid-column: span 2; 
-    width: 90%;          /* Mucho más ancha que antes */
-    max-width: 500px;    /* Punto dulce para que no se deforme */
+    grid-column: span 2;
+    width: 90%;
+    max-width: 500px;
     margin: 0 auto;
-    order: 3;         /* Forzamos que se vaya a la posición 3 (abajo) */
+    order: 3;
     align-items: center;
     text-align: center;
   }
 
-  /* Aseguramos que las normales no tengan span raro */
   .ec-plan-card:not(.destacado) {
     grid-column: auto;
   }
@@ -399,16 +430,33 @@
     width: auto;
     min-width: 350px;
   }
-  
 
-  /* Estructuras en tablet */
-  .ec-estructuras-grid {
+  /* LIMPIO: Apuntamos al grid correcto */
+  .ec-estructuras-grid-v2 {
     grid-template-columns: 1fr 1fr;
     gap: 30px;
   }
 
   .ec-section-subtitle {
     text-align: left;
+  }
+
+  .ec-promo-content {
+    padding: 50px 40px;
+    flex-direction: column;
+    text-align: center;
+  }
+  .ec-promo-text {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ec-promo-buttons {
+    justify-content: center;
+  }
+  .ec-promo-image {
+    margin-top: 10px;
   }
 }
 
@@ -420,13 +468,11 @@
     margin-bottom: 30px;
   }
 
-  /* 1. Paddings de móvil */
   .ec-secciones-extras-wrapper {
     padding: 50px 20px 60px;
     gap: 100px;
   }
-  
-  /* 2. Ajustamos los Títulos (H2) */
+
   .ec-section-title-container h2 {
     font-size: 2rem !important;
     line-height: 1.1;
@@ -436,34 +482,52 @@
     text-align: left;
   }
 
-  /* 3. Todos los grids pasan a 1 sola columna vertical */
+  /* LIMPIO: Unificamos el comportamiento en móvil a una sola columna */
   .ec-planes-grid,
-  .ec-estructuras-grid {
-    grid-template-columns: 1fr; 
+  .ec-estructuras-grid-v2 {
+    grid-template-columns: 1fr;
     gap: 20px;
   }
 
-  /* Reset del span para que en móvil sea normal */
   .ec-plan-card.destacado {
     grid-column: span 1;
     max-width: none;
     margin: 0;
   }
 
-  /* 4. Ajustes específicos para que las tarjetas respiren en móvil */
   .ec-plan-card {
     padding: 30px 20px;
   }
 
-  .ec-estructura-item {
-    padding: 20px 70px 20px 20px; 
+  .ec-promo-shopify {
+    border-radius: 20px;
   }
-
-  .ec-estructura-info h4 {
-    font-size: 1.15rem;
+  .ec-promo-content {
+    padding: 40px 24px;
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
   }
-
-  .ec-estructura-contenido-row p {
+  .ec-promo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .ec-promo-text h2 {
+    font-size: 1.8rem;
+  }
+  .ec-promo-text p {
     font-size: 1.05rem;
   }
-} 
+  .ec-promo-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ec-btn-shopify-primary,
+  .ec-btn-shopify-secondary {
+    width: 100%;
+  }
+  .ec-promo-image {
+    margin-top: 10px;
+  }
+}

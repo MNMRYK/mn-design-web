@@ -219,8 +219,8 @@ const DisenoWebSeccionesEspeciales = () => {
                 </div>
             </motion.section>
 
-        {/* ===================================================
-            SECCIÓN 3: PORTFOLIO / GITHUB PREMIUM
+           {/* ===================================================
+            SECCIÓN 3: LANDINGS ESPECIALIZADAS (Ex-Portfolio)
             =================================================== */}
             <motion.section 
                 id="portfolio"
@@ -231,58 +231,39 @@ const DisenoWebSeccionesEspeciales = () => {
                 transition={{ duration: 0.6 }}
             >
                 <div className="section-title-container">
-                    <h2>Diseño a Medida de Alto Rendimiento</h2>
-                    <p className="section-subtitle">Explora algunos proyectos reales optimizados en rendimiento y código limpio.</p>
+                    <h2>Soluciones Web Especializadas</h2>
+                    <p className="section-subtitle">Descubre nuestras plataformas diseñadas a medida para impulsar tu sector.</p>
                 </div>
 
                 <div className="portfolio-grid">
                     {[
                         { 
-                            title: "L'Essence", 
-                            desc: "Restaurante con sistema de reservas online integrado y carta digital autogestionable.", 
-                            img: "/ejemplos/restaurant.webp", // ⚠️ ¡Revisa si en tu carpeta se llama así o "restaurant.webp"!
-                            url: "https://mnmryk.github.io/L-Essence-Restaurante/" 
+                            title: "Psicólogos y Terapeutas", 
+                            desc: "Atrae más pacientes con una web optimizada, profesional y orientada a generar confianza, con sistema de reservas integrado.", 
+                            img: "/psicologos.webp", // <-- Ojo, asegúrate de tener esta imagen
+                            url: "https://descubre.mndesignweb.es/psicologos/" 
                         },
                         { 
-                            title: "Salón Belleza Luna", 
-                            desc: "Sitio web 'soft & clean' con módulo de gestión de citas y panel de administración.", 
-                            img: "/ejemplos/salon.webp", 
-                            url: "https://mnmryk.github.io/Belleza-Luna/" 
+                            title: "Portal Clínico & Academia", 
+                            desc: "Plataforma de desarrollo propio. Digitaliza la gestión de pacientes, agendas y academia de formación, ideal para clínicas y nutricionistas.", 
+                            img: "/clinicas.webp", // <-- Ojo, asegúrate de tener esta imagen
+                            url: "https://descubre.mndesignweb.es/clinicas/" 
                         },
                         { 
-                            title: "Tattoo & Gallery", 
-                            desc: "Plataforma visual tipo galería para mostrar trabajos de artistas con alta fidelidad.", 
-                            img: "/ejemplos/tatto.webp", // ⚠️ ¡Revisa si en tu carpeta se llama así o "tattoo.webp"!
-                            url: "https://mnmryk.github.io/tattoo-studio-cms/" 
+                            title: "Invitaciones de Boda Web", 
+                            desc: "Sorprende a tus invitados con una invitación digital elegante, interactiva y con confirmación de asistencia automatizada.", 
+                            img: "/bodas.webp", // <-- Ojo, asegúrate de tener esta imagen
+                            url: "https://descubre.mndesignweb.es/bodas/" 
                         },
-                        { 
-                            title: "Borcelle Carousel", 
-                            desc: "Web experimental interactiva con múltiples diseños de carrusel y efectos de scroll dinámico.", 
-                            img: "/ejemplos/borcelle.webp", 
-                            url: "https://mnmryk.github.io/borcelle-carousell/" 
-                        },
-                        { 
-                            title: "Kit Glass Liquid", 
-                            desc: "Ejemplo de interfaz de usuario (UI) enfocado en maquetación de contenido con efectos avanzados.", 
-                            img: "/ejemplos/kitliquid.webp", 
-                            url: "https://mnmryk.github.io/kit-glassliquid/" 
-                        },
-                        { 
-                            title: "Buttons Effect", 
-                            desc: "Muestra de componentes UI interactivos con microanimaciones y efectos visuales para botones.", 
-                            img: "/ejemplos/buttons.webp", 
-                            url: "https://mnmryk.github.io/buttons-effect/" 
-                        }
                     ].map((proj, idx) => (
                         <motion.div key={idx} className="portfolio-card" whileHover={{ y: -10 }}>
                             
-                            {/* 🔥 EL NUEVO NAVEGADOR DE UIVERSE ADAPTADO A REACT 🔥 */}
+                            {/* EL NAVEGADOR DE UIVERSE */}
                             <div className="browser-mockup-complex">
                                 <div className="tabs-head">
                                     <div className="tabs">
                                         <div className="tab-open">
                                             <div className="rounded-l"><div className="mask-round"></div></div>
-                                            {/* El título de la pestaña cambia según el proyecto */}
                                             <span>{proj.title}</span>
                                             <div className="close-tab"><i className="fa-solid fa-xmark"></i></div>
                                             <div className="rounded-r"><div className="mask-round"></div></div>
@@ -300,7 +281,6 @@ const DisenoWebSeccionesEspeciales = () => {
                                     <button><i className="fa-solid fa-arrow-left"></i></button>
                                     <button disabled><i className="fa-solid fa-arrow-right"></i></button>
                                     
-                                    {/* La URL limpia (quitamos el https:// para que parezca más real) */}
                                     <input
                                         type="text"
                                         readOnly
@@ -311,7 +291,6 @@ const DisenoWebSeccionesEspeciales = () => {
                                     <div className="star"><i className="fa-regular fa-star"></i></div>
                                 </div>
                             </div>
-                            {/* 🔥 FIN DEL NUEVO NAVEGADOR 🔥 */}
 
                             <div className="mockup-body">
                                 <div className="project-img-scroll" style={{ backgroundImage: `url("${proj.img}")` }}>
@@ -323,14 +302,13 @@ const DisenoWebSeccionesEspeciales = () => {
                                 <p>{proj.desc}</p>
                             </div> 
 
-                            {/* 🔥 EL NUEVO BOTÓN ESQUINERO (Sin texto y fuera del meta) 🔥 */}
                             <a 
                                 href={proj.url} 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="btn-visitar-esquina"
-                                title="Visitar Proyecto"
-                                aria-label="Visitar Proyecto"
+                                title="Ver Solución"
+                                aria-label="Ver Solución"
                             >
                                 <i className="fa-solid fa-arrow-right"></i>
                             </a>                
