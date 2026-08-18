@@ -68,7 +68,7 @@ const ReservaYMapa = () => {
             {/* CONTENEDOR DEL WIDGET  */}
             <div className="calendar-embed-container">
                 <iframe 
-                    src="https://cal.com/mndesignweb/reunion-30-min" 
+                    src="https://cal.com/mndesignweb/reunion-30-min?embed=true"
                     title="Reserva de citas"
                     frameBorder="0" 
                     scrolling="auto"
