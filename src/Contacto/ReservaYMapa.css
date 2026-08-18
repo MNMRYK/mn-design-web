@@ -94,10 +94,11 @@
 
 /* 🔥 EL TRUCO PARA REDUCIR EL ZOOM 🔥 */
 .calendar-iframe {
-  width: 118%; 
+  width: 125%; 
   height: 570px; 
   border: none;
-  transform: scale(0.85); 
+  display: block;
+  transform: scale(0.80); 
   transform-origin: top left; 
 }
 
