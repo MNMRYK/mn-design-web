@@ -39,12 +39,6 @@ const testimonios = [
     texto: "El plan de mantenimiento es una tranquilidad enorme. Relación calidad-precio insuperable, siempre al pie del cañón.",
     img: "/testimonios/6.webp"
   },
-  {
-    nombre: "Pablo",
-    usuario: "@pablo_emprende",
-    texto: "La sesión de asesoramiento fue un antes y un después. Salí con las ideas súper claras y una estrategia ganadora.",
-    img: "/testimonios/7.webp"
-  }
 ];
 
 const Opiniones = () => {
