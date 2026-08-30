@@ -25,6 +25,7 @@ Nuestras soluciones digitales se enfocan en alta conversión y diseño minimalis
 - [Blog Técnico y SEO](https://mndesignweb.es/blog/)
 - [Landing: Mentorías Shopify 1 a 1](https://descubre.mndesignweb.es/aprende-shopify/)
 - [Landing: Psicólogos](https://descubre.mndesignweb.es/psicologos/)
-- [Landing: Portal Salud Platafroma Clínicas](https://descubre.mndesignweb.es/clinicas/)
+- [Landing: Portal Salud Platafroma Clínicas de Nutricion, dietistas, terapéutas, psicólogos y profesionales de la salud](https://descubre.mndesignweb.es/clinicas/)
 - [Landing: Invitaciones de boda digitales](https://descubre.mndesignweb.es/bodas/)
+- [Landing: Academia E-Learning Online para nutricionistas, dietistas, terapéutas, psicólogos y profesionales de la salud](https://descubre.mndesignweb.es/academia-nutricion/)
 - [Rescate Kit Digital](/rescate-kit-digital) - Solución técnica específica para optimización.

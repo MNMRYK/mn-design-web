@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useScroll, useMotionValueEvent } from "framer-motion"; 
+import { useScroll, useMotionValueEvent } from "framer-motion";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -10,14 +10,13 @@ const Navbar = () => {
 
   // --- LÓGICA HÍBRIDA: MATEMÁTICAS + ESCÁNER VISUAL ---
   useMotionValueEvent(scrollY, "change", (latest) => {
-    
     // 🎯 1. LA LÓGICA DE TU HERO (La que ya tenías)
-    const heroElement = document.querySelector('.hero-section-container');
-    
+    const heroElement = document.querySelector(".hero-section-container");
+
     // Si la página actual tiene un Hero, comprobamos las matemáticas
     if (heroElement) {
       const heroHeight = heroElement.offsetHeight;
-      
+
       // Si estamos dentro del Hero (respetando tus 50px de margen)...
       if (latest <= heroHeight - 50) {
         setIsScrolled(false); // Mantenemos textos blancos (clase "top")
@@ -29,7 +28,7 @@ const Navbar = () => {
     // Si no hay Hero en esta página, o si ya hemos hecho scroll por debajo de él, entra esto:
     const x = window.innerWidth / 2;
     const y = 30; // Altura aproximada donde está tu Navbar
-    
+
     // Obtenemos qué hay exactamente debajo del centro del Navbar
     const elementsUnder = document.elementsFromPoint(x, y);
 
@@ -37,20 +36,20 @@ const Navbar = () => {
 
     // Buscamos si algún elemento debajo del menú tiene la clase 'tema-oscuro'
     // Usamos .closest() por si el Navbar está pisando un texto o una foto que está dentro de esa sección
-    const isOverDarkTheme = elementsUnder.some(el => el.closest && el.closest('.tema-oscuro'));
+    const isOverDarkTheme = elementsUnder.some(
+      (el) => el.closest && el.closest(".tema-oscuro"),
+    );
 
     if (isOverDarkTheme) {
       setIsScrolled(false); // Fondo oscuro detectado -> Textos blancos (clase "top")
     } else {
-      setIsScrolled(true);  // Fondo claro detectado -> Textos morados (clase "scrolled")
+      setIsScrolled(true); // Fondo claro detectado -> Textos morados (clase "scrolled")
     }
   });
 
   const toggleMenu = () => setMenuAbierto(!menuAbierto);
   return (
-    <header 
-      className={`navbar-header ${isScrolled ? "scrolled" : "top"} `}
-    >
+    <header className={`navbar-header ${isScrolled ? "scrolled" : "top"} `}>
       <a href="/" className="enlace-logo">
         <div className="logo">
           <img src="/logo.webp" alt="Logo MN Design Web" />
@@ -62,35 +61,78 @@ const Navbar = () => {
       </a>
 
       <nav>
-        <button className="menu-toggle" onClick={toggleMenu} aria-label="Abrir menú">
+        <button
+          className="menu-toggle"
+          onClick={toggleMenu}
+          aria-label="Abrir menú"
+        >
           <i className={menuAbierto ? "fas fa-times" : "fas fa-bars"}></i>
         </button>
 
         <ul className={`menu-principal ${menuAbierto ? "active" : ""}`}>
-          <li className={`tiene-desplegable ${desplegableAbierto ? "abierto" : ""}`}>
-            <a href="#" onClick={(e) => {
-              if (window.innerWidth <= 1052) {
-                e.preventDefault();
-                setDesplegableAbierto(!desplegableAbierto);
-              }
-            }}>
+          <li
+            className={`tiene-desplegable ${desplegableAbierto ? "abierto" : ""}`}
+          >
+            <a
+              href="#"
+              onClick={(e) => {
+                if (window.innerWidth <= 1052) {
+                  e.preventDefault();
+                  setDesplegableAbierto(!desplegableAbierto);
+                }
+              }}
+            >
               Servicios <span className="flecha">▾</span>
             </a>
             <ul className="desplegable">
-              <li><a href="/disenoweb">Diseño Web</a></li>
-              <li><a href="/e-commerce">E-commerce</a></li>
-              <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
-              <li><a href="/redes-sociales">Redes Sociales</a></li>
-              <li><a href="https://descubre.mndesignweb.es/aprende-shopify/">Mentorías Shopify</a></li>
-              <li><a href="https://descubre.mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
-              <li><a href="https://descubre.mndesignweb.es/psicologos/">Psicólogos Portal Salud</a></li>
-              <li><a href="https://descubre.mndesignweb.es/bodas/">Invitaciones Digitales</a></li>
+              <li>
+                <a href="/disenoweb">Diseño Web</a>
+              </li>
+              <li>
+                <a href="/e-commerce">E-commerce</a>
+              </li>
+              <li>
+                <a href="https://descubre.mndesignweb.es/aprende-shopify/">
+                  Mentorías Shopify
+                </a>
+              </li>
+              <li>
+                <a href="/posicionamiento-seo">Posicionamiento SEO</a>
+              </li>
+              <li>
+                <a href="https://descubre.mndesignweb.es/academia-nutricion/">
+                  Academias E-Learning
+                </a>
+              </li>
+              <li>
+                <a href="https://descubre.mndesignweb.es/clinicas/">
+                  Plataforma Portal Salud
+                </a>
+              </li>
+              <li>
+                <a href="https://descubre.mndesignweb.es/psicologos/">
+                  Psicólogos
+                </a>
+              </li>
+              <li>
+                <a href="/redes-sociales">Redes Sociales</a>
+              </li>
             </ul>
           </li>
-          <li><a href="/demos">Demos</a></li>
-          <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
-          <li><a href="/nosotros">Nosotros</a></li>
-          <li><a href="/contacto" className="boton-contacto">Contacto</a></li>
+          <li>
+            <a href="/demos">Demos</a>
+          </li>
+          <li>
+            <a href="https://mndesignweb.es/blog/">Blog</a>
+          </li>
+          <li>
+            <a href="/nosotros">Nosotros</a>
+          </li>
+          <li>
+            <a href="/contacto" className="boton-contacto">
+              Contacto
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
