@@ -38,10 +38,10 @@ const Footer = () => {
                 <li><a href="/disenoweb">Diseño Web</a></li>
                 <li><a href="/e-commerce">E-commerce</a></li>
                 <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
-                <li><a href="https://descubre.mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
-                <li><a href="https://descubre.mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
-                <li><a href="https://descubre.mndesignweb.es/psicologos/">Psicólogos Portal Salud</a></li>
-                <li><a href="https://descubre.mndesignweb.es/bodas/">Invitaciones Bodas</a></li>
+                <li><a href="https://mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
+                <li><a href="https://mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
+                <li><a href="https://mndesignweb.es/psicologos/">Psicólogos Portal Salud</a></li>
+                <li><a href="https://mndesignweb.es/bodas/">Invitaciones Bodas</a></li>
               </ul>
             </div>
 
@@ -50,8 +50,10 @@ const Footer = () => {
               <ul>
                 <li><a href="/contacto">Contacto</a></li>
                 <li><a href="/nosotros">Nosotros</a></li>
-                <li><a href="https://descubre.mndesignweb.es/aprende-shopify/">Aprende Shopify</a></li>
+                <li><a href="https://mndesignweb.es/aprende-shopify/">Aprende Shopify</a></li>
                 <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
+                <li><a href="https://mndesignweb.es/alcoi/">Diseño Web Alcoi</a></li>
+                <li><a href="https://mndesignweb.es/alcoi/">Diseño Web Cocentaina</a></li>
                 
               </ul>
             </div>

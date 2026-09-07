@@ -228,7 +228,7 @@ const DisenoWebSiguiente = () => {
                 </a>
                 
                 <a 
-                    href="https://descubre.mndesignweb.es/clinicas/" 
+                    href="https://mndesignweb.es/clinicas/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
                     className="dw-btn-hero-secundario"

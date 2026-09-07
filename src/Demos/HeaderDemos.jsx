@@ -6,8 +6,8 @@ import "./HeaderDemos.css"; // Tu archivo de estilos
 const bloquesDemos = [
   {
     categoria: "Webs de Psicología y Nutrición",
-    cta: { texto: "Explorar Plataforma Portal Salud", url: "https://descubre.mndesignweb.es/clinicas/" },
-    cta2: { texto: "Webs Psicólogos", url: "https://descubre.mndesignweb.es/psicologos/" },
+    cta: { texto: "Explorar Plataforma Portal Salud", url: "https://mndesignweb.es/clinicas/" },
+    cta2: { texto: "Webs Psicólogos", url: "https://mndesignweb.es/psicologos/" },
     descripcion:
       "Estructuras diseñadas para transmitir confianza, autoridad y privacidad. Ideales para profesionales que necesitan automatizar su agenda y captar pacientes.",
     demos: [
@@ -91,6 +91,36 @@ const bloquesDemos = [
     ],
   },
   {
+    categoria: "Webs Corporativas y Eventos Estrategia B2B",
+    descripcion:
+      "Interfaces de alto rendimiento orientadas a la venta de servicios de alto valor, infoproductos y automatización de procesos comerciales.",
+    demos: [
+      {
+        slug: "mentor-b2b",
+        titulo: "Consultoría y Mentoría B2B",
+        tag: "Web B2B",
+        detalles:
+          "Estética Navy/Dorado. Incluye 4 micro-interacciones JS nativas: Calculadora de ROI en tiempo real y filtro dinámico.",
+        url: "https://mnmryk.github.io/mentor-b2b/",
+      },
+      {
+        slug: "demo-evento-b2b",
+        titulo: "Eventos Corporativos VIP",
+        tag: "Evento B2B",
+        detalles:
+          "Estética violeta y cyan neón. Incluye cuenta atrás en JS nativo, agenda interactiva y marquesina animada en CSS.",
+        url: "https://mnmryk.github.io/demo-evento-B2B/",
+      },
+      {
+        slug: "demo-inmobiliaria-b2b",
+        titulo: "Consultoría Inmobiliaria B2B",
+        tag: "Web B2B",
+        detalles: "Estructura corporativa de alto impacto para captación de inversores. Uso de tipografías contundentes, contraste estratégico y optimización visual diseñada para embudos de venta High Ticket.",
+        url: "https://mnmryk.github.io/demo-inmobiliaria/",
+      },
+    ],
+  },
+  {
     categoria: "Eventos de Experiencias, Hostelería y Estética",
     descripcion:
       "Diseños de estilo editorial e inmersivos pensados para marcas que venden una experiencia exclusiva y requieren gestión de reservas.",
@@ -122,7 +152,7 @@ const bloquesDemos = [
   },
   {
     categoria: "Invitaciones Eventos Boda Digitales",
-    cta: { texto: "Ver funciones de la invitación", url: "https://descubre.mndesignweb.es/bodas/" },
+    cta: { texto: "Ver funciones de la invitación", url: "https://mndesignweb.es/bodas/" },
     descripcion:
       "Modelos interactivos a medida para eventos sociales de alto nivel. Una alternativa ecológica, moderna y exclusiva a las invitaciones tradicionales.",
     demos: [
@@ -234,6 +264,46 @@ const HeaderDemos = () => {
             </div>
           </div>
         </header>
+
+        {/* =========================================
+            NUEVA SECCIÓN: COLLAGE ACADEMIA E-LEARNING
+            ========================================= */}
+        <motion.section
+          className="demos-section academia-collage-section"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="section-title-container">
+            <h2>Academia Online E-learning</h2>
+            <p className="section-subtitle">
+              Plataforma educativa propia para alojar y vender tus cursos o bonos. Diseño inmersivo, sin comisiones por alumno e integrando pasarelas de pago y zona privada.
+            </p>
+            <div className="ctas-container">
+              <a 
+                href="https://mndesignweb.es/academia-nutricion/" 
+                className="btn-landing-redirect"
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                Ver Maqueta Interactiva <i className="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <div className="collage-container">
+            <div className="collage-item item-1">
+              <img src="/mockups/academia-1.webp" alt="Vista del panel de control de la academia" loading="lazy" />
+            </div>
+            <div className="collage-item item-2">
+              <img src="/mockups/academia-2.webp" alt="Vista de lecciones y módulos admin" loading="lazy" />
+            </div>
+            <div className="collage-item item-3">
+              <img src="/mockups/academia-3.webp" alt="Vista alumno" loading="lazy" />
+            </div>
+          </div>
+        </motion.section>
 
         {/* LA CUADRÍCULA DE DEMOS */}
         {bloquesDemos.map((bloque, index) => (

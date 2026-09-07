@@ -92,7 +92,7 @@ const Navbar = () => {
                 <a href="/e-commerce">E-commerce</a>
               </li>
               <li>
-                <a href="https://descubre.mndesignweb.es/aprende-shopify/">
+                <a href="https://mndesignweb.es/aprende-shopify/">
                   Mentorías Shopify
                 </a>
               </li>
@@ -100,17 +100,17 @@ const Navbar = () => {
                 <a href="/posicionamiento-seo">Posicionamiento SEO</a>
               </li>
               <li>
-                <a href="https://descubre.mndesignweb.es/academia-nutricion/">
+                <a href="https://mndesignweb.es/academia-nutricion/">
                   Academias E-Learning
                 </a>
               </li>
               <li>
-                <a href="https://descubre.mndesignweb.es/clinicas/">
+                <a href="https://mndesignweb.es/clinicas/">
                   Plataforma Portal Salud
                 </a>
               </li>
               <li>
-                <a href="https://descubre.mndesignweb.es/psicologos/">
+                <a href="https://mndesignweb.es/psicologos/">
                   Psicólogos
                 </a>
               </li>

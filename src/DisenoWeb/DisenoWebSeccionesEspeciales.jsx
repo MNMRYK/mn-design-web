@@ -240,20 +240,20 @@ const DisenoWebSeccionesEspeciales = () => {
                         { 
                             title: "Psicólogos y Terapeutas", 
                             desc: "Atrae más pacientes con una web optimizada, profesional y orientada a generar confianza, con sistema de reservas integrado.", 
-                            img: "/psicologos.webp", // <-- Ojo, asegúrate de tener esta imagen
-                            url: "https://descubre.mndesignweb.es/psicologos/" 
+                            img: "/psicologo.webp", // <-- Ojo, asegúrate de tener esta imagen
+                            url: "https://mndesignweb.es/psicologos/" 
                         },
                         { 
-                            title: "Portal Clínico & Academia", 
+                            title: "Digitaliza tu consulta de Nutrición", 
                             desc: "Plataforma de desarrollo propio. Digitaliza la gestión de pacientes, agendas y academia de formación, ideal para clínicas y nutricionistas.", 
-                            img: "/clinicas.webp", // <-- Ojo, asegúrate de tener esta imagen
-                            url: "https://descubre.mndesignweb.es/clinicas/" 
+                            img: "/nutri.webp", // <-- Ojo, asegúrate de tener esta imagen
+                            url: "https://mndesignweb.es/clinicas/" 
                         },
                         { 
-                            title: "Invitaciones de Boda Web", 
-                            desc: "Sorprende a tus invitados con una invitación digital elegante, interactiva y con confirmación de asistencia automatizada.", 
-                            img: "/bodas.webp", // <-- Ojo, asegúrate de tener esta imagen
-                            url: "https://descubre.mndesignweb.es/bodas/" 
+                            title: "Academia E-learning", 
+                            desc: "Plataforma educativa propia para vender tus cursos o bonos. Sin comisiones por alumno, incluye pasarelas de pago y zona privada.", 
+                            img: "/admin.webp", 
+                            url: "https://mndesignweb.es/academia-nutricion/" 
                         },
                     ].map((proj, idx) => (
                         <motion.div key={idx} className="portfolio-card" whileHover={{ y: -10 }}>
@@ -299,8 +299,9 @@ const DisenoWebSeccionesEspeciales = () => {
                             </div>
                             
                             <div className="portfolio-meta">
+                                <h3>{proj.title}</h3>
                                 <p>{proj.desc}</p>
-                            </div> 
+                            </div>
 
                             <a 
                                 href={proj.url} 

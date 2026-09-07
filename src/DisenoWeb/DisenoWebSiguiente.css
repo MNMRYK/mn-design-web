@@ -342,6 +342,16 @@
   line-height: 1.6;
   margin: 0;
 }
+/* Títulos de las tarjetas de Portfolio */
+.portfolio-meta h3 {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--deep-eggplant, #1a102d);
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
 
 /* ====================================================
    RESPONSIVE - PC (Escritorio grande)

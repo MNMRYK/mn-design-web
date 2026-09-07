@@ -105,7 +105,7 @@ const EcommerceSiguiente = () => {
                                     Solicitar Presupuesto
                                 </a>
                                 <a 
-                                    href="https://descubre.mndesignweb.es/aprende-shopify/" 
+                                    href="https://mndesignweb.es/aprende-shopify/" 
                                     target="_blank" 
                                     rel="noopener noreferrer" 
                                     className="ec-btn-hero-secundario"

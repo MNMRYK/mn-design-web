@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mndesignweb.es/sitemap.xml
+Sitemap: https://mndesignweb.es/sitemap-index.xml

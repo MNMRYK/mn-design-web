@@ -26,7 +26,7 @@ const Hero = () => {
             Empezar proyecto
           </a>
 
-          <a href="https://descubre.mndesignweb.es/clinicas/" className="btn-varios">
+          <a href="https://mndesignweb.es/clinicas/" className="btn-varios">
             Software Portal Clínico
           </a>
         </div>

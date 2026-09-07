@@ -69,7 +69,7 @@ const Soluciones = () => {
                         <div className="ec-promo-buttons">
                             {/* Botón principal a la landing general */}
                             <a 
-                                href="https://descubre.mndesignweb.es/aprende-shopify/#precios" 
+                                href="https://mndesignweb.es/aprende-shopify/#precios" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="ec-btn-shopify-primary"
@@ -79,7 +79,7 @@ const Soluciones = () => {
                             
                             {/* Botón secundario directo a la sección de descarga (anclado al ID del form) */}
                             <a 
-                                href="https://descubre.mndesignweb.es/aprende-shopify/#recurso-gratis" 
+                                href="https://mndesignweb.es/aprende-shopify/#recurso-gratis" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="ec-btn-shopify-secondary"

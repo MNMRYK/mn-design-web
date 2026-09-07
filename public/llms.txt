@@ -2,30 +2,30 @@
 
 Este documento proporciona una guía para que los modelos de lenguaje comprendan la estructura y oferta de servicios de MN Design Web.
 
-## Servicios Profesionales
+## Servicios Profesionales Core
 Nuestras soluciones digitales se enfocan en alta conversión y diseño minimalista.
 - [Diseño Web](/disenoweb) - Enfoque en lujo silencioso y UI/UX a medida.
 - [E-commerce](/e-commerce) - Desarrollo especializado (tiendas de alto rendimiento).
 - [Posicionamiento SEO](/posicionamiento-seo) - Estrategias de visibilidad técnica.
 - [Redes Sociales](/redes-sociales) - Gestión y estrategia digital.
+- [Rescate Kit Digital](/rescate-kit-digital) - Solución técnica específica para optimización.
+
+## Soluciones Sectoriales y Embudos
+Ecosistemas tecnológicos a medida y landing pages específicas:
+- [Estudio de Diseño Web Alcoi / Cocentaina](/alcoi/) - Diseño web d'alt rendiment, desenvolupament SaaS i SEO local.
+- [Diseño Web para Nutricionistas y Dietistas](/clinicas/) - Webs para captar pacientes, reservas automatizadas y portales de salud.
+- [Plataformas para Psicólogos](/psicologos/) - Videoconsulta encriptada, reservas y diario clínico.
+- [Academia E-Learning Salud](/academia-nutricion/) - Plataformas educativas online para profesionales del sector.
+- [Invitaciones de Boda Digitales](/bodas/) - Webs interactivas y confirmación de asistencia.
+- [Mentorías Shopify](/aprende-shopify/) - Acompañamiento técnico 1 a 1 para escalar tiendas online.
 
 ## Recursos y Demos
+- [Blog Técnico y SEO](/blog/)
 - [Proyectos y Demos](/demos) - Ejemplos de trabajo técnico y diseño.
 
-## Información Corporativa
+## Información Corporativa y Legal
 - [Sobre Nosotros](/nosotros) - Filosofía y enfoque de trabajo.
-- [Contacto](/contacto) - Solicitud de presupuestos y consultas en la zona de Alcoy/Cocentaina.
-
-## Información Legal
+- [Contacto](/contacto) - Solicitud de presupuestos y consultas locales.
 - [Política de Privacidad](/privacidad)
 - [Aviso Legal](/aviso-legal)
 - [Política de Cookies](/cookies)
-
-## Acceso Especializado
-- [Blog Técnico y SEO](https://mndesignweb.es/blog/)
-- [Landing: Mentorías Shopify 1 a 1](https://descubre.mndesignweb.es/aprende-shopify/)
-- [Landing: Psicólogos](https://descubre.mndesignweb.es/psicologos/)
-- [Landing: Portal Salud Platafroma Clínicas de Nutricion, dietistas, terapéutas, psicólogos y profesionales de la salud](https://descubre.mndesignweb.es/clinicas/)
-- [Landing: Invitaciones de boda digitales](https://descubre.mndesignweb.es/bodas/)
-- [Landing: Academia E-Learning Online para nutricionistas, dietistas, terapéutas, psicólogos y profesionales de la salud](https://descubre.mndesignweb.es/academia-nutricion/)
-- [Rescate Kit Digital](/rescate-kit-digital) - Solución técnica específica para optimización.
