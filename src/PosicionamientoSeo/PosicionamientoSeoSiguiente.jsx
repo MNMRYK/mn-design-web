@@ -57,7 +57,7 @@ const PosicionamientoSeoSiguiente = () => {
 
   // Tres puntos de origen en España disparando al mundo
   const sampleArcs = [
-    // Desde Alcoy/Alicante (38.69, -0.47)
+    // Desde Alcoi/Alicante (38.69, -0.47)
     {
       order: 1,
       startLat: 38.6983,

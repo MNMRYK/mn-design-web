@@ -88,7 +88,7 @@ const PosicionamientoSeo = () => {
   return (
     <>
       <Helmet>
-        <title>Posicionamiento SEO en Alcoy 2026 | MN Design Web</title>
+        <title>Posicionamiento SEO en Alcoi 2026 | MN Design Web</title>
         <link
           rel="canonical"
           href="https://mndesignweb.es/posicionamiento-seo"
@@ -101,7 +101,7 @@ const PosicionamientoSeo = () => {
         />
         <meta
           property="og:title"
-          content="Posicionamiento SEO en Alcoy 2026 | MN Design Web"
+          content="Posicionamiento SEO en Alcoi 2026 | MN Design Web"
         />
         <meta
           property="og:description"
@@ -121,7 +121,7 @@ const PosicionamientoSeo = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Posicionamiento SEO en Alcoy 2026 | MN Design Web"
+          content="Posicionamiento SEO en Alcoi 2026 | MN Design Web"
         />
         <meta
           name="twitter:description"

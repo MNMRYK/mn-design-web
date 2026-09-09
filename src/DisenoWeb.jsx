@@ -133,21 +133,21 @@ const DisenoWeb = () => {
   return (
     <>
       <Helmet>
-        <title>Diseño Web Profesional en Alcoy 2026 | MN Design Web</title>
+        <title>Diseño Web Profesional en Alcoi 2026 | MN Design Web</title>
         <link rel="canonical" href="https://mndesignweb.es/disenoweb" />
 
         <meta
           name="description"
-          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoy."
+          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
         />
 
         <meta
           property="og:title"
-          content="Diseño Web Profesional en Alcoy 2026 | MN Design Web"
+          content="Diseño Web Profesional en Alcoi 2026 | MN Design Web"
         />
         <meta
           property="og:description"
-          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoy."
+          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
         />
         <meta property="og:url" content="https://mndesignweb.es/disenoweb" />
         <meta property="og:type" content="website" />
@@ -160,11 +160,11 @@ const DisenoWeb = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Diseño Web Profesional en Alcoy 2026 | MN Design Web"
+          content="Diseño Web Profesional en Alcoi 2026 | MN Design Web"
         />
         <meta
           name="twitter:description"
-          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoy."
+          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
         />
         <meta
           name="twitter:image"

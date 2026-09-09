@@ -90,7 +90,7 @@ const Ecommerce = () => {
     <>
       <Helmet>
         <title>
-          Tienda Online y E-commerce Profesional en Alcoy 2026 | MN Design Web
+          Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web
         </title>
         <link rel="canonical" href="https://mndesignweb.es/e-commerce" />
 
@@ -102,7 +102,7 @@ const Ecommerce = () => {
 
         <meta
           property="og:title"
-          content="Tienda Online y E-commerce Profesional en Alcoy 2026 | MN Design Web"
+          content="Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web"
         />
         <meta
           property="og:description"
@@ -119,7 +119,7 @@ const Ecommerce = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Tienda Online y E-commerce Profesional en Alcoy 2026 | MN Design Web"
+          content="Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web"
         />
         <meta
           name="twitter:description"

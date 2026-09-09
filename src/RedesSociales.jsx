@@ -98,7 +98,7 @@ const RedesSociales = () => {
   return (
     <>
       <Helmet>
-        <title>Gestión de Redes Sociales en Alcoy 2026 | MN Design Web</title>
+        <title>Gestión de Redes Sociales en Alcoi 2026 | MN Design Web</title>
         <link rel="canonical" href="https://mndesignweb.es/redes-sociales" />
 
         {/* 🔥 TÍTULOS Y DESCRIPCIONES 100% UNIFICADOS 🔥 */}
@@ -109,7 +109,7 @@ const RedesSociales = () => {
 
         <meta
           property="og:title"
-          content="Gestión de Redes Sociales en Alcoy 2026 | MN Design Web"
+          content="Gestión de Redes Sociales en Alcoi 2026 | MN Design Web"
         />
         <meta
           property="og:description"
@@ -129,7 +129,7 @@ const RedesSociales = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="Gestión de Redes Sociales en Alcoy 2026 | MN Design Web"
+          content="Gestión de Redes Sociales en Alcoi 2026 | MN Design Web"
         />
         <meta
           name="twitter:description"

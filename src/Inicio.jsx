@@ -27,10 +27,10 @@ const Inicio = () => {
       logo: "https://mndesignweb.es/favicon_v2.webp",
       image: "https://mndesignweb.es/logo-card.webp",
       description:
-        "Agencia de desarrollo y diseño web premium en Alcoy, Alicante. Especialistas en Diseño Web, E-commerce, posicionamiento SEO y Redes Sociales.",
+        "Agencia de desarrollo y diseño web premium en Alcoi, Alicante. Especialistas en Diseño Web, E-commerce, posicionamiento SEO y Redes Sociales.",
       address: {
         "@type": "PostalAddress",
-        addressLocality: "Alcoy",
+        addressLocality: "Alcoi",
         addressCountry: "ES",
       },
       contactPoint: {
@@ -184,22 +184,22 @@ const Inicio = () => {
   return (
     <>
       <Helmet>
-        <title>MN Design Web | Diseño Web en Alcoy, E-commerce y SEO</title>
+        <title>MN Design Web | Diseño Web en Alcoi, E-commerce y SEO</title>
 
         <link rel="canonical" href="https://mndesignweb.es/" />
 
         <meta
           name="description"
-          content="Diseño web profesional en Alcoy. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+          content="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
         />
 
         <meta
           property="og:title"
-          content="MN Design Web | Diseño Web en Alcoy, E-commerce y SEO"
+          content="MN Design Web | Diseño Web en Alcoi, E-commerce y SEO"
         />
         <meta
           property="og:description"
-          content="Diseño web profesional en Alcoy. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+          content="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
         />
         <meta property="og:url" content="https://mndesignweb.es/" />
         <meta property="og:type" content="website" />
@@ -212,11 +212,11 @@ const Inicio = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta
           name="twitter:title"
-          content="MN Design Web | Diseño Web en Alcoy, E-commerce y SEO"
+          content="MN Design Web | Diseño Web en Alcoi, E-commerce y SEO"
         />
         <meta
           name="twitter:description"
-          content="Diseño web profesional en Alcoy. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+          content="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
         />
         <meta
           name="twitter:image"
