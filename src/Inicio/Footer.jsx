@@ -40,7 +40,8 @@ const Footer = () => {
                 <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
                 <li><a href="https://mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
                 <li><a href="https://mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
-                <li><a href="https://mndesignweb.es/psicologos/">Psicólogos Portal Salud</a></li>
+                <li><a href="https://mndesignweb.es/nutricionistas/">Diseño Web Nutricionistas</a></li>
+                <li><a href="https://mndesignweb.es/psicologos/">Diseño Web Psicólogos</a></li>
                 <li><a href="https://mndesignweb.es/bodas/">Invitaciones Bodas</a></li>
               </ul>
             </div>

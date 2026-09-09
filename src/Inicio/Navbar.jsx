@@ -100,6 +100,14 @@ const Navbar = () => {
                 <a href="/posicionamiento-seo">Posicionamiento SEO</a>
               </li>
               <li>
+                <a href="https://mndesignweb.es/psicologos/">Psicólogos</a>
+              </li>
+              <li>
+                <a href="https://mndesignweb.es/nutricionistas/">
+                  Nutricionistas
+                </a>
+              </li>
+              <li>
                 <a href="https://mndesignweb.es/academia-nutricion/">
                   Academias E-Learning
                 </a>
@@ -107,11 +115,6 @@ const Navbar = () => {
               <li>
                 <a href="https://mndesignweb.es/clinicas/">
                   Plataforma Portal Salud
-                </a>
-              </li>
-              <li>
-                <a href="https://mndesignweb.es/psicologos/">
-                  Psicólogos
                 </a>
               </li>
               <li>
