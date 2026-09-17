@@ -35,9 +35,9 @@ const Footer = () => {
             <div className="footer-column">
               <h3>ESPECIALIDADES</h3>
               <ul>
-                <li><a href="/disenoweb">Diseño Web</a></li>
-                <li><a href="/e-commerce">E-commerce</a></li>
-                <li><a href="/posicionamiento-seo">Posicionamiento SEO</a></li>
+                <li><a href="/disenoweb/">Diseño Web</a></li>
+                <li><a href="/e-commerce/">E-commerce</a></li>
+                <li><a href="/posicionamiento-seo/">Posicionamiento SEO</a></li>
                 <li><a href="https://mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
                 <li><a href="https://mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
                 <li><a href="https://mndesignweb.es/nutricionistas/">Diseño Web Nutricionistas</a></li>
@@ -49,8 +49,8 @@ const Footer = () => {
             <div className="footer-column">
               <h3>EMPRESA</h3>
               <ul>
-                <li><a href="/contacto">Contacto</a></li>
-                <li><a href="/nosotros">Nosotros</a></li>
+                <li><a href="/contacto/">Contacto</a></li>
+                <li><a href="/nosotros/">Nosotros</a></li>
                 <li><a href="https://mndesignweb.es/aprende-shopify/">Aprende Shopify</a></li>
                 <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
                 <li><a href="https://mndesignweb.es/alcoi/">Diseño Web Alcoi</a></li>
@@ -107,9 +107,9 @@ const Footer = () => {
           </div>
 
           <div className="footer-legal">
-            <a href="/aviso-legal">Aviso legal</a>
-            <a href="/privacidad">Política de privacidad</a>
-            <a href="/cookies">Política de Cookies</a>
+            <a href="/aviso-legal/">Aviso legal</a>
+            <a href="/privacidad/">Política de privacidad</a>
+            <a href="/cookies/">Política de Cookies</a>
           </div>
 
           <div className="footer-copy">

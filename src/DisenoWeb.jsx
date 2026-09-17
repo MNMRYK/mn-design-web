@@ -134,7 +134,7 @@ const DisenoWeb = () => {
     <>
       <Helmet>
         <title>Diseño Web Profesional en Alcoi 2026 | MN Design Web</title>
-        <link rel="canonical" href="https://mndesignweb.es/disenoweb" />
+        <link rel="canonical" href="https://mndesignweb.es/disenoweb/" />
 
         <meta
           name="description"
@@ -149,7 +149,7 @@ const DisenoWeb = () => {
           property="og:description"
           content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
         />
-        <meta property="og:url" content="https://mndesignweb.es/disenoweb" />
+        <meta property="og:url" content="https://mndesignweb.es/disenoweb/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -211,7 +211,7 @@ const DisenoWeb = () => {
                     "@type": "ListItem",
                     position: 2,
                     name: "Diseño Web",
-                    item: "https://mndesignweb.es/disenoweb",
+                    item: "https://mndesignweb.es/disenoweb/",
                   },
                 ],
               },

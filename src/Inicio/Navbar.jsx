@@ -86,10 +86,10 @@ const Navbar = () => {
             </a>
             <ul className="desplegable">
               <li>
-                <a href="/disenoweb">Diseño Web</a>
+                <a href="/disenoweb/">Diseño Web</a>
               </li>
               <li>
-                <a href="/e-commerce">E-commerce</a>
+                <a href="/e-commerce/">E-commerce</a>
               </li>
               <li>
                 <a href="https://mndesignweb.es/aprende-shopify/">
@@ -97,7 +97,7 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="/posicionamiento-seo">Posicionamiento SEO</a>
+                <a href="/posicionamiento-seo/">Posicionamiento SEO</a>
               </li>
               <li>
                 <a href="https://mndesignweb.es/psicologos/">Psicólogos</a>
@@ -118,21 +118,21 @@ const Navbar = () => {
                 </a>
               </li>
               <li>
-                <a href="/redes-sociales">Redes Sociales</a>
+                <a href="/redes-sociales/">Redes Sociales</a>
               </li>
             </ul>
           </li>
           <li>
-            <a href="/demos">Demos</a>
+            <a href="/demos/">Demos</a>
           </li>
           <li>
             <a href="https://mndesignweb.es/blog/">Blog</a>
           </li>
           <li>
-            <a href="/nosotros">Nosotros</a>
+            <a href="/nosotros/">Nosotros</a>
           </li>
           <li>
-            <a href="/contacto" className="boton-contacto">
+            <a href="/contacto/" className="boton-contacto">
               Contacto
             </a>
           </li>

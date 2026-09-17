@@ -92,7 +92,7 @@ const Ecommerce = () => {
         <title>
           Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web
         </title>
-        <link rel="canonical" href="https://mndesignweb.es/e-commerce" />
+        <link rel="canonical" href="https://mndesignweb.es/e-commerce/" />
 
         {/* 🔥 TEXTOS DE SEO UNIFICADOS 🔥 */}
         <meta
@@ -108,7 +108,7 @@ const Ecommerce = () => {
           property="og:description"
           content="Expertos en desarrollo E-Commerce: Shopify, WooCommerce o tiendas a medida. Creamos tu tienda online optimizada para vender 24/7. ¡Pide tu presupuesto!"
         />
-        <meta property="og:url" content="https://mndesignweb.es/e-commerce" />
+        <meta property="og:url" content="https://mndesignweb.es/e-commerce/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -169,7 +169,7 @@ const Ecommerce = () => {
                     "@type": "ListItem",
                     position: 2,
                     name: "E-commerce",
-                    item: "https://mndesignweb.es/e-commerce",
+                    item: "https://mndesignweb.es/e-commerce/",
                   },
                 ],
               },

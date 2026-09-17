@@ -93,7 +93,7 @@ const LandingLayout = () => {
         <title>MN Design Web | Rescate de Proyectos Web y Kit Digital</title>
         <link
           rel="canonical"
-          href="https://mndesignweb.es/rescate-kit-digital"
+          href="https://mndesignweb.es/rescate-kit-digital/"
         />
         <meta
           name="description"
@@ -110,7 +110,7 @@ const LandingLayout = () => {
         />
         <meta
           property="og:url"
-          content="https://mndesignweb.es/rescate-kit-digital"
+          content="https://mndesignweb.es/rescate-kit-digital/"
         />
         <meta property="og:type" content="website" />
         <meta
@@ -181,7 +181,7 @@ const LandingLayout = () => {
                     "@type": "ListItem",
                     position: 2,
                     name: "Rescate de Proyectos",
-                    item: "https://mndesignweb.es/rescate-kit-digital",
+                    item: "https://mndesignweb.es/rescate-kit-digital/",
                   },
                 ],
               },

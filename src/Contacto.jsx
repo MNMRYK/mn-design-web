@@ -66,12 +66,12 @@ const Contacto = () => {
     <>
       <Helmet>
         <title>Contacto | MN Design Web - Diseño Web en Alicante</title>
-        <link rel="canonical" href="https://mndesignweb.es/contacto" />
+        <link rel="canonical" href="https://mndesignweb.es/contacto/" />
         <meta name="description" content="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce. ¡Pide tu presupuesto sin compromiso!" />
         
         <meta property="og:title" content="Contacto | MN Design Web" />
         <meta property="og:description" content="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce." />
-        <meta property="og:url" content="https://mndesignweb.es/contacto" />
+        <meta property="og:url" content="https://mndesignweb.es/contacto/" />
         <meta property="og:type" content="website" />
         <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
         <meta property="og:site_name" content="MN Design Web" />
@@ -104,7 +104,7 @@ const Contacto = () => {
                 "@type": "BreadcrumbList",
                 "itemListElement": [
                   { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://mndesignweb.es/" },
-                  { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://mndesignweb.es/contacto" }
+                  { "@type": "ListItem", "position": 2, "name": "Contacto", "item": "https://mndesignweb.es/contacto/" }
                 ]
               },
               {

@@ -18,7 +18,7 @@ const Demos = () => {
     name: "Demos y Proyectos de Diseño Web",
     description:
       "Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos.",
-    url: "https://mndesignweb.es/demos",
+    url: "https://mndesignweb.es/demos/",
   };
 
   // 2. Schema de "FAQPage"
@@ -162,7 +162,7 @@ const Demos = () => {
         <title>
           Demos y Prototipos | MN Design Web - Estudio Diseño Web en Alicante
         </title>
-        <link rel="canonical" href="https://mndesignweb.es/demos" />
+        <link rel="canonical" href="https://mndesignweb.es/demos/" />
 
         {/* 🔥 AHORA SÍ: TODAS LAS DESCRIPCIONES IGUALES 🔥 */}
         <meta
@@ -178,7 +178,7 @@ const Demos = () => {
           property="og:description"
           content="Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos."
         />
-        <meta property="og:url" content="https://mndesignweb.es/demos" />
+        <meta property="og:url" content="https://mndesignweb.es/demos/" />
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
@@ -228,7 +228,7 @@ const Demos = () => {
                     "@type": "ListItem",
                     position: 2,
                     name: "Demos",
-                    item: "https://mndesignweb.es/demos",
+                    item: "https://mndesignweb.es/demos/",
                   },
                 ],
               },

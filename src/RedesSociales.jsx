@@ -58,7 +58,7 @@ const RedesSociales = () => {
         "@type": "ListItem",
         position: 3,
         name: "Redes Sociales",
-        item: "https://mndesignweb.es/redes-sociales/",
+        item: "https://mndesignweb.es/redes-sociales//",
       },
     ],
   };
@@ -99,7 +99,7 @@ const RedesSociales = () => {
     <>
       <Helmet>
         <title>Gestión de Redes Sociales en Alcoi 2026 | MN Design Web</title>
-        <link rel="canonical" href="https://mndesignweb.es/redes-sociales" />
+        <link rel="canonical" href="https://mndesignweb.es/redes-sociales/" />
 
         {/* 🔥 TÍTULOS Y DESCRIPCIONES 100% UNIFICADOS 🔥 */}
         <meta
@@ -117,7 +117,7 @@ const RedesSociales = () => {
         />
         <meta
           property="og:url"
-          content="https://mndesignweb.es/redes-sociales"
+          content="https://mndesignweb.es/redes-sociales/"
         />
         <meta property="og:type" content="website" />
         <meta

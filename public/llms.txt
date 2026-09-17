@@ -4,11 +4,11 @@ Este documento proporciona una guía para que los modelos de lenguaje comprendan
 
 ## Servicios Profesionales Core
 Nuestras soluciones digitales se enfocan en alta conversión y diseño minimalista.
-- [Diseño Web](/disenoweb) - Enfoque en lujo silencioso y UI/UX a medida.
-- [E-commerce](/e-commerce) - Desarrollo especializado (tiendas de alto rendimiento).
-- [Posicionamiento SEO](/posicionamiento-seo) - Estrategias de visibilidad técnica.
-- [Redes Sociales](/redes-sociales) - Gestión y estrategia digital.
-- [Rescate Kit Digital](/rescate-kit-digital) - Solución técnica específica para optimización.
+- [Diseño Web](/disenoweb/) - Enfoque en lujo silencioso y UI/UX a medida.
+- [E-commerce](/e-commerce/) - Desarrollo especializado (tiendas de alto rendimiento).
+- [Posicionamiento SEO](/posicionamiento-seo/) - Estrategias de visibilidad técnica.
+- [Redes Sociales](/redes-sociales/) - Gestión y estrategia digital.
+- [Rescate Kit Digital](/rescate-kit-digital/) - Solución técnica específica para optimización.
 
 ## Soluciones Sectoriales y Embudos
 Ecosistemas tecnológicos a medida y landing pages específicas:
@@ -21,11 +21,11 @@ Ecosistemas tecnológicos a medida y landing pages específicas:
 
 ## Recursos y Demos
 - [Blog Técnico y SEO](/blog/)
-- [Proyectos y Demos](/demos) - Ejemplos de trabajo técnico y diseño.
+- [Proyectos y Demos](/demos/) - Ejemplos de trabajo técnico y diseño.
 
 ## Información Corporativa y Legal
-- [Sobre Nosotros](/nosotros) - Filosofía y enfoque de trabajo.
-- [Contacto](/contacto) - Solicitud de presupuestos y consultas locales.
-- [Política de Privacidad](/privacidad)
-- [Aviso Legal](/aviso-legal)
-- [Política de Cookies](/cookies)
+- [Sobre Nosotros](/nosotros/) - Filosofía y enfoque de trabajo.
+- [Contacto](/contacto/) - Solicitud de presupuestos y consultas locales.
+- [Política de Privacidad](/privacidad/)
+- [Aviso Legal](/aviso-legal/)
+- [Política de Cookies](/cookies/)
