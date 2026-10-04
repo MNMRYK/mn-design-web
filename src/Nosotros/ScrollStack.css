@@ -5,7 +5,6 @@
   overflow: visible; 
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
-  will-change: scroll-position;
   z-index: 5;
 }
 
@@ -26,7 +25,7 @@
 
 .scroll-stack-card {
   transform-origin: top center;
-  will-change: transform, filter;
+  /* will-change: lo pone ScrollStack.jsx solo mientras la sección está en pantalla */
   backface-visibility: hidden;
   transform-style: preserve-3d;
   box-shadow: none;

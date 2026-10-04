@@ -19,6 +19,9 @@ const FasesRedes = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
+    // gsap.context: al desmontar se deshacen solo las animaciones de este componente
+    // (también si sale antes por no encontrar los pasos)
+    const ctx = gsap.context(() => {
     // 1. Animación inicial de entrada (Sustituye al motion)
     gsap.fromTo(wrapperRef.current, 
         { opacity: 0, y: 40 }, 
@@ -52,7 +55,9 @@ const FasesRedes = () => {
         tl.to(nodo, { backgroundColor: "#A672FF", borderColor: "#ffffff", scale: 1.3, boxShadow: "0 0 30px rgba(166, 114, 255, 0.8)", duration: 0.2 }, startAt);
     });
 
-    return () => ScrollTrigger.getAll().forEach(t => t.kill());
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (

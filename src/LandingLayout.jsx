@@ -31,7 +31,6 @@ const LandingLayout = () => {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();
     };
   }, []);

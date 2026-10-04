@@ -173,7 +173,6 @@ const ScrollStack = ({
     cardsRef.current = cards;
     
     cards.forEach((card) => {
-      card.style.willChange = 'transform';
       card.style.transformOrigin = 'top center';
       card.style.backfaceVisibility = 'hidden';
     });
@@ -199,8 +198,20 @@ const ScrollStack = ({
     };
     window.addEventListener('resize', handleResize);
 
+    // Las tarjetas cambian de transform en cada scroll: will-change solo mientras la sección
+    // está en pantalla (o a punto), para no reservar capas de GPU el resto del tiempo
+    const capas = new IntersectionObserver(
+      (entradas) => {
+        const valor = entradas[0].isIntersecting ? 'transform' : 'auto';
+        cards.forEach((card) => { card.style.willChange = valor; });
+      },
+      { rootMargin: '200px 0px' }
+    );
+    capas.observe(scrollerRef.current);
+
     return () => {
       window.removeEventListener('resize', handleResize);
+      capas.disconnect();
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
       if (lenisRef.current) lenisRef.current.destroy();
       cardsRef.current = [];

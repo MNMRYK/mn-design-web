@@ -115,7 +115,6 @@ const Demos = () => {
     }
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();
     };
   }, []);

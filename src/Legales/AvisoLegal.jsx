@@ -22,7 +22,7 @@ const AvisoLegal = () => {
             }
         });
 
-        return () => { ScrollTrigger.getAll().forEach(t => t.kill()); lenis.destroy(); };
+        return () => { lenis.destroy(); };
 
     }, []);
 

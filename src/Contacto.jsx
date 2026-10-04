@@ -57,7 +57,7 @@ const Contacto = () => {
       }
     });
 
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); lenis.destroy(); };
+    return () => { lenis.destroy(); };
   }, []);
 
   return (

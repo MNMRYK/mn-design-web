@@ -76,7 +76,6 @@ const PosicionamientoSeo = () => {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();
     };
   }, []);

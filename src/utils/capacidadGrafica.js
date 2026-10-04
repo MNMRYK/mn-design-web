@@ -11,7 +11,8 @@ export const prefiereMenosMovimiento = () =>
 export const modoLigero = () => {
   if (typeof navigator === "undefined") return true;
   if (prefiereMenosMovimiento()) return true;
-  if (typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 4) return true;
+  // 2 GB o menos: los móviles de gama media (4 GB) mantienen el fondo animado
+  if (typeof navigator.deviceMemory === "number" && navigator.deviceMemory <= 2) return true;
   if (navigator.connection && navigator.connection.saveData) return true;
   return false;
 };

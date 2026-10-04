@@ -18,6 +18,8 @@ const RutaTrabajo = () => {
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
+        // gsap.context: al desmontar se deshacen solo las animaciones y el pin de este componente
+        const ctx = gsap.context(() => {
         const sectionWrapper = containerRef.current.closest('.contacto-section-wrapper');
         // 1. Calculamos la distancia exacta desde el primer punto hasta el último
         const ultimoPaso = pasosRef.current[pasos.length - 1];
@@ -69,9 +71,9 @@ const RutaTrabajo = () => {
             }, startAt);
         });
 
-        return () => {
-            ScrollTrigger.getAll().forEach(t => t.kill());
-        };
+        }, containerRef);
+
+        return () => ctx.revert();
     }, []);
 
   return (

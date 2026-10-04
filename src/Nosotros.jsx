@@ -60,7 +60,6 @@ const Nosotros = () => {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();
     };
   }, []);

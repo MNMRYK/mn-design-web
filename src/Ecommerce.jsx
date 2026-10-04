@@ -77,7 +77,6 @@ const Ecommerce = () => {
     });
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();
     };
   }, []);

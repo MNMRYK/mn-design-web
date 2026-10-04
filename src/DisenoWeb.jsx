@@ -121,7 +121,6 @@ const DisenoWeb = () => {
     gsap.ticker.lagSmoothing(0);
 
     return () => {
-      ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();
     };
   }, []);

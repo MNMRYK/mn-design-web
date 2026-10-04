@@ -22,7 +22,7 @@ const PoliticaCookies = () => {
         }
         });
 
-        return () => { ScrollTrigger.getAll().forEach(t => t.kill()); lenis.destroy(); };
+        return () => { lenis.destroy(); };
     }, []);
 
     return (
@@ -61,6 +61,11 @@ const PoliticaCookies = () => {
                 <h3>Google Analytics (cookies de análisis)</h3>
                 <p>
                     Si aceptas las cookies, usamos Google Analytics, un servicio de Google Ireland Limited, para saber cuántas personas visitan la web, de dónde llegan y qué páginas consultan. Las cookies son <code>_ga</code> (distingue a los usuarios de forma anónima, 2 años) y <code>_ga_&lt;ID&gt;</code> (mantiene el estado de la sesión, 2 años). Los datos pueden transferirse a Estados Unidos; Google está adherida al Marco de Privacidad de Datos UE-EE. UU. Puedes retirar tu consentimiento en cualquier momento desde «Configurar cookies» o borrando las cookies del navegador. Más información: <a href="https://policies.google.com/privacy?hl=es" target="_blank" rel="noopener noreferrer">https://policies.google.com/privacy?hl=es</a>
+                </p>
+
+                <h3>Google Ads (cookies publicitarias)</h3>
+                <p>
+                    Si aceptas las cookies, la etiqueta de Google de esta web también envía información a Google Ads, un servicio de Google Ireland Limited, para medir qué visitas y contactos llegan desde nuestros anuncios y para mostrarte anuncios de MN Design Web cuando navegas por otras webs (remarketing). Las cookies son <code>_gcl_au</code> (mide las conversiones de los anuncios, 90 días), <code>IDE</code> (de doubleclick.net, para mostrar y medir anuncios de remarketing, 13 meses) y <code>test_cookie</code> (de doubleclick.net, comprueba si el navegador admite cookies, 15 minutos). Los datos pueden transferirse a Estados Unidos; Google está adherida al Marco de Privacidad de Datos UE-EE. UU. Puedes retirar tu consentimiento en cualquier momento desde «Configurar cookies» o borrando las cookies del navegador. Más información: <a href="https://policies.google.com/technologies/ads?hl=es" target="_blank" rel="noopener noreferrer">https://policies.google.com/technologies/ads?hl=es</a>
                 </p>
 
                 <h3>Píxel de Meta (cookies publicitarias)</h3>

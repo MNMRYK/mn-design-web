@@ -137,9 +137,10 @@ const Inicio = () => {
 
     gsap.ticker.lagSmoothing(0);
 
+    let pinHero = null;
     const timer = setTimeout(() => {
       if (window.innerWidth > 768) {
-        ScrollTrigger.create({
+        pinHero = ScrollTrigger.create({
           trigger: ".hero-section-container",
           start: "top top",
           pin: true,
@@ -153,7 +154,8 @@ const Inicio = () => {
 
     return () => {
       clearTimeout(timer);
-      ScrollTrigger.getAll().forEach((t) => t.kill());
+      // Solo el trigger de esta página: los componentes limpian los suyos
+      if (pinHero) pinHero.kill(true);
       lenis.destroy();
     };
   }, []);

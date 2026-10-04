@@ -44,7 +44,7 @@
   align-items: center;
   box-shadow: 0 -15px 35px rgba(53, 0, 83, 0.3);
   transition: none !important; 
-  will-change: transform;
+  /* will-change: lo pone ScrollStack.jsx solo mientras la sección está en pantalla */
 }
 
 .card-inner {
