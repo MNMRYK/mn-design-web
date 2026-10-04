@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import './ContactoRescate.css';
 import { registrarLead } from "../utils/analitica";
+import CalendarioCal from "../utils/CalendarioCal";
 
 const ContactoRescate = () => {
     const [formData, setFormData] = useState({ 
@@ -79,15 +80,7 @@ const ContactoRescate = () => {
                 <div className="contacto-left ">
                     <h2 className="title-white">Reserva tu plaza para la auditoría de rescate</h2>
                     <div className="cal-widget">
-                        <iframe 
-                            src="https://cal.com/mndesignweb/asesoramiento-kit-digital" 
-                            title="Reserva tu cita"
-                            className="calendar-iframe"
-                            width="100%"
-                            height="100%"
-                            scrolling="auto"
-                            frameBorder="0"
-                        />
+                        <CalendarioCal calLink="mndesignweb/asesoramiento-kit-digital" nombre="rescate" className="calendar-cal" />
                     </div>
                     <ul className="beneficios-lista">
                         <li>

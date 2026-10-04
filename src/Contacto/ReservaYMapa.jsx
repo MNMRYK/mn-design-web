@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import './ReservaYMapa.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import animacionReserva from '../assets/animations/reserva-movil.json';
+import CalendarioCal from "../utils/CalendarioCal";
 
 const customIcon = new L.DivIcon({
   className: 'custom-neon-marker',
@@ -67,13 +68,7 @@ const ReservaYMapa = () => {
 
             {/* CONTENEDOR DEL WIDGET  */}
             <div className="calendar-embed-container">
-                <iframe 
-                    src="https://cal.com/mndesignweb/reunion-30-min?embed=true"
-                    title="Reserva de citas"
-                    frameBorder="0" 
-                    scrolling="auto"
-                    className="calendar-iframe"
-                />
+                <CalendarioCal calLink="mndesignweb/reunion-30-min" nombre="contacto" className="calendar-cal" />
             </div>
         </motion.div>
 
