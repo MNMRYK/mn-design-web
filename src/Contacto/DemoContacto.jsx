@@ -9,7 +9,7 @@ const DemoContacto = () => {
 
   const handleScrollSmooth = (e) => {
     // Si estamos exactamente en la página de demos, hacemos el scroll suave de siempre
-    if (location.pathname === "/demos") {
+    if (location.pathname.replace(/\/+$/, "") === "/demos") {
       e.preventDefault();
       const seccionFormulario = document.getElementById("solicitar-demo");
       if (seccionFormulario) {
@@ -31,20 +31,20 @@ const DemoContacto = () => {
       <header className="hero-demos-container">
         <div className="hero-demos-text">
           <span className="hero-badge"> Laboratorio de Diseño</span>
-          <h1>
+          <h2>
             Demos y <span className="text-neon-glow">Prototipos</span>
-          </h1>
+          </h2>
           <p>
             Explora diseños de alto rendimiento creados a medida para diferentes
             sectores comerciales. Interfaces preparadas para escalar y
             convertir.
           </p>
           <div className="hero-cta-buttons">
-            <a href="/demos" className="btn-primary-hero">
+            <a href="/demos/" className="btn-primary-hero">
               Descubrir Demos
             </a>
             <a
-              href="/demos#solicitar-demo"
+              href="/demos/#solicitar-demo"
               className="btn-secondary-hero"
               onClick={handleScrollSmooth}
             >

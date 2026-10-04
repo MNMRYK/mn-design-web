@@ -106,7 +106,8 @@
   border: 1px solid rgba(126, 87, 194, 0.2);
 }
 
-.hero-demos-text h1 {
+.hero-demos-text h1,
+.hero-demos-text h2 {
   font-family: 'Montserrat', sans-serif;
   font-size: 3.5rem;
   font-weight: 800;
@@ -804,7 +805,8 @@
     padding: 40px 30px;
   }
   
-  .hero-demos-text h1 {
+  .hero-demos-text h1,
+  .hero-demos-text h2 {
     font-size: 2.8rem;
   }
   

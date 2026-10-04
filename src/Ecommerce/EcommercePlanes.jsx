@@ -87,7 +87,7 @@ const EcommercePlanes = () => {
                             <li><i className="fa-solid fa-check"></i> Formación para subir productos.</li>
                         </ul>
                         <a 
-                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Básico%20de%20E-commerce."
+                            href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Básico%20de%20E-commerce."
                             rel="noopener noreferrer" 
                             target="_blank" 
                             className="ec-btn-plan-secundario"
@@ -109,7 +109,7 @@ const EcommercePlanes = () => {
                             <li><i className="fa-solid fa-check"></i> Mantenimiento preventivo incluido.</li>
                         </ul>
                         <a 
-                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20E-commerce."
+                            href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20E-commerce."
                             rel="noopener noreferrer" 
                             target="_blank" 
                             className="ec-btn-plan-primario"
@@ -130,7 +130,7 @@ const EcommercePlanes = () => {
                             <li><i className="fa-solid fa-check"></i> Soporte técnico preferente.</li>
                         </ul>
                         <a 
-                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20E-commerce."
+                            href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20E-commerce."
                             rel="noopener noreferrer" 
                             target="_blank" 
                             className="ec-btn-plan-secundario"

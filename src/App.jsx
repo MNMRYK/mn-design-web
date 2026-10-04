@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react"; // 🔥 1. Importamos lazy y Suspense
+import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import { Toaster } from 'react-hot-toast';
@@ -8,21 +8,25 @@ import { Bubble } from "@typebot.io/react";
 import Navbar from './Inicio/Navbar';
 import Footer from './Inicio/Footer';
 import CookieBanner from './Legales/CookieBanner';
+import { esPrerender } from './utils/prerender';
 
-// 🚀 IMPORTS DINÁMICOS (LA DIETA): Solo se descargan cuando el usuario hace clic
-const Inicio = lazy(() => import('./Inicio.jsx')); 
-const Nosotros = lazy(() => import('./Nosotros.jsx')); 
-const Contacto = lazy(() => import('./Contacto.jsx'));
-const DisenoWeb = lazy(() => import('./DisenoWeb.jsx'));
-const Ecommerce = lazy(() => import('./Ecommerce.jsx'));
-const PosicionamientoSeo = lazy(() => import('./PosicionamientoSeo.jsx'));
-const RedesSociales = lazy(() => import('./RedesSociales.jsx'));
-const Demos = lazy(() => import('./Demos.jsx'));
-const PoliticaPrivacidad = lazy(() => import('./Legales/PoliticaPrivacidad.jsx'));
-const AvisoLegal = lazy(() => import('./Legales/AvisoLegal.jsx'));
-const PoliticaCookies = lazy(() => import('./Legales/PoliticaCookies.jsx')); 
-const NotFound = lazy(() => import('./NotFound'));
-const LandingLayout = lazy(() => import('./LandingLayout'));
+// 🚀 IMPORTS DINÁMICOS (LA DIETA): cada página se descarga solo cuando hace falta.
+// main.jsx precarga la de la URL actual antes de montar React (ver src/paginas.js).
+import {
+  Inicio,
+  Nosotros,
+  Contacto,
+  DisenoWeb,
+  Ecommerce,
+  PosicionamientoSeo,
+  RedesSociales,
+  Demos,
+  PoliticaPrivacidad,
+  AvisoLegal,
+  PoliticaCookies,
+  NotFound,
+  LandingLayout,
+} from './paginas';
 
 // Importamos los CSS globales
 import "./App.css";
@@ -84,6 +88,8 @@ function App() {
             </Routes>
           </Suspense>
 
+          {/* El chat de Typebot no se pinta durante el prerender: así su script no queda en el HTML estático */}
+          {!esPrerender && (
           <div data-lenis-prevent="true" style={{ overscrollBehavior: 'contain' }}>
             <Bubble
               typebot="my-typebot-7uabkh3"
@@ -129,9 +135,10 @@ function App() {
               }}
             />
           </div>
+          )}
         </main>
 
-        <CookieBanner />
+        {!esPrerender && <CookieBanner />}
 
 
         <Toaster 

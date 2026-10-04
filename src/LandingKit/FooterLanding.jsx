@@ -17,9 +17,9 @@ const FooterLanding = () => {
 
                 {/* CENTRO: Políticas */}
                 <div className="footer-section footer-links">
-                    <a href="/aviso-legal">Aviso Legal</a>
-                    <a href="/privacidad">Privacidad</a>
-                    <a href="/cookies">Cookies</a>
+                    <a href="/aviso-legal/">Aviso Legal</a>
+                    <a href="/privacidad/">Privacidad</a>
+                    <a href="/cookies/">Cookies</a>
                 </div>
 
                 {/* DERECHA: Copyright */}

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
-import { Helmet } from "react-helmet-async";
+import Seo from "./seo/Seo";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
@@ -87,51 +87,11 @@ const PosicionamientoSeo = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Posicionamiento SEO en Alcoi 2026 | MN Design Web</title>
-        <link
-          rel="canonical"
-          href="https://mndesignweb.es/posicionamiento-seo/"
-        />
-
-        {/* 🔥 DESCRIPCIONES UNIFICADAS 🔥 */}
-        <meta
-          name="description"
-          content="Especialistas en posicionamiento SEO para negocios que buscan resultados reales. Optimizamos tu web para aparecer en los primeros puestos de Google. ¡Consigue más clientes hoy!"
-        />
-        <meta
-          property="og:title"
-          content="Posicionamiento SEO en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          property="og:description"
-          content="Especialistas en posicionamiento SEO para negocios que buscan resultados reales. Optimizamos tu web para aparecer en los primeros puestos de Google. ¡Consigue más clientes hoy!"
-        />
-        <meta
-          property="og:url"
-          content="https://mndesignweb.es/posicionamiento-seo/"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Posicionamiento SEO en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          name="twitter:description"
-          content="Especialistas en posicionamiento SEO para negocios que buscan resultados reales. Optimizamos tu web para aparecer en los primeros puestos de Google. ¡Consigue más clientes hoy!"
-        />
-        <meta
-          name="twitter:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-      </Helmet>
+      <Seo
+        ruta="/posicionamiento-seo/"
+        titulo="Posicionamiento SEO en Alcoi 2026 | MN Design Web"
+        descripcion="Especialistas en posicionamiento SEO para negocios que buscan resultados reales. Optimizamos tu web para aparecer en los primeros puestos de Google. ¡Consigue más clientes hoy!"
+      />
 
       <div className="PosicionamientoSeo-page-wrapper">
         <PosicionamientoSeoSiguiente />

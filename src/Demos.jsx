@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -158,48 +158,12 @@ const Demos = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Demos y Prototipos | MN Design Web - Estudio Diseño Web en Alicante
-        </title>
-        <link rel="canonical" href="https://mndesignweb.es/demos/" />
-
-        {/* 🔥 AHORA SÍ: TODAS LAS DESCRIPCIONES IGUALES 🔥 */}
-        <meta
-          name="description"
-          content="Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos."
-        />
-
-        <meta
-          property="og:title"
-          content="Demos y Prototipos | MN Design Web"
-        />
-        <meta
-          property="og:description"
-          content="Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos."
-        />
-        <meta property="og:url" content="https://mndesignweb.es/demos/" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Demos y Prototipos | MN Design Web"
-        />
-        <meta
-          name="twitter:description"
-          content="Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos."
-        />
-        <meta
-          name="twitter:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-      </Helmet>
+      <Seo
+        ruta="/demos/"
+        titulo="Demos y Prototipos | MN Design Web - Estudio Diseño Web en Alicante"
+        descripcion="Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos."
+        tituloSocial="Demos y Prototipos | MN Design Web"
+      />
 
       <div className="demos-page-wrapper">
         <HeaderDemos />

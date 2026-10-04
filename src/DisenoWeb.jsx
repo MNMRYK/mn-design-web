@@ -3,7 +3,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
-import { Helmet } from "react-helmet-async";
+import Seo from "./seo/Seo";
 
 import DisenoWebSiguiente from "./DisenoWeb/DisenoWebSiguiente.jsx";
 import DisenoWebSeccionesEspeciales from "./DisenoWeb/DisenoWebSeccionesEspeciales.jsx";
@@ -132,45 +132,11 @@ const DisenoWeb = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Diseño Web Profesional en Alcoi 2026 | MN Design Web</title>
-        <link rel="canonical" href="https://mndesignweb.es/disenoweb/" />
-
-        <meta
-          name="description"
-          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
-        />
-
-        <meta
-          property="og:title"
-          content="Diseño Web Profesional en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          property="og:description"
-          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
-        />
-        <meta property="og:url" content="https://mndesignweb.es/disenoweb/" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Diseño Web Profesional en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          name="twitter:description"
-          content="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
-        />
-        <meta
-          name="twitter:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-      </Helmet>
+      <Seo
+        ruta="/disenoweb/"
+        titulo="Diseño Web Profesional en Alcoi 2026 | MN Design Web"
+        descripcion="¿Buscas una web que venda? Creamos diseños estratégicos, optimizados y listos para convertir. Especialistas en diseño web en Alcoi."
+      />
 
       <div className="disenoweb-page-wrapper">
         <DisenoWebSiguiente />

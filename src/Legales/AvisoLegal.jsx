@@ -4,16 +4,12 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
+import Seo from "../seo/Seo";
 
 const AvisoLegal = () => {
     
 
     useEffect(() => {
-        const consent = localStorage.getItem('cookieConsent');
-        if (!consent) {
-            setIsVisible(true);
-        }
-
         gsap.registerPlugin(ScrollTrigger);
             const lenis = new Lenis({ 
             duration: 1.2, 
@@ -35,6 +31,11 @@ const AvisoLegal = () => {
 
     return (
         <div className="legal-wrapper">
+            <Seo
+              ruta="/aviso-legal/"
+              titulo="Aviso Legal | MN Design Web"
+              descripcion="Aviso legal de MN Design Web: datos identificativos del titular, condiciones de uso del sitio, propiedad intelectual y exclusión de garantías y responsabilidad."
+            />
             <main className="legal-container">
                 <h1 className="legal-title">Aviso Legal</h1>
 

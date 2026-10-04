@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -89,50 +89,14 @@ const LandingLayout = () => {
 
   return (
     <>
-      <Helmet>
-        <title>MN Design Web | Rescate de Proyectos Web y Kit Digital</title>
-        <link
-          rel="canonical"
-          href="https://mndesignweb.es/rescate-kit-digital/"
-        />
-        <meta
-          name="description"
-          content="¿Tu web del Kit Digital no funciona o está abandonada? En MN Design Web rescatamos proyectos, optimizamos el SEO y relanzamos tu e-commerce. Soluciones profesionales en Alicante."
-        />
-
-        <meta
-          property="og:title"
-          content="MN Design Web | Rescate de Proyectos Web Kit Digital"
-        />
-        <meta
-          property="og:description"
-          content="¿Tu web del Kit Digital no funciona o está abandonada? Recuperamos y optimizamos tu proyecto para que empiece a vender."
-        />
-        <meta
-          property="og:url"
-          content="https://mndesignweb.es/rescate-kit-digital/"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mndesignweb.es/rescate-kit-digital.webp"
-        />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Rescate de Proyectos Web Kit Digital | MN Design Web"
-        />
-        <meta
-          name="twitter:description"
-          content="¿Tu web del Kit Digital no funciona? En MN Design Web rescatamos tu proyecto y lo ponemos a vender."
-        />
-        <meta
-          name="twitter:image"
-          content="https://mndesignweb.es/rescate-kit-digital.webp"
-        />
-      </Helmet>
+      <Seo
+        ruta="/rescate-kit-digital/"
+        titulo="MN Design Web | Rescate de Proyectos Web y Kit Digital"
+        descripcion="¿Tu web del Kit Digital no funciona o está abandonada? En MN Design Web rescatamos proyectos, optimizamos el SEO y relanzamos tu e-commerce. Soluciones profesionales en Alicante."
+        tituloSocial="MN Design Web | Rescate de Proyectos Web Kit Digital"
+        descripcionSocial="¿Tu web del Kit Digital no funciona o está abandonada? Recuperamos y optimizamos tu proyecto para que empiece a vender."
+        imagen="https://mndesignweb.es/rescate-kit-digital.webp"
+      />
 
       <div className="landing-page-wrapper">
         <KitDigitalLanding />

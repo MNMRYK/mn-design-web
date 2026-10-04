@@ -73,17 +73,19 @@ const Navbar = () => {
           <li
             className={`tiene-desplegable ${desplegableAbierto ? "abierto" : ""}`}
           >
-            <a
-              href="#"
-              onClick={(e) => {
+            <button
+              type="button"
+              className="boton-desplegable"
+              aria-haspopup="true"
+              aria-expanded={desplegableAbierto}
+              onClick={() => {
                 if (window.innerWidth <= 1052) {
-                  e.preventDefault();
                   setDesplegableAbierto(!desplegableAbierto);
                 }
               }}
             >
-              Servicios <span className="flecha">▾</span>
-            </a>
+              Servicios <span className="flecha" aria-hidden="true">▾</span>
+            </button>
             <ul className="desplegable">
               <li>
                 <a href="/disenoweb/">Diseño Web</a>

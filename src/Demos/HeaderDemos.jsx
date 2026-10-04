@@ -222,7 +222,7 @@ const HeaderDemos = () => {
               convertir.
             </p>
             <div className="hero-cta-buttons">
-              <a href="/contacto#calendario-reserva" className="btn-primary-hero">
+              <a href="/contacto/#calendario-reserva" className="btn-primary-hero">
                 Empezar Proyecto
               </a>
               <a

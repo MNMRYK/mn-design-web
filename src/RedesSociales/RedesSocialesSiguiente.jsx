@@ -99,7 +99,7 @@ const RedesSocialesSiguiente = () => {
                                     Solicitar Presupuesto
                                 </a>
                                 <a 
-                                    href="http://mndesignweb.es/contacto#calendario-reserva" 
+                                    href="/contacto/#calendario-reserva" 
                                     className="rs-btn-hero-secundario"
                                 >
                                     Agendar Consultoría

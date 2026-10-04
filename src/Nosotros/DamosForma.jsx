@@ -77,7 +77,7 @@ const DamosForma = () => {
                                     </h3>
                                     <p>{item.desc}</p>
                                     {item.isFinal && (
-                                        <Link to="/contacto#calendario-reserva" className="cta-stack btn-empezar-final">
+                                        <Link to="/contacto/#calendario-reserva" className="cta-stack btn-empezar-final">
                                             ¡EMPECEMOS YA!
                                         </Link>
                                     )}

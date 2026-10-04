@@ -1,0 +1,110 @@
+# =====================================================================
+#  mndesignweb.es — .htaccess de la raíz (SiteGround: nginx + Apache)
+#  Lo copia Vite desde public/ a dist/ en cada build.
+#
+#  OJO: en la raíz conviven esta app React, las landings Astro y otros
+#  proyectos (/supplyconnect/). El WordPress de /blog/ tiene su propio
+#  .htaccess; además la regla 0 excluye /blog/ por si acaso.
+#
+#  Sustituye al .htaccess anterior, cuyo fallback global a /index.html
+#  ("RewriteRule . /index.html") provocaba los soft 404: ahora solo las
+#  rutas React conocidas caen en /index.html (regla 6).
+# =====================================================================
+
+Options -MultiViews -Indexes
+# OJO: estas directivas (a diferencia de las de mod_rewrite) se HEREDAN en todas las
+# subcarpetas, también en /blog/. index.php es imprescindible para WordPress:
+# sin él, /blog/ devuelve 403 (no hay index.html y -Indexes prohíbe listar).
+DirectoryIndex index.html index.php
+DirectorySlash On
+
+# 404 real: cualquier URL que no exista devuelve estado 404 con esta página
+ErrorDocument 404 /404.html
+ErrorDocument 410 /404.html
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# ---------------------------------------------------------------------
+# 0. Excepción del blog (WordPress en /blog/): estas reglas no lo tocan
+#    (heredada del .htaccess anterior del servidor)
+# ---------------------------------------------------------------------
+RewriteCond %{REQUEST_URI} ^/blog/ [NC]
+RewriteRule ^ - [L]
+
+# ---------------------------------------------------------------------
+# 1. Dominio canónico: www → sin www (HTTPS lo fuerza ya SiteGround)
+# ---------------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\.mndesignweb\.es$ [NC]
+RewriteRule ^(.*)$ https://mndesignweb.es/$1 [R=301,L,NE]
+
+# ---------------------------------------------------------------------
+# 2. Barras dobles: /privacidad// → /privacidad/
+# ---------------------------------------------------------------------
+RewriteCond %{THE_REQUEST} ^\S+\s([^?\s]*?)//+([^?\s]*)
+RewriteRule ^ %1/%2 [R=301,L,NE]
+
+# ---------------------------------------------------------------------
+# 3. index.html explícito: /index.html → /  y  /contacto/index.html → /contacto/
+#    (THE_REQUEST evita el bucle con la subpetición interna de DirectoryIndex)
+# ---------------------------------------------------------------------
+RewriteCond %{THE_REQUEST} ^\S+\s/+(.*/)?index\.html[\s?]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# ---------------------------------------------------------------------
+# 4. URLs antiguas (WordPress anterior y variantes) → URL actual
+#    /especialidades/ era un enlace vacío del menú: nunca tuvo contenido → 410
+# ---------------------------------------------------------------------
+RewriteRule ^especialidades/?$          -             [NC,G,L]
+RewriteRule ^diseno-web/?$              /disenoweb/   [NC,R=301,L]
+RewriteRule ^ecommerce/?$               /e-commerce/  [NC,R=301,L]
+RewriteRule ^politica-de-privacidad/?$  /privacidad/  [NC,R=301,L]
+
+# ---------------------------------------------------------------------
+# 5. Rutas React: sin barra final o con mayúsculas → minúsculas + barra
+#    /disenoweb, /DisenoWeb, /DISENOWEB/ → /disenoweb/
+#    (mantener sincronizado con src/seo/rutas.js)
+# ---------------------------------------------------------------------
+RewriteCond %{REQUEST_URI} !^/nosotros/$
+RewriteRule ^nosotros/?$ /nosotros/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/contacto/$
+RewriteRule ^contacto/?$ /contacto/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/disenoweb/$
+RewriteRule ^disenoweb/?$ /disenoweb/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/e-commerce/$
+RewriteRule ^e-commerce/?$ /e-commerce/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/posicionamiento-seo/$
+RewriteRule ^posicionamiento-seo/?$ /posicionamiento-seo/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/redes-sociales/$
+RewriteRule ^redes-sociales/?$ /redes-sociales/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/demos/$
+RewriteRule ^demos/?$ /demos/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/rescate-kit-digital/$
+RewriteRule ^rescate-kit-digital/?$ /rescate-kit-digital/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/privacidad/$
+RewriteRule ^privacidad/?$ /privacidad/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/aviso-legal/$
+RewriteRule ^aviso-legal/?$ /aviso-legal/ [NC,R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/cookies/$
+RewriteRule ^cookies/?$ /cookies/ [NC,R=301,L]
+
+# ---------------------------------------------------------------------
+# 6. Red de seguridad: si una ruta React aún no tiene su HTML
+#    prerenderizado, se sirve la app desde /index.html (estado 200).
+#    Cualquier otra URL inexistente NO se reescribe → 404 real.
+# ---------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME}index.html !-f
+RewriteRule ^(nosotros|contacto|disenoweb|e-commerce|posicionamiento-seo|redes-sociales|demos|rescate-kit-digital|privacidad|aviso-legal|cookies)/$ /index.html [L]
+
+</IfModule>

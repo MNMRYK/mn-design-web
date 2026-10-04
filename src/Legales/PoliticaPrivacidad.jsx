@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
+import Seo from "../seo/Seo";
 
 const PoliticaPrivacidad = () => {
   useEffect(() => {
@@ -39,6 +40,11 @@ const PoliticaPrivacidad = () => {
 
   return (
     <div className="legal-wrapper">
+        <Seo
+          ruta="/privacidad/"
+          titulo="Política de Privacidad | MN Design Web"
+          descripcion="Cómo trata MN Design Web tus datos personales: responsable del tratamiento, finalidades, legitimación, plazos de conservación y cómo ejercer tus derechos."
+        />
       <div className="legal-container">
         <h1 className="legal-title">Política de Privacidad</h1>
 
