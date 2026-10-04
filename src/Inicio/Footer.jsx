@@ -26,7 +26,7 @@ const Footer = () => {
               info@mndesignweb.es
             </a>
             <a href="tel:+34645854934" className="correo-gigante">
-              + 34 645 854 934
+              +34 645 85 49 34
             </a>
             <p className="horario-texto">Lunes a Viernes | 09:00 - 18:00</p>
           </div>

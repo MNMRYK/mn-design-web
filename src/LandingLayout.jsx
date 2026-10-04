@@ -11,6 +11,7 @@ import ContactoRescate from "./LandingKit/ContactoRescate.jsx";
 import BarraConfianza from "./LandingKit/BarraConfianza.jsx";
 import MapaSolucion from "./LandingKit/MapaSolucion.jsx";
 import FooterLanding from "./LandingKit/FooterLanding.jsx";
+import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 
 const LandingLayout = () => {
   useEffect(() => {
@@ -118,19 +119,7 @@ const LandingLayout = () => {
                 description:
                   "Expertos en recuperar webs abandonadas tras el Kit Digital. Auditoría técnica, optimización SEO y rescate de e-commerce.",
               },
-              {
-                "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                name: "MN Design Web",
-                image: "https://mndesignweb.es/logo-card.webp",
-                url: "https://mndesignweb.es/",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Alicante",
-                  addressCountry: "ES",
-                },
-                priceRange: "$$",
-              },
+              EMPRESA,
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -151,18 +140,13 @@ const LandingLayout = () => {
               },
               {
                 "@context": "https://schema.org/",
-                "@type": "Product",
+                "@type": "Service",
                 name: "Servicios de Rescate Web MN Design Web",
-                // 🔥 AQUÍ ESTÁ LA IMAGEN Y DESCRIPCIÓN QUE FALTABAN 🔥
                 image: "https://mndesignweb.es/logo-card.webp",
                 description:
                   "Auditoría técnica, limpieza de código y rescate de proyectos web abandonados tras el Kit Digital.",
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "4.9",
-                  bestRating: "5",
-                  ratingCount: "89",
-                },
+                provider: REF_EMPRESA,
+                areaServed: AREA_SERVIDA,
               },
             ]),
           }}

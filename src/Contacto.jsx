@@ -9,6 +9,7 @@ import ContactoSiguiente from './Contacto/ContactoSiguiente';
 import ReservaYMapa from './Contacto/ReservaYMapa';
 import Opiniones from './Contacto/Opiniones';
 import DemoContacto from './Contacto/DemoContacto.jsx';
+import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 
 const Contacto = () => {
 
@@ -82,13 +83,7 @@ const Contacto = () => {
           dangerouslySetInnerHTML={{ 
             __html: JSON.stringify([
               schemaFAQ,
-              {
-                "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                "name": "MN Design Web",
-                "url": "https://mndesignweb.es/",
-                "address": { "@type": "PostalAddress", "addressLocality": "Alicante", "addressCountry": "ES" }
-              },
+              EMPRESA,
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -99,16 +94,12 @@ const Contacto = () => {
               },
               {
                 "@context": "https://schema.org/",
-                "@type": "Product",
+                "@type": "Service",
                 "name": "Servicios Profesionales MN Design Web",
-                "image": "https://mndesignweb.es/logo-card.webp", /* 🔥 LA IMAGEN OBLIGATORIA 🔥 */
+                "image": "https://mndesignweb.es/logo-card.webp",
                 "description": "Servicios de diseño web profesional, tiendas online y posicionamiento en Alicante.",
-                "aggregateRating": { 
-                  "@type": "AggregateRating", 
-                  "ratingValue": "5", 
-                  "bestRating": "5", 
-                  "ratingCount": "25"
-                }
+                "provider": REF_EMPRESA,
+                "areaServed": AREA_SERVIDA,
               }
             ]) 
           }}

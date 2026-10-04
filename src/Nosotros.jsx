@@ -9,6 +9,7 @@ import NosotrosSiguiente from "./Nosotros/NosotrosSiguiente";
 import MetodologiaSticky from "./Nosotros/MetodologiaSticky";
 import DamosForma from "./Nosotros/DamosForma";
 import BlogPreview from "./Nosotros/BlogPreview";
+import { EMPRESA } from "./seo/negocio";
 
 const Nosotros = () => {
   const schemaFAQ = {
@@ -88,22 +89,7 @@ const Nosotros = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               schemaFAQ,
-              {
-                "@context": "https://schema.org",
-                "@type": "Organization",
-                name: "MN Design Web",
-                url: "https://mndesignweb.es/",
-                // 🔥 Logo corregido 🔥
-                logo: "https://mndesignweb.es/logo-card.webp",
-                description:
-                  "Agencia de diseño web y desarrollo E-commerce profesional en Alicante.",
-                // 🔥 Añadida la dirección para potenciar el SEO local 🔥
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Alicante",
-                  addressCountry: "ES",
-                },
-              },
+              EMPRESA,
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",

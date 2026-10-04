@@ -10,6 +10,7 @@ import DisenoWebSeccionesEspeciales from "./DisenoWeb/DisenoWebSeccionesEspecial
 import ResponsiveShowcase from "./DisenoWeb/ResponsiveShowcase.jsx";
 import DisenoDoble from "./DisenoWeb/DisenoDoble.jsx";
 import LlamadaDemos from "./DisenoWeb/LlamadaDemos.jsx";
+import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 
 const DisenoWeb = () => {
   const schemaFAQ = {
@@ -150,19 +151,7 @@ const DisenoWeb = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               schemaFAQ,
-              {
-                "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                name: "MN Design Web",
-                image: "https://mndesignweb.es/logo-card.webp",
-                url: "https://mndesignweb.es/",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Alicante",
-                  addressCountry: "ES",
-                },
-                priceRange: "$$",
-              },
+              EMPRESA,
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -183,17 +172,13 @@ const DisenoWeb = () => {
               },
               {
                 "@context": "https://schema.org/",
-                "@type": "Product",
+                "@type": "Service",
                 name: "Servicios de Diseño Web MN Design Web",
                 image: "https://mndesignweb.es/logo-card.webp",
                 description:
                   "Desarrollo y diseño de páginas web corporativas, sitios con reservas y tiendas online.",
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "5",
-                  bestRating: "5",
-                  ratingCount: "15",
-                },
+                provider: REF_EMPRESA,
+                areaServed: AREA_SERVIDA,
               },
             ]),
           }}

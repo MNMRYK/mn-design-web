@@ -8,7 +8,7 @@ const FooterLanding = () => {
                 {/* IZQUIERDA: Contacto */}
                 <div className="footer-section footer-contact">
                     <a href="tel:+34645854934" className="correo-gigante">
-                        + 34 645 854 934
+                        +34 645 85 49 34
                     </a>
                     <a href="mailto:info@mndesignweb.es" className="correo-gigante">
                         info@mndesignweb.es

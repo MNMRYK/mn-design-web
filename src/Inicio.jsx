@@ -5,6 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
 import Seo from "./seo/Seo";
+import { EMPRESA } from "./seo/negocio";
 
 // Importamos todas tus secciones
 import Grainient from "./Inicio/GrainientBackground";
@@ -20,27 +21,7 @@ import BlogPreview from "./Inicio/BlogPreview";
 const Inicio = () => {
   const schemaInicio = [
     {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      name: "MN Design Web",
-      url: "https://mndesignweb.es/",
-      logo: "https://mndesignweb.es/favicon_v2.webp",
-      image: "https://mndesignweb.es/logo-card.webp",
-      description:
-        "Agencia de desarrollo y diseño web premium en Alcoi, Alicante. Especialistas en Diseño Web, E-commerce, posicionamiento SEO y Redes Sociales.",
-      address: {
-        "@type": "PostalAddress",
-        addressLocality: "Alcoi",
-        addressCountry: "ES",
-      },
-      contactPoint: {
-        "@type": "ContactPoint",
-        telephone: "+34-645-854-934",
-        contactType: "customer service",
-        email: "info@mndesignweb.es",
-        availableLanguage: "Spanish",
-      },
-      priceRange: "$$",
+      ...EMPRESA,
       makesOffer: [
         {
           "@type": "Offer",

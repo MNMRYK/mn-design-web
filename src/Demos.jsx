@@ -9,6 +9,7 @@ import HeaderDemos from "./Demos/HeaderDemos";
 import BlogPreview from "./Nosotros/BlogPreview";
 import SeccionContactoDemo from "./Demos/SeccionContactoDemo";
 import FormularioDemo from "./Demos/FormularioDemo";
+import { EMPRESA } from "./seo/negocio";
 
 const Demos = () => {
   // 1. Schema de "CollectionPage"
@@ -62,22 +63,9 @@ const Demos = () => {
   };
 
   // 3. Schema de "ProfessionalService"
-  const schemaService = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "MN Design Web",
-    image: "https://mndesignweb.es/logo-card.webp",
-    url: "https://mndesignweb.es/",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Alicante",
-      addressCountry: "ES",
-    },
-    description:
-      "Agencia de diseño web y desarrollo de alto rendimiento. Especialistas en conversión, UI/UX y sitios web con sistemas de reservas.",
-  };
+  const schemaService = EMPRESA;
 
-  // 4. Schema de "Product" (Con imagen, valoraciones y reseñas añadidas)
+  // 4. Schema de "Product" (sin valoraciones: no se usa marcado de reseñas)
   const schemaProduct = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -91,27 +79,10 @@ const Demos = () => {
     },
     offers: {
       "@type": "Offer",
-      url: "https://mndesignweb.es/demos#solicitar-demo",
+      url: "https://mndesignweb.es/demos/#solicitar-demo",
       priceCurrency: "EUR",
       price: "0",
       availability: "https://schema.org/InStock",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5.0",
-      reviewCount: "24",
-    },
-    review: {
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-        bestRating: "5",
-      },
-      author: {
-        "@type": "Person",
-        name: "Cliente Verificado",
-      },
     },
   };
 

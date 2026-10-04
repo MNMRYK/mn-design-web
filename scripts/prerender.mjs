@@ -152,7 +152,8 @@ async function renderizar(navegador, base, ruta) {
         envoltorio.remove();
       }
     });
-    root.querySelectorAll("script").forEach((s) => s.remove());
+    // Fuera cualquier script... salvo los datos estructurados (JSON-LD), que deben quedarse
+    root.querySelectorAll('script:not([type="application/ld+json"])').forEach((s) => s.remove());
 
     return {
       html: root.innerHTML,
@@ -217,6 +218,43 @@ async function guardar(rutaArchivo, html) {
 }
 
 const contarPalabras = (texto) => texto.split(/\s+/).filter(Boolean).length;
+
+// Páginas sin datos estructurados a propósito
+const SIN_DATOS_ESTRUCTURADOS = new Set(["/privacidad/", "/aviso-legal/", "/cookies/", "404"]);
+
+// Datos estructurados del HTML final: JSON válido, sin marcado de valoraciones
+// y con el nodo completo de la empresa (src/seo/negocio.js)
+function validarDatosEstructurados(ruta, html) {
+  const problemas = [];
+  const bloques = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+  const nodos = [];
+  for (const [, json] of bloques) {
+    try {
+      const datos = JSON.parse(json);
+      nodos.push(...(Array.isArray(datos) ? datos : datos["@graph"] ?? [datos]));
+    } catch (e) {
+      problemas.push(`${ruta}: JSON-LD no válido (${e.message})`);
+    }
+  }
+  const texto = bloques.map((b) => b[1]).join("");
+  if (/"(aggregateRating|review)"|"@type":"(AggregateRating|Review|Rating)"/.test(texto)) {
+    problemas.push(`${ruta}: contiene marcado de valoraciones (aggregateRating/review)`);
+  }
+  // Sin valoraciones, un Product necesita "offers" o Search Console lo marca como no válido
+  for (const n of nodos) {
+    if (n["@type"] === "Product" && !n.offers) {
+      problemas.push(`${ruta}: Product "${n.name}" sin offers (si es un servicio, usa "@type": "Service")`);
+    }
+  }
+  if (!SIN_DATOS_ESTRUCTURADOS.has(ruta)) {
+    const empresa = nodos.find((n) => n["@id"] === `${DOMINIO}/#empresa`);
+    if (!empresa) problemas.push(`${ruta}: falta el nodo de empresa (${DOMINIO}/#empresa)`);
+    else if (!empresa.address?.streetAddress || !empresa.telephone || !empresa.areaServed) {
+      problemas.push(`${ruta}: el nodo de empresa no tiene dirección, teléfono o areaServed`);
+    }
+  }
+  return problemas;
+}
 
 // Reglas de SEO on-page que debe cumplir cada página (si no, el build falla)
 function validarSeo(resultados) {
@@ -310,6 +348,7 @@ async function main() {
       const real = contar(html, patron);
       if (real !== n) problemas.push(`${ruta} (HTML final): ${real} × ${nombre}, se esperaba ${n}`);
     }
+    problemas.push(...validarDatosEstructurados(ruta, html));
   }
   if (problemas.length) {
     console.error("\n✗ HTML prerenderizado incorrecto:\n  - " + problemas.join("\n  - "));

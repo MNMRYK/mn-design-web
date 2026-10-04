@@ -9,6 +9,7 @@ import RedesSocialesSiguiente from "./RedesSociales/RedesSocialesSiguiente.jsx";
 import FasesRedes from "./RedesSociales/FasesRedes.jsx";
 import PlanesRedes from "./RedesSociales/PlanesRedes.jsx";
 import RedesDoble from "./RedesSociales/RedesDoble.jsx";
+import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 
 const RedesSociales = () => {
   useEffect(() => {
@@ -51,48 +52,21 @@ const RedesSociales = () => {
       {
         "@type": "ListItem",
         position: 2,
-        name: "Servicios",
-        item: "https://mndesignweb.es/servicios/",
-      },
-      {
-        "@type": "ListItem",
-        position: 3,
         name: "Redes Sociales",
-        item: "https://mndesignweb.es/redes-sociales//",
+        item: "https://mndesignweb.es/redes-sociales/",
       },
     ],
   };
 
   const schemaService = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name: "Gestión de Redes Sociales",
-    // 🔥 ¡LA IMAGEN MÁGICA ESTÁ AQUÍ! 🔥
     image: "https://mndesignweb.es/logo-card.webp",
     description:
       "Estrategia de contenidos, creación de Reels/TikTok y gestión integral de marca.",
-    brand: {
-      "@type": "Brand",
-      name: "MN Design Web",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.9",
-      reviewCount: "28",
-      bestRating: "5",
-      worstRating: "1",
-    },
-    review: {
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "5",
-      },
-      author: {
-        "@type": "Person",
-        name: "Cliente Verificado",
-      },
-    },
+    provider: REF_EMPRESA,
+    areaServed: AREA_SERVIDA,
   };
 
   return (
@@ -113,7 +87,7 @@ const RedesSociales = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([schemaBreadcrumb, schemaService]),
+            __html: JSON.stringify([EMPRESA, schemaBreadcrumb, schemaService]),
           }}
         />
       </div>

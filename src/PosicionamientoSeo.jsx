@@ -9,6 +9,7 @@ import PosicionamientoSeoSiguiente from "./PosicionamientoSeo/PosicionamientoSeo
 import FasesSeo from "./PosicionamientoSeo/FasesSeo";
 import PlanesSeo from "./PosicionamientoSeo/PlanesSeo";
 import SeoDoble from "./PosicionamientoSeo/SeoDoble";
+import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 
 const PosicionamientoSeo = () => {
   const schemaFAQ = {
@@ -104,19 +105,7 @@ const PosicionamientoSeo = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               schemaFAQ,
-              {
-                "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                name: "MN Design Web",
-                // 🔥 IMAGEN AÑADIDA 🔥
-                image: "https://mndesignweb.es/logo-card.webp",
-                url: "https://mndesignweb.es/",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Alicante",
-                  addressCountry: "ES",
-                },
-              },
+              EMPRESA,
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -137,18 +126,13 @@ const PosicionamientoSeo = () => {
               },
               {
                 "@context": "https://schema.org/",
-                "@type": "Product",
+                "@type": "Service",
                 name: "Servicio de Posicionamiento SEO",
-                // 🔥 IMAGEN Y DESCRIPCIÓN AÑADIDAS PARA EVITAR ERRORES CRÍTICOS 🔥
                 image: "https://mndesignweb.es/logo-card.webp",
                 description:
                   "Servicios profesionales de posicionamiento SEO, auditoría y optimización técnica para mejorar tu visibilidad en buscadores.",
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "5",
-                  bestRating: "5",
-                  ratingCount: "18",
-                },
+                provider: REF_EMPRESA,
+                areaServed: AREA_SERVIDA,
               },
             ]),
           }}

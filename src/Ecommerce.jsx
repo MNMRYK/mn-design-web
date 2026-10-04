@@ -9,6 +9,7 @@ import EcommerceSiguiente from "./Ecommerce/EcommerceSiguiente.jsx";
 import EcommercePlanes from "./Ecommerce/EcommercePlanes.jsx";
 import ResponsiveShowcase from "./DisenoWeb/ResponsiveShowcase.jsx";
 import EcommerceDoble from "./Ecommerce/EcommerceDoble.jsx";
+import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 
 const Ecommerce = () => {
   const schemaFAQ = {
@@ -105,19 +106,7 @@ const Ecommerce = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               schemaFAQ,
-              {
-                "@context": "https://schema.org",
-                "@type": "ProfessionalService",
-                name: "MN Design Web",
-                // 🔥 IMAGEN AÑADIDA AQUÍ 🔥
-                image: "https://mndesignweb.es/logo-card.webp",
-                url: "https://mndesignweb.es/",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Alicante",
-                  addressCountry: "ES",
-                },
-              },
+              EMPRESA,
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",
@@ -138,18 +127,13 @@ const Ecommerce = () => {
               },
               {
                 "@context": "https://schema.org/",
-                "@type": "Product",
+                "@type": "Service",
                 name: "Desarrollo de Tiendas Online E-commerce",
-                // 🔥 IMAGEN Y DESCRIPCIÓN AÑADIDAS AQUÍ PARA EVITAR EL ERROR CRÍTICO 🔥
                 image: "https://mndesignweb.es/logo-card.webp",
                 description:
                   "Desarrollo de tiendas online a medida, escalables y optimizadas para una máxima conversión de ventas.",
-                aggregateRating: {
-                  "@type": "AggregateRating",
-                  ratingValue: "5",
-                  bestRating: "5",
-                  ratingCount: "22",
-                },
+                provider: REF_EMPRESA,
+                areaServed: AREA_SERVIDA,
               },
             ]),
           }}
