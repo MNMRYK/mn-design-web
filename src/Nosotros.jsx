@@ -75,7 +75,7 @@ const Nosotros = () => {
       <Seo
         ruta="/nosotros/"
         titulo="Sobre Nosotros | MN Design Web - Agencia de Diseño Web"
-        descripcion="Conoce al equipo detrás de MN Design Web. Creamos experiencias digitales únicas, desde e-commerce hasta webs con sistemas de reservas. ¡Transformamos tu visión en realidad!"
+        descripcion="Conoce a MN Design Web, agencia de diseño web en Cocentaina y Alcoi. Creamos webs, e-commerce y sistemas de reservas a medida para negocios locales."
         tituloSocial="Sobre MN Design Web | Tu aliado digital"
       />
 

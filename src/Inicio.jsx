@@ -167,7 +167,7 @@ const Inicio = () => {
       <Seo
         ruta="/"
         titulo="MN Design Web | Diseño Web en Alcoi, E-commerce y SEO"
-        descripcion="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+        descripcion="Diseño web profesional en Alcoi: webs a medida, tiendas online y sistemas de reservas para hacer crecer tu negocio. Pide presupuesto a MN Design Web."
       />
 
       <div className="hero-section-container">

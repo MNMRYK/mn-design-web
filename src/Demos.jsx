@@ -9,7 +9,7 @@ import HeaderDemos from "./Demos/HeaderDemos";
 import BlogPreview from "./Nosotros/BlogPreview";
 import SeccionContactoDemo from "./Demos/SeccionContactoDemo";
 import FormularioDemo from "./Demos/FormularioDemo";
-import { EMPRESA } from "./seo/negocio";
+import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 
 const Demos = () => {
   // 1. Schema de "CollectionPage"
@@ -18,7 +18,7 @@ const Demos = () => {
     "@type": "CollectionPage",
     name: "Demos y Proyectos de Diseño Web",
     description:
-      "Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos.",
+      "Explora nuestras demos interactivas de diseño web a medida: e-commerce, clínicas, empresas B2B, cursos online e invitaciones digitales para eventos.",
     url: "https://mndesignweb.es/demos/",
   };
 
@@ -65,18 +65,16 @@ const Demos = () => {
   // 3. Schema de "ProfessionalService"
   const schemaService = EMPRESA;
 
-  // 4. Schema de "Product" (sin valoraciones: no se usa marcado de reseñas)
-  const schemaProduct = {
+  // 4. Schema de "Service": la demo gratuita (sin valoraciones: no se usa marcado de reseñas)
+  const schemaDemo = {
     "@context": "https://schema.org",
-    "@type": "Product",
+    "@type": "Service",
     name: "Prototipo de Diseño Web a Medida",
     image: "https://mndesignweb.es/logo-card.webp",
     description:
       "Demostración inicial y diseño de estructura web de alto rendimiento (Hero y layout principal) adaptada a la identidad corporativa de tu marca.",
-    brand: {
-      "@type": "Brand",
-      name: "MN Design Web",
-    },
+    provider: REF_EMPRESA,
+    areaServed: AREA_SERVIDA,
     offers: {
       "@type": "Offer",
       url: "https://mndesignweb.es/demos/#solicitar-demo",
@@ -131,8 +129,8 @@ const Demos = () => {
     <>
       <Seo
         ruta="/demos/"
-        titulo="Demos y Prototipos | MN Design Web - Estudio Diseño Web en Alicante"
-        descripcion="Explora nuestras demos interactivas y prototipos de alto rendimiento. Descubre diseños web a medida para e-commerce, clínicas, B2B, cursos e invitaciones digitales para eventos."
+        titulo="Demos y Prototipos de Diseño Web | MN Design Web"
+        descripcion="Explora nuestras demos interactivas de diseño web a medida: e-commerce, clínicas, empresas B2B, cursos online e invitaciones digitales para eventos."
         tituloSocial="Demos y Prototipos | MN Design Web"
       />
 
@@ -148,7 +146,7 @@ const Demos = () => {
               schemaCollection,
               schemaFAQ,
               schemaService,
-              schemaProduct,
+              schemaDemo,
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",

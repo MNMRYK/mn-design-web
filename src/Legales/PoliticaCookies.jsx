@@ -50,7 +50,17 @@ const PoliticaCookies = () => {
                     <li><strong>Cookies de Análisis:</strong> Son aquellas que nos permiten cuantificar el número de usuarios y realizar la medición y análisis estadístico de la utilización que hacen los usuarios del servicio ofertado.</li>
                 </ul>
 
-                <h2>3. DESACTIVACIÓN DE COOKIES</h2>
+                <h2>3. COOKIES DE TERCEROS QUE UTILIZAMOS</h2>
+                <p>
+                    Estas cookies solo se instalan si las aceptas en el aviso de cookies. Puedes cambiar tu decisión en cualquier momento desde el enlace «Configurar cookies» del pie de página.
+                </p>
+
+                <h3>Microsoft Clarity (cookies de análisis)</h3>
+                <p>
+                    Si aceptas las cookies, usamos Microsoft Clarity, un servicio de Microsoft Corporation, para entender cómo se usa la web: mapas de calor, clics, desplazamiento y grabaciones anónimas de la sesión. Clarity no registra lo que escribes en los formularios. Las cookies principales son <code>_clck</code> (identifica al usuario de forma anónima, 1 año), <code>_clsk</code> (agrupa las páginas de una misma visita, 1 día), <code>CLID</code> (1 año), <code>MUID</code> (identificador de Microsoft, 1 año), <code>ANONCHK</code> (10 minutos), <code>MR</code> (7 días) y <code>SM</code> (sesión). Los datos pueden transferirse a Estados Unidos; Microsoft está adherida al Marco de Privacidad de Datos UE-EE. UU. Puedes retirar tu consentimiento en cualquier momento borrando las cookies del navegador. Más información: <a href="https://privacy.microsoft.com/es-es/privacystatement" target="_blank" rel="noopener noreferrer">https://privacy.microsoft.com/es-es/privacystatement</a>
+                </p>
+
+                <h2>4. DESACTIVACIÓN DE COOKIES</h2>
                 <p>
                     Usted puede permitir, bloquear o eliminar las cookies instaladas en su equipo mediante la configuración de las opciones del navegador instalado en su ordenador:
                 </p>
@@ -60,7 +70,7 @@ const PoliticaCookies = () => {
                     <li><strong>Safari:</strong> Preferencias &gt; Privacidad.</li>
                 </ul>
 
-                <h2>4. MÁS INFORMACIÓN</h2>
+                <h2>5. MÁS INFORMACIÓN</h2>
                 <p>
                     Para más información sobre el tratamiento de sus datos personales, puede consultar nuestra <a href="/privacidad/">Política de Privacidad</a>.
                 </p>

@@ -9,7 +9,7 @@ export const EMAIL = "info@mndesignweb.es";
 
 export const DIRECCION = {
   "@type": "PostalAddress",
-  streetAddress: "Passeig del Comtat 75, 5º 1ª",
+  streetAddress: "Passeig del Comtat, 75, 5º 1º",
   postalCode: "03820",
   addressLocality: "Cocentaina",
   addressRegion: "Alicante",

@@ -93,7 +93,7 @@ const LandingLayout = () => {
       <Seo
         ruta="/rescate-kit-digital/"
         titulo="MN Design Web | Rescate de Proyectos Web y Kit Digital"
-        descripcion="¿Tu web del Kit Digital no funciona o está abandonada? En MN Design Web rescatamos proyectos, optimizamos el SEO y relanzamos tu e-commerce. Soluciones profesionales en Alicante."
+        descripcion="¿Tu web del Kit Digital no funciona o está abandonada? La rescatamos: auditoría técnica, optimización SEO y relanzamiento de tu tienda online."
         tituloSocial="MN Design Web | Rescate de Proyectos Web Kit Digital"
         descripcionSocial="¿Tu web del Kit Digital no funciona o está abandonada? Recuperamos y optimizamos tu proyecto para que empiece a vender."
         imagen="https://mndesignweb.es/rescate-kit-digital.webp"

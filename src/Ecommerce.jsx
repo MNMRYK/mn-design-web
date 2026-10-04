@@ -91,7 +91,7 @@ const Ecommerce = () => {
     <>
       <Seo
         ruta="/e-commerce/"
-        titulo="Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web"
+        titulo="Tienda Online y E-commerce en Alcoi 2026 | MN Design Web"
         descripcion="Expertos en desarrollo E-Commerce: Shopify, WooCommerce o tiendas a medida. Creamos tu tienda online optimizada para vender 24/7. ¡Pide tu presupuesto!"
       />
 

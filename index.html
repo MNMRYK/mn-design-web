@@ -11,99 +11,92 @@
 
     <!-- Description, canonical, Open Graph y Twitter van en cada página con <Seo> (src/seo/Seo.jsx) -->
 
-    <!-- 🔥 META PIXEL 🔥 -->
-    <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
-        n.push = n;
-        n.loaded = !0;
-        n.version = "2.0";
-        n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        "script",
-        "https://connect.facebook.net/en_US/fbevents.js",
-      );
-
-      // 🛑 CONTROL DE COOKIES PARA META
-      var localConsent = localStorage.getItem("cookieConsent");
-      if (localConsent !== "accepted") {
-        fbq("consent", "revoke"); // Bloqueado por defecto si no hay aceptación
-      }
-
-      fbq("init", "1627135808585120");
-      fbq("track", "PageView");
-    </script>
-
-    <!-- 1. GOOGLE CONSENT MODE: Estado por defecto -->
+    <!-- COOKIES (Google Consent Mode v2, modo básico)
+         Ningún tracker se carga hasta que el usuario acepta: Google Analytics, Microsoft Clarity
+         y el Píxel de Meta están dentro de window.cargarTrackers(). El banner
+         (src/Legales/CookieBanner.jsx) la llama al aceptar; si ya aceptó en otra visita,
+         se llama aquí al entrar. -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
 
-      // Miramos si ya hay una decisión guardada
-      var localConsent = localStorage.getItem("cookieConsent");
+      window.cargarTrackers = function () {
+        if (window.__trackersCargados || window.__PRERENDER__) return;
+        window.__trackersCargados = true;
 
-      if (localConsent === "accepted") {
-        gtag("consent", "default", {
+        // Google Analytics (y Google Ads, si se añade su etiqueta aquí)
+        gtag("consent", "update", {
           ad_storage: "granted",
           ad_user_data: "granted",
           ad_personalization: "granted",
           analytics_storage: "granted",
         });
-      } else {
-        // Si no ha aceptado o acaba de entrar, lo denegamos todo
-        gtag("consent", "default", {
-          ad_storage: "denied",
-          ad_user_data: "denied",
-          ad_personalization: "denied",
-          analytics_storage: "denied",
-          wait_for_update: 500,
+        gtag("js", new Date());
+        gtag("config", "G-36WYJMYT3Z");
+        var ga = document.createElement("script");
+        ga.async = true;
+        ga.src = "https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z";
+        document.head.appendChild(ga);
+
+        // Microsoft Clarity
+        (function (c, l, a, r, i, t, y) {
+          c[a] =
+            c[a] ||
+            function () {
+              (c[a].q = c[a].q || []).push(arguments);
+            };
+          t = l.createElement(r);
+          t.async = 1;
+          t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", "wuzaxaifa0");
+        window.clarity("consentv2", {
+          ad_Storage: "granted",
+          analytics_Storage: "granted",
         });
-      }
-    </script>
 
-    <!-- 🔥 GOOGLE ANALYTICS 🔥 -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-36WYJMYT3Z");
-    </script>
-
-    <!-- 🔥 MICROSOFT CLARITY 🔥 -->
-    <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] =
-          c[a] ||
-          function () {
-            (c[a].q = c[a].q || []).push(arguments);
+        // Píxel de Meta
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) return;
+          n = f.fbq = function () {
+            n.callMethod
+              ? n.callMethod.apply(n, arguments)
+              : n.queue.push(arguments);
           };
-        t = l.createElement(r);
-        t.async = 1;
-        t.src = "https://www.clarity.ms/tag/" + i;
-        y = l.getElementsByTagName(r)[0];
-        y.parentNode.insertBefore(t, y);
-      })(window, document, "clarity", "script", "wuzaxaifa0");
+          if (!f._fbq) f._fbq = n;
+          n.push = n;
+          n.loaded = !0;
+          n.version = "2.0";
+          n.queue = [];
+          t = b.createElement(e);
+          t.async = !0;
+          t.src = v;
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        })(
+          window,
+          document,
+          "script",
+          "https://connect.facebook.net/en_US/fbevents.js",
+        );
+        window.fbq("init", "1627135808585120");
+        window.fbq("track", "PageView");
+      };
+
+      try {
+        if (localStorage.getItem("cookieConsent") === "accepted") {
+          window.cargarTrackers();
+        }
+      } catch (e) {}
     </script>
 
     <link rel="icon" href="/favicon_v2.webp" type="image/webp" />
@@ -142,14 +135,6 @@
   </head>
 
   <body>
-    <noscript
-      ><img
-        height="1"
-        width="1"
-        style="display: none"
-        src="https://www.facebook.com/tr?id=1627135808585120&ev=PageView&noscript=1"
-    /></noscript>
-
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

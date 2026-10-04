@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 import './Footer.css';
+import { abrirConfiguracionCookies } from '../utils/cookies';
 
 const Footer = () => {
   return (
@@ -110,6 +111,7 @@ const Footer = () => {
             <a href="/aviso-legal/">Aviso legal</a>
             <a href="/privacidad/">Política de privacidad</a>
             <a href="/cookies/">Política de Cookies</a>
+            <a href="/cookies/" onClick={abrirConfiguracionCookies}>Configurar cookies</a>
           </div>
 
           <div className="footer-copy">

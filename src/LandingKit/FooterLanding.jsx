@@ -1,5 +1,6 @@
 import React from 'react';
 import './FooterLanding.css';
+import { abrirConfiguracionCookies } from '../utils/cookies';
 
 const FooterLanding = () => {
     return (
@@ -20,6 +21,7 @@ const FooterLanding = () => {
                     <a href="/aviso-legal/">Aviso Legal</a>
                     <a href="/privacidad/">Privacidad</a>
                     <a href="/cookies/">Cookies</a>
+                    <a href="/cookies/" onClick={abrirConfiguracionCookies}>Configurar cookies</a>
                 </div>
 
                 {/* DERECHA: Copyright */}

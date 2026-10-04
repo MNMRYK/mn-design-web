@@ -75,8 +75,9 @@
   
 }
 
-.acceptButton {
-  width: 140px; /* 🔥 Botones más grandes */
+/* Aceptar y Rechazar con el mismo estilo: ninguna opción destaca sobre la otra */
+.botonCookie {
+  width: 140px;
   height: 40px;
   background-color: #7E57C2;
   border: none;
@@ -84,34 +85,19 @@
   cursor: pointer;
   font-weight: 700;
   border-radius: 20px;
-  box-shadow: 0 4px 6px -1px rgba(126, 87, 194, 0.4);
   transition: all .3s ease;
   font-size: 1em;
   font-family: 'Nunito', sans-serif;
 }
 
-.acceptButton:hover {
+.botonCookie:hover {
   background-color: #6a49a8;
   transform: translateY(-2px);
 }
 
-.declineButton {
-  width: 140px; /* 🔥 Botones más grandes */
-  height: 40px;
-  background-color: #f0f0f0;
-  color: #555;
-  border: none;
-  cursor: pointer;
-  font-weight: 700;
-  border-radius: 20px;
-  transition: all .3s ease;
-  font-size: 1em;
-  font-family: 'Nunito', sans-serif;
-}
-
-.declineButton:hover {
-  background-color: #e0e0e0;
-  transform: translateY(-2px);
+.botonCookie:focus-visible {
+  outline: 3px solid #1a1a1a;
+  outline-offset: 2px;
 }
 
 
@@ -164,7 +150,7 @@
     justify-content: flex-start; 
   }
 
-  .acceptButton, .declineButton {
+  .botonCookie {
     width: auto;         /* Ancho automático según texto */
     padding: 0 15px;     /* Relleno lateral */
     height: 30px;        /* Botones bajitos */

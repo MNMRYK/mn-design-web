@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './CookieBanner.css';
+import { EVENTO_CONFIGURAR_COOKIES } from '../utils/cookies';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
 
 const CookieBanner = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  // Visible si todavía no hay decisión guardada (no se pinta en el prerender: ver App.jsx)
+  const [isVisible, setIsVisible] = useState(() => {
+    try {
+      return !localStorage.getItem('cookieConsent');
+    } catch {
+      return true;
+    }
+  });
+
+  // "Configurar cookies" (footer) vuelve a abrir el banner
+  useEffect(() => {
+    const abrir = () => setIsVisible(true);
+    window.addEventListener(EVENTO_CONFIGURAR_COOKIES, abrir);
+    return () => window.removeEventListener(EVENTO_CONFIGURAR_COOKIES, abrir);
+  }, []);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookieConsent');
-    if (!consent) {
-      setIsVisible(true);
-    }
-
     gsap.registerPlugin(ScrollTrigger);
     const lenis = new Lenis({ 
       duration: 1.2, 
@@ -38,40 +48,20 @@ const CookieBanner = () => {
     localStorage.setItem('cookieConsent', 'accepted');
     setIsVisible(false);
 
-    // 1. Le decimos a Google Analytics que actualice el estado a "Permitido"
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag('consent', 'update', {
-        'ad_storage': 'granted',
-        'ad_user_data': 'granted',
-        'ad_personalization': 'granted',
-        'analytics_storage': 'granted'
-      });
+    // Carga Google Analytics, Microsoft Clarity y el Píxel de Meta (definido en index.html)
+    if (typeof window !== "undefined" && window.cargarTrackers) {
+      window.cargarTrackers();
     }
-
-    // 2. Le damos permiso a Microsoft Clarity para usar cookies
-    if (typeof window !== "undefined" && window.clarity) {
-      window.clarity('consent');
-    }
-
-    // 3. Le damos vía libre al Píxel de Meta
-    if (typeof window !== "undefined" && window.fbq) {
-      window.fbq('consent', 'grant');
-    }
-    
   };
 
   const handleDecline = () => {
     localStorage.setItem('cookieConsent', 'declined');
     setIsVisible(false);
 
-    // Si rechaza, nos aseguramos de que Google registre el rechazo
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag('consent', 'update', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied'
-      });
+    // Si había aceptado antes y los trackers ya están cargados en esta página,
+    // recargamos para que dejen de funcionar
+    if (typeof window !== "undefined" && window.__trackersCargados) {
+      window.location.reload();
     }
   };
 
@@ -86,15 +76,17 @@ const CookieBanner = () => {
         </g>
       </svg>
       
-      <p className="cookieHeading">Usamos cookies</p>
+      <p className="cookieHeading">¿Aceptas las cookies?</p>
       <p className="cookieDescription">
-        Utilizamos cookies para darte la mejor experiencia en nuestra web. <br/>
-        <Link className="cookielink" to="/cookies/">Ver políticas de cookies</Link>
+        Usamos cookies de Google Analytics, Microsoft Clarity y Meta para saber cómo se usa
+        la web y medir nuestros anuncios. Solo se activan si las aceptas; si las rechazas,
+        la web funciona igual.
+        <Link className="cookielink" to="/cookies/">Más información en la política de cookies</Link>
       </p>
 
       <div className="buttonContainer">
-        <button className="acceptButton" onClick={handleAccept}>Permitir</button>
-        <button className="declineButton" onClick={handleDecline}>Rechazar</button>
+        <button type="button" className="botonCookie" onClick={handleAccept}>Aceptar</button>
+        <button type="button" className="botonCookie" onClick={handleDecline}>Rechazar</button>
       </div>
     </div>
   );
