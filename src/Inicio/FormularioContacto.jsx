@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './FormularioContacto.css';
+import { registrarLead } from "../utils/analitica";
 import toast from 'react-hot-toast'; 
 
 const opcionesServicio = [
@@ -72,7 +73,7 @@ const FormularioContacto = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dataToSend)
-        })
+        }).catch(() => null)
       ]).then(async (results) => {
         const res = results[0]; 
         const result = await res.json();
@@ -82,12 +83,8 @@ const FormularioContacto = () => {
         setFormData({ nombre: '', email: '', servicio: '', mensaje: '' });
         setEstaCargando(false);
 
-        if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('event', 'generate_lead', {
-                event_category: 'formulario',
-                event_label: 'contacto_general'
-            });
-        }
+        // Conversión para GA4: solo tras un envío correcto
+        registrarLead("contacto_general");
         
         return result;
       }),

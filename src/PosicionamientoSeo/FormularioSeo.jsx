@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FormularioSeo.css';
+import { registrarLead } from "../utils/analitica";
 import toast from 'react-hot-toast'; 
 
 // Opciones
@@ -81,7 +82,7 @@ const FormularioSeo = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dataToSend)
-        })
+        }).catch(() => null)
       ]).then(async (results) => {
         // Procesamos solo la respuesta de Web3Forms
         const result = await results[0].json();
@@ -90,13 +91,8 @@ const FormularioSeo = () => {
         setFormData({ nombre: '', email: '', servicios: [], mensaje: '' });
         setEstaCargando(false);
 
-        // Radar para Google Ads (etiqueta Posicionamiento_SEO)
-        if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('event', 'generate_lead', {
-                event_category: 'formulario',
-                event_label: 'Posicionamiento_SEO' 
-            });
-        }
+        // Conversión para GA4: solo tras un envío correcto
+        registrarLead("posicionamiento_seo");
         return result;
       }),
 

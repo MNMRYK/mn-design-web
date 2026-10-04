@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FormularioEcommerce.css';
+import { registrarLead } from "../utils/analitica";
 import toast from 'react-hot-toast'; 
 
 // Opciones
@@ -80,7 +81,7 @@ const FormularioEcommerce = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dataToSend)
-        })
+        }).catch(() => null)
       ]).then(async (results) => {
         // Procesamos solo la respuesta de Web3Forms
         const result = await results[0].json();
@@ -89,13 +90,8 @@ const FormularioEcommerce = () => {
         setFormData({ nombre: '', email: '', servicios: [], mensaje: '' });
         setEstaCargando(false);
 
-        // Radar para Google Ads (etiqueta Ecommerce)
-        if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('event', 'generate_lead', {
-                event_category: 'formulario',
-                event_label: 'Ecommerce' 
-            });
-        }
+        // Conversión para GA4: solo tras un envío correcto
+        registrarLead("ecommerce");
         return result;
       }),
 

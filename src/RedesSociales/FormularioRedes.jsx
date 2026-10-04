@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FormularioRedes.css';
+import { registrarLead } from "../utils/analitica";
 import toast from 'react-hot-toast'; 
 
 // Opciones
@@ -83,7 +84,7 @@ const FormularioRedes = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dataToSend)
-        })
+        }).catch(() => null)
       ]).then(async (results) => {
         const result = await results[0].json();
         if (!result.success) throw new Error(); 
@@ -91,12 +92,8 @@ const FormularioRedes = () => {
         setFormData({ nombre: '', email: '', servicios: [], mensaje: '' });
         setEstaCargando(false);
 
-        if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('event', 'generate_lead', {
-                event_category: 'formulario',
-                event_label: 'Redes_Sociales' 
-            });
-        }
+        // Conversión para GA4: solo tras un envío correcto
+        registrarLead("redes_sociales");
         return result;
       }),
 

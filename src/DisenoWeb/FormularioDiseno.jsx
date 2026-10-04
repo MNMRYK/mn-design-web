@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './FormularioDiseno.css';
+import { registrarLead } from "../utils/analitica";
 import toast from 'react-hot-toast'; 
 
 // Opciones
@@ -80,7 +81,7 @@ const FormularioDiseno = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dataToSend)
-        })
+        }).catch(() => null)
       ]).then(async (results) => {
         // Solo nos importa la respuesta de Web3Forms (la primera)
         const result = await results[0].json();
@@ -89,12 +90,8 @@ const FormularioDiseno = () => {
         setFormData({ nombre: '', email: '', servicios: [], mensaje: '' });
         setEstaCargando(false);
 
-        if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('event', 'generate_lead', {
-                event_category: 'formulario',
-                event_label: 'Diseño_Web' 
-            });
-        }
+        // Conversión para GA4: solo tras un envío correcto
+        registrarLead("diseno_web");
         return result;
       }),
 

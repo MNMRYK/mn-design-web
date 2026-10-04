@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import toast from 'react-hot-toast'; 
 // Reutilizamos tu CSS de contacto porque las clases son las mismas
 import './FormularioDemo.css';
+import { registrarLead } from "../utils/analitica";
 
 const opcionesTiempo = [
   "Urgente (Lo necesito para ya)",
@@ -88,7 +89,7 @@ const FormularioDemo = () => {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dataToSend)
-        })
+        }).catch(() => null)
       ]).then(async (results) => {
         const res = results[0]; 
         const result = await res.json();
@@ -99,12 +100,8 @@ const FormularioDemo = () => {
         setFormData({ nombre: '', email: '', sector: '', tiempo: '', presupuesto: '', mensaje: '' });
         setEstaCargando(false);
 
-        if (typeof window !== "undefined" && window.gtag) {
-            window.gtag('event', 'generate_lead', {
-                event_category: 'formulario',
-                event_label: 'solicitud_demo'
-            });
-        }
+        // Conversión para GA4: solo tras un envío correcto
+        registrarLead("solicitud_demo");
         
         return result;
       }),

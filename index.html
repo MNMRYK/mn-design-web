@@ -11,7 +11,8 @@
 
     <!-- Description, canonical, Open Graph y Twitter van en cada página con <Seo> (src/seo/Seo.jsx) -->
 
-    <!-- COOKIES (Google Consent Mode v2, modo básico)
+    <!-- COOKIES (Google Consent Mode v2, modo básico). Mismo código que
+         Landings-mndesignweb/src/components/CookiesHead.astro: si cambias uno, cambia el otro.
          Ningún tracker se carga hasta que el usuario acepta: Google Analytics, Microsoft Clarity
          y el Píxel de Meta están dentro de window.cargarTrackers(). El banner
          (src/Legales/CookieBanner.jsx) la llama al aceptar; si ya aceptó en otra visita,
@@ -32,7 +33,7 @@
         if (window.__trackersCargados || window.__PRERENDER__) return;
         window.__trackersCargados = true;
 
-        // Google Analytics (y Google Ads, si se añade su etiqueta aquí)
+        // Google Analytics
         gtag("consent", "update", {
           ad_storage: "granted",
           ad_user_data: "granted",
@@ -92,11 +93,48 @@
         window.fbq("track", "PageView");
       };
 
+      // Las landings guardaban la decisión en "cookie_consent": se pasa a la clave común
+      try {
+        var antigua = localStorage.getItem("cookie_consent");
+        if (antigua && !localStorage.getItem("cookieConsent")) {
+          localStorage.setItem("cookieConsent", antigua);
+        }
+        localStorage.removeItem("cookie_consent");
+      } catch (e) {}
+
       try {
         if (localStorage.getItem("cookieConsent") === "accepted") {
           window.cargarTrackers();
         }
       } catch (e) {}
+
+      // Eventos de GA4 (conversiones importadas en Google Ads). Solo se envían si el usuario
+      // ha aceptado: sin consentimiento no se encola nada que se pudiera enviar después.
+      window.enviarEvento = function (nombre, parametros) {
+        if (!window.__trackersCargados) return;
+        var datos = { pagina: location.pathname };
+        for (var k in parametros) datos[k] = parametros[k];
+        gtag("event", nombre, datos);
+      };
+
+      // Clics en WhatsApp, teléfono y reservas de Cal.com, en cualquier enlace de la web
+      document.addEventListener(
+        "click",
+        function (e) {
+          var enlace = e.target.closest && e.target.closest("a[href]");
+          if (!enlace) return;
+          var href = enlace.getAttribute("href") || "";
+          var nombre = /^tel:/i.test(href)
+            ? "click_telefono"
+            : /wa\.me\//i.test(href)
+              ? "click_whatsapp"
+              : /cal\.com\//i.test(href)
+                ? "click_reserva"
+                : null;
+          if (nombre) window.enviarEvento(nombre, { link_url: href });
+        },
+        true,
+      );
     </script>
 
     <link rel="icon" href="/favicon_v2.webp" type="image/webp" />
