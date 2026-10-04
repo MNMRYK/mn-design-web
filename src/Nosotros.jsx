@@ -5,7 +5,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import NosotrosSiguiente from "./Nosotros/NosotrosSiguiente";
 import MetodologiaSticky from "./Nosotros/MetodologiaSticky";
-import DamosForma from "./Nosotros/DamosForma";
 import BlogPreview from "./Nosotros/BlogPreview";
 import { EMPRESA } from "./seo/negocio";
 import { crearLenis } from "./utils/lenis";
