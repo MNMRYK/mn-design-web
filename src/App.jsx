@@ -1,7 +1,8 @@
 import React, { Suspense } from "react";
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import 'leaflet/dist/leaflet.css';
 import { Toaster } from 'react-hot-toast';
+import { MotionConfig } from 'framer-motion';
 import { Bubble } from "@typebot.io/react";
 
 // 📦 COMPONENTES GLOBALES (NO se hacen lazy porque se ven en TODAS las páginas)
@@ -9,6 +10,7 @@ import Navbar from './Inicio/Navbar';
 import Footer from './Inicio/Footer';
 import CookieBanner from './Legales/CookieBanner';
 import { esPrerender } from './utils/prerender';
+import ErrorBoundary from './utils/ErrorBoundary';
 
 // 🚀 IMPORTS DINÁMICOS (LA DIETA): cada página se descarga solo cuando hace falta.
 // main.jsx precarga la de la URL actual antes de montar React (ver src/paginas.js).
@@ -49,6 +51,46 @@ const PantallaCarga = () => (
   </div>
 );
 
+// Si una página falla al renderizar (o no se puede descargar su código tras publicar una
+// versión nueva), aviso con opción de recargar en vez de dejar la pantalla en blanco
+const PantallaError = () => (
+  <div style={{
+    minHeight: '100vh',
+    backgroundColor: 'var(--deep-eggplant, #1a102d)',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '1.2rem',
+    padding: '0 24px',
+    textAlign: 'center',
+    color: '#ece8ff',
+    fontFamily: 'Montserrat, sans-serif'
+  }}>
+    <p style={{ fontSize: '1.2rem', fontWeight: 'bold', margin: 0 }}>Algo no ha cargado bien.</p>
+    <button
+      type="button"
+      onClick={() => window.location.reload()}
+      style={{
+        background: '#7E57C2', color: '#fff', border: 'none', borderRadius: '20px',
+        padding: '10px 24px', fontWeight: 700, fontSize: '1rem', cursor: 'pointer'
+      }}
+    >
+      Recargar la página
+    </button>
+  </div>
+);
+
+// Se reinicia al cambiar de página: un fallo en una no deja bloqueadas las demás
+const ProteccionPorRuta = ({ children }) => {
+  const { pathname } = useLocation();
+  return (
+    <ErrorBoundary key={pathname} nombre="App" fallback={<PantallaError />}>
+      {children}
+    </ErrorBoundary>
+  );
+};
+
 // Layout profesional para las páginas que SI llevan Navbar y Footer
 const MainLayout = ({ children }) => (
   <>
@@ -61,10 +103,14 @@ const MainLayout = ({ children }) => (
 function App() {
   return (
     <Router>
+      {/* Con "reducir movimiento" activado, framer-motion quita desplazamientos y escalados
+          y deja solo los fundidos de opacidad */}
+      <MotionConfig reducedMotion="user">
       <div className="app-wrapper">
         <main>
           
           {/* 🔥 2. EL FILTRO SUSPENSE: Envuelve a tus rutas */}
+          <ProteccionPorRuta>
           <Suspense fallback={<PantallaCarga />}>
             {/* ESTE ES EL SEMÁFORO QUE CAMBIA LA PÁGINA */}
             <Routes>
@@ -87,6 +133,7 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
+          </ProteccionPorRuta>
 
           {/* El chat de Typebot no se pinta durante el prerender: así su script no queda en el HTML estático */}
           {!esPrerender && (
@@ -152,6 +199,7 @@ function App() {
           }}
         />
       </div>
+      </MotionConfig>
     </Router>
   );
 }

@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 
 import NosotrosSiguiente from "./Nosotros/NosotrosSiguiente";
 import MetodologiaSticky from "./Nosotros/MetodologiaSticky";
 import DamosForma from "./Nosotros/DamosForma";
 import BlogPreview from "./Nosotros/BlogPreview";
 import { EMPRESA } from "./seo/negocio";
+import { crearLenis } from "./utils/lenis";
 
 const Nosotros = () => {
   const schemaFAQ = {
@@ -45,7 +44,7 @@ const Nosotros = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({
+    const lenis = crearLenis({
       duration: 1.2,
       smoothWheel: true,
       smoothTouch: false,
@@ -60,10 +59,6 @@ const Nosotros = () => {
       },
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();

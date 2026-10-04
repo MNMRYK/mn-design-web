@@ -2,10 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './CookieBanner.css';
 import { EVENTO_CONFIGURAR_COOKIES } from '../utils/cookies';
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis"; 
-import "lenis/dist/lenis.css";
 
 const CookieBanner = () => {
   // Visible si todavía no hay decisión guardada (no se pinta en el prerender: ver App.jsx)
@@ -22,26 +18,6 @@ const CookieBanner = () => {
     const abrir = () => setIsVisible(true);
     window.addEventListener(EVENTO_CONFIGURAR_COOKIES, abrir);
     return () => window.removeEventListener(EVENTO_CONFIGURAR_COOKIES, abrir);
-  }, []);
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({ 
-      duration: 1.2, 
-      smoothWheel: true,
-      smoothTouch: false,
-      syncTouch: true,
-
-      prevent: (node) => {
-        if (!node || !node.closest) return false;
-        return node.nodeName.includes('TYPEBOT') || node.closest('typebot-bubble') !== null;
-      }
-    });
-
-    lenis.on('scroll', ScrollTrigger.update);
-    gsap.ticker.add((time) => { lenis.raf(time * 1000); });
-    return () => { ScrollTrigger.getAll().forEach(t => t.kill()); lenis.destroy(); };
-
   }, []);
 
   const handleAccept = () => {

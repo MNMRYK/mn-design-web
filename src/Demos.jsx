@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 
 import HeaderDemos from "./Demos/HeaderDemos";
 import BlogPreview from "./Nosotros/BlogPreview";
 import SeccionContactoDemo from "./Demos/SeccionContactoDemo";
 import FormularioDemo from "./Demos/FormularioDemo";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
+import { crearLenis } from "./utils/lenis";
 
 const Demos = () => {
   // 1. Schema de "CollectionPage"
@@ -86,7 +85,7 @@ const Demos = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({
+    const lenis = crearLenis({
       duration: 1.2,
       smoothWheel: true,
       smoothTouch: false,
@@ -101,10 +100,6 @@ const Demos = () => {
       },
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
 
     // Detectar si venimos de otra página con el ancla
     if (window.location.hash === "#solicitar-demo") {

@@ -2,19 +2,18 @@ import React, { useEffect } from "react";
 import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 
 import RedesSocialesSiguiente from "./RedesSociales/RedesSocialesSiguiente.jsx";
 import FasesRedes from "./RedesSociales/FasesRedes.jsx";
 import PlanesRedes from "./RedesSociales/PlanesRedes.jsx";
 import RedesDoble from "./RedesSociales/RedesDoble.jsx";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
+import { crearLenis } from "./utils/lenis";
 
 const RedesSociales = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({
+    const lenis = crearLenis({
       duration: 1.2,
       smoothWheel: true,
       smoothTouch: false,
@@ -29,10 +28,6 @@ const RedesSociales = () => {
       },
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();

@@ -2,13 +2,12 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 import Seo from "./seo/Seo";
 import { EMPRESA } from "./seo/negocio";
 
 // Importamos todas tus secciones
 import Grainient from "./Inicio/GrainientBackground";
+import ErrorBoundary from "./utils/ErrorBoundary";
 import Hero from "./Inicio/Hero";
 import Servicios from "./Inicio/Servicios";
 import Tecnologias from "./Inicio/Tecnologias";
@@ -17,6 +16,7 @@ import Beneficios from "./Inicio/Beneficios";
 import ContactoDoble from "./Inicio/ContactoDoble";
 import CallToActionFinal from "./Inicio/CallToActionFinal";
 import BlogPreview from "./Inicio/BlogPreview";
+import { crearLenis } from "./utils/lenis";
 
 const Inicio = () => {
   const schemaInicio = [
@@ -119,7 +119,7 @@ const Inicio = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const lenis = new Lenis({
+    const lenis = crearLenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
@@ -135,10 +135,6 @@ const Inicio = () => {
       },
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
     gsap.ticker.lagSmoothing(0);
 
     const timer = setTimeout(() => {
@@ -171,7 +167,10 @@ const Inicio = () => {
       />
 
       <div className="hero-section-container">
-        <Grainient />
+        {/* Decorativo: si fallara, el degradado estático y la página sigue */}
+        <ErrorBoundary nombre="Grainient" fallback={<div className="grainient-container" aria-hidden="true" />}>
+          <Grainient />
+        </ErrorBoundary>
         <Hero />
       </div>
 

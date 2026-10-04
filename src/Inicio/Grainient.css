@@ -7,4 +7,27 @@
   z-index: 0; /* Esto lo envía detrás de la Navbar y el Hero */
   pointer-events: none;
   overflow: hidden;
+
+  /* Degradado estático con los colores del shader (muestreados de la versión WebGL).
+     Siempre está debajo del canvas: se ve en el HTML prerenderizado, antes del primer
+     fotograma y, en dispositivos sin WebGL o modestos, en lugar de la animación. */
+  background-color: #7a43c6;
+  background-image:
+    radial-gradient(ellipse 40% 55% at 14% 28%, #ffc9fb 0%, rgba(255, 201, 251, 0) 100%),
+    radial-gradient(ellipse 30% 45% at 40% 30%, #d08cff 0%, rgba(208, 140, 255, 0) 100%),
+    radial-gradient(ellipse 38% 50% at 78% 18%, #36047a 0%, rgba(54, 4, 122, 0) 100%),
+    radial-gradient(ellipse 40% 38% at 34% 100%, #3c0a86 0%, rgba(60, 10, 134, 0) 100%),
+    radial-gradient(ellipse 34% 45% at 92% 75%, #8a5cff 0%, rgba(138, 92, 255, 0) 100%),
+    linear-gradient(120deg, #c47ef5 0%, #8a48cc 40%, #5a26b0 70%, #7b52ee 100%);
+}
+
+/* Grano fino y estático encima del canvas y del degradado (como el grano del shader,
+   que no está animado). Se dibuja una sola vez: no cuesta nada por fotograma. */
+.grainient-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }

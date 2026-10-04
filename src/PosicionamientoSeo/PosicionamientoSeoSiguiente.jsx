@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import "./PosicionamientoSeoSiguiente.css";
-import { World } from "./AceternityGlobe";
+import GloboAdaptable from "./GloboAdaptable";
 
 import Lottie from "lottie-react";
 import animGrafico from "../assets/animations/seo/graficoseo.json";
@@ -243,7 +243,7 @@ const PosicionamientoSeoSiguiente = () => {
             <div className="resplandor-seo"></div>
             {/* El contenedor con altura fija es obligatorio para Three.js */}
             <div className="globe-canvas-container">
-              <World data={sampleArcs} globeConfig={globeConfig} />
+              <GloboAdaptable data={sampleArcs} globeConfig={globeConfig} />
             </div>
           </motion.div>
         </div>

@@ -1,6 +1,12 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Renderer, Program, Mesh, Triangle } from 'ogl';
 import './Grainient.css';
+import { puedeUsarEfectoWebGL } from '../utils/capacidadGrafica';
+
+// Rendimiento: el fondo es un degradado suave, así que se dibuja a menos resolución que la
+// pantalla (el CSS lo escala) y a 30 fps; el resultado se ve igual y cuesta mucho menos.
+const RESOLUCION = 0.5; // píxeles del canvas por píxel CSS (nunca más de 1, aunque la pantalla sea retina)
+const FPS = 30;
 
 const hexToRgb = hex => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
@@ -125,93 +131,163 @@ const Grainient = ({
   className = ''
 }) => {
   const containerRef = useRef(null);
+  // "estatico": solo el degradado CSS del contenedor (Grainient.css), sin WebGL
+  const [modo, setModo] = useState(() => (puedeUsarEfectoWebGL(2) ? 'webgl' : 'estatico'));
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    const container = containerRef.current;
+    if (!container || modo !== 'webgl') return;
 
-    const renderer = new Renderer({
-      webgl: 2,
-      alpha: true,
-      antialias: false,
-      // 🔥 Optimización: Si es móvil, renderizamos a 1x (no Retina)
-      dpr: window.innerWidth < 768 ? 1 : Math.min(window.devicePixelRatio || 1, 2)
-    });
+    let renderer = null;
+    let gl = null;
+    let canvas = null;
+    let raf = 0;
+    let terminado = false;
 
-    const gl = renderer.gl;
-    const canvas = gl.canvas;
+    const liberar = () => {
+      terminado = true;
+      cancelAnimationFrame(raf);
+      if (gl) {
+        try {
+          gl.getExtension('WEBGL_lose_context')?.loseContext();
+        } catch {
+          // El contexto ya estaba perdido
+        }
+      }
+      if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas);
+    };
+
+    // Cualquier fallo: degradado estático, sin errores y sin tumbar la página
+    const pasarAEstatico = () => {
+      liberar();
+      setModo('estatico');
+    };
+
+    let program;
+    let mesh;
+    try {
+      canvas = document.createElement('canvas');
+      renderer = new Renderer({
+        canvas,
+        webgl: 2,
+        alpha: true,
+        antialias: false,
+        powerPreference: 'low-power',
+        dpr: Math.min(window.devicePixelRatio || 1, 1) * RESOLUCION
+      });
+      gl = renderer.gl;
+      // ogl recurre a WebGL 1 si no hay WebGL 2, pero este shader necesita WebGL 2
+      if (!gl || !renderer.isWebgl2) throw new Error('WebGL 2 no disponible');
+
+      const geometry = new Triangle(gl);
+      program = new Program(gl, {
+        vertex,
+        fragment,
+        uniforms: {
+          iTime: { value: 0 },
+          iResolution: { value: new Float32Array([1, 1]) },
+          uTimeSpeed: { value: timeSpeed },
+          uColorBalance: { value: colorBalance },
+          uWarpStrength: { value: warpStrength },
+          uWarpFrequency: { value: warpFrequency },
+          uWarpSpeed: { value: warpSpeed },
+          uWarpAmplitude: { value: warpAmplitude },
+          uBlendAngle: { value: blendAngle },
+          uBlendSoftness: { value: blendSoftness },
+          uRotationAmount: { value: rotationAmount },
+          uNoiseScale: { value: noiseScale },
+          // A media resolución el grano del shader saldría grueso: lo pone el CSS (::after), fino
+          uGrainAmount: { value: RESOLUCION < 1 ? 0 : grainAmount },
+          uGrainScale: { value: grainScale },
+          uGrainAnimated: { value: grainAnimated ? 1.0 : 0.0 },
+          uContrast: { value: contrast },
+          uGamma: { value: gamma },
+          uSaturation: { value: saturation },
+          uCenterOffset: { value: new Float32Array([centerX, centerY]) },
+          uZoom: { value: zoom },
+          uColor1: { value: new Float32Array(hexToRgb(color1)) },
+          uColor2: { value: new Float32Array(hexToRgb(color2)) },
+          uColor3: { value: new Float32Array(hexToRgb(color3)) }
+        }
+      });
+      if (!gl.getProgramParameter(program.program, gl.LINK_STATUS)) {
+        throw new Error('El shader no compila en este dispositivo');
+      }
+      mesh = new Mesh(gl, { geometry, program });
+    } catch (error) {
+      console.warn('[Grainient] WebGL no disponible, se usa el fondo estático:', error.message);
+      pasarAEstatico();
+      return;
+    }
+
     canvas.style.width = '100%';
     canvas.style.height = '100%';
     canvas.style.display = 'block';
-
-    const container = containerRef.current;
     container.appendChild(canvas);
 
-    const geometry = new Triangle(gl);
-    const program = new Program(gl, {
-      vertex,
-      fragment,
-      uniforms: {
-        iTime: { value: 0 },
-        iResolution: { value: new Float32Array([1, 1]) },
-        uTimeSpeed: { value: timeSpeed },
-        uColorBalance: { value: colorBalance },
-        uWarpStrength: { value: warpStrength },
-        uWarpFrequency: { value: warpFrequency },
-        uWarpSpeed: { value: warpSpeed },
-        uWarpAmplitude: { value: warpAmplitude },
-        uBlendAngle: { value: blendAngle },
-        uBlendSoftness: { value: blendSoftness },
-        uRotationAmount: { value: rotationAmount },
-        uNoiseScale: { value: noiseScale },
-        uGrainAmount: { value: grainAmount },
-        uGrainScale: { value: grainScale },
-        uGrainAnimated: { value: grainAnimated ? 1.0 : 0.0 },
-        uContrast: { value: contrast },
-        uGamma: { value: gamma },
-        uSaturation: { value: saturation },
-        uCenterOffset: { value: new Float32Array([centerX, centerY]) },
-        uZoom: { value: zoom },
-        uColor1: { value: new Float32Array(hexToRgb(color1)) },
-        uColor2: { value: new Float32Array(hexToRgb(color2)) },
-        uColor3: { value: new Float32Array(hexToRgb(color3)) }
-      }
-    });
-
-    const mesh = new Mesh(gl, { geometry, program });
+    // Si el navegador retira el contexto (poca memoria, demasiadas pestañas...), degradado
+    const alPerderContexto = () => pasarAEstatico();
+    canvas.addEventListener('webglcontextlost', alPerderContexto);
 
     const setSize = () => {
       const rect = container.getBoundingClientRect();
-      const width = Math.max(1, Math.floor(rect.width));
-      const height = Math.max(1, Math.floor(rect.height));
-      renderer.setSize(width, height);
+      renderer.setSize(Math.max(1, Math.floor(rect.width)), Math.max(1, Math.floor(rect.height)));
       const res = program.uniforms.iResolution.value;
       res[0] = gl.drawingBufferWidth;
       res[1] = gl.drawingBufferHeight;
     };
-
     const ro = new ResizeObserver(setSize);
     ro.observe(container);
     setSize();
 
-    let raf = 0;
-    const t0 = performance.now();
-    const loop = t => {
-      program.uniforms.iTime.value = (t - t0) * 0.001;
-      renderer.render({ scene: mesh });
-      raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
+    // Solo se anima si se ve: en pantalla y con la pestaña visible
+    let enPantalla = true;
+    let tiempo = 0; // segundos de animación acumulados (sin saltos al reanudar)
+    let anterior = 0;
+    let acumulado = 0;
+    const intervalo = 1000 / FPS;
 
-    return () => {
+    const frame = t => {
+      if (terminado) return;
+      raf = requestAnimationFrame(frame);
+      const dt = anterior ? Math.min(t - anterior, 100) : 0;
+      anterior = t;
+      acumulado += dt;
+      // Margen de 2 ms: a 60 Hz, dos fotogramas (33,3 ms) bastan para un fotograma a 30 fps
+      if (acumulado < intervalo - 2 && dt !== 0) return;
+      tiempo += acumulado * 0.001;
+      acumulado = 0;
+      program.uniforms.iTime.value = tiempo;
+      renderer.render({ scene: mesh });
+    };
+
+    const actualizar = () => {
+      const animar = enPantalla && !document.hidden;
       cancelAnimationFrame(raf);
-      ro.disconnect();
-      try {
-        container.removeChild(canvas);
-      } catch {
-        // Ignore
+      raf = 0;
+      if (animar && !terminado) {
+        anterior = 0;
+        raf = requestAnimationFrame(frame);
       }
     };
+
+    const io = new IntersectionObserver(entradas => {
+      enPantalla = entradas[0].isIntersecting;
+      actualizar();
+    });
+    io.observe(container);
+    document.addEventListener('visibilitychange', actualizar);
+    actualizar();
+
+    return () => {
+      io.disconnect();
+      ro.disconnect();
+      document.removeEventListener('visibilitychange', actualizar);
+      canvas.removeEventListener('webglcontextlost', alPerderContexto);
+      liberar();
+    };
   }, [
+    modo,
     timeSpeed,
     colorBalance,
     warpStrength,
@@ -236,7 +312,13 @@ const Grainient = ({
     color3
   ]);
 
-  return <div ref={containerRef} className={`grainient-container ${className}`.trim()} />;
+  return (
+    <div
+      ref={containerRef}
+      className={['grainient-container', modo === 'estatico' && 'grainient-estatico', className].filter(Boolean).join(' ')}
+      aria-hidden="true"
+    />
+  );
 };
 
 export default Grainient;

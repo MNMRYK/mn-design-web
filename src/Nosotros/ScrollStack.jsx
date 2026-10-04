@@ -1,5 +1,6 @@
 import { useLayoutEffect, useRef, useCallback } from 'react';
 import Lenis from 'lenis';
+import { prefiereMenosMovimiento } from '../utils/capacidadGrafica';
 import './ScrollStack.css';
 
 export const ScrollStackItem = ({ children, itemClassName = '' }) => (
@@ -133,6 +134,12 @@ const ScrollStack = ({
   }, [updateCardTransforms]);
 
   const setupLenis = useCallback(() => {
+    // Con "reducir movimiento": sin scroll suave, basta con escuchar el scroll nativo
+    if (prefiereMenosMovimiento()) {
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      lenisRef.current = { destroy: () => window.removeEventListener('scroll', handleScroll) };
+      return;
+    }
     const lenis = new Lenis({
       duration: 1.2,
       easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

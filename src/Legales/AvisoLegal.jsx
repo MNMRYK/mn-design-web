@@ -2,16 +2,15 @@ import React, { useEffect } from 'react';
 import './TextosLegales.css';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis"; 
-import "lenis/dist/lenis.css";
 import Seo from "../seo/Seo";
+import { crearLenis } from "../utils/lenis";
 
 const AvisoLegal = () => {
     
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
-            const lenis = new Lenis({ 
+            const lenis = crearLenis({ 
             duration: 1.2, 
             smoothWheel: true,
             smoothTouch: false,
@@ -23,8 +22,6 @@ const AvisoLegal = () => {
             }
         });
 
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => { lenis.raf(time * 1000); });
         return () => { ScrollTrigger.getAll().forEach(t => t.kill()); lenis.destroy(); };
 
     }, []);

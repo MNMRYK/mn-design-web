@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Color, Scene, Fog, PerspectiveCamera, Vector3 } from "three";
 import ThreeGlobe from "three-globe";
 import { useThree, Canvas, extend } from "@react-three/fiber";
@@ -148,24 +148,38 @@ export function Globe({ globeConfig, data }) {
 }
 
 export function WebGLRendererConfig() {
-  const { gl, size } = useThree();
+  const { gl } = useThree();
 
+  // El tamaño y la densidad de píxeles los gestiona <Canvas> (prop dpr, máximo 1,5)
   useEffect(() => {
-    gl.setPixelRatio(window.devicePixelRatio);
-    gl.setSize(size.width, size.height);
     gl.setClearColor(0xffaaff, 0); // Fondo transparente
-  }, [gl, size]);
+  }, [gl]);
 
   return null;
 }
 
-export function World(props) {
+// activo: false pausa el dibujo (fuera de pantalla o pestaña oculta, ver GloboAdaptable.jsx)
+// onContextoPerdido: el navegador ha retirado el contexto WebGL
+export function World({ activo = true, onContextoPerdido, ...props }) {
   const { globeConfig } = props;
-  const scene = new Scene();
-  scene.fog = new Fog(0xffffff, 400, 2000);
-  
+  // Una sola escena y cámara (antes se creaban de nuevo en cada render)
+  const scene = useMemo(() => {
+    const escena = new Scene();
+    escena.fog = new Fog(0xffffff, 400, 2000);
+    return escena;
+  }, []);
+  const camera = useMemo(() => new PerspectiveCamera(50, aspect, 180, 1800), []);
+
   return (
-    <Canvas scene={scene} camera={new PerspectiveCamera(50, aspect, 180, 1800)}>
+    <Canvas
+      scene={scene}
+      camera={camera}
+      dpr={[1, 1.5]}
+      frameloop={activo ? "always" : "never"}
+      onCreated={({ gl }) => {
+        if (onContextoPerdido) gl.domElement.addEventListener("webglcontextlost", onContextoPerdido);
+      }}
+    >
       <WebGLRendererConfig />
       
       {/* 1. LUZ AMBIENTAL: Subida de 0.6 a 1 para que nada esté a oscuras del todo */}
@@ -221,3 +235,5 @@ export function genRandomNumbers(min, max, count) {
   }
   return arr;
 }
+
+export default World;

@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import Seo from "./seo/Seo";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 
 import PosicionamientoSeoSiguiente from "./PosicionamientoSeo/PosicionamientoSeoSiguiente";
 import FasesSeo from "./PosicionamientoSeo/FasesSeo";
 import PlanesSeo from "./PosicionamientoSeo/PlanesSeo";
 import SeoDoble from "./PosicionamientoSeo/SeoDoble";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
+import { crearLenis } from "./utils/lenis";
 
 const PosicionamientoSeo = () => {
   const schemaFAQ = {
@@ -61,7 +60,7 @@ const PosicionamientoSeo = () => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const lenis = new Lenis({
+    const lenis = crearLenis({
       duration: 1.2,
       smoothWheel: true,
       smoothTouch: false,
@@ -76,10 +75,6 @@ const PosicionamientoSeo = () => {
       },
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
       lenis.destroy();

@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 import Seo from "./seo/Seo";
 
 import DisenoWebSiguiente from "./DisenoWeb/DisenoWebSiguiente.jsx";
@@ -11,6 +9,7 @@ import ResponsiveShowcase from "./DisenoWeb/ResponsiveShowcase.jsx";
 import DisenoDoble from "./DisenoWeb/DisenoDoble.jsx";
 import LlamadaDemos from "./DisenoWeb/LlamadaDemos.jsx";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
+import { crearLenis } from "./utils/lenis";
 
 const DisenoWeb = () => {
   const schemaFAQ = {
@@ -103,7 +102,7 @@ const DisenoWeb = () => {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const lenis = new Lenis({
+    const lenis = crearLenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
@@ -119,10 +118,6 @@ const DisenoWeb = () => {
       },
     });
 
-    lenis.on("scroll", ScrollTrigger.update);
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 1000);
-    });
     gsap.ticker.lagSmoothing(0);
 
     return () => {
