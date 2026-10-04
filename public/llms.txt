@@ -12,8 +12,9 @@ Nuestras soluciones digitales se enfocan en alta conversión y diseño minimalis
 
 ## Soluciones Sectoriales y Embudos
 Ecosistemas tecnológicos a medida y landing pages específicas:
-- [Estudio de Diseño Web Alcoi / Cocentaina](/alcoi/) - Diseño web d'alt rendiment, desenvolupament SaaS i SEO local.
-- [Diseño Web para Nutricionistas y Dietistas](/clinicas/) - Webs para captar pacientes, reservas automatizadas y portales de salud.
+- [Software a medida en Alcoi / Cocentaina](/alcoi/) - Software a medida y automatización de procesos para empresas e industrias de l'Alcoià y El Comtat (página en valenciano).
+- [Portal Salud para Clínicas](/clinicas/) - Software de gestión para clínicas integrado en su propia web: agenda, recepción y portal del paciente.
+- [Diseño Web para Nutricionistas y Dietistas](/nutricionistas/) - Webs para captar pacientes, reservas automatizadas y cobros online.
 - [Plataformas para Psicólogos](/psicologos/) - Videoconsulta encriptada, reservas y diario clínico.
 - [Academia E-Learning Salud](/academia-nutricion/) - Plataformas educativas online para profesionales del sector.
 - [Invitaciones de Boda Digitales](/bodas/) - Webs interactivas y confirmación de asistencia.

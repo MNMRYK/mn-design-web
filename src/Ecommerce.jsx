@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -88,48 +88,11 @@ const Ecommerce = () => {
 
   return (
     <>
-      <Helmet>
-        <title>
-          Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web
-        </title>
-        <link rel="canonical" href="https://mndesignweb.es/e-commerce/" />
-
-        {/* 🔥 TEXTOS DE SEO UNIFICADOS 🔥 */}
-        <meta
-          name="description"
-          content="Expertos en desarrollo E-Commerce: Shopify, WooCommerce o tiendas a medida. Creamos tu tienda online optimizada para vender 24/7. ¡Pide tu presupuesto!"
-        />
-
-        <meta
-          property="og:title"
-          content="Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          property="og:description"
-          content="Expertos en desarrollo E-Commerce: Shopify, WooCommerce o tiendas a medida. Creamos tu tienda online optimizada para vender 24/7. ¡Pide tu presupuesto!"
-        />
-        <meta property="og:url" content="https://mndesignweb.es/e-commerce/" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          name="twitter:description"
-          content="Expertos en desarrollo E-Commerce: Shopify, WooCommerce o tiendas a medida. Creamos tu tienda online optimizada para vender 24/7. ¡Pide tu presupuesto!"
-        />
-        <meta
-          name="twitter:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-      </Helmet>
+      <Seo
+        ruta="/e-commerce/"
+        titulo="Tienda Online y E-commerce Profesional en Alcoi 2026 | MN Design Web"
+        descripcion="Expertos en desarrollo E-Commerce: Shopify, WooCommerce o tiendas a medida. Creamos tu tienda online optimizada para vender 24/7. ¡Pide tu presupuesto!"
+      />
 
       <div className="ecommerce-page-wrapper">
         <EcommerceSiguiente />

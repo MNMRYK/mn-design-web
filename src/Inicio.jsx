@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
 import "lenis/dist/lenis.css";
-import { Helmet } from "react-helmet-async";
+import Seo from "./seo/Seo";
 
 // Importamos todas tus secciones
 import Grainient from "./Inicio/GrainientBackground";
@@ -183,46 +183,11 @@ const Inicio = () => {
 
   return (
     <>
-      <Helmet>
-        <title>MN Design Web | Diseño Web en Alcoi, E-commerce y SEO</title>
-
-        <link rel="canonical" href="https://mndesignweb.es/" />
-
-        <meta
-          name="description"
-          content="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
-        />
-
-        <meta
-          property="og:title"
-          content="MN Design Web | Diseño Web en Alcoi, E-commerce y SEO"
-        />
-        <meta
-          property="og:description"
-          content="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
-        />
-        <meta property="og:url" content="https://mndesignweb.es/" />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="MN Design Web | Diseño Web en Alcoi, E-commerce y SEO"
-        />
-        <meta
-          name="twitter:description"
-          content="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
-        />
-        <meta
-          name="twitter:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-      </Helmet>
+      <Seo
+        ruta="/"
+        titulo="MN Design Web | Diseño Web en Alcoi, E-commerce y SEO"
+        descripcion="Diseño web profesional en Alcoi. Especialistas en creación de sitios web a medida, tiendas online y sistemas de reservas. ¡Haz crecer tu negocio con MN Design Web!"
+      />
 
       <div className="hero-section-container">
         <Grainient />

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
@@ -64,23 +64,13 @@ const Contacto = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contacto | MN Design Web - Diseño Web en Alicante</title>
-        <link rel="canonical" href="https://mndesignweb.es/contacto/" />
-        <meta name="description" content="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce. ¡Pide tu presupuesto sin compromiso!" />
-        
-        <meta property="og:title" content="Contacto | MN Design Web" />
-        <meta property="og:description" content="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce." />
-        <meta property="og:url" content="https://mndesignweb.es/contacto/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://mndesignweb.es/logo-card.webp" />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Contacto | MN Design Web" />
-        <meta name="twitter:description" content="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web." />
-        <meta name="twitter:image" content="https://mndesignweb.es/logo-card.webp" />
-      </Helmet>
+      <Seo
+        ruta="/contacto/"
+        titulo="Contacto | MN Design Web - Diseño Web en Alicante"
+        descripcion="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce. ¡Pide tu presupuesto sin compromiso!"
+        tituloSocial="Contacto | MN Design Web"
+        descripcionSocial="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce."
+      />
 
       <div className="contacto-page-wrapper">
         <ContactoSiguiente />

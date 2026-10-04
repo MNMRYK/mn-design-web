@@ -22,7 +22,7 @@ const Hero = () => {
 
         {/* 3. BOTONES: Aparecen después del título */}
         <div className="hero-buttons animate-fade-up-delayed">
-          <a href="/contacto#calendario-reserva" className="btn-empezar">
+          <a href="/contacto/#calendario-reserva" className="btn-empezar">
             Empezar proyecto
           </a>
 

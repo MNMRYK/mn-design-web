@@ -58,6 +58,7 @@
   color: var(--dark-violet) !important;
 }
 .navbar-header.top .menu-principal a,
+.navbar-header.top .menu-principal .boton-desplegable,
 .navbar-header.top .marca {
   color: var(--white-iris) !important;
 }
@@ -78,7 +79,8 @@
 }
 
 /* Tus colores originales oscuros para fondos claros */
-.navbar-header.scrolled .menu-principal a {
+.navbar-header.scrolled .menu-principal a,
+.navbar-header.scrolled .menu-principal .boton-desplegable {
   color: var(--dark-violet);
 }
 
@@ -154,7 +156,8 @@
   perspective: 1000px;
 }
 
-.menu-principal a {
+.menu-principal a,
+.menu-principal .boton-desplegable {
   display: inline-block;
   font-family: "Nunito", sans-serif;
   color: var(--dark-violet);
@@ -164,7 +167,8 @@
   transition: all 0.3s ease;
 }
 
-.menu-principal a:hover {
+.menu-principal a:hover,
+.menu-principal .boton-desplegable:hover {
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.3));
   transform: scale(1.1);
 }
@@ -258,6 +262,16 @@
 }
 
 /* Flecha */
+/* "Servicios" es un botón (no un enlace): quitamos el estilo nativo de <button> */
+.boton-desplegable {
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  line-height: inherit;
+}
+
 .flecha {
   font-size: 1rem;
   margin-left: 5px;
@@ -360,14 +374,16 @@
   }
 
   /* Textos blancos para que destaquen sobre el cristal oscuro */
-  .menu-principal a {
+  .menu-principal a,
+  .menu-principal .boton-desplegable {
     display: block;
     font-size: 1.15rem;
     text-align: left;
     width: 100%;
   }
   /* 2. Anulamos el efecto "Scale" gigante al hacer hover en móvil */
-  .menu-principal a:hover {
+  .menu-principal a:hover,
+  .menu-principal .boton-desplegable:hover {
     transform: none !important; /* Le decimos que NO crezca */
     filter: drop-shadow(
       0 0 5px rgba(255, 255, 255, 0.4)

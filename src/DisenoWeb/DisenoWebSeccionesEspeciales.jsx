@@ -140,7 +140,7 @@ const DisenoWebSeccionesEspeciales = () => {
                         <li><i className="fa-solid fa-check"></i> Mantenimiento web incluido primer año.</li>
                         </ul>
                         <a 
-                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20Diseño%20Web." 
+                            href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20Diseño%20Web." 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             className="btn-plan-primario"
@@ -160,7 +160,7 @@ const DisenoWebSeccionesEspeciales = () => {
                         <li><i className="fa-solid fa-check"></i> Automatización de Marketing & CRM.</li>
                         </ul>
                         <a 
-                            href="https://wa.me/34600000000?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20Diseño%20Web." 
+                            href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20Diseño%20Web." 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             className="btn-plan-secundario"

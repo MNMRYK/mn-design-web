@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Helmet } from "react-helmet-async";
+import Seo from "./seo/Seo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
@@ -97,49 +97,11 @@ const RedesSociales = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Gestión de Redes Sociales en Alcoi 2026 | MN Design Web</title>
-        <link rel="canonical" href="https://mndesignweb.es/redes-sociales/" />
-
-        {/* 🔥 TÍTULOS Y DESCRIPCIONES 100% UNIFICADOS 🔥 */}
-        <meta
-          name="description"
-          content="¿Tus redes sociales no traen clientes? Creamos una estrategia de contenido que posiciona tu marca y aumenta tus ventas. ¡Transformamos tu presencia social!"
-        />
-
-        <meta
-          property="og:title"
-          content="Gestión de Redes Sociales en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          property="og:description"
-          content="¿Tus redes sociales no traen clientes? Creamos una estrategia de contenido que posiciona tu marca y aumenta tus ventas. ¡Transformamos tu presencia social!"
-        />
-        <meta
-          property="og:url"
-          content="https://mndesignweb.es/redes-sociales/"
-        />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-        <meta property="og:site_name" content="MN Design Web" />
-
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Gestión de Redes Sociales en Alcoi 2026 | MN Design Web"
-        />
-        <meta
-          name="twitter:description"
-          content="¿Tus redes sociales no traen clientes? Creamos una estrategia de contenido que posiciona tu marca y aumenta tus ventas. ¡Transformamos tu presencia social!"
-        />
-        <meta
-          name="twitter:image"
-          content="https://mndesignweb.es/logo-card.webp"
-        />
-      </Helmet>
+      <Seo
+        ruta="/redes-sociales/"
+        titulo="Gestión de Redes Sociales en Alcoi 2026 | MN Design Web"
+        descripcion="¿Tus redes sociales no traen clientes? Creamos una estrategia de contenido que posiciona tu marca y aumenta tus ventas. ¡Transformamos tu presencia social!"
+      />
 
       <div className="social-page-wrapper">
         <RedesSocialesSiguiente />

@@ -1,12 +1,12 @@
 import { StrictMode } from 'react';
-import { createRoot, hydrateRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 import './index.css';
 import App from './App.jsx';
+import { precargarPagina } from './paginas';
 
 const rootElement = document.getElementById('root');
 
-// Guardamos la estructura de tu app en una variable para no repetir código
 const appComponent = (
   <StrictMode>
     <HelmetProvider>
@@ -15,12 +15,19 @@ const appComponent = (
   </StrictMode>
 );
 
-// Aquí viene la magia:
-if (rootElement.hasChildNodes()) {
-  // Si hay HTML pre-renderizado (es decir, en el servidor para Google), hidratamos:
-  hydrateRoot(rootElement, appComponent);
-} else {
-  // Si el div está vacío (por ejemplo, cuando desarrollas en local con npm run dev), renderizamos normal:
-  const root = createRoot(rootElement);
-  root.render(appComponent);
-}
+// Siempre createRoot (nunca hydrateRoot): GSAP y las animaciones modifican el DOM,
+// así que el HTML prerenderizado no coincide con el primer render y la hidratación fallaría.
+// createRoot sustituye el HTML prerenderizado por la app real.
+//
+// Antes de montar, descargamos el código de la página actual: así React pasa directamente
+// del HTML prerenderizado a la página, sin mostrar la pantalla de "Cargando experiencia...".
+precargarPagina(window.location.pathname)
+  .catch(() => {
+    // Si falla la descarga, <Suspense> la reintentará al renderizar
+  })
+  .finally(() => {
+    // Las etiquetas SEO del HTML prerenderizado se quitan: <Seo> las vuelve a crear
+    // en el mismo render (si no, quedarían duplicadas en el <head>)
+    document.head.querySelectorAll("[data-prerender]").forEach((el) => el.remove());
+    createRoot(rootElement).render(appComponent);
+  });

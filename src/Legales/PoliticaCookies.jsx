@@ -5,15 +5,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis"; 
 import "lenis/dist/lenis.css";
+import Seo from "../seo/Seo";
 
 const PoliticaCookies = () => {
     
     useEffect(() => {
-        const consent = localStorage.getItem('cookieConsent');
-        if (!consent) {
-        setIsVisible(true);
-        }
-
         gsap.registerPlugin(ScrollTrigger);
         const lenis = new Lenis({ 
         duration: 1.2, 
@@ -34,6 +30,11 @@ const PoliticaCookies = () => {
 
     return (
         <div className="legal-wrapper">
+            <Seo
+              ruta="/cookies/"
+              titulo="Política de Cookies | MN Design Web"
+              descripcion="Qué son las cookies, qué tipos utiliza la web de MN Design Web y cómo puedes desactivarlas o eliminarlas desde la configuración de tu navegador."
+            />
             <main className="legal-container">
                 <h1 className="legal-title">Política de Cookies</h1>
 
@@ -61,7 +62,7 @@ const PoliticaCookies = () => {
 
                 <h2>4. MÁS INFORMACIÓN</h2>
                 <p>
-                    Para más información sobre el tratamiento de sus datos personales, puede consultar nuestra <a href="/privacidad">Política de Privacidad</a>.
+                    Para más información sobre el tratamiento de sus datos personales, puede consultar nuestra <a href="/privacidad/">Política de Privacidad</a>.
                 </p>
             </main>
         </div>

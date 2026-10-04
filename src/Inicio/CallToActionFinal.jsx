@@ -48,7 +48,7 @@ const CallToActionFinal = () => {
         </h2>
         
         <p className="cta-subtitle">¿Lista para llevar tu marca al siguiente nivel?</p>
-        <a href="/contacto#calendario-reserva" className="btn-empezar cta-btn" style={{ display: 'inline-flex', justifyContent: 'center', textDecoration: 'none' }}>
+        <a href="/contacto/#calendario-reserva" className="btn-empezar cta-btn" style={{ display: 'inline-flex', justifyContent: 'center', textDecoration: 'none' }}>
           Empezar proyecto
         </a>
       </motion.div>

@@ -32,7 +32,7 @@ const Soluciones = () => {
                         <p className="solucion-card-text">
                             Plataformas SaaS y Webs ultra-rápidas, sin límites de diseño y optimizadas al 100% para Google.
                         </p>
-                        <a href="/disenoweb#portfolio" className="solucion-card-btn">
+                        <a href="/disenoweb/#portfolio" className="solucion-card-btn">
                             SABER MÁS <i className="fas fa-chevron-right"></i>
                         </a>
                     </motion.div>
@@ -43,7 +43,7 @@ const Soluciones = () => {
                         <p className="solucion-card-text">
                             Potenciamos tu negocio con los mejores gestores (Shopify, WordPress, WooCommerce).
                         </p>
-                        <a href="/disenoweb#estructuras" className="solucion-card-btn">
+                        <a href="/disenoweb/#estructuras" className="solucion-card-btn">
                             SABER MÁS <i className="fas fa-chevron-right"></i>
                         </a>
                     </motion.div>
