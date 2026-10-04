@@ -1,10 +1,11 @@
 import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MorphSVGPlugin } from 'gsap/MorphSVGPlugin';
 import { useGSAP } from '@gsap/react';
 import './MetodologiaSticky.css';
 
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin(ScrollTrigger, MorphSVGPlugin, useGSAP);
 
 const pasos = [
   { id: '01', titulo: 'Arquitectura', desc: 'La arquitectura es el motor de tu página: nos encargamos de que la navegación sea fluida y de que cada herramienta integrada trabaje para mejorar la interacción con tus clientes. Diseñamos una estructura lógica que guía al usuario de forma intuitiva para generar resultados.', icon: "M3 3h18v18H3z M3 9h18 M9 9v12" }, // Grid de arquitectura
@@ -47,7 +48,9 @@ const MetodologiaSticky = () => {
         }
 
         tl.to(`.dot-${i}`, { fill: "#a672ff", stroke: "#fff", scale: 1.3, filter: "drop-shadow(0 0 10px #a672ff)", duration: 0.3 }, label);
-        tl.to(iconPathRef.current, { attr: { d: paso.icon }, duration: 0.3, ease: "power2.inOut" }, label);
+        // MorphSVG convierte ambos trazados a curvas compatibles antes de interpolar (animar
+        // "d" directamente generaba arcos con valores no válidos y errores en consola)
+        tl.to(iconPathRef.current, { morphSVG: paso.icon, duration: 0.3, ease: "power2.inOut" }, label);
         tl.to(`.step-item-${i}`, { opacity: 1, y: 0, pointerEvents: 'all', duration: 0.5 }, label);
         
         if (i > 0) {
