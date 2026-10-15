@@ -70,7 +70,7 @@ const EcommercePlanes = () => {
                 transition={{ duration: 0.6 }}
             >
                 <div className="ec-section-title-container">
-                    <h2>Nuestros Planes Adaptados</h2>
+                    <h2>Planes para tu tienda online en Alcoy</h2>
                     <p className="ec-section-subtitle">Soluciones transparentes para escalar tu negocio sin sorpresas.</p>
                 </div>
 
@@ -198,8 +198,8 @@ const EcommercePlanes = () => {
                         <div className="ec-promo-badge">
                             <i className="fa-brands fa-shopify"></i> Especialistas en Liquid
                         </div>
-                        <h2>Toma el control operativo de tu Shopify <br/><span>sin miedo a romper nada</span></h2>
-                        <p>Mentoría técnica 1 a 1 para dueños de e-commerce que quieren dejar de perder ventas por fallos de configuración.</p>
+                        <h2>¿Ya tienes tu tienda en Shopify? <br/><span>Te enseñamos a gestionarla</span></h2>
+                        <p>Si ya vendes con Shopify y quieres manejarla sin depender de nadie, resolvemos contigo la configuración de tu tienda en sesiones 1 a 1. <a href="/aprende-shopify/">Ver las mentorías de Shopify</a>.</p>
                         
                         <div className="ec-promo-buttons">
                             {/* Botón principal a la landing general */}

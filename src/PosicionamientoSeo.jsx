@@ -84,8 +84,8 @@ const PosicionamientoSeo = () => {
     <>
       <Seo
         ruta="/posicionamiento-seo/"
-        titulo="Posicionamiento SEO en Alcoi 2026 | MN Design Web"
-        descripcion="Posicionamiento SEO en Alcoi y Alicante para negocios que buscan resultados reales: optimizamos tu web para subir en Google y conseguir más clientes."
+        titulo="Posicionamiento SEO en Alcoy (Alcoi) | MN Design Web"
+        descripcion="Posicionamiento SEO en Alcoy (Alcoi): SEO local, Google Maps y contenidos para que tu negocio aparezca cuando te buscan. Diagnóstico gratuito."
       />
 
       <div className="PosicionamientoSeo-page-wrapper">

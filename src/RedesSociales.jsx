@@ -67,8 +67,8 @@ const RedesSociales = () => {
     <>
       <Seo
         ruta="/redes-sociales/"
-        titulo="Gestión de Redes Sociales en Alcoi 2026 | MN Design Web"
-        descripcion="¿Tus redes sociales no traen clientes? Creamos una estrategia de contenido que posiciona tu marca y aumenta tus ventas. ¡Transformamos tu presencia social!"
+        titulo="Gestión de Redes Sociales en Alcoy (Alcoi) | MN Design Web"
+        descripcion="Gestión de redes sociales en Alcoy (Alcoi): estrategia, contenido y publicación para que tus perfiles dejen de ser un escaparate y te traigan clientes."
       />
 
       <div className="social-page-wrapper">
