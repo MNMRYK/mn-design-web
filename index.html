@@ -11,12 +11,11 @@
 
     <!-- Description, canonical, Open Graph y Twitter van en cada página con <Seo> (src/seo/Seo.jsx) -->
 
-    <!-- COOKIES (Google Consent Mode v2, modo básico). Mismo código que
+    <!-- COOKIES (Google Consent Mode v2, modo básico, por categorías). Mismo código que
          Landings-mndesignweb/src/components/CookiesHead.astro: si cambias uno, cambia el otro.
-         Ningún tracker se carga hasta que el usuario acepta: Google Analytics, Microsoft Clarity
-         y el Píxel de Meta están dentro de window.cargarTrackers(). El banner
-         (src/Legales/CookieBanner.jsx) la llama al aceptar; si ya aceptó en otra visita,
-         se llama aquí al entrar. -->
+         Analítica (GA4 + Clarity) y Marketing (Meta + remarketing de Google Ads), las dos
+         desactivadas hasta que el usuario las acepta. El banner (src/Legales/CookieBanner.jsx)
+         usa window.leerConsentimiento() y window.guardarConsentimiento(). -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -29,87 +28,166 @@
         analytics_storage: "denied",
       });
 
-      window.cargarTrackers = function () {
-        if (window.__trackersCargados || window.__PRERENDER__) return;
-        window.__trackersCargados = true;
+      (function () {
+        var CLAVE = "cookieConsent";
+        var VERSION = "2";
+        var VALORES = {
+          accepted: { analitica: true, marketing: true },
+          declined: { analitica: false, marketing: false },
+          analytics: { analitica: true, marketing: false },
+          marketing: { analitica: false, marketing: true },
+        };
+        // Cookies y almacenamiento de cada categoría (no toca cookieConsent)
+        var DATOS = {
+          analitica: /^(_ga|_gid|_gat|_cl[a-z]{2}$|clarity)/i,
+          marketing: /^(_gcl_|_fb[pc]$)/i,
+        };
+        var cargado = { google: false, analitica: false, marketing: false };
+        window.__trackersCargados = false;
 
-        // Google Analytics
-        gtag("consent", "update", {
-          ad_storage: "granted",
-          ad_user_data: "granted",
-          ad_personalization: "granted",
-          analytics_storage: "granted",
-        });
-        gtag("js", new Date());
-        gtag("config", "G-36WYJMYT3Z");
-        var ga = document.createElement("script");
-        ga.async = true;
-        ga.src = "https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z";
-        document.head.appendChild(ga);
+        // Las landings guardaban la decisión en "cookie_consent": se pasa a la clave común
+        try {
+          var antigua = localStorage.getItem("cookie_consent");
+          if (antigua && !localStorage.getItem(CLAVE)) localStorage.setItem(CLAVE, antigua);
+          localStorage.removeItem("cookie_consent");
+        } catch (e) {}
 
-        // Microsoft Clarity
-        (function (c, l, a, r, i, t, y) {
-          c[a] =
-            c[a] ||
-            function () {
-              (c[a].q = c[a].q || []).push(arguments);
-            };
-          t = l.createElement(r);
-          t.async = 1;
-          t.src = "https://www.clarity.ms/tag/" + i;
-          y = l.getElementsByTagName(r)[0];
-          y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", "wuzaxaifa0");
-        window.clarity("consentv2", {
-          ad_Storage: "granted",
-          analytics_Storage: "granted",
-        });
+        // null = todavía no ha decidido (o aceptó con el texto anterior): hay que mostrar el banner
+        window.leerConsentimiento = function () {
+          try {
+            var valor = localStorage.getItem(CLAVE);
+            if (!VALORES[valor]) return null;
+            if (localStorage.getItem(CLAVE + "Version") !== VERSION && valor !== "declined") return null;
+            return { analitica: VALORES[valor].analitica, marketing: VALORES[valor].marketing };
+          } catch (e) {
+            return null;
+          }
+        };
 
-        // Píxel de Meta
-        !(function (f, b, e, v, n, t, s) {
-          if (f.fbq) return;
-          n = f.fbq = function () {
-            n.callMethod
-              ? n.callMethod.apply(n, arguments)
-              : n.queue.push(arguments);
-          };
-          if (!f._fbq) f._fbq = n;
-          n.push = n;
-          n.loaded = !0;
-          n.version = "2.0";
-          n.queue = [];
-          t = b.createElement(e);
-          t.async = !0;
-          t.src = v;
-          s = b.getElementsByTagName(e)[0];
-          s.parentNode.insertBefore(t, s);
-        })(
-          window,
-          document,
-          "script",
-          "https://connect.facebook.net/en_US/fbevents.js",
-        );
-        window.fbq("init", "1627135808585120");
-        window.fbq("track", "PageView");
-      };
-
-      // Las landings guardaban la decisión en "cookie_consent": se pasa a la clave común
-      try {
-        var antigua = localStorage.getItem("cookie_consent");
-        if (antigua && !localStorage.getItem("cookieConsent")) {
-          localStorage.setItem("cookieConsent", antigua);
+        function borrarDatos(categoria) {
+          var patron = DATOS[categoria];
+          // Dominios donde pueden estar: sin dominio (solo este host), el host y cada dominio padre,
+          // con y sin punto delante (www.mndesignweb.es, mndesignweb.es, .mndesignweb.es…)
+          var partes = location.hostname.split(".");
+          var dominios = [""];
+          for (var i = 0; i < partes.length - 1 || i === 0; i++) {
+            var d = partes.slice(i).join(".");
+            dominios.push("; domain=" + d, "; domain=." + d);
+          }
+          var rutas = ["; path=/", "; path=" + location.pathname.replace(/[^/]*$/, ""), ""];
+          var caduca = "=; expires=Thu, 01 Jan 1970 00:00:00 GMT; max-age=0";
+          document.cookie.split(";").forEach(function (c) {
+            var nombre = c.split("=")[0].trim();
+            if (!nombre || !patron.test(nombre)) return;
+            dominios.forEach(function (dominio) {
+              rutas.forEach(function (ruta) {
+                document.cookie = nombre + caduca + ruta + dominio;
+              });
+            });
+          });
+          [window.localStorage, window.sessionStorage].forEach(function (almacen) {
+            try {
+              Object.keys(almacen).forEach(function (clave) {
+                if (clave.indexOf(CLAVE) !== 0 && patron.test(clave)) almacen.removeItem(clave);
+              });
+            } catch (e) {}
+          });
         }
-        localStorage.removeItem("cookie_consent");
-      } catch (e) {}
 
-      try {
-        if (localStorage.getItem("cookieConsent") === "accepted") {
-          window.cargarTrackers();
+        function cargar(p) {
+          if (window.__PRERENDER__ || !(p.analitica || p.marketing)) return;
+          window.__trackersCargados = true;
+
+          gtag("consent", "update", {
+            analytics_storage: p.analitica ? "granted" : "denied",
+            ad_storage: p.marketing ? "granted" : "denied",
+            ad_user_data: p.marketing ? "granted" : "denied",
+            ad_personalization: p.marketing ? "granted" : "denied",
+          });
+
+          // Etiqueta de Google: GA4 y, a través de ella, Google Ads
+          if (!cargado.google) {
+            cargado.google = true;
+            gtag("js", new Date());
+            gtag("config", "G-36WYJMYT3Z");
+            var ga = document.createElement("script");
+            ga.async = true;
+            ga.src = "https://www.googletagmanager.com/gtag/js?id=G-36WYJMYT3Z";
+            document.head.appendChild(ga);
+          }
+
+          // Microsoft Clarity (Analítica)
+          if (p.analitica && !cargado.analitica) {
+            cargado.analitica = true;
+            (function (c, l, a, r, i, t, y) {
+              c[a] =
+                c[a] ||
+                function () {
+                  (c[a].q = c[a].q || []).push(arguments);
+                };
+              t = l.createElement(r);
+              t.async = 1;
+              t.src = "https://www.clarity.ms/tag/" + i;
+              y = l.getElementsByTagName(r)[0];
+              y.parentNode.insertBefore(t, y);
+            })(window, document, "clarity", "script", "wuzaxaifa0");
+          }
+          if (cargado.analitica) {
+            window.clarity("consentv2", {
+              analytics_Storage: "granted",
+              ad_Storage: p.marketing ? "granted" : "denied",
+            });
+          }
+
+          // Píxel de Meta (Marketing)
+          if (p.marketing && !cargado.marketing) {
+            cargado.marketing = true;
+            !(function (f, b, e, v, n, t, s) {
+              if (f.fbq) return;
+              n = f.fbq = function () {
+                n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+              };
+              if (!f._fbq) f._fbq = n;
+              n.push = n;
+              n.loaded = !0;
+              n.version = "2.0";
+              n.queue = [];
+              t = b.createElement(e);
+              t.async = !0;
+              t.src = v;
+              s = b.getElementsByTagName(e)[0];
+              s.parentNode.insertBefore(t, s);
+            })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js");
+            window.fbq("init", "1627135808585120");
+            window.fbq("track", "PageView");
+          }
         }
-      } catch (e) {}
 
-      // Eventos de GA4 (conversiones importadas en Google Ads). Solo se envían si el usuario
-      // ha aceptado: sin consentimiento no se encola nada que se pudiera enviar después.
+        // Guarda la elección. Si retira algo que ya estaba cargado en esta página, borra sus datos y
+        // recarga para pararlo; si solo añade, lo carga sin recargar.
+        window.guardarConsentimiento = function (p) {
+          var valor = p.analitica && p.marketing ? "accepted" : p.analitica ? "analytics" : p.marketing ? "marketing" : "declined";
+          try {
+            localStorage.setItem(CLAVE, valor);
+            localStorage.setItem(CLAVE + "Version", VERSION);
+          } catch (e) {}
+          var retira = (cargado.analitica && !p.analitica) || (cargado.marketing && !p.marketing) || (cargado.google && !p.analitica && !p.marketing);
+          if (!p.analitica) borrarDatos("analitica");
+          if (!p.marketing) borrarDatos("marketing");
+          if (retira) location.reload();
+          else cargar(p);
+        };
+
+        // Al entrar: carga lo aceptado y borra los datos de lo no aceptado (GA4 puede reescribir
+        // _ga_<ID> al cerrar la página justo después de un borrado)
+        var actual = window.leerConsentimiento() || { analitica: false, marketing: false };
+        if (!actual.analitica) borrarDatos("analitica");
+        if (!actual.marketing) borrarDatos("marketing");
+        cargar(actual);
+      })();
+
+      // Eventos de GA4 (conversiones importadas en Google Ads). Solo se envían si la etiqueta de
+      // Google está cargada: sin consentimiento no se encola nada que se pudiera enviar después.
       window.enviarEvento = function (nombre, parametros) {
         if (!window.__trackersCargados) return;
         var datos = { pagina: location.pathname };

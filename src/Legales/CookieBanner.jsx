@@ -1,50 +1,102 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import './CookieBanner.css';
 import { EVENTO_CONFIGURAR_COOKIES } from '../utils/cookies';
 
+// Banner de cookies por categorías (Analítica y Marketing). La lógica de consentimiento está en
+// index.html (window.leerConsentimiento y window.guardarConsentimiento), igual que en las landings.
+const leer = () => {
+  try {
+    return window.leerConsentimiento ? window.leerConsentimiento() : null;
+  } catch {
+    return null;
+  }
+};
+
 const CookieBanner = () => {
-  // Visible si todavía no hay decisión guardada (no se pinta en el prerender: ver App.jsx)
-  const [isVisible, setIsVisible] = useState(() => {
-    try {
-      return !localStorage.getItem('cookieConsent');
-    } catch {
-      return true;
-    }
-  });
+  // Visible si todavía no hay una decisión válida guardada (no se pinta en el prerender: ver App.jsx)
+  const [isVisible, setIsVisible] = useState(() => !leer());
+  const [vista, setVista] = useState('principal');
+  const [analitica, setAnalitica] = useState(false);
+  const [marketing, setMarketing] = useState(false);
+  const primeraCasilla = useRef(null);
+  const enlaceConfigurar = useRef(null);
 
-  // "Configurar cookies" (footer) vuelve a abrir el banner
-  useEffect(() => {
-    const abrir = () => setIsVisible(true);
-    window.addEventListener(EVENTO_CONFIGURAR_COOKIES, abrir);
-    return () => window.removeEventListener(EVENTO_CONFIGURAR_COOKIES, abrir);
-  }, []);
-
-  const handleAccept = () => {
-    localStorage.setItem('cookieConsent', 'accepted');
-    setIsVisible(false);
-
-    // Carga Google Analytics, Microsoft Clarity y el Píxel de Meta (definido en index.html)
-    if (typeof window !== "undefined" && window.cargarTrackers) {
-      window.cargarTrackers();
-    }
+  const abrirConfiguracion = () => {
+    // Casillas desmarcadas si todavía no ha decidido; si no, su elección actual
+    const actual = leer() || { analitica: false, marketing: false };
+    setAnalitica(actual.analitica);
+    setMarketing(actual.marketing);
+    setVista('configurar');
+    setIsVisible(true);
   };
 
-  const handleDecline = () => {
-    localStorage.setItem('cookieConsent', 'declined');
-    setIsVisible(false);
+  // "Configurar cookies" (footer) abre directamente el panel de configuración
+  useEffect(() => {
+    window.addEventListener(EVENTO_CONFIGURAR_COOKIES, abrirConfiguracion);
+    return () => window.removeEventListener(EVENTO_CONFIGURAR_COOKIES, abrirConfiguracion);
+  }, []);
 
-    // Si había aceptado antes y los trackers ya están cargados en esta página,
-    // recargamos para que dejen de funcionar
-    if (typeof window !== "undefined" && window.__trackersCargados) {
-      window.location.reload();
+  useEffect(() => {
+    if (isVisible && vista === 'configurar') primeraCasilla.current?.focus();
+  }, [isVisible, vista]);
+
+  // Guarda la elección (index.html carga lo aceptado o, si se retira algo ya cargado, recarga)
+  const elegir = (preferencias) => {
+    setIsVisible(false);
+    setVista('principal');
+    if (typeof window !== 'undefined' && window.guardarConsentimiento) {
+      window.guardarConsentimiento(preferencias);
     }
   };
 
   if (!isVisible) return null;
 
+  if (vista === 'configurar') {
+    return (
+      <div className="cookie-card-uiverse" role="dialog" aria-labelledby="cc-titulo">
+        <div className="cc-panel" role="group" aria-labelledby="cc-titulo">
+          <p className="cc-titulo" id="cc-titulo">Configurar cookies</p>
+          <label className="cc-opcion">
+            <input ref={primeraCasilla} type="checkbox" checked={analitica} onChange={(e) => setAnalitica(e.target.checked)} />
+            <span>
+              <strong>Analítica</strong>
+              <span className="cc-detalle">
+                Google Analytics y Microsoft Clarity: cuántas visitas recibimos y cómo se usa la web.
+              </span>
+            </span>
+          </label>
+          <label className="cc-opcion">
+            <input type="checkbox" checked={marketing} onChange={(e) => setMarketing(e.target.checked)} />
+            <span>
+              <strong>Marketing</strong>
+              <span className="cc-detalle">
+                Píxel de Meta y remarketing de Google Ads: anuncios personalizados y medición de campañas.
+              </span>
+            </span>
+          </label>
+          <div className="cc-acciones">
+            <button
+              type="button"
+              className="cc-link"
+              onClick={() => {
+                setVista('principal');
+                setTimeout(() => enlaceConfigurar.current?.focus(), 0);
+              }}
+            >
+              Volver
+            </button>
+            <button type="button" className="botonCookie cc-guardar" onClick={() => elegir({ analitica, marketing })}>
+              Guardar preferencias
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="cookie-card-uiverse">
+    <div className="cookie-card-uiverse" role="dialog" aria-labelledby="cookie-titulo">
 
       <svg xmlSpace="preserve" viewBox="0 0 122.88 122.25" y="0px" x="0px" id="cookieSvg" version="1.1">
         <g>
@@ -52,17 +104,25 @@ const CookieBanner = () => {
         </g>
       </svg>
       
-      <p className="cookieHeading">¿Aceptas las cookies?</p>
+      <p className="cookieHeading" id="cookie-titulo">¿Aceptas las cookies?</p>
       <p className="cookieDescription">
-        Usamos cookies de Google Analytics, Microsoft Clarity y Meta para saber cómo se usa
-        la web y medir nuestros anuncios. Solo se activan si las aceptas; si las rechazas,
-        la web funciona igual.
-        <Link className="cookielink" to="/cookies/">Más información en la política de cookies</Link>
+        Usamos cookies propias y de terceros para medir las visitas y mostrarte publicidad
+        personalizada. Puedes aceptarlas, rechazarlas o configurarlas.
+        <span className="cc-enlaces">
+          <Link className="cookielink" to="/cookies/">Ver la política de cookies</Link>
+          <button ref={enlaceConfigurar} type="button" className="cc-link" onClick={abrirConfiguracion}>
+            Configurar
+          </button>
+        </span>
       </p>
 
       <div className="buttonContainer">
-        <button type="button" className="botonCookie" onClick={handleAccept}>Aceptar</button>
-        <button type="button" className="botonCookie" onClick={handleDecline}>Rechazar</button>
+        <button type="button" className="botonCookie" onClick={() => elegir({ analitica: true, marketing: true })}>
+          Aceptar
+        </button>
+        <button type="button" className="botonCookie" onClick={() => elegir({ analitica: false, marketing: false })}>
+          Rechazar
+        </button>
       </div>
     </div>
   );

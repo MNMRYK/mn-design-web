@@ -25,6 +25,7 @@ export const RUTAS_REACT = [
 // El blog (WordPress en /blog/) tiene su propio sitemap: /blog/sitemap_index.xml
 export const RUTAS_EXTERNAS_INDEXABLES = [
   "/alcoi/",
+  "/software-a-mida-alcoi/", // página de software en valenciano (antes en /alcoi/)
   "/clinicas/",
   "/nutricionistas/",
   "/psicologos/",
