@@ -195,21 +195,32 @@
         gtag("event", nombre, datos);
       };
 
-      // Clics en WhatsApp, teléfono y reservas de Cal.com, en cualquier enlace de la web
+      // Eventos del Píxel de Meta. fbq solo existe si se ha aceptado Marketing.
+      window.enviarMeta = function (evento, parametros) {
+        if (typeof window.fbq === "function") window.fbq("track", evento, parametros);
+      };
+
+      // Clics de contacto en cualquier enlace de la web (único sitio donde se miden; las páginas no
+      // deben repetirlo): GA4 click_telefono / click_whatsapp / click_email / click_reserva y, en los
+      // tres primeros, Contact en Meta
       document.addEventListener(
         "click",
         function (e) {
           var enlace = e.target.closest && e.target.closest("a[href]");
           if (!enlace) return;
           var href = enlace.getAttribute("href") || "";
-          var nombre = /^tel:/i.test(href)
-            ? "click_telefono"
-            : /wa\.me\//i.test(href)
-              ? "click_whatsapp"
-              : /cal\.com\//i.test(href)
-                ? "click_reserva"
-                : null;
-          if (nombre) window.enviarEvento(nombre, { link_url: href });
+          var tipo = /^tel:/i.test(href)
+            ? "telefono"
+            : /wa\.me\/|api\.whatsapp\.com|^whatsapp:/i.test(href)
+              ? "whatsapp"
+              : /^mailto:/i.test(href)
+                ? "email"
+                : /cal\.com\//i.test(href)
+                  ? "reserva"
+                  : null;
+          if (!tipo) return;
+          window.enviarEvento("click_" + tipo, { link_url: href });
+          if (tipo !== "reserva") window.enviarMeta("Contact", { content_name: { telefono: "phone", whatsapp: "whatsapp", email: "email" }[tipo] });
         },
         true,
       );
