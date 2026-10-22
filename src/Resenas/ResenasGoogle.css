@@ -211,8 +211,10 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     gap: 14px;
-    padding-bottom: 8px;
-    margin: 0 -5vw;
+    /* Aire arriba y abajo para que la sombra de las tarjetas no quede cortada por el scroll */
+    padding-top: 6px;
+    padding-bottom: 36px;
+    margin: -6px -5vw -28px;
     padding-left: 5vw;
     padding-right: 5vw;
     scroll-padding-left: 5vw;
