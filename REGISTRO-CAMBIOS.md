@@ -49,6 +49,11 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 22/10/2026 · /portfolio/ → /demos/ (301)
+- **Qué:** regla en `public/.htaccess` junto a la de /servicios/. /portfolio daba la 404 de React y Google aún lo muestra como sitelink («Portfolio · Diseño web profesional en Alcoi»). Solo afecta a /portfolio y /portfolio/; las imágenes de `public/portfolio/` siguen sirviéndose.
+- **Cómo medirlo:** `curl -I https://mndesignweb.es/portfolio` → una sola 301 a /demos/; el sitelink debería desaparecer o pasar a /demos/ en unas semanas.
+- **Estado:** hecho en local, sin publicar.
+
 ### 22/10/2026 · Fase 3: logo nuevo, favicon, foto de María, og:image y reseñas de Google
 - **Logo** (cambiado por María): cabecera `/pajaro-morado.svg` (Navbar.jsx, altura 30 px), pie `/logo-morado.svg` (alt vacío, es decorativo junto al nombre). Favicon `/logo-morado.svg` (`image/svg+xml`) y apple-touch-icon `/marca/apple-touch-icon.png` (publicado por las landings; en localhost no existe).
 - **Chat:** el avatar del mensaje de bienvenida apuntaba a `logo-morado.png` con ruta relativa (fallaba fuera de la home); ahora `/logo-morado.svg`. `public/chat/logo-morado.png` (1024 px) no se usa. El avatar del chat ya abierto se cambia en el panel de Typebot.

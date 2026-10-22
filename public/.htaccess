@@ -68,6 +68,8 @@ RewriteRule ^ecommerce/?$               /e-commerce/  [NC,R=301,L]
 RewriteRule ^politica-de-privacidad/?$  /privacidad/  [NC,R=301,L]
 # /servicios/ (web anterior): la home es la que presenta todos los servicios
 RewriteRule ^servicios/?$               /             [NC,R=301,L]
+# /portfolio/ (web anterior, aún sale como sitelink en Google): los trabajos están en /demos/
+RewriteRule ^portfolio/?$               /demos/       [NC,R=301,L]
 
 # ---------------------------------------------------------------------
 # 5. Rutas React: sin barra final o con mayúsculas → minúsculas + barra
