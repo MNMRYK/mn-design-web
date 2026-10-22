@@ -403,6 +403,7 @@
   .footer-acciones {
     grid-template-columns: 1fr;
     max-width: 560px;
+    margin-top: -20px;
   }
 }
 

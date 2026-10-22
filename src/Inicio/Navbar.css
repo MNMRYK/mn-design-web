@@ -300,7 +300,7 @@
 
   /* --- AJUSTAR EL TAMAÑO DEL LOGO --- */
   .logo img {
-    height: 45px; /* Reducimos el pajarito */
+    height: 30px; /* Reducimos el pajarito */
   }
 
   .siglas {
@@ -492,6 +492,6 @@
   }
 
   .logo img {
-    height: 35px; /* Reducimos el pajarito */
+    height: 25px; /* Reducimos el pajarito */
   }
 }
