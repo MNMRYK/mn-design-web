@@ -80,7 +80,7 @@ const PosicionamientoSeo = () => {
                 "@context": "https://schema.org/",
                 "@type": "Service",
                 name: "Servicio de Posicionamiento SEO",
-                image: "https://mndesignweb.es/logo-card.webp",
+                image: "https://mndesignweb.es/og-mndesignweb.jpg",
                 description:
                   "Servicios profesionales de posicionamiento SEO, auditoría y optimización técnica para mejorar tu visibilidad en buscadores.",
                 provider: REF_EMPRESA,

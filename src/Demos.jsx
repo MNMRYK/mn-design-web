@@ -34,7 +34,7 @@ const Demos = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Prototipo de Diseño Web a Medida",
-    image: "https://mndesignweb.es/logo-card.webp",
+    image: "https://mndesignweb.es/og-mndesignweb.jpg",
     description:
       "Demostración inicial y diseño de estructura web de alto rendimiento (Hero y layout principal) adaptada a la identidad corporativa de tu marca.",
     provider: REF_EMPRESA,

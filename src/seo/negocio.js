@@ -35,7 +35,7 @@ export const EMPRESA = {
   name: "MN Design Web",
   url: `${DOMINIO}/`,
   logo: `${DOMINIO}/logo.webp`,
-  image: `${DOMINIO}/logo-card.webp`,
+  image: `${DOMINIO}/og-mndesignweb.jpg`,
   description:
     "Agencia de diseño y desarrollo web: diseño web a medida, tiendas online, posicionamiento SEO, redes sociales y software a medida para empresas de toda España. Estudio en Cocentaina (Alicante).",
   founder: { "@id": ID_FUNDADORA },

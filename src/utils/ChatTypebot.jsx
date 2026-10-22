@@ -35,7 +35,7 @@ const ChatTypebot = () => {
           {mensajeVisible && !mensajeCerrado && !cargando && (
             <div className="chat-mensaje">
               <button type="button" className="chat-mensaje-abrir" onClick={abrirChat} onPointerEnter={precargar} onTouchStart={precargar}>
-                <img src="/chat/avatar.webp" alt="" width="32" height="32" className="chat-mensaje-avatar" />
+                <img src="/logo-morado.svg" alt="" width="32" height="32" className="chat-mensaje-avatar" />
                 <span className="chat-mensaje-texto">¡Hola! ¿En qué puedo ayudarte?</span>
               </button>
               <button

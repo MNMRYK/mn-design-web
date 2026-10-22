@@ -61,7 +61,7 @@ const RedesSociales = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     name: "Gestión de Redes Sociales",
-    image: "https://mndesignweb.es/logo-card.webp",
+    image: "https://mndesignweb.es/og-mndesignweb.jpg",
     description:
       "Estrategia de contenidos, creación de Reels/TikTok y gestión integral de marca.",
     provider: REF_EMPRESA,

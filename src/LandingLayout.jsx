@@ -90,7 +90,7 @@ const LandingLayout = () => {
                 "@context": "https://schema.org/",
                 "@type": "Service",
                 name: "Servicios de Rescate Web MN Design Web",
-                image: "https://mndesignweb.es/logo-card.webp",
+                image: "https://mndesignweb.es/og-mndesignweb.jpg",
                 description:
                   "Auditoría técnica, limpieza de código y rescate de proyectos web abandonados tras el Kit Digital.",
                 provider: REF_EMPRESA,

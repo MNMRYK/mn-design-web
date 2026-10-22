@@ -6,6 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import NosotrosSiguiente from "./Nosotros/NosotrosSiguiente";
 import MetodologiaSticky from "./Nosotros/MetodologiaSticky";
 import BlogPreview from "./Nosotros/BlogPreview";
+import ResenasGoogle from "./Resenas/ResenasGoogle";
 import { EMPRESA } from "./seo/negocio";
 import { crearLenis } from "./utils/lenis";
 
@@ -46,6 +47,7 @@ const Nosotros = () => {
       <div className="nosotros-page-wrapper">
         <NosotrosSiguiente />
         <MetodologiaSticky />
+        <ResenasGoogle ids={["sara"]} etiqueta="Reseña de Google" titulo="Cómo es trabajar" tituloColor="con nosotros" />
         <BlogPreview />
 
         <script
@@ -53,6 +55,19 @@ const Nosotros = () => {
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
               EMPRESA,
+              {
+                "@context": "https://schema.org",
+                "@type": "Person",
+                "@id": "https://mndesignweb.es/nosotros/#maria-nadal",
+                name: "María Nadal",
+                jobTitle: "Fundadora de MN Design Web",
+                image: "https://mndesignweb.es/maria-nadal-mn-design-web-800.webp",
+                worksFor: { "@id": "https://mndesignweb.es/#empresa" },
+                sameAs: [
+                  "https://www.linkedin.com/in/mar%C3%ADa-nadal-masi%C3%A1-080a77315/",
+                  "https://github.com/MNMRYK",
+                ],
+              },
               {
                 "@context": "https://schema.org",
                 "@type": "BreadcrumbList",

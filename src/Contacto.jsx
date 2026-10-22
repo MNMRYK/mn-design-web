@@ -7,6 +7,7 @@ import ContactoSiguiente from './Contacto/ContactoSiguiente';
 import ReservaYMapa from './Contacto/ReservaYMapa';
 import Opiniones from './Contacto/Opiniones';
 import DemoContacto from './Contacto/DemoContacto.jsx';
+import ResenasGoogle from './Resenas/ResenasGoogle';
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 import { crearLenis } from "./utils/lenis";
 
@@ -43,6 +44,7 @@ const Contacto = () => {
 
       <div className="contacto-page-wrapper">
         <ContactoSiguiente />
+        <ResenasGoogle ids={["sara"]} etiqueta="Reseña de Google" titulo="«Te escucha y entiende" tituloColor="a la perfección»" />
         <DemoContacto />
         <ReservaYMapa />
         <Opiniones />
@@ -63,7 +65,7 @@ const Contacto = () => {
                 "@context": "https://schema.org/",
                 "@type": "Service",
                 "name": "Servicios Profesionales MN Design Web",
-                "image": "https://mndesignweb.es/logo-card.webp",
+                "image": "https://mndesignweb.es/og-mndesignweb.jpg",
                 "description": "Servicios de diseño web profesional, tiendas online y posicionamiento en Alicante.",
                 "provider": REF_EMPRESA,
                 "areaServed": AREA_SERVIDA,

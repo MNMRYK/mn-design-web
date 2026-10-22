@@ -86,7 +86,7 @@ const DisenoWeb = () => {
                 "@context": "https://schema.org/",
                 "@type": "Service",
                 name: "Servicios de Diseño Web MN Design Web",
-                image: "https://mndesignweb.es/logo-card.webp",
+                image: "https://mndesignweb.es/og-mndesignweb.jpg",
                 description:
                   "Desarrollo y diseño de páginas web corporativas, sitios con reservas y tiendas online.",
                 provider: REF_EMPRESA,

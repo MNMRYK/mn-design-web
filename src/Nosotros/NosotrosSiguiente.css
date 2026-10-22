@@ -126,10 +126,13 @@
   min-height: 50px; /* Para que no salte la altura al cambiar de texto */
 }
 
-/* --- LA IMAGEN FALSA (Hasta que decidas qué poner) --- */
+/* --- FOTO DE MARÍA (vertical 4:5, se ve entera) --- */
 .image-placeholder {
   width: 100%;
-  aspect-ratio: 4 / 3; /* 🔥 Esto obliga a que siempre tenga forma rectangular bonita */
+  max-width: 440px;
+  justify-self: center;
+  margin: 0 auto;
+  aspect-ratio: 4 / 5; /* Mismo formato que la foto (800×1000): no se recorta */
   height: auto;        /* 🔥 Quitamos los 600px fijos */
   background: linear-gradient(135deg, rgba(166, 114, 255, 0.1), rgba(166, 114, 255, 0.05));
   border-radius: 30px;
@@ -144,8 +147,8 @@
 .nosotros-img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* 🔥 IMPORTANTE: Esto hará que se vea bien aunque la foto no sea perfecta */
-  object-position: center; /* Centra la cara de la gente */
+  object-fit: cover;
+  object-position: center top;
 }
 
 
@@ -154,11 +157,11 @@
   .nosotros-hero-container {
     /* 🔥 Pasamos a 1 sola columna. El texto arriba, la imagen abajo 🔥 */
     grid-template-columns: 1fr; 
-    margin-bottom: -80px;
+    margin-bottom: 0;
   }
 
   .image-placeholder {
-    display: none !important;
+    max-width: 320px;
   }
 }
 
@@ -199,8 +202,9 @@
     min-height: auto;
   }
 
-  /* 3. ¡Matamos la imagen falsa en móvil! */
+  /* 3. La foto, más pequeña en móvil */
   .image-placeholder {
-    display: none !important;
+    max-width: 280px;
+    border-radius: 24px;
   }
 }

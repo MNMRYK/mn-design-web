@@ -76,11 +76,20 @@ const NosotrosSiguiente = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          {/* Aquí iría vuestra foto de equipo o un gráfico abstracto chulo */}
+          {/* Foto de María Nadal, fundadora */}
           <div className="image-placeholder">
             <div className="glass-shape glass-1"></div>
             <div className="glass-shape glass-2"></div>
-            <img src="/nosotros.webp" alt="MN Design Web" className="nosotros-img" />
+            <img
+              src="/maria-nadal-mn-design-web-800.webp"
+              srcSet="/maria-nadal-mn-design-web-480.webp 480w, /maria-nadal-mn-design-web-800.webp 800w"
+              sizes="(max-width: 1024px) 320px, 440px"
+              width="800"
+              height="1000"
+              fetchPriority="high"
+              alt="María Nadal, fundadora de MN Design Web"
+              className="nosotros-img"
+            />
           </div>
         </motion.div>
 

@@ -117,7 +117,7 @@
 }
 
 .logo img {
-  height: 45px;
+  height: 30px;
   width: auto;
 }
 
@@ -133,14 +133,14 @@
 .siglas {
   font-family: "Nunito", sans-serif;
   font-weight: 900;
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: var(--fondo-oscuro);
 }
 
 .marca {
   font-family: "Nunito", sans-serif;
   color: var(--dark-violet);
-  font-size: 1.9rem;
+  font-size: 1.7rem;
   font-weight: 900;
   opacity: 0.8;
 }

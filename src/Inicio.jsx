@@ -17,6 +17,7 @@ import Beneficios from "./Inicio/Beneficios";
 import ContactoDoble from "./Inicio/ContactoDoble";
 import CallToActionFinal from "./Inicio/CallToActionFinal";
 import BlogPreview from "./Inicio/BlogPreview";
+import ResenasGoogle from "./Resenas/ResenasGoogle";
 import { crearLenis } from "./utils/lenis";
 
 const Inicio = () => {
@@ -147,6 +148,7 @@ const Inicio = () => {
         <section className="beneficios-wrapper">
           <Beneficios />
         </section>
+        <ResenasGoogle />
         <section className="contacto-section-wrapper">
           <ContactoDoble />
         </section>

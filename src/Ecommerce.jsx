@@ -81,7 +81,7 @@ const Ecommerce = () => {
                 "@context": "https://schema.org/",
                 "@type": "Service",
                 name: "Desarrollo de Tiendas Online E-commerce",
-                image: "https://mndesignweb.es/logo-card.webp",
+                image: "https://mndesignweb.es/og-mndesignweb.jpg",
                 description:
                   "Desarrollo de tiendas online a medida, escalables y optimizadas para una máxima conversión de ventas.",
                 provider: REF_EMPRESA,
