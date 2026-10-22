@@ -216,6 +216,11 @@
     padding-left: 5vw;
     padding-right: 5vw;
     scroll-padding-left: 5vw;
+    scrollbar-width: none; /* sin barra de scroll: se desliza con el dedo */
+  }
+
+  .resenas-lista::-webkit-scrollbar {
+    display: none;
   }
 
   .resena-item {

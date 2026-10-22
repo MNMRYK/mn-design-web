@@ -20,7 +20,7 @@ const Comillas = () => (
   </span>
 );
 
-const Tarjeta = ({ r, destacada }) => (
+const Tarjeta = ({ r, destacada, corta }) => (
   <li className={`resena-item${destacada ? " resena-item--destacada" : ""}`}>
     <figure className="resena-tarjeta">
       <div className="resena-cabecera">
@@ -30,7 +30,7 @@ const Tarjeta = ({ r, destacada }) => (
           {r.google ? "Reseña de Google" : "Cliente"}
         </span>
       </div>
-      <blockquote className="resena-texto">«{r.texto}»</blockquote>
+      <blockquote className="resena-texto">«{corta && r.textoCorto ? r.textoCorto : r.texto}»</blockquote>
       <figcaption className="resena-autor">
         {r.foto ? (
           <img
@@ -74,7 +74,7 @@ const ResenasGoogle = ({
       </div>
       <ul className="resenas-lista" aria-label="Reseñas de clientes">
         {lista.map((r, i) => (
-          <Tarjeta key={r.nombre} r={r} destacada={destacada && !unica && i === 0} />
+          <Tarjeta key={r.nombre} r={r} corta={!unica} destacada={destacada && !unica && i === 0} />
         ))}
       </ul>
       <div className="resenas-pie">
