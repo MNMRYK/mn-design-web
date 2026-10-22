@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useLocation, useNavigate } from "react-router-dom";
+import Icono from "../utils/Icono";
+import FondoDiferido from "../utils/FondoDiferido";
 import "../Demos/HeaderDemos.css"; // Tu archivo de estilos
 
 const LlamadaDemos = () => {
@@ -66,17 +68,11 @@ const LlamadaDemos = () => {
                 <div className="mac-url">mndesignweb.es/demos</div>
               </div>
               <div className="mac-body">
-                <div
-                  className="mac-img-scroll"
-                  style={{
-                    backgroundImage:
-                      "url('/mockups/demo-nutricion-mockup.webp')",
-                  }}
-                ></div>
+                <FondoDiferido className="mac-img-scroll" url="/mockups/demo-nutricion-mockup-800.webp" />
               </div>
             </div>
             <div className="scroll-hint">
-              <i className="fa-solid fa-computer-mouse"></i>
+              <Icono nombre="computer-mouse" />
               <span>Pasa el cursor para explorar</span>
             </div>
           </div>

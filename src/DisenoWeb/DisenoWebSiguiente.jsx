@@ -5,6 +5,7 @@ import "./DisenoWebSiguiente.css";
 
 import { useLottie } from "lottie-react";
 import animacionNodo from "../assets/animations/estructura-web.json";
+import Icono from "../utils/Icono";
 
 /* =========================================================
    COMPONENTE: ANIMATED BEAM (Plan B Anti-Errores para Lottie)
@@ -22,10 +23,10 @@ const RayoAnimado = () => {
       {/* 5 Nodos de la izquierda (Tu Stack) */}
       <div className="beam-columna">
         <div className="beam-nodo" title="Figma">
-          <i className="fa-brands fa-figma"></i>
+          <Icono nombre="figma" />
         </div>
         <div className="beam-nodo" title="React">
-          <i className="fa-brands fa-react"></i>
+          <Icono nombre="react" />
         </div>
         <div className="beam-nodo" title="Tailwind">
           {/* SVG Oficial de Tailwind CSS */}
@@ -38,10 +39,10 @@ const RayoAnimado = () => {
           </svg>
         </div>
         <div className="beam-nodo" title="HTML5">
-          <i className="fa-brands fa-html5"></i>
+          <Icono nombre="html5" />
         </div>
         <div className="beam-nodo" title="CSS3">
-          <i className="fa-brands fa-css3-alt"></i>
+          <Icono nombre="css3-alt" />
         </div>
       </div>
       {/* Los rayos SVG en el centro (Coordenadas matemáticas exactas) */}
@@ -266,7 +267,7 @@ const DisenoWebSiguiente = () => {
             transition={{ delay: 0.2, duration: 0.6 }}
           >
             <div className="card-opcion-icono">
-              <i className="fas fa-lightbulb"></i>
+              <Icono nombre="lightbulb" />
             </div>
             <h3>Desarrollo de Proyectos de Nueva Creación</h3>
             <p>
@@ -284,7 +285,7 @@ const DisenoWebSiguiente = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <div className="card-opcion-icono">
-              <i className="fas fa-paint-roller"></i>
+              <Icono nombre="paint-roller" />
             </div>
             <h3>Rediseño y Optimización</h3>
             <p>

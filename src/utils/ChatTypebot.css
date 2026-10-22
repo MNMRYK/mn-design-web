@@ -1,0 +1,136 @@
+/* Copia del botón y del mensaje de bienvenida de Typebot (medidas tomadas del original) */
+.chat-lanzador {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 60px;
+  height: 60px;
+  z-index: 424242;
+  font-family: "Untitled Sans", sans-serif; /* la que declara Typebot (no la carga: sale la del sistema) */
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.chat-boton {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  border: 0;
+  border-radius: 16px;
+  background-color: #7e57c2;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.chat-boton:hover {
+  transform: scale(1.1);
+}
+
+.chat-boton:active {
+  transform: scale(0.95);
+}
+
+.chat-boton img {
+  display: block;
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+}
+
+/* Mientras se descarga Typebot, el botón late suavemente */
+.chat-lanzador--cargando .chat-boton {
+  animation: chat-cargando 1s ease-in-out infinite;
+}
+
+@keyframes chat-cargando {
+  50% { transform: scale(0.94); }
+}
+
+.chat-mensaje {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 12px);
+  width: 256px;
+  border-radius: 6px;
+  background-color: #fcfcff;
+  color: #1a102d;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  animation: chat-aparece 0.2s ease-out;
+}
+
+@keyframes chat-aparece {
+  from { opacity: 0; transform: translateY(4px); }
+}
+
+.chat-mensaje-abrir {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 16px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.chat-mensaje-avatar {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.chat-mensaje-texto {
+  display: block;
+}
+
+/* Botón de cerrar: como en Typebot, aparece al pasar por encima (y con el teclado) */
+.chat-mensaje-cerrar {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  border: 1px solid #1a102d;
+  border-radius: 50%;
+  background-color: #efebfc;
+  color: #1a102d;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chat-mensaje:hover .chat-mensaje-cerrar,
+.chat-mensaje:focus-within .chat-mensaje-cerrar {
+  opacity: 1;
+}
+
+.chat-boton:focus-visible,
+.chat-mensaje-abrir:focus-visible,
+.chat-mensaje-cerrar:focus-visible {
+  outline: 2px solid #7e57c2;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chat-boton,
+  .chat-mensaje,
+  .chat-lanzador--cargando .chat-boton {
+    transition: none;
+    animation: none;
+  }
+}

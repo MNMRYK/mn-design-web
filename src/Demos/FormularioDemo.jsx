@@ -4,6 +4,7 @@ import toast from 'react-hot-toast';
 import './FormularioDemo.css';
 import { registrarLead } from "../utils/analitica";
 import { enviarLead, asuntoLead } from "../utils/enviarLead";
+import Icono from "../utils/Icono";
 
 const opcionesTiempo = [
   "Urgente (Lo necesito para ya)",
@@ -133,7 +134,7 @@ const FormularioDemo = () => {
           <label>¿Para cuándo necesitas tener la demo lista?</label>
           <div className={`custom-select-trigger ${selectAbierto === 'tiempo' ? 'open' : ''}`} onClick={() => toggleSelect('tiempo')}>
             <span>{formData.tiempo || "Indica tu urgencia..."}</span>
-            <i className={`fas fa-chevron-down ${selectAbierto === 'tiempo' ? 'rotated' : ''}`}></i>
+            <Icono nombre="chevron-down" className={selectAbierto === 'tiempo' ? 'rotated' : ''} />
           </div>
           {selectAbierto === 'tiempo' && (
             <ul className="custom-options-list">
@@ -149,7 +150,7 @@ const FormularioDemo = () => {
           <label>¿Qué presupuesto tienes previsto?</label>
           <div className={`custom-select-trigger ${selectAbierto === 'presupuesto' ? 'open' : ''}`} onClick={() => toggleSelect('presupuesto')}>
             <span>{formData.presupuesto || "Rango de inversión..."}</span>
-            <i className={`fas fa-chevron-down ${selectAbierto === 'presupuesto' ? 'rotated' : ''}`}></i>
+            <Icono nombre="chevron-down" className={selectAbierto === 'presupuesto' ? 'rotated' : ''} />
           </div>
           {selectAbierto === 'presupuesto' && (
             <ul className="custom-options-list">

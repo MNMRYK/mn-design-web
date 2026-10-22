@@ -1,5 +1,6 @@
 import React, { useId, useState } from 'react';
 import { motion } from 'framer-motion';
+import Icono from './Icono';
 
 // Acordeón de preguntas frecuentes compartido por /disenoweb/, /e-commerce/,
 // /posicionamiento-seo/ y /redes-sociales/. Cada página conserva su CSS: `prefijo` es el
@@ -48,7 +49,7 @@ const AcordeonFaq = ({ preguntas, prefijo, titulo = "Preguntas Frecuentes", subt
               >
                 <h3>{faq.pregunta}</h3>
                 <div className={`${prefijo}-minimal-icono`} aria-hidden="true">
-                  <i className={`fa-solid fa-chevron-down ${isOpen ? 'rotado' : ''}`}></i>
+                  <Icono nombre="chevron-down" className={isOpen ? 'rotado' : ''} />
                 </div>
               </div>
 

@@ -58,6 +58,22 @@ body {
   background-color: var(--white-iris, #efebfc);
 }
 
+/* Iconos (src/utils/Icono.jsx): lo mismo que daba Font Awesome a sus <i>.
+   El SVG mide 1em de alto (el ancho lo pone cada icono) y baja un poco respecto a la línea
+   base, como el glifo de la fuente. */
+.icono {
+  display: inline-block;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: -0.125em;
+}
+
+.icono svg {
+  display: block;
+  height: 1em;
+  overflow: visible;
+}
+
 .servicios-wrapper {
   margin: 0;
   padding: 0;

@@ -94,7 +94,7 @@
 }
 
 .horario-texto {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.47);
   font-size: 1rem;
 }
 
@@ -187,7 +187,7 @@
 }
 
 .footer-legal a {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.47);
   font-size: 0.85rem;
   text-decoration: none;
 }
@@ -197,7 +197,7 @@
 }
 
 .footer-copy {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.47);
   font-size: 0.85rem;
 }
 

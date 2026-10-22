@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import './FormularioContacto.css';
 import { registrarLead } from "../utils/analitica";
 import { enviarLead, asuntoLead } from "../utils/enviarLead";
+import Icono from "../utils/Icono";
 import toast from 'react-hot-toast';
 
 const opcionesServicio = [
@@ -204,7 +205,7 @@ const FormularioContacto = () => {
             onKeyDown={alPulsarEnBoton}
           >
             <span id={`${idBase}-servicio-valor`}>{formData.servicio || "Selecciona un servicio..."}</span>
-            <i className={`fas fa-chevron-down ${isSelectOpen ? 'rotated' : ''}`} aria-hidden="true"></i>
+            <Icono nombre="chevron-down" className={isSelectOpen ? 'rotated' : ''} />
           </button>
           {isSelectOpen && (
             <ul

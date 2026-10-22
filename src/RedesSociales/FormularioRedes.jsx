@@ -3,6 +3,7 @@ import './FormularioRedes.css';
 import { registrarLead } from "../utils/analitica";
 import { enviarLead, asuntoLead } from "../utils/enviarLead";
 import toast from 'react-hot-toast'; 
+import Icono from "../utils/Icono";
 
 // Opciones
 const opcionesServicio = [
@@ -105,7 +106,7 @@ const FormularioRedes = () => {
           },
         },
         success: {
-          icon: <i className="fa-solid fa-circle-check" style={{color: '#00C851'}}></i>, 
+          icon: <Icono nombre="circle-check" style={{color: '#00C851'}} />, 
           style: {
             borderRadius: '12px',
             background: '#ffffff',
@@ -116,7 +117,7 @@ const FormularioRedes = () => {
           },
         },
         error: {
-          icon: <i className="fa-solid fa-circle-xmark" style={{color: '#ff4444'}}></i>, 
+          icon: <Icono nombre="circle-xmark" style={{color: '#ff4444'}} />, 
           style: {
             borderRadius: '12px',
             background: '#ffffff',
@@ -153,7 +154,7 @@ const FormularioRedes = () => {
             {opcionesServicio.map((opcion, index) => (
               <label key={index} className="redes-checkbox-label">
                 <input type="checkbox" value={opcion} checked={formData.servicios.includes(opcion)} onChange={() => handleCheckboxChange(opcion)} />
-                <span className="redes-checkmark"><i className="fa-solid fa-check"></i></span>
+                <span className="redes-checkmark"><Icono nombre="check" /></span>
                 <span className="redes-checkbox-text">{opcion}</span>
               </label>
             ))}

@@ -9,6 +9,8 @@ import animPortafolio from "../assets/animations/disenoweb/portafolio.json";
 import animOnPage from "../assets/animations/disenoweb/onpage.json";
 import animLanding from "../assets/animations/disenoweb/landing.json";
 import animAcademia from "../assets/animations/disenoweb/academia.json";
+import Icono from "../utils/Icono";
+import FondoDiferido from "../utils/FondoDiferido";
 
 
 const LottiePlayer = Lottie.default || Lottie;
@@ -112,10 +114,10 @@ const DisenoWebSeccionesEspeciales = () => {
                         <h3>Básico</h3>
                         <div className="plan-precio">Ideal para empezar</div>
                         <ul className="plan-features">
-                        <li><i className="fa-solid fa-check"></i> Diseño web de hasta 5 secciones.</li>
-                        <li><i className="fa-solid fa-check"></i> Arquitectura SEO base.</li>
-                        <li><i className="fa-solid fa-check"></i> Diseño 100% responsivo y ultra-rápido.</li>
-                        <li><i className="fa-solid fa-check"></i> Formularios de contacto inteligentes.</li>
+                        <li><Icono nombre="check" /> Diseño web de hasta 5 secciones.</li>
+                        <li><Icono nombre="check" /> Arquitectura SEO base.</li>
+                        <li><Icono nombre="check" /> Diseño 100% responsivo y ultra-rápido.</li>
+                        <li><Icono nombre="check" /> Formularios de contacto inteligentes.</li>
                         </ul>
                         <a 
                             href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Básico%20de%20Diseño%20Web." 
@@ -133,11 +135,11 @@ const DisenoWebSeccionesEspeciales = () => {
                         <h3>Impulso</h3>
                         <div className="plan-precio">Tu negocio a otro nivel</div>
                         <ul className="plan-features">
-                        <li><i className="fa-solid fa-check"></i> Diseño web con secciones ilimitadas.</li>
-                        <li><i className="fa-solid fa-check"></i> Arquitectura SEO avanzado.</li>
-                        <li><i className="fa-solid fa-check"></i> Web Multi-idioma.</li>
-                        <li><i className="fa-solid fa-check"></i> Calendario integrado y gestión de citas.</li>
-                        <li><i className="fa-solid fa-check"></i> Mantenimiento web incluido primer año.</li>
+                        <li><Icono nombre="check" /> Diseño web con secciones ilimitadas.</li>
+                        <li><Icono nombre="check" /> Arquitectura SEO avanzado.</li>
+                        <li><Icono nombre="check" /> Web Multi-idioma.</li>
+                        <li><Icono nombre="check" /> Calendario integrado y gestión de citas.</li>
+                        <li><Icono nombre="check" /> Mantenimiento web incluido primer año.</li>
                         </ul>
                         <a 
                             href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20Diseño%20Web." 
@@ -154,10 +156,10 @@ const DisenoWebSeccionesEspeciales = () => {
                         <h3>Esencial</h3>
                         <div className="plan-precio">Soporte y Estrategia 360°</div>
                         <ul className="plan-features">
-                        <li><i className="fa-solid fa-check"></i> Incluye todo el Plan Impulso.</li>
-                        <li><i className="fa-solid fa-check"></i> Analítica avanzada y Estrategia Digital.</li>
-                        <li><i className="fa-solid fa-check"></i> Optimización para IA (AEO/GEO).</li>
-                        <li><i className="fa-solid fa-check"></i> Automatización de Marketing & CRM.</li>
+                        <li><Icono nombre="check" /> Incluye todo el Plan Impulso.</li>
+                        <li><Icono nombre="check" /> Analítica avanzada y Estrategia Digital.</li>
+                        <li><Icono nombre="check" /> Optimización para IA (AEO/GEO).</li>
+                        <li><Icono nombre="check" /> Automatización de Marketing & CRM.</li>
                         </ul>
                         <a 
                             href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20Diseño%20Web." 
@@ -211,7 +213,7 @@ const DisenoWebSeccionesEspeciales = () => {
                                 onClick={() => setImagenModal(est.img)}
                                 title="Ver ejemplo"
                             >
-                                <i className="fa-solid fa-arrow-right"></i>
+                                <Icono nombre="arrow-right" />
                             </button>
                             
                         </motion.div>
@@ -240,62 +242,62 @@ const DisenoWebSeccionesEspeciales = () => {
                         { 
                             title: "Psicólogos y Terapeutas", 
                             desc: "Atrae más pacientes con una web optimizada, profesional y orientada a generar confianza, con sistema de reservas integrado.", 
-                            img: "/psicologo.webp", // <-- Ojo, asegúrate de tener esta imagen
+                            img: "/portfolio/psicologo-800.webp",
                             url: "https://mndesignweb.es/psicologos/" 
                         },
                         { 
                             title: "Digitaliza tu consulta de Nutrición", 
                             desc: "Plataforma de desarrollo propio. Digitaliza la gestión de pacientes, agendas y academia de formación, ideal para clínicas y nutricionistas.", 
-                            img: "/nutri.webp", // <-- Ojo, asegúrate de tener esta imagen
+                            img: "/portfolio/nutricion-800.webp",
                             url: "https://mndesignweb.es/clinicas/" 
                         },
                         { 
                             title: "Academia E-learning", 
                             desc: "Plataforma educativa propia para vender tus cursos o bonos. Sin comisiones por alumno, incluye pasarelas de pago y zona privada.", 
-                            img: "/admin.webp", 
+                            img: "/portfolio/academia-800.webp",
                             url: "https://mndesignweb.es/academia-nutricion/" 
                         },
                     ].map((proj, idx) => (
                         <motion.div key={idx} className="portfolio-card" whileHover={{ y: -10 }}>
                             
                             {/* EL NAVEGADOR DE UIVERSE */}
-                            <div className="browser-mockup-complex">
+                            <div className="browser-mockup-complex" aria-hidden="true">
                                 <div className="tabs-head">
                                     <div className="tabs">
                                         <div className="tab-open">
                                             <div className="rounded-l"><div className="mask-round"></div></div>
                                             <span>{proj.title}</span>
-                                            <div className="close-tab"><i className="fa-solid fa-xmark"></i></div>
+                                            <div className="close-tab"><Icono nombre="xmark" /></div>
                                             <div className="rounded-r"><div className="mask-round"></div></div>
                                         </div>
                                     </div>
 
                                     <div className="window-opt">
-                                        <button><i className="fa-solid fa-minus"></i></button>
-                                        <button><i className="fa-regular fa-square"></i></button>
-                                        <button className="window-close"><i className="fa-solid fa-xmark"></i></button>
+                                        <button tabIndex={-1}><Icono nombre="minus" /></button>
+                                        <button tabIndex={-1}><Icono nombre="square" /></button>
+                                        <button tabIndex={-1} className="window-close"><Icono nombre="xmark" /></button>
                                     </div>
                                 </div>
 
                                 <div className="head-browser">
-                                    <button><i className="fa-solid fa-arrow-left"></i></button>
-                                    <button disabled><i className="fa-solid fa-arrow-right"></i></button>
+                                    <button tabIndex={-1}><Icono nombre="arrow-left" /></button>
+                                    <button tabIndex={-1} disabled><Icono nombre="arrow-right" /></button>
                                     
-                                    <input
+                                    <input tabIndex={-1}
                                         type="text"
                                         readOnly
                                         value={proj.url.replace('https://', '').replace(/\/$/, '')}
                                     />
 
-                                    <button><i className="fa-solid fa-ellipsis-vertical"></i></button>
-                                    <div className="star"><i className="fa-regular fa-star"></i></div>
+                                    <button tabIndex={-1}><Icono nombre="ellipsis-vertical" /></button>
+                                    <div className="star"><Icono nombre="star" /></div>
                                 </div>
                             </div>
 
                             <div className="mockup-body">
-                                <div className="project-img-scroll" style={{ backgroundImage: `url("${proj.img}")` }}>
-                                {!proj.img && <div className="img-placeholder"><i className="fa-solid fa-code"></i></div>}
-                                </div>
+                                <FondoDiferido className="project-img-scroll" url={proj.img}>
+                                {!proj.img && <div className="img-placeholder"><Icono nombre="code" /></div>}
+                                </FondoDiferido>
                             </div>
                             
                             <div className="portfolio-meta">
@@ -311,7 +313,7 @@ const DisenoWebSeccionesEspeciales = () => {
                                 title="Ver Solución"
                                 aria-label="Ver Solución"
                             >
-                                <i className="fa-solid fa-arrow-right"></i>
+                                <Icono nombre="arrow-right" />
                             </a>                
                         </motion.div>
                     ))}
@@ -335,7 +337,7 @@ const DisenoWebSeccionesEspeciales = () => {
                         onClick={(e) => e.stopPropagation()} // Evita que se cierre al clicar la foto
                         >
                         <button className="modal-close-btn" onClick={() => setImagenModal(null)}>
-                            <i className="fa-solid fa-xmark"></i>
+                            <Icono nombre="xmark" />
                         </button>
                         <div className="modal-body-img">
                             <img src={imagenModal} alt="Ejemplo de estructura web" />

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'; //
 import FormularioContacto from '../Inicio/FormularioContacto';
 import './ContactoSiguiente.css';
+import Icono from "../utils/Icono";
 
 const ContactoSiguiente = () => {
   return (
@@ -93,7 +94,7 @@ const ContactoSiguiente = () => {
                     });
                   }}
                 >
-                  <i className="fa-solid fa-arrow-right"></i>
+                  <Icono nombre="arrow-right" />
                 </a>
               </div>
 
@@ -119,7 +120,7 @@ const ContactoSiguiente = () => {
                     });
                   }}
                 >
-                  <i className="fa-solid fa-arrow-right"></i>
+                  <Icono nombre="arrow-right" />
                 </a>
               </div>
             </div>

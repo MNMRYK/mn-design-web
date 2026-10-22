@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './BlogPreview.css';
+import { imagenDestacadaBlog, SIZES_BLOG } from '../utils/imagenBlog';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react'; 
 
@@ -65,13 +66,13 @@ const BlogPreview = () => {
             <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Cargando los últimos artículos de MN Design Web...</p>
           ) : (
             articulos.map((articulo) => {
-              const imagenDestacada = articulo._embedded?.['wp:featuredmedia']?.[0]?.source_url || 'https://via.placeholder.com/600x400?text=MN+Design+Web';
+              const imagen = imagenDestacadaBlog(articulo);
               const nombreCategoria = articulo._embedded?.['wp:term']?.[0]?.[0]?.name || 'Blog';
 
               return (
                 <article key={articulo.id} className="blog-card">
                   <div className="blog-card-img-wrapper">
-                    <img src={imagenDestacada} alt="Portada del artículo" className="blog-card-img" />
+                    <img src={imagen.src} srcSet={imagen.srcSet} sizes={SIZES_BLOG} width={imagen.width} height={imagen.height} loading="lazy" decoding="async" alt="Portada del artículo" className="blog-card-img" />
                     <span className="blog-badge">{nombreCategoria}</span>
                   </div>
                   <div className="blog-card-content">

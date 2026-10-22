@@ -33,7 +33,7 @@
 }
 
 .breadcrumb-link {
-  color: var(--electric-violet);
+  color: #7a54bc; /* --electric-violet un punto más oscuro: contraste AA sobre #efebfc */
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
@@ -99,7 +99,7 @@
   font-family: 'Nunito', sans-serif;
   font-size: 1rem;
   font-weight: 700;
-  color: rgba(26, 16, 45, 0.5);
+  color: rgba(26, 16, 45, 0.6); /* 0.5 no llegaba al contraste AA */
   cursor: pointer;
   padding: 12px 20px;
   transition: all 0.3s ease;

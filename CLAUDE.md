@@ -41,7 +41,8 @@ Igual que las landings: un push a `main` **no publica nada**.
 7. Los `assets/` antiguos se borran solo cuando se ha comprobado que ninguna página los usa.
 
 ## Cookies y medición
-- El código de consentimiento está en `index.html` y es **el mismo** que `../Landings-mndesignweb/src/components/CookiesHead.astro`: si cambias uno, cambia el otro. Banner: `src/Legales/CookieBanner.jsx`.
+- El código de consentimiento está en `index.html` y es **el mismo** que `../Landings-mndesignweb/src/components/CookiesHead.astro`: si cambias uno, cambia el otro.
+- **Banner de cookies: también en `index.html`** (HTML y script al final del `<body>`, CSS en el `<head>`), no en React, para que se pinte con el HTML (era el LCP de la home). Ids `#cookie-banner`, `#btn-accept-cookies`, `#btn-decline-cookies`, `#cc-configurar`, `#cc-analitica`, `#cc-marketing`, `#cc-guardar`. El "Configurar cookies" del pie lanza el evento `configurar-cookies` (`src/utils/cookies.js`), que abre el panel con la elección actual.
 - Categorías: **Analítica** (GA4 `G-36WYJMYT3Z` + Clarity → `analytics_storage`) y **Marketing** (Píxel de Meta + remarketing de Google Ads → `ad_storage`, `ad_user_data`, `ad_personalization`). Nada se carga antes de decidir.
 - Eventos: `window.enviarEvento()` (GA4) y `window.enviarMeta()` (Meta). Los clics de teléfono, WhatsApp, email y cal.com se miden **solo** en `index.html`. Formularios: `registrarLead()` de `src/utils/analitica.js` tras un envío correcto.
 - Formularios: **solo Web3Forms** (llega por email), con `enviarLead()` de `src/utils/enviarLead.js` (pone el `access_key` y lanza un error si el envío falla). Asunto común: `asuntoLead(página, detalle)` → «Nuevo lead desde [página]: …». **Make ya no se usa** (desde el 22/10/2026; los leads se gestionan con el software propio de María): no añadas envíos a webhooks. Reuniones: Cal.com (`mndesignweb/reunion-30-min`) con `src/utils/CalendarioCal.jsx`.
@@ -67,6 +68,15 @@ Igual que las landings: un push a `main` **no publica nada**.
 - Copy en "nosotros" (equipo), salvo los textos personales de María en /nosotros/ y el título de los testimonios de sus trabajos anteriores.
 - URLs internas y canonical **siempre con barra final**.
 - Mantener el diseño, las tipografías (Montserrat + Nunito) y los colores; nada de librerías pesadas nuevas.
+
+## Rendimiento (no deshacer)
+- **Nada externo que bloquee el render.** Sin Google Fonts ni cdnjs.
+- **Fuentes:** `public/fonts/montserrat-latin.woff2` y `nunito-latin.woff2` (variables de Google Fonts, solo latín, OFL), con `@font-face` y `preload` en `index.html`. Se declaran solo los pesos que se pedían a Google (Montserrat 400/500/700/800/900; Nunito 400/600/700/900) para que el navegador elija el mismo peso que antes: si se añade un peso, el texto que lo use cambiará de grosor.
+- **Iconos:** `<Icono nombre="check" />` (`src/utils/Icono.jsx`), con los trazados SVG de Font Awesome 6 en `src/utils/iconosTrazados.js` (CC BY 4.0). Pinta un `<i class="icono">` con el SVG: los estilos `… i` siguen funcionando. Para un icono nuevo, añadir su trazado al archivo (nada de volver a cargar Font Awesome).
+- **Chat:** `src/utils/ChatTypebot.jsx` es una copia ligera del botón y del mensaje de bienvenida de Typebot (mismo aspecto, medido). Typebot (`TypebotBurbuja.jsx`, ~190 KB) se descarga solo al pulsarlo (y se precarga al pasar el ratón o tocar el botón). Icono y avatar en `public/chat/`.
+- **Globo de /posicionamiento-seo/:** en móvil y tablet, siempre la imagen `globo-seo.webp`; en ordenador, el WebGL se carga cerca de verse y con la página ya cargada (`GloboAdaptable.jsx`).
+- **Imágenes:** con `width`/`height`, `loading="lazy"` si no se ven al entrar y `srcset` si se muestran a tamaños distintos. Los fondos CSS grandes van con `<FondoDiferido url=…>` (`src/utils/FondoDiferido.jsx`). Las tarjetas del blog usan las miniaturas de WordPress (`src/utils/imagenBlog.js`). Para redimensionar sin `sharp` se puede usar Chrome (Puppeteer) con `createImageBitmap` y exportar a webp.
+- `/admin.webp` y otras imágenes de la raíz también las usan las landings: no se sustituyen ni se borran; las versiones optimizadas de esta web van con otro nombre (`public/portfolio/`, `-800.webp`…).
 - **Logotipo** (misma regla que las landings): pájaro + "MN Design Web" ("MN" en negrita y "Design Web" fino). Pájaro morado (`pajaro-morado.svg`) sobre fondos claros; pájaro blanco/lila (`pajaro-blanco.svg`, `logo-blanco.svg`) sobre fondos morados oscuros como el `#1A102D` de esta web; blanco puro sobre oscuros neutros. El favicon es siempre el morado (`logo-morado.svg`, pájaro sobre círculo lila). Los iconos ya publicados por las landings están en `/marca/` (favicon.ico, favicon.svg, apple-touch-icon, icon-192/512, manifest). `/logo.webp` y `/favicon_v2.webp` de la raíz los usa también el schema de las landings: no se borran sin cambiarlo allí.
 - Cualquier cambio en piezas compartidas (`index.html` de cookies, `.htaccess`, `src/seo/rutas.js`, `negocio.js`) se comprueba en todas las páginas afectadas, también en las landings.
 

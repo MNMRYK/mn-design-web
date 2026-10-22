@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import './FasesSeo.css';
+import Icono from "../utils/Icono";
 
 const FasesSeo = () => {
     return (
@@ -29,7 +30,7 @@ const FasesSeo = () => {
                     >
                         <div className="scenario-glow"></div>
                         <div className="scenario-icon-box">
-                            <i className="fa-solid fa-lightbulb"></i>
+                            <Icono nombre="lightbulb" />
                         </div>
                         <h3>SEO desde el Nacimiento</h3>
                         <span className="scenario-subtitle">Para nuevas ideas y futuros lanzamientos</span>
@@ -49,7 +50,7 @@ const FasesSeo = () => {
                     >
                         <div className="scenario-glow"></div>
                         <div className="scenario-icon-box">
-                            <i className="fa-solid fa-life-ring"></i>
+                            <Icono nombre="life-ring" />
                         </div>
                         <h3>Auditoría y Rescate SEO</h3>
                         <span className="scenario-subtitle">Para webs activas que no consiguen clientes</span>

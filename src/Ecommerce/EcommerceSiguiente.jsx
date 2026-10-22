@@ -9,6 +9,7 @@ import animPago from "../assets/animations/ecommerce/pago.json";
 import animVer from "../assets/animations/ecommerce/ver.json";
 import animGestionn from "../assets/animations/ecommerce/gestion.json";
 import aniDiseno from '../assets/animations/diseno-de-interfaz-de-usuario.json';
+import Icono from "../utils/Icono";
 
 const LottiePlayer = Lottie.default || Lottie;
 
@@ -129,7 +130,7 @@ const EcommerceSiguiente = () => {
                             
                             {/* NÚCLEO CENTRAL FIJO */}
                             <div className="orbit-center-core" title="MN Design Web">
-                                <i className="fa-solid fa-server"></i>
+                                <Icono nombre="server" />
                             </div>
 
                             {/* ÓRBITA INTERIOR (Funcionalidades): 6 Iconos */}

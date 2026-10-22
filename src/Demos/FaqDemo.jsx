@@ -1,5 +1,6 @@
 import React from 'react';
 import { PREGUNTAS_DEMO } from './preguntasDemo';
+import Icono from '../utils/Icono';
 import './FaqDemo.css';
 
 const FaqDemo = () => {
@@ -9,7 +10,7 @@ const FaqDemo = () => {
 
       {PREGUNTAS_DEMO.map(({ icono, pregunta, respuesta }) => (
         <div className="faq-item" key={pregunta}>
-          <div className="faq-icon"><i className={icono}></i></div>
+          <div className="faq-icon"><Icono nombre={icono} /></div>
           <div className="faq-content">
             <h4>{pregunta}</h4>
             {respuesta.map((parrafo, i) => (

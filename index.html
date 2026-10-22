@@ -234,34 +234,445 @@
       content="black-translucent"
     />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
-      as="style"
-    />
-    <link
-      rel="preload"
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap"
-      as="style"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800;900&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
+    <!-- Fuentes desde el propio dominio (antes, Google Fonts): Montserrat y Nunito, solo latín.
+         Cada una es un único woff2 variable de Google Fonts (licencia OFL). Se declaran SOLO los
+         pesos que se pedían a Google (Montserrat sin 600; Nunito sin 500 ni 800), con el mismo
+         archivo: así el navegador elige el mismo peso que antes y el texto se ve igual.
+         Precarga de las dos: el hero usa Montserrat y el texto, Nunito. -->
+    <link rel="preload" href="/fonts/montserrat-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/nunito-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <style>
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/montserrat-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 500;
+        font-display: swap;
+        src: url("/fonts/montserrat-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("/fonts/montserrat-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 800;
+        font-display: swap;
+        src: url("/fonts/montserrat-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("/fonts/montserrat-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Nunito";
+        font-style: normal;
+        font-weight: 400;
+        font-display: swap;
+        src: url("/fonts/nunito-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Nunito";
+        font-style: normal;
+        font-weight: 600;
+        font-display: swap;
+        src: url("/fonts/nunito-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Nunito";
+        font-style: normal;
+        font-weight: 700;
+        font-display: swap;
+        src: url("/fonts/nunito-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+      @font-face {
+        font-family: "Nunito";
+        font-style: normal;
+        font-weight: 900;
+        font-display: swap;
+        src: url("/fonts/nunito-latin.woff2") format("woff2");
+        unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+      }
+    </style>
+    <!-- Banner de cookies: su CSS va aquí (no en un .css que llega con React) para que se pinte
+         con el HTML, sin esperar a la app. El HTML y el script están al final del <body>. -->
+    <style>
+      #cookie-banner[hidden] {
+        display: none !important;
+      }
+      #cookie-banner,
+      #cookie-banner * {
+        box-sizing: border-box;
+      }
+      .cookie-card-uiverse {
+        width: 480px; /* 🔥 Un poco más ancho */
+        min-height: 240px; 
+        background-color: rgb(255, 255, 255);
+        border-radius: 16px; /* 🔥 Bordes un poquito más suaves */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 30px 40px; /* 🔥 Más espacio interior */
+        gap: 18px;
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        z-index: 999999;
+        box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15); /* 🔥 Sombra más elegante */
+        font-family: 'Nunito', sans-serif;
+      }
+
+      #cookieSvg {
+        width: 60px; /* 🔥 Icono un poco más grande */
+      }
+
+      #cookieSvg g path {
+        fill: rgb(90, 81, 97);
+      }
+
+      .cookieHeading {
+        font-size: 1.8em; /* 🔥 Título con más peso */
+        font-weight: 800;
+        color: rgb(26, 26, 26);
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+      }
+
+      .cookieDescription {
+        text-align: center;
+        font-size: 1.1em; /* 🔥 Texto más legible */
+        font-weight: 600;
+        font-family: 'Nunito', sans-serif;
+        color: rgb(99, 99, 99);
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      .cookielink {
+        color: #7E57C2;
+        text-decoration: none;
+        font-weight: 700;
+        display: block;      /* 🔥 Esto hace que el enlace ocupe su propia línea */
+        margin-top: 15px;    /* 🔥 Esto separa el enlace del texto de arriba */
+      }
+
+      .cookielink:hover {
+        text-decoration-line: underline;
+      }
+
+      .cookieDescription a {
+        color: #7E57C2;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .cookieDescription a:hover {
+        text-decoration-line: underline;
+      }
+
+      .buttonContainer {
+        display: flex;
+        gap: 15px;
+        flex-direction: row;
+        margin-top: 10px;
+        width: 100%;
+        justify-content: center;
+        
+      }
+
+      /* Aceptar y Rechazar con el mismo estilo: ninguna opción destaca sobre la otra */
+      .botonCookie {
+        width: 140px;
+        height: 40px;
+        background-color: #7E57C2;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-weight: 700;
+        border-radius: 20px;
+        transition: all .3s ease;
+        font-size: 1em;
+        font-family: 'Nunito', sans-serif;
+      }
+
+      .botonCookie:hover {
+        background-color: #6a49a8;
+        transform: translateY(-2px);
+      }
+
+      .botonCookie:focus-visible {
+        outline: 3px solid #1a1a1a;
+        outline-offset: 2px;
+      }
+
+
+      /* Responsivo para móviles - CORREGIDO PARA NO CHOCAR CON WHATSAPP */
+      @media (max-width: 480px) {
+        .cookie-card-uiverse {
+          bottom: 10px;        /* Pegadito abajo */
+          /* 🔥 REUBICACIÓN CLAVE: Arrinconamos a la izquierda 🔥 */
+          left: 10px;          
+          right: auto;         
+          transform: none;     /* Apagamos el centrado de escritorio */
+          
+          /* 🔥 ANCHO AJUSTADO: Dejamos espacio a la derecha para WhatsApp 🔥 */
+          width: calc(100% - 70px); /* Calculamos el ancho dejando ~70px libres a la derecha */
+          max-width: 300px;     /* Ponemos un tope para que no sea muy largo en pantallas grandes */
+          
+          padding: 20px;       /* Relleno muy compacto */
+          min-height: auto;    /* Altura automática */
+          gap: 8px;            /* Elementos muy pegaditos */
+          border-radius: 12px;
+          align-items: flex-start; /* Alineamos los textos a la izquierda */
+        }
+
+        /* Mantenemos el resto de optimizaciones de tamaño */
+        #cookieSvg {
+          display: none; /* Escondemos la galleta en móvil */
+        }
+
+        .cookieHeading {
+          font-size: 1.1em; /* Título pequeño */
+          text-align: left;
+        }
+
+        .cookieDescription {
+          font-size: 0.8em; /* Texto muy chiquitito */
+          line-height: 1.2;
+          text-align: left; /* Texto alineado a la izquierda */
+        }
+
+        .cookielink {
+          margin-top: 8px; /* Un pelín de aire arriba del enlace */
+          margin-bottom: 8px; /* Un pelín de aire abajo del enlace */
+          font-size: 0.8em;
+          display: inline-block; /* Para que los márgenes se apliquen bien */
+        }
+
+        .buttonContainer {
+          margin-top: 5px; /* Separación con el enlace */
+          gap: 8px;
+          justify-content: flex-start; 
+        }
+
+        .botonCookie {
+          width: auto;         /* Ancho automático según texto */
+          padding: 0 15px;     /* Relleno lateral */
+          height: 30px;        /* Botones bajitos */
+          font-size: 0.8em;
+        }
+      }
+      /* ---------- Configuración por categorías (Analítica / Marketing) ---------- */
+      /* Enlace a la política + "Configurar" en la misma línea */
+      .cc-enlaces {
+        display: block;
+        margin-top: 15px;
+      }
+      .cc-enlaces .cookielink {
+        display: inline;
+        margin: 0 14px 0 0;
+      }
+      .cc-link {
+        background: none;
+        border: 0;
+        padding: 0;
+        font: inherit;
+        font-size: 0.85em;
+        font-weight: 700;
+        color: rgb(99, 99, 99);
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        cursor: pointer;
+      }
+      .cc-link:focus-visible,
+      .cc-opcion input:focus-visible {
+        outline: 3px solid #1a1a1a;
+        outline-offset: 2px;
+      }
+      .cc-panel {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        text-align: left;
+      }
+      .cc-titulo {
+        margin: 0;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.3em;
+        font-weight: 800;
+        color: rgb(26, 26, 26);
+      }
+      .cc-opcion {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 0.95em;
+        line-height: 1.45;
+        color: rgb(26, 26, 26);
+        cursor: pointer;
+      }
+      .cc-opcion input {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        margin: 3px 0 0;
+        accent-color: #7E57C2;
+        cursor: pointer;
+      }
+      .cc-detalle {
+        display: block;
+        font-weight: 600;
+        color: rgb(99, 99, 99);
+      }
+      .cc-acciones {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .botonCookie.cc-guardar {
+        width: auto;
+        padding: 0 20px;
+      }
+
+      @media (max-width: 480px) {
+        .cc-enlaces {
+          margin-top: 8px;
+        }
+        .cc-enlaces .cookielink {
+          font-size: 1em;
+        }
+        .cc-panel {
+          gap: 10px;
+          font-size: 0.85em;
+        }
+      }
+    </style>
   </head>
 
   <body>
     <div id="root"></div>
+    <!-- BANNER DE COOKIES. Antes lo pintaba React (src/Legales/CookieBanner.jsx) y aparecía tarde: era
+         el LCP de la home. Ahora está en el HTML de todas las páginas y se muestra en el primer pintado.
+         Mismo aspecto (CSS en el <head>) y mismo funcionamiento: usa window.leerConsentimiento() y
+         window.guardarConsentimiento() del <head>. "Configurar cookies" del pie lanza el evento
+         "configurar-cookies" (src/utils/cookies.js), que abre el panel con la elección actual. -->
+    <div id="cookie-banner" class="cookie-card-uiverse" role="dialog" aria-labelledby="cookie-titulo" hidden>
+      <svg xml:space="preserve" viewBox="0 0 122.88 122.25" y="0px" x="0px" id="cookieSvg" version="1.1" aria-hidden="true">
+        <g>
+          <path d="M101.77,49.38c2.09,3.1,4.37,5.11,6.86,5.78c2.45,0.66,5.32,0.06,8.7-2.01c1.36-0.84,3.14-0.41,3.97,0.95 c0.28,0.46,0.42,0.96,0.43,1.47c0.13,1.4,0.21,2.82,0.24,4.26c0.03,1.46,0.02,2.91-0.05,4.35h0v0c0,0.13-0.01,0.26-0.03,0.38 c-0.91,16.72-8.47,31.51-20,41.93c-11.55,10.44-27.06,16.49-43.82,15.69v0.01h0c-0.13,0-0.26-0.01-0.38-0.03 c-16.72-0.91-31.51-8.47-41.93-20C5.31,90.61-0.73,75.1,0.07,58.34H0.07v0c0-0.13,0.01-0.26,0.03-0.38 C1,41.22,8.81,26.35,20.57,15.87C32.34,5.37,48.09-0.73,64.85,0.07V0.07h0c1.6,0,2.89,1.29,2.89,2.89c0,0.4-0.08,0.78-0.23,1.12 c-1.17,3.81-1.25,7.34-0.27,10.14c0.89,2.54,2.7,4.51,5.41,5.52c1.44,0.54,2.2,2.1,1.74,3.55l0.01,0 c-1.83,5.89-1.87,11.08-0.52,15.26c0.82,2.53,2.14,4.69,3.88,6.4c1.74,1.72,3.9,3,6.39,3.78c4.04,1.26,8.94,1.18,14.31-0.55 C99.73,47.78,101.08,48.3,101.77,49.38L101.77,49.38z M59.28,57.86c2.77,0,5.01,2.24,5.01,5.01c0,2.77-2.24,5.01-5.01,5.01 c-2.77,0-5.01-2.24-5.01-5.01C54.27,60.1,56.52,57.86,59.28,57.86L59.28,57.86z M37.56,78.49c3.37,0,6.11,2.73,6.11,6.11 s-2.73,6.11-6.11,6.11s-6.11-2.73-6.11-6.11S34.18,78.49,37.56,78.49L37.56,78.49z M50.72,31.75c2.65,0,4.79,2.14,4.79,4.79 c0,2.65-2.14,4.79-4.79,4.79c-2.65,0-4.79-2.14-4.79-4.79C45.93,33.89,48.08,31.75,50.72,31.75L50.72,31.75z M119.3,32.4 c1.98,0,3.58,1.6,3.58,3.58c0,1.98-1.6,3.58-3.58,3.58s-3.58-1.6-3.58-3.58C115.71,34.01,117.32,32.4,119.3,32.4L119.3,32.4z M93.62,22.91c2.98,0,5.39,2.41,5.39,5.39c0,2.98-2.41,5.39-5.39,5.39c-2.98,0-5.39-2.41-5.39-5.39 C88.23,25.33,90.64,22.91,93.62,22.91L93.62,22.91z M97.79,0.59c3.19,0,5.78,2.59,5.78,5.78c0,3.19-2.59,5.78-5.78,5.78 c-3.19,0-5.78-2.59-5.78-5.78C92.02,3.17,94.6,0.59,97.79,0.59L97.79,0.59z M76.73,80.63c4.43,0,8.03,3.59,8.03,8.03 c0,4.43-3.59,8.03-8.03,8.03s-8.03-3.59-8.03-8.03C68.7,84.22,72.29,80.63,76.73,80.63L76.73,80.63z M31.91,46.78 c4.8,0,8.69,3.89,8.69,8.69c0,4.8-3.89,8.69-8.69,8.69s-8.69-3.89-8.69-8.69C23.22,50.68,27.11,46.78,31.91,46.78L31.91,46.78z M107.13,60.74c-3.39-0.91-6.35-3.14-8.95-6.48c-5.78,1.52-11.16,1.41-15.76-0.02c-3.37-1.05-6.32-2.81-8.71-5.18 c-2.39-2.37-4.21-5.32-5.32-8.75c-1.51-4.66-1.69-10.2-0.18-16.32c-3.1-1.8-5.25-4.53-6.42-7.88c-1.06-3.05-1.28-6.59-0.61-10.35 C47.27,5.95,34.3,11.36,24.41,20.18C13.74,29.69,6.66,43.15,5.84,58.29l0,0.05v0h0l-0.01,0.13v0C5.07,73.72,10.55,87.82,20.02,98.3 c9.44,10.44,22.84,17.29,38,18.1l0.05,0h0v0l0.13,0.01h0c15.24,0.77,29.35-4.71,39.83-14.19c10.44-9.44,17.29-22.84,18.1-38l0-0.05 v0h0l0.01-0.13v0c0.07-1.34,0.09-2.64,0.06-3.91C112.98,61.34,109.96,61.51,107.13,60.74L107.13,60.74z"></path>
+        </g>
+      </svg>
+      <p class="cookieHeading" id="cookie-titulo">¿Aceptas las cookies?</p>
+      <p class="cookieDescription">Usamos cookies propias y de terceros para medir las visitas y mostrarte publicidad personalizada. Puedes aceptarlas, rechazarlas o configurarlas.<span class="cc-enlaces"><a class="cookielink" href="/cookies/">Ver la política de cookies</a><button type="button" class="cc-link" id="cc-configurar">Configurar</button></span></p>
+      <div class="buttonContainer"><button type="button" class="botonCookie" id="btn-accept-cookies">Aceptar</button><button type="button" class="botonCookie" id="btn-decline-cookies">Rechazar</button></div>
+      <div class="cc-panel" role="group" aria-labelledby="cc-titulo" style="display: none">
+        <p class="cc-titulo" id="cc-titulo">Configurar cookies</p>
+        <label class="cc-opcion">
+          <input type="checkbox" id="cc-analitica" />
+          <span>
+            <strong>Analítica</strong>
+            <span class="cc-detalle">Google Analytics y Microsoft Clarity: cuántas visitas recibimos y cómo se usa la web.</span>
+          </span>
+        </label>
+        <label class="cc-opcion">
+          <input type="checkbox" id="cc-marketing" />
+          <span>
+            <strong>Marketing</strong>
+            <span class="cc-detalle">Píxel de Meta y remarketing de Google Ads: anuncios personalizados y medición de campañas.</span>
+          </span>
+        </label>
+        <div class="cc-acciones">
+          <button type="button" class="cc-link" id="cc-volver">Volver</button>
+          <button type="button" class="botonCookie cc-guardar" id="cc-guardar">Guardar preferencias</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      (function () {
+        var banner = document.getElementById("cookie-banner");
+        if (!banner || !window.leerConsentimiento || !window.guardarConsentimiento) return;
+        var panel = banner.querySelector(".cc-panel");
+        var principal = Array.prototype.filter.call(banner.children, function (el) {
+          return el !== panel;
+        });
+        var analitica = document.getElementById("cc-analitica");
+        var marketing = document.getElementById("cc-marketing");
+        var configurar = document.getElementById("cc-configurar");
+
+        function verVista(vista) {
+          var enPanel = vista === "configurar";
+          panel.style.display = enPanel ? "" : "none";
+          principal.forEach(function (el) {
+            el.style.display = enPanel ? "none" : "";
+          });
+          banner.setAttribute("aria-labelledby", enPanel ? "cc-titulo" : "cookie-titulo");
+        }
+
+        function ocultar() {
+          banner.hidden = true;
+          verVista("principal");
+        }
+
+        // Guarda la elección (el <head> carga lo aceptado o, si se retira algo ya cargado, recarga)
+        function elegir(preferencias) {
+          ocultar();
+          window.guardarConsentimiento(preferencias);
+        }
+
+        // Casillas desmarcadas si todavía no ha decidido; si no, su elección actual
+        function abrirConfiguracion() {
+          var actual = window.leerConsentimiento() || { analitica: false, marketing: false };
+          analitica.checked = actual.analitica;
+          marketing.checked = actual.marketing;
+          verVista("configurar");
+          banner.hidden = false;
+          analitica.focus();
+        }
+
+        document.getElementById("btn-accept-cookies").addEventListener("click", function () {
+          elegir({ analitica: true, marketing: true });
+        });
+        document.getElementById("btn-decline-cookies").addEventListener("click", function () {
+          elegir({ analitica: false, marketing: false });
+        });
+        configurar.addEventListener("click", abrirConfiguracion);
+        document.getElementById("cc-volver").addEventListener("click", function () {
+          verVista("principal");
+          configurar.focus();
+        });
+        document.getElementById("cc-guardar").addEventListener("click", function () {
+          elegir({ analitica: analitica.checked, marketing: marketing.checked });
+        });
+        window.addEventListener("configurar-cookies", abrirConfiguracion);
+
+        // Visible si todavía no hay una decisión válida guardada
+        if (!window.leerConsentimiento()) banner.hidden = false;
+      })();
+    </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

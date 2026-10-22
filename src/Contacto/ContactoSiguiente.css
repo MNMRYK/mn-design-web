@@ -27,7 +27,7 @@
 }
 
 .breadcrumb-link {
-  color: var(--electric-violet);
+  color: #7a54bc; /* --electric-violet un punto más oscuro: contraste AA sobre #efebfc */
   text-decoration: none;
   transition: opacity 0.3s ease;
 }

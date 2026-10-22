@@ -30,7 +30,7 @@
   margin-bottom: 40px;
 }
 
-.breadcrumb-link { color: var(--electric-violet); text-decoration: none; transition: opacity 0.3s ease; }
+.breadcrumb-link { color: #7a54bc; /* --electric-violet un punto más oscuro: contraste AA sobre #efebfc */ text-decoration: none; transition: opacity 0.3s ease; }
 .breadcrumb-link:hover { opacity: 0.6; }
 .breadcrumb-separator { color: rgba(26, 16, 45, 0.3); }
 .breadcrumb-current { color: rgba(26, 16, 45, 0.6); }

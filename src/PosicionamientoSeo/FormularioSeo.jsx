@@ -3,6 +3,7 @@ import './FormularioSeo.css';
 import { registrarLead } from "../utils/analitica";
 import { enviarLead, asuntoLead } from "../utils/enviarLead";
 import toast from 'react-hot-toast'; 
+import Icono from "../utils/Icono";
 
 // Opciones
 const opcionesServicio = [
@@ -103,7 +104,7 @@ const FormularioSeo = () => {
           },
         },
         success: {
-          icon: <i className="fa-solid fa-circle-check" style={{color: '#00C851'}}></i>, 
+          icon: <Icono nombre="circle-check" style={{color: '#00C851'}} />, 
           style: {
             borderRadius: '12px',
             background: '#ffffff',
@@ -114,7 +115,7 @@ const FormularioSeo = () => {
           },
         },
         error: {
-          icon: <i className="fa-solid fa-circle-xmark" style={{color: '#ff4444'}}></i>, 
+          icon: <Icono nombre="circle-xmark" style={{color: '#ff4444'}} />, 
           style: {
             borderRadius: '12px',
             background: '#ffffff',
@@ -152,7 +153,7 @@ const FormularioSeo = () => {
             {opcionesServicio.map((opcion, index) => (
               <label key={index} className="seo-checkbox-label">
                 <input type="checkbox" value={opcion} checked={formData.servicios.includes(opcion)} onChange={() => handleCheckboxChange(opcion)} />
-                <span className="seo-checkmark"><i className="fa-solid fa-check"></i></span>
+                <span className="seo-checkmark"><Icono nombre="check" /></span>
                 <span className="seo-checkbox-text">{opcion}</span>
               </label>
             ))}

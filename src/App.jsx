@@ -2,14 +2,13 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
 import { MotionConfig } from 'framer-motion';
-import { Bubble } from "@typebot.io/react";
 
 // 📦 COMPONENTES GLOBALES (NO se hacen lazy porque se ven en TODAS las páginas)
 import Navbar from './Inicio/Navbar';
 import Footer from './Inicio/Footer';
-import CookieBanner from './Legales/CookieBanner';
 import { esPrerender } from './utils/prerender';
 import ErrorBoundary from './utils/ErrorBoundary';
+import ChatTypebot from './utils/ChatTypebot';
 
 // 🚀 IMPORTS DINÁMICOS (LA DIETA): cada página se descarga solo cuando hace falta.
 // main.jsx precarga la de la URL actual antes de montar React (ver src/paginas.js).
@@ -134,57 +133,12 @@ function App() {
           </Suspense>
           </ProteccionPorRuta>
 
-          {/* El chat de Typebot no se pinta durante el prerender: así su script no queda en el HTML estático */}
-          {!esPrerender && (
-          <div data-lenis-prevent="true" style={{ overscrollBehavior: 'contain' }}>
-            <Bubble
-              typebot="my-typebot-7uabkh3"
-              apiHost="https://typebot.io"
-              theme={{
-                button: { 
-                  backgroundColor: "#7E57C2", 
-                  size: "60px",
-                  customIconSrc:
-                    "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/bubble-icon?v=1779549222783",
-                },
-                previewMessage: {
-                  backgroundColor: "#fcfcff", // Corregido el doble ##
-                  textColor: "#1A102D",
-                  closeButtonBackgroundColor: "#efebfc",
-                  closeButtonIconColor: "#1A102D",
-                },
-                customCss: `
-                  /* Para navegadores Chrome, Edge y Safari */
-                  .typebot-container .scrollable-container::-webkit-scrollbar {
-                    display: block !important;
-                    width: 8px !important;
-                  }
-                  .typebot-container .scrollable-container::-webkit-scrollbar-track {
-                    background-color: #fcfcff !important;
-                  }
-                  .typebot-container .scrollable-container::-webkit-scrollbar-thumb {
-                    background-color: #7E57C2 !important;
-                    border-radius: 8px !important;
-                  }
-                  
-                  /* Para navegadores Firefox (que usan otro motor) */
-                  .typebot-container .scrollable-container {
-                    scrollbar-width: thin !important;
-                    scrollbar-color: #7E57C2 #fcfcff !important;
-                  }
-                `
-              }}
-              previewMessage={{
-                message: "¡Hola! ¿En qué puedo ayudarte?",
-                avatarUrl: "https://s3.typebotstorage.com/public/workspaces/cmpi7hetl000004jyy4lsgk3s/typebots/cmpi7ktu600000bi0i7uabkh3/hostAvatar?v=1779545605843",
-                autoShowDelay: 3000, // Espera 3 segundos antes de asomarse
-              }}
-            />
-          </div>
-          )}
+          {/* Chat de Typebot: un botón propio que carga Typebot solo al pulsarlo (src/utils/ChatTypebot.jsx).
+              No se pinta durante el prerender: así no queda en el HTML estático */}
+          {!esPrerender && <ChatTypebot />}
         </main>
 
-        {!esPrerender && <CookieBanner />}
+        {/* El banner de cookies está en index.html: se pinta con el HTML, sin esperar a React */}
 
 
         <Toaster 

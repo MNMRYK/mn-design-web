@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion'; 
 import './EcommercePlanes.css';
+import Icono from "../utils/Icono";
 
 const EcommercePlanes = () => {
 
@@ -8,7 +9,7 @@ const EcommercePlanes = () => {
     const estructuras = [
         { 
             id: "shopify",
-            img: "/ecommerce/shopify-3d.webp", // Cámbialo por la ruta de tu imagen guardada
+            img: "/ecommerce/shopify-3d-400.webp", // Cámbialo por la ruta de tu imagen guardada
             title: "Shopify", 
             subtitle: "Líder en facilidad",
             ventajas: [
@@ -20,7 +21,7 @@ const EcommercePlanes = () => {
         },
         { 
             id: "woocommerce",
-            img: "/ecommerce/woo-3d.webp", 
+            img: "/ecommerce/woo-3d-400.webp", 
             title: "WooCommerce", 
             subtitle: "Personalización total",
             ventajas: [
@@ -32,7 +33,7 @@ const EcommercePlanes = () => {
         },
         { 
             id: "astro",
-            img: "/ecommerce/astro-3d.webp", 
+            img: "/ecommerce/astro-3d-400.webp", 
             title: "E-commerce Astro", 
             subtitle: "Velocidad y control",
             ventajas: [
@@ -44,7 +45,7 @@ const EcommercePlanes = () => {
         },
         { 
             id: "academia",
-            img: "/ecommerce/academia-3d.webp", 
+            img: "/ecommerce/academia-3d-368.webp", 
             title: "Academia", 
             subtitle: "Cursos y control",
             ventajas: [
@@ -80,11 +81,11 @@ const EcommercePlanes = () => {
                         <h3>Básico</h3>
                         <div className="ec-plan-precio">Ideal para despegar</div>
                         <ul className="ec-plan-features">
-                            <li><i className="fa-solid fa-check"></i> Catálogo de hasta 50 productos.</li>
-                            <li><i className="fa-solid fa-check"></i> Pasarela de pagos segura (Stripe/PayPal).</li>
-                            <li><i className="fa-solid fa-check"></i> Diseño UX optimizado para móvil.</li>
-                            <li><i className="fa-solid fa-check"></i> Gestión básica de envíos y stock.</li>
-                            <li><i className="fa-solid fa-check"></i> Formación para subir productos.</li>
+                            <li><Icono nombre="check" /> Catálogo de hasta 50 productos.</li>
+                            <li><Icono nombre="check" /> Pasarela de pagos segura (Stripe/PayPal).</li>
+                            <li><Icono nombre="check" /> Diseño UX optimizado para móvil.</li>
+                            <li><Icono nombre="check" /> Gestión básica de envíos y stock.</li>
+                            <li><Icono nombre="check" /> Formación para subir productos.</li>
                         </ul>
                         <a 
                             href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Básico%20de%20E-commerce."
@@ -102,11 +103,11 @@ const EcommercePlanes = () => {
                         <h3>Impulso</h3>
                         <div className="ec-plan-precio">Tu negocio a otro nivel</div>
                         <ul className="ec-plan-features">
-                            <li><i className="fa-solid fa-check"></i> Productos ilimitados.</li>
-                            <li><i className="fa-solid fa-check"></i> <strong>Recuperación de carritos abandonados.</strong></li>
-                            <li><i className="fa-solid fa-check"></i> Integración con Meta Pixel y Google Analytics.</li>
-                            <li><i className="fa-solid fa-check"></i> Venta cruzada (Productos relacionados).</li>
-                            <li><i className="fa-solid fa-check"></i> Mantenimiento preventivo incluido.</li>
+                            <li><Icono nombre="check" /> Productos ilimitados.</li>
+                            <li><Icono nombre="check" /> <strong>Recuperación de carritos abandonados.</strong></li>
+                            <li><Icono nombre="check" /> Integración con Meta Pixel y Google Analytics.</li>
+                            <li><Icono nombre="check" /> Venta cruzada (Productos relacionados).</li>
+                            <li><Icono nombre="check" /> Mantenimiento preventivo incluido.</li>
                         </ul>
                         <a 
                             href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Impulso%20de%20E-commerce."
@@ -123,11 +124,11 @@ const EcommercePlanes = () => {
                         <h3>Esencial</h3>
                         <div className="ec-plan-precio">Soporte y Estrategia 360°</div>
                         <ul className="ec-plan-features">
-                            <li><i className="fa-solid fa-check"></i> Todo lo del Plan Impulso +</li>
-                            <li><i className="fa-solid fa-check"></i> <strong>Automatización de Marketing (Email).</strong></li>
-                            <li><i className="fa-solid fa-check"></i> Estrategia CRO (Conversión Rate Optimization).</li>
-                            <li><i className="fa-solid fa-check"></i> Integración CRM / ERP para sincronización.</li>
-                            <li><i className="fa-solid fa-check"></i> Soporte técnico preferente.</li>
+                            <li><Icono nombre="check" /> Todo lo del Plan Impulso +</li>
+                            <li><Icono nombre="check" /> <strong>Automatización de Marketing (Email).</strong></li>
+                            <li><Icono nombre="check" /> Estrategia CRO (Conversión Rate Optimization).</li>
+                            <li><Icono nombre="check" /> Integración CRM / ERP para sincronización.</li>
+                            <li><Icono nombre="check" /> Soporte técnico preferente.</li>
                         </ul>
                         <a 
                             href="https://wa.me/34645854934?text=¡Hola%21%20Estoy%20interesado%20en%20conseguir%20información%20sobre%20el%20Plan%20Esencial%20de%20E-commerce."
@@ -161,7 +162,7 @@ const EcommercePlanes = () => {
                             
                             {/* Bloque superior: Imagen */}
                             <div className="ec-estructura-img-wrapper">
-                                <img src={est.img} alt={est.title} />
+                                <img src={est.img} alt={est.title} loading="lazy" decoding="async" />
                             </div>
                             
                             {/* Bloque inferior: Textos y lista de ventajas */}
@@ -171,7 +172,7 @@ const EcommercePlanes = () => {
                                 <ul className="ec-ventajas-list">
                                     {est.ventajas.map((ventaja, i) => (
                                         <li key={i}>
-                                            <i className="fa-solid fa-circle-check"></i> 
+                                            <Icono nombre="circle-check" /> 
                                             {ventaja}
                                         </li>
                                     ))}
@@ -196,7 +197,7 @@ const EcommercePlanes = () => {
                 <div className="ec-promo-content">
                     <div className="ec-promo-text">
                         <div className="ec-promo-badge">
-                            <i className="fa-brands fa-shopify"></i> Especialistas en Liquid
+                            <Icono nombre="shopify" /> Especialistas en Liquid
                         </div>
                         <h2>¿Ya tienes tu tienda en Shopify? <br/><span>Te enseñamos a gestionarla</span></h2>
                         <p>Si ya vendes con Shopify y quieres manejarla sin depender de nadie, resolvemos contigo la configuración de tu tienda en sesiones 1 a 1. <a href="/aprende-shopify/">Ver las mentorías de Shopify</a>.</p>
@@ -219,7 +220,7 @@ const EcommercePlanes = () => {
                                 rel="noopener noreferrer" 
                                 className="ec-btn-shopify-secondary"
                             >
-                                <i className="fa-solid fa-file-pdf" style={{ marginRight: '8px' }}></i>
+                                <Icono nombre="file-pdf" style={{ marginRight: '8px' }} />
                                 Descargar Arsenal Secreto
                             </a>
                         </div>
@@ -227,7 +228,7 @@ const EcommercePlanes = () => {
                     
                     {/* He puesto la ruta de la imagen flotante que pasaste en tu código */}
                     <div className="ec-promo-image">
-                        <img src="/ecommerce/2.webp" alt="Mentorías Shopify MN Design Web" />
+                        <img src="/ecommerce/2.webp" alt="Mentorías Shopify MN Design Web" width="422" height="426" loading="lazy" decoding="async" />
                     </div>
                 </div>
             </motion.section>

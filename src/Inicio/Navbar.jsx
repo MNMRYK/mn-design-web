@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import "./Navbar.css";
+import Icono from "../utils/Icono";
 
 const Navbar = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
@@ -66,7 +67,7 @@ const Navbar = () => {
           onClick={toggleMenu}
           aria-label="Abrir menú"
         >
-          <i className={menuAbierto ? "fas fa-times" : "fas fa-bars"}></i>
+          <Icono nombre={menuAbierto ? "times" : "bars"} />
         </button>
 
         <ul className={`menu-principal ${menuAbierto ? "active" : ""}`}>

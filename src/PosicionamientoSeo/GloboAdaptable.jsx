@@ -2,9 +2,37 @@ import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import ErrorBoundary from "../utils/ErrorBoundary";
 import { puedeUsarEfectoWebGL } from "../utils/capacidadGrafica";
 
-// three.js y three-globe pesan mucho: solo se descargan si el dispositivo puede mostrar
-// el globo y el usuario se acerca a él
+// three.js y three-globe pesan mucho (~730 KB gzip): solo se descargan en ordenador, si el
+// dispositivo puede mostrar el globo y el usuario se acerca a él
 const World = lazy(() => import("./AceternityGlobe"));
+
+// En móvil y tablet (pantalla estrecha o táctil) siempre la imagen: el globo no compensa ahí
+// lo que cuesta descargarlo y dibujarlo
+const esMovilOTablet = () =>
+  typeof window !== "undefined" &&
+  !!window.matchMedia &&
+  window.matchMedia("(max-width: 1024px), (pointer: coarse)").matches;
+
+// Espera a que la página haya terminado de cargar y el navegador esté libre (máx. 3 s más):
+// así el globo no compite con el primer pintado. Devuelve la función para cancelar.
+function cuandoEsteLibre(hacer) {
+  let cancelado = false;
+  let idIdle = null;
+  let idTimeout = null;
+  const lanzar = () => {
+    if (cancelado) return;
+    if ("requestIdleCallback" in window) idIdle = window.requestIdleCallback(hacer, { timeout: 3000 });
+    else idTimeout = setTimeout(hacer, 1500);
+  };
+  if (document.readyState === "complete") lanzar();
+  else window.addEventListener("load", lanzar, { once: true });
+  return () => {
+    cancelado = true;
+    window.removeEventListener("load", lanzar);
+    if (idIdle !== null) window.cancelIdleCallback?.(idIdle);
+    if (idTimeout !== null) clearTimeout(idTimeout);
+  };
+}
 
 // Versión estática: captura del mismo globo, con fondo transparente
 const GloboEstatico = () => (
@@ -22,7 +50,7 @@ const GloboEstatico = () => (
 
 const GloboAdaptable = (props) => {
   const ref = useRef(null);
-  const [webgl, setWebgl] = useState(() => puedeUsarEfectoWebGL(2));
+  const [webgl, setWebgl] = useState(() => !esMovilOTablet() && puedeUsarEfectoWebGL(2));
   const [cerca, setCerca] = useState(false); // ya se ha acercado: se carga el globo
   const [enPantalla, setEnPantalla] = useState(false);
   const [pestanaVisible, setPestanaVisible] = useState(
@@ -33,14 +61,15 @@ const GloboAdaptable = (props) => {
     const el = ref.current;
     if (!el || !webgl) return;
 
+    let cancelarEspera = null;
     const precarga = new IntersectionObserver(
       (entradas) => {
         if (entradas[0].isIntersecting) {
-          setCerca(true);
           precarga.disconnect();
+          cancelarEspera = cuandoEsteLibre(() => setCerca(true));
         }
       },
-      { rootMargin: "600px 0px" },
+      { rootMargin: "300px 0px" },
     );
     // Solo se dibuja mientras se ve
     const visibilidad = new IntersectionObserver((entradas) => setEnPantalla(entradas[0].isIntersecting));
@@ -52,6 +81,7 @@ const GloboAdaptable = (props) => {
 
     return () => {
       precarga.disconnect();
+      cancelarEspera?.();
       visibilidad.disconnect();
       document.removeEventListener("visibilitychange", alCambiarPestana);
     };

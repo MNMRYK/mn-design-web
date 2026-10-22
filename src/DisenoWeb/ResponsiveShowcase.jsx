@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import Icono from "../utils/Icono";
 import './ResponsiveShowcase.css'; // 🔥 Recuerda poner aquí el nombre de tu archivo CSS real
 
 const ResponsiveShowcase = () => {
@@ -31,7 +32,7 @@ const ResponsiveShowcase = () => {
                 <span style={{background: '#27C93F'}}></span>
               </div>
               <div className="simulador-browser-tab">
-                <i className="fa-solid fa-lock" style={{fontSize: '10px'}}></i> mndesignweb.es
+                <Icono nombre="lock" style={{fontSize: '10px'}} /> mndesignweb.es
               </div>
             </div>
             
@@ -44,7 +45,7 @@ const ResponsiveShowcase = () => {
                   <span>Proyectos</span>
                   <span>Contacto</span>
                 </div>
-                <i className="fa-solid fa-bars mini-web-burger"></i>
+                <Icono nombre="bars" className="mini-web-burger" />
               </div>
               
               <div className="mini-web-hero">
@@ -92,28 +93,28 @@ const ResponsiveShowcase = () => {
               className={dispositivoActivo === 'xl' ? 'btn-device active' : 'btn-device'} 
               onClick={() => setDispositivoActivo('xl')}
             >
-              <i className="fa-solid fa-desktop"></i>
+              <Icono nombre="desktop" />
               <span>Monitor XL</span>
             </button>
             <button 
               className={dispositivoActivo === 'desktop' ? 'btn-device active' : 'btn-device'} 
               onClick={() => setDispositivoActivo('desktop')}
             >
-              <i className="fa-solid fa-laptop"></i>
+              <Icono nombre="laptop" />
               <span>Monitor Normal</span>
             </button>
             <button 
               className={dispositivoActivo === 'tablet' ? 'btn-device active' : 'btn-device'} 
               onClick={() => setDispositivoActivo('tablet')}
             >
-              <i className="fa-solid fa-tablet-screen-button"></i>
+              <Icono nombre="tablet-screen-button" />
               <span>Tablet</span>
             </button>
             <button 
               className={dispositivoActivo === 'mobile' ? 'btn-device active' : 'btn-device'} 
               onClick={() => setDispositivoActivo('mobile')}
             >
-              <i className="fa-solid fa-mobile-screen-button"></i>
+              <Icono nombre="mobile-screen-button" />
               <span>Móvil</span>
             </button>
           </div>

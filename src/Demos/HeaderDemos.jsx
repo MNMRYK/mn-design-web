@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import Icono from "../utils/Icono";
+import FondoDiferido from "../utils/FondoDiferido";
 import "./HeaderDemos.css"; // Tu archivo de estilos
 
 const bloquesDemos = [
@@ -218,17 +220,11 @@ const HeaderDemos = () => {
                   <div className="mac-url">mndesignweb.es/demos</div>
                 </div>
                 <div className="mac-body">
-                  <div
-                    className="mac-img-scroll"
-                    style={{
-                      backgroundImage:
-                        "url('/mockups/psicologia-especializada-mockup.webp')",
-                    }}
-                  ></div>
+                  <FondoDiferido className="mac-img-scroll" url="/mockups/psicologia-especializada-mockup-800.webp" />
                 </div>
               </div>
               <div className="scroll-hint">
-                <i className="fa-solid fa-mouse"></i>
+                <Icono nombre="mouse" />
                 <span>Desplaza para ver más</span>
               </div>
             </div>
@@ -257,20 +253,20 @@ const HeaderDemos = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
               >
-                Ver Maqueta Interactiva <i className="fas fa-arrow-right"></i>
+                Ver Maqueta Interactiva <Icono nombre="arrow-right" />
               </a>
             </div>
           </div>
 
           <div className="collage-container">
             <div className="collage-item item-1">
-              <img src="/mockups/academia-1.webp" alt="Vista del panel de control de la academia" loading="lazy" />
+              <img src="/mockups/academia-1-960.webp" srcSet="/mockups/academia-1-480.webp 480w, /mockups/academia-1-960.webp 960w, /mockups/academia-1-1400.webp 1400w" sizes="(max-width: 768px) 92vw, 824px" width="1400" height="788" alt="Vista del panel de control de la academia" loading="lazy" decoding="async" />
             </div>
             <div className="collage-item item-2">
-              <img src="/mockups/academia-2.webp" alt="Vista de lecciones y módulos admin" loading="lazy" />
+              <img src="/mockups/academia-2-960.webp" srcSet="/mockups/academia-2-480.webp 480w, /mockups/academia-2-960.webp 960w" sizes="(max-width: 768px) 92vw, 400px" width="960" height="535" alt="Vista de lecciones y módulos admin" loading="lazy" decoding="async" />
             </div>
             <div className="collage-item item-3">
-              <img src="/mockups/academia-3.webp" alt="Vista alumno" loading="lazy" />
+              <img src="/mockups/academia-3-960.webp" srcSet="/mockups/academia-3-480.webp 480w, /mockups/academia-3-960.webp 960w" sizes="(max-width: 768px) 92vw, 400px" width="960" height="861" alt="Vista alumno" loading="lazy" decoding="async" />
             </div>
           </div>
         </motion.section>
@@ -295,7 +291,7 @@ const HeaderDemos = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
-                    {bloque.cta.texto} <i className="fas fa-arrow-right"></i>
+                    {bloque.cta.texto} <Icono nombre="arrow-right" />
                   </a>
                 )}
                 
@@ -307,7 +303,7 @@ const HeaderDemos = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                   >
-                    {bloque.cta2.texto} <i className="fas fa-arrow-right"></i>
+                    {bloque.cta2.texto} <Icono nombre="arrow-right" />
                   </a>
                 )}
               </div>
@@ -317,7 +313,7 @@ const HeaderDemos = () => {
               {bloque.demos.map((demo) => (
                 <div key={demo.slug} className="portfolio-card demo-card-custom">
                   {/* EL NAVEGADOR DE LA DEMO */}
-                  <div className="browser-mockup-complex">
+                  <div className="browser-mockup-complex" aria-hidden="true">
                     <div className="tabs-head">
                       <div className="tab-open">
                         <div className="rounded-l">
@@ -325,33 +321,33 @@ const HeaderDemos = () => {
                         </div>
                         <span>{demo.titulo}</span>
                         <div className="close-tab">
-                          <i className="fa-solid fa-xmark"></i>
+                          <Icono nombre="xmark" />
                         </div>
                         <div className="rounded-r">
                           <div className="mask-round"></div>
                         </div>
                       </div>
                       <div className="window-opt">
-                        <button>
-                          <i className="fa-solid fa-minus"></i>
+                        <button tabIndex={-1}>
+                          <Icono nombre="minus" />
                         </button>
-                        <button>
-                          <i className="fa-regular fa-square"></i>
+                        <button tabIndex={-1}>
+                          <Icono nombre="square" />
                         </button>
-                        <button className="window-close">
-                          <i className="fa-solid fa-xmark"></i>
+                        <button tabIndex={-1} className="window-close">
+                          <Icono nombre="xmark" />
                         </button>
                       </div>
                     </div>
 
                     <div className="head-browser">
-                      <button>
-                        <i className="fa-solid fa-arrow-left"></i>
+                      <button tabIndex={-1}>
+                        <Icono nombre="arrow-left" />
                       </button>
-                      <button disabled>
-                        <i className="fa-solid fa-arrow-right"></i>
+                      <button tabIndex={-1} disabled>
+                        <Icono nombre="arrow-right" />
                       </button>
-                      <input
+                      <input tabIndex={-1}
                         type="text"
                         readOnly
                         value={
@@ -360,23 +356,18 @@ const HeaderDemos = () => {
                             : ""
                         }
                       />
-                      <button>
-                        <i className="fa-solid fa-ellipsis-vertical"></i>
+                      <button tabIndex={-1}>
+                        <Icono nombre="ellipsis-vertical" />
                       </button>
                       <div className="star">
-                        <i className="fa-regular fa-star"></i>
+                        <Icono nombre="star" />
                       </div>
                     </div>
                   </div>
 
                   {/* LA PANTALLA CON EL SCROLL */}
                   <div className="mockup-body">
-                    <div
-                      className="project-img-scroll"
-                      style={{
-                        backgroundImage: `url("/mockups/${demo.slug}.webp")`,
-                      }}
-                    ></div>
+                    <FondoDiferido className="project-img-scroll" url={`/mockups/${demo.slug}.webp`} />
                   </div>
 
                   {/* LA INFORMACIÓN DE LA DEMO */}
@@ -394,7 +385,7 @@ const HeaderDemos = () => {
                     className="btn-visitar-esquina"
                     aria-label={`Ver demo de ${demo.titulo}`}
                   >
-                    <i className="fas fa-arrow-right"></i>
+                    <Icono nombre="arrow-right" />
                   </a>
                 </div>
               ))}

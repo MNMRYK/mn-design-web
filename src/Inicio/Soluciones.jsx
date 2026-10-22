@@ -2,6 +2,7 @@ import React from "react";
 import './Soluciones.css';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Icono from "../utils/Icono";
 
 const Soluciones = () => {
     const handleScroll = (id) => {
@@ -27,24 +28,24 @@ const Soluciones = () => {
 
                 <div className="soluciones-grid">
                     <motion.div className="solucion-card-new" whileHover={{ y: -5 }}>
-                        <div className="solucion-icon-box"><i className="fas fa-code"></i></div>
+                        <div className="solucion-icon-box"><Icono nombre="code" /></div>
                         <h3 className="solucion-card-title">Diseño a Medida</h3>
                         <p className="solucion-card-text">
                             Plataformas SaaS y Webs ultra-rápidas, sin límites de diseño y optimizadas al 100% para Google.
                         </p>
                         <a href="/disenoweb/#portfolio" className="solucion-card-btn">
-                            SABER MÁS <i className="fas fa-chevron-right"></i>
+                            SABER MÁS <Icono nombre="chevron-right" />
                         </a>
                     </motion.div>
 
                     <motion.div className="solucion-card-new" whileHover={{ y: -5 }}>
-                        <div className="solucion-icon-box"><i className="fas fa-layer-group"></i></div>
+                        <div className="solucion-icon-box"><Icono nombre="layer-group" /></div>
                         <h3 className="solucion-card-title">Sistemas Autogestionables</h3>
                         <p className="solucion-card-text">
                             Potenciamos tu negocio con los mejores gestores (Shopify, WordPress, WooCommerce).
                         </p>
                         <a href="/disenoweb/#estructuras" className="solucion-card-btn">
-                            SABER MÁS <i className="fas fa-chevron-right"></i>
+                            SABER MÁS <Icono nombre="chevron-right" />
                         </a>
                     </motion.div>
                 </div>
@@ -61,7 +62,7 @@ const Soluciones = () => {
                 <div className="ec-promo-content">
                     <div className="ec-promo-text">
                         <div className="ec-promo-badge">
-                            <i className="fa-brands fa-shopify"></i> Especialistas en Liquid
+                            <Icono nombre="shopify" /> Especialistas en Liquid
                         </div>
                         <h2>¿Vendes con Shopify? <br/><span>Aprende a llevar tu tienda sin depender de nadie</span></h2>
                         <p>Sesiones 1 a 1 en las que revisamos contigo la configuración de tu tienda, resolvemos lo que te frena y te enseñamos a gestionarla tú.</p>
@@ -84,7 +85,7 @@ const Soluciones = () => {
                                 rel="noopener noreferrer" 
                                 className="ec-btn-shopify-secondary"
                             >
-                                <i className="fa-solid fa-file-pdf" style={{ marginRight: '8px' }}></i>
+                                <Icono nombre="file-pdf" style={{ marginRight: '8px' }} />
                                 Descargar Arsenal Secreto
                             </a>
                         </div>
@@ -92,7 +93,7 @@ const Soluciones = () => {
                     
                     {/* He puesto la ruta de la imagen flotante que pasaste en tu código */}
                     <div className="ec-promo-image">
-                        <img src="/ecommerce/2.webp" alt="Mentorías Shopify MN Design Web" />
+                        <img src="/ecommerce/2.webp" alt="Mentorías Shopify MN Design Web" width="422" height="426" loading="lazy" decoding="async" />
                     </div>
                 </div>
             </motion.section>

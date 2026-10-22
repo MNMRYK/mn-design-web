@@ -1,36 +1,37 @@
 import React, { useEffect } from "react";
 import { motion } from 'framer-motion';
 import './Servicios.css';
+import Icono from "../utils/Icono";
 
 const serviciosData = [
   {
     title: "Diseño y Desarrollo Web",
     desc: "Desarrollo de páginas web optimizadas y modernas con WordPress o código a medida.",
-    icon: "fas fa-code",
+    icon: "code",
     link: "/disenoweb/"
   },
   {
     title: "Tienda E-commerce",
     desc: "Diseñamos tu tienda desde cero para que vendas tus productos de forma segura.",
-    icon: "fas fa-store",
+    icon: "store",
     link: "/e-commerce/"
   },
   {
     title: "Posicionamiento SEO",
     desc: "Mejora la visibilidad de tu negocio apareciendo en los primeros resultados de Google.",
-    icon: "fas fa-search-dollar",
+    icon: "search-dollar",
     link: "/posicionamiento-seo/"
   },
   {
     title: "Mantenimiento y Optimización",
     desc: "Nos ocupamos de que tu web esté siempre rápida, segura y actualizada.",
-    icon: "fas fa-cogs",
+    icon: "cogs",
     link: "/contacto/#calendario-reserva" 
   },
   {
     title: "Gestión de Redes Sociales",
     desc: "Creamos contenido estratégico para que tu marca destaque en redes sociales.",
-    icon: "fa-brands fa-instagram",
+    icon: "instagram",
     link: "/redes-sociales/"
   }
 ];
@@ -59,13 +60,13 @@ const Servicios = () => {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.6 }}
           >
-            <i className={`${servicio.icon} servicio-icono`}></i>
+            <Icono nombre={servicio.icon} className="servicio-icono" />
             <h3>{servicio.title}</h3>
             <p>{servicio.desc}</p>
             
             {/* Añadimos el link aquí abajo */}
             <a href={servicio.link} className="leer-mas-btn">
-              Leer más <i className="fas fa-chevron-right"></i>
+              Leer más <Icono nombre="chevron-right" />
             </a>
           </motion.div>
         ))}

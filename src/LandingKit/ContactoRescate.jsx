@@ -4,6 +4,7 @@ import './ContactoRescate.css';
 import { registrarLead } from "../utils/analitica";
 import { enviarLead, asuntoLead } from "../utils/enviarLead";
 import CalendarioCal from "../utils/CalendarioCal";
+import Icono from "../utils/Icono";
 
 const ContactoRescate = () => {
     const [formData, setFormData] = useState({ 
@@ -73,7 +74,7 @@ const ContactoRescate = () => {
                         <li>
                             <span className="check-icon">
                                 <span className="check-icon-circle">
-                                    <i className="fa-solid fa-circle-check"></i>
+                                    <Icono nombre="circle-check" />
                                 </span>
                             </span>
                             Diagnóstico técnico en menos de 24h.
@@ -81,7 +82,7 @@ const ContactoRescate = () => {
                          <li>
                             <span className="check-icon">
                                 <span className="check-icon-circle">
-                                    <i className="fa-solid fa-circle-check"></i>
+                                    <Icono nombre="circle-check" />
                                 </span>
                             </span>
                             Plan de acción personalizado para tu web.
@@ -89,7 +90,7 @@ const ContactoRescate = () => {
                          <li>
                             <span className="check-icon">
                                 <span className="check-icon-circle">
-                                    <i className="fa-solid fa-circle-check"></i>
+                                    <Icono nombre="circle-check" />
                                 </span>
                             </span>
                             Sesión de valoración 1-a-1 por videollamada.

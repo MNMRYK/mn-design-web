@@ -34,7 +34,9 @@ const MapaContacto = () => (
     <TileLayer url={URL_TESELAS} attribution={ATRIBUCION} />
 
     {/* Marcador personalizado con luz de neón */}
-    <Marker position={POSICION} icon={customIcon}>
+    {/* title: nombre accesible del marcador (Leaflet lo hace pulsable) */}
+    <Marker position={POSICION} icon={customIcon} title="MN Design Web · Passeig del Comtat, 75, Cocentaina">
+
       <Popup className="custom-map-popup">
         <div className="popup-content">
           <h4>MN Design Web</h4>

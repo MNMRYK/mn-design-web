@@ -1,16 +1,17 @@
 import React, { useRef } from 'react';
 import './Beneficios.css';
 import { motion } from 'framer-motion';
+import Icono from "../utils/Icono";
 
 const beneficiosData = [
-  { title: "Identidad visual única", icon: "fas fa-fingerprint" },
-  { title: "Experiencia de usuario fluida", icon: "fas fa-mouse-pointer" },
-  { title: "Adaptabilidad móvil", icon: "fas fa-mobile-alt" },
-  { title: "Aumento directo de facturación", icon: "fas fa-chart-line" },
-  { title: "Primera huella digital", icon: "fas fa-bullseye" },
-  { title: "Sistemas de gestión inteligentes", icon: "fas fa-brain" },
-  { title: "Mayor visibilidad y alcance", icon: "fas fa-eye" },
-  { title: "Acompañamiento y asesoria", icon: "fas fa-hands-helping" }
+  { title: "Identidad visual única", icon: "fingerprint" },
+  { title: "Experiencia de usuario fluida", icon: "mouse-pointer" },
+  { title: "Adaptabilidad móvil", icon: "mobile-alt" },
+  { title: "Aumento directo de facturación", icon: "chart-line" },
+  { title: "Primera huella digital", icon: "bullseye" },
+  { title: "Sistemas de gestión inteligentes", icon: "brain" },
+  { title: "Mayor visibilidad y alcance", icon: "eye" },
+  { title: "Acompañamiento y asesoria", icon: "hands-helping" }
 ];
 
 const Beneficios = () => {
@@ -53,7 +54,7 @@ const Beneficios = () => {
                 {beneficiosData.map((item, index) => (
                     <div className="beneficio-card" key={index}>
                         <div className="beneficio-icon">
-                            <i className={item.icon}></i>
+                            <Icono nombre={item.icon} />
                         </div>
                         <span className="beneficio-text">{item.title}</span>
                     </div>
