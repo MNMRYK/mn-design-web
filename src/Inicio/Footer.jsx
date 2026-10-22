@@ -1,6 +1,11 @@
 import React from "react";
 import './Footer.css';
 import { abrirConfiguracionCookies } from '../utils/cookies';
+import { CalendarDays, MessageCircle, MapPin } from 'lucide-react';
+
+// Los clics en cal.com y wa.me se miden solos en index.html (click_reserva / click_whatsapp).
+const WHATSAPP = 'https://wa.me/34645854934?text=' + encodeURIComponent('¡Hola! Vengo de vuestra web y me gustaría pedir información.');
+const COMO_LLEGAR = 'https://www.google.com/maps/dir/?api=1&destination=' + encodeURIComponent('MN Design Web, Passeig del Comtat 75, 03820 Cocentaina, Alicante');
 
 const Footer = () => {
   return (
@@ -30,6 +35,31 @@ const Footer = () => {
               +34 645 85 49 34
             </a>
             <p className="horario-texto">Lunes a Viernes | 09:00 - 18:00</p>
+          </div>
+
+          {/* ACCIONES RÁPIDAS: llenan el hueco bajo la marca y el contacto */}
+          <div className="footer-acciones">
+            <a href="https://cal.com/mndesignweb/reunion-30-min" target="_blank" rel="noopener noreferrer" className="footer-accion">
+              <span className="footer-accion-icono"><CalendarDays aria-hidden="true" /></span>
+              <span>
+                <span className="footer-accion-titulo">Reserva una videollamada</span>
+                <span className="footer-accion-texto">30 minutos, gratis y sin compromiso</span>
+              </span>
+            </a>
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="footer-accion">
+              <span className="footer-accion-icono"><MessageCircle aria-hidden="true" /></span>
+              <span>
+                <span className="footer-accion-titulo">Escríbenos por WhatsApp</span>
+                <span className="footer-accion-texto">Respuesta en menos de 24 h laborables</span>
+              </span>
+            </a>
+            <a href={COMO_LLEGAR} target="_blank" rel="noopener noreferrer" className="footer-accion">
+              <span className="footer-accion-icono"><MapPin aria-hidden="true" /></span>
+              <span>
+                <span className="footer-accion-titulo">Cómo llegar</span>
+                <address className="footer-accion-texto">Passeig del Comtat, 75, 5º 1º · 03820 Cocentaina (Alicante)</address>
+              </span>
+            </a>
           </div>
 
           <div className="footer-links-grid">

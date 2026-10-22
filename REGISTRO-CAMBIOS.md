@@ -49,6 +49,12 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 22/10/2026 · Pie: acciones rápidas (videollamada, WhatsApp, cómo llegar)
+- **Qué:** `src/Inicio/Footer.jsx/.css`: en el hueco bajo la marca y el contacto, tres tarjetas: «Reserva una videollamada» (cal.com/mndesignweb/reunion-30-min), «Escríbenos por WhatsApp» (wa.me con mensaje predefinido) y «Cómo llegar» (ruta de Google Maps) con la dirección en `<address>` (mismo NAP que el schema y el perfil de Google). Iconos de lucide-react (CalendarDays, MessageCircle, MapPin), como en las landings. Ordenador: 3 en fila bajo marca + contacto; tablet: en columna; móvil: tras el contacto.
+- **Por qué:** el pie tenía un gran hueco vacío y son las tres formas de contacto que más convierten; la dirección visible refuerza el SEO local de la ficha de Google.
+- **Cómo medirlo:** GA4 `click_reserva` y `click_whatsapp` (se miden solos en `index.html`).
+- **Estado:** hecho en local, sin publicar.
+
 ### 22/10/2026 · /portfolio/ → /demos/ (301)
 - **Qué:** regla en `public/.htaccess` junto a la de /servicios/. /portfolio daba la 404 de React y Google aún lo muestra como sitelink («Portfolio · Diseño web profesional en Alcoi»). Solo afecta a /portfolio y /portfolio/; las imágenes de `public/portfolio/` siguen sirviéndose.
 - **Cómo medirlo:** `curl -I https://mndesignweb.es/portfolio` → una sola 301 a /demos/; el sitelink debería desaparecer o pasar a /demos/ en unas semanas.
