@@ -12,36 +12,7 @@ import { crearLenis } from "./utils/lenis";
 
 const Contacto = () => {
 
-  const schemaFAQ = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "¿Cómo es el proceso para empezar un proyecto con vosotros?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Primero nos escribes por el formulario, luego tenemos una breve llamada para entender tus objetivos y necesidades. A partir de ahí, te enviamos un presupuesto detallado y sin compromiso."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Trabajáis solo en Alicante o también en remoto?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Trabajamos con clientes de toda España. Aunque estamos en Alicante y podemos reunirnos presencialmente, nuestras herramientas de comunicación y gestión nos permiten trabajar con la misma eficacia estéis donde estéis."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Cuánto tardáis en responder a una solicitud de presupuesto?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Normalmente respondemos en menos de 24-48 horas laborables. Si tu proyecto es urgente, por favor, indícalo en el formulario y priorizaremos tu solicitud."
-        }
-      }
-    ]
-  };
+  // Sin FAQPage: esta página no muestra preguntas frecuentes (el schema debe coincidir con lo visible)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -64,10 +35,10 @@ const Contacto = () => {
     <>
       <Seo
         ruta="/contacto/"
-        titulo="Contacto | MN Design Web - Diseño Web en Alicante"
-        descripcion="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce. ¡Pide tu presupuesto sin compromiso!"
+        titulo="Contacto y Presupuesto de Diseño Web | MN Design Web"
+        descripcion="Pide presupuesto de diseño web, tienda online o SEO sin compromiso: te respondemos en menos de 24 h laborables o reserva una videollamada de 30 minutos."
         tituloSocial="Contacto | MN Design Web"
-        descripcionSocial="¿Listo para empezar tu proyecto? Contacta con nosotros para tu próximo diseño web o tienda E-Commerce."
+        descripcionSocial="Pide presupuesto para tu web o tu tienda online: te respondemos en menos de 24 h laborables."
       />
 
       <div className="contacto-page-wrapper">
@@ -79,7 +50,6 @@ const Contacto = () => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ 
             __html: JSON.stringify([
-              schemaFAQ,
               EMPRESA,
               {
                 "@context": "https://schema.org",

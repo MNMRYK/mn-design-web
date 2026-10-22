@@ -9,15 +9,15 @@ const Hero = () => {
       <div className="hero-content">
         {/* 1. TÍTULO: Animación nativa CSS */}
         <h1 className="hero-title animate-fade-up">
-          Arquitectura Web <br />
-          <span className="ampersand">&</span> <br />
-          Estrategia Digital
+          Agencia de diseño <br />
+          <span className="ampersand">y</span> <br />
+          desarrollo web
         </h1>
 
         {/* 2. SUBTÍTULO: Aparece el último */}
         <p className="hero-subtitle animate-fade-in-delayed">
-          Creamos experiencias digitales de alto rendimiento enfocadas en
-          convertir visitantes en clientes.
+          Arquitectura web y estrategia digital: diseñamos webs a medida, tiendas
+          online y software para empresas de toda España.
         </p>
 
         {/* 3. BOTONES: Aparecen después del título */}
@@ -30,6 +30,11 @@ const Hero = () => {
             Software Portal Clínico
           </a>
         </div>
+
+        {/* Enlace discreto a la landing local: las búsquedas con ciudad son de /alcoi/ */}
+        <a href="/alcoi/" className="hero-enlace-local animate-fade-in-delayed">
+          ¿Buscas una agencia de diseño web en Alcoy?
+        </a>
       </div>
     </section>
   );

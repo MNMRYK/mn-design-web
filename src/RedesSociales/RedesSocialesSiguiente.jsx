@@ -69,7 +69,7 @@ const RedesSocialesSiguiente = () => {
 
                 <motion.div className="rs-header" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
                     <h1 className="rs-title">
-                        <div className="rs-title-phrase-one">Gestión de redes sociales en Alcoy (Alcoi)</div>
+                        <div className="rs-title-phrase-one">Gestión de redes sociales para empresas</div>
                         <span className="rs-text-gradient">Convierte seguidores<br /> en clientes</span>
                     </h1>
                 </motion.div>
@@ -78,7 +78,7 @@ const RedesSocialesSiguiente = () => {
                     <div className="rs-columna-izq">
                         <motion.div className="rs-detalle-textos" initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.6 }}>
                             <p>
-                                Nuestra <strong>gestión de redes sociales en Alcoy</strong> no va de publicar por publicar ni de coleccionar <em>likes</em> vacíos; va de convertir tus perfiles en un imán de ventas continuo. Nos olvidamos de las métricas de vanidad y ejecutamos estrategias de <strong>social media marketing</strong> diseñadas para lo que de verdad importa: crear comunidad, generar confianza y aumentar tu facturación.
+                                Nuestra <strong>gestión de redes sociales</strong> no va de publicar por publicar ni de coleccionar <em>likes</em> vacíos; va de convertir tus perfiles en un imán de ventas continuo. Nos olvidamos de las métricas de vanidad y ejecutamos estrategias de <strong>social media marketing</strong> diseñadas para lo que de verdad importa: crear comunidad, generar confianza y aumentar tu facturación.
                             </p>
                             <p>
                                 Construimos una narrativa visual y textual que demuestra por qué el cliente debe elegirte a ti y no a tu competencia. Diseñamos contenido estratégico que humaniza tu marca, te posiciona como líder de tu sector y transforma a tus seguidores en clientes fieles.
@@ -137,7 +137,8 @@ const RedesSocialesSiguiente = () => {
                                             </span>
                                             <h4>Rendimiento Mensual</h4>
                                         </div>
-                                        <span className="rs-live-badge">● Live</span>
+                                        {/* Maqueta ilustrativa: las cifras no son resultados reales */}
+                                        <span className="rs-ejemplo-badge" title="Datos de ejemplo, no son resultados de un cliente">Ejemplo</span>
                                     </div>
 
                                     <div className="rs-metrics-grid">

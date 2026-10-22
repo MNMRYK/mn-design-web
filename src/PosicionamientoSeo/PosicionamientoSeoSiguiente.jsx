@@ -174,7 +174,7 @@ const PosicionamientoSeoSiguiente = () => {
           <h1 className="seo-title">
             <div className="seo-title-phrase-one">
               Posicionamiento SEO <br />
-              en Alcoy (Alcoi)
+              para empresas y pymes
             </div>
             <span className="seo-text-gradient">
               Que tus clientes te <br />
@@ -194,9 +194,9 @@ const PosicionamientoSeoSiguiente = () => {
             <div className="seo-detalle-textos">
               <p>
                 Tener una web espectacular no sirve de nada si nadie la visita.
-                Con nuestro <strong>posicionamiento SEO en Alcoy</strong> trabajamos tu
-                web y tu ficha de Google para que, cuando alguien de la comarca
-                busque lo que haces,{" "}
+                Con nuestro <strong>posicionamiento SEO</strong> trabajamos tu
+                web (y, si tienes un local, tu ficha de Google) para que, cuando
+                alguien busque lo que haces,{" "}
                 <strong>te encuentre a ti antes que a tu competencia</strong>.
                 Dejamos las suposiciones a un lado y diseñamos estrategias
                 basadas en datos para atraer tráfico cualificado.

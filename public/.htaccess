@@ -35,7 +35,13 @@ RewriteRule ^ - [L]
 
 # ---------------------------------------------------------------------
 # 1. Dominio canónico: www → sin www (HTTPS lo fuerza ya SiteGround)
+#    Si además es una carpeta sin barra final, en el mismo salto:
+#    www.mndesignweb.es/nosotros → https://mndesignweb.es/nosotros/
 # ---------------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\.mndesignweb\.es$ [NC]
+RewriteCond %{DOCUMENT_ROOT}/$1 -d
+RewriteRule ^(.*[^/])$ https://mndesignweb.es/$1/ [R=301,L,NE]
+
 RewriteCond %{HTTP_HOST} ^www\.mndesignweb\.es$ [NC]
 RewriteRule ^(.*)$ https://mndesignweb.es/$1 [R=301,L,NE]
 
@@ -60,6 +66,8 @@ RewriteRule ^especialidades/?$          -             [NC,G,L]
 RewriteRule ^diseno-web/?$              /disenoweb/   [NC,R=301,L]
 RewriteRule ^ecommerce/?$               /e-commerce/  [NC,R=301,L]
 RewriteRule ^politica-de-privacidad/?$  /privacidad/  [NC,R=301,L]
+# /servicios/ (web anterior): la home es la que presenta todos los servicios
+RewriteRule ^servicios/?$               /             [NC,R=301,L]
 
 # ---------------------------------------------------------------------
 # 5. Rutas React: sin barra final o con mayúsculas → minúsculas + barra
@@ -98,6 +106,14 @@ RewriteRule ^aviso-legal/?$ /aviso-legal/ [NC,R=301,L]
 
 RewriteCond %{REQUEST_URI} !^/cookies/$
 RewriteRule ^cookies/?$ /cookies/ [NC,R=301,L]
+
+# ---------------------------------------------------------------------
+# 5b. Cualquier carpeta real sin barra final (landings: /alcoi, /clinicas,
+#     /nutricionistas…) → con barra, en un solo salto y sin depender de
+#     DirectorySlash de Apache
+# ---------------------------------------------------------------------
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^(.+[^/])$ https://mndesignweb.es/$1/ [R=301,L,NE]
 
 # ---------------------------------------------------------------------
 # 6. Red de seguridad: si una ruta React aún no tiene su HTML

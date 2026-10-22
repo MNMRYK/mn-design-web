@@ -175,9 +175,33 @@
 
 .btn-varios:hover {
   color: var(--dark-violet) !important;
-  background-color: var(--fondo-claro); 
+  background-color: var(--fondo-claro);
   border-color: rgba(255, 255, 255, 0.4);
   transform: scale(1.05);
+}
+
+/* Enlace discreto a la landing de Alcoy (/alcoi/) */
+.hero-enlace-local {
+  pointer-events: auto;
+  margin-top: -16px;
+  max-width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, 0.35);
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.hero-enlace-local:hover,
+.hero-enlace-local:focus-visible {
+  color: var(--white-iris);
+  text-decoration-color: currentColor;
 }
 
 /* ==========================================

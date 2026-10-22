@@ -8,6 +8,8 @@ import FasesRedes from "./RedesSociales/FasesRedes.jsx";
 import PlanesRedes from "./RedesSociales/PlanesRedes.jsx";
 import RedesDoble from "./RedesSociales/RedesDoble.jsx";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
+import { schemaFaq } from "./seo/faq";
+import { PREGUNTAS_REDES } from "./RedesSociales/preguntasRedes";
 import { crearLenis } from "./utils/lenis";
 
 const RedesSociales = () => {
@@ -32,6 +34,9 @@ const RedesSociales = () => {
       lenis.destroy();
     };
   }, []);
+
+  // Mismas preguntas que se ven en la página (el build falla si no coinciden)
+  const schemaFAQ = schemaFaq(PREGUNTAS_REDES);
 
   const schemaBreadcrumb = {
     "@context": "https://schema.org",
@@ -67,8 +72,8 @@ const RedesSociales = () => {
     <>
       <Seo
         ruta="/redes-sociales/"
-        titulo="Gestión de Redes Sociales en Alcoy (Alcoi) | MN Design Web"
-        descripcion="Gestión de redes sociales en Alcoy (Alcoi): estrategia, contenido y publicación para que tus perfiles dejen de ser un escaparate y te traigan clientes."
+        titulo="Gestión de Redes Sociales para Empresas | MN Design Web"
+        descripcion="Gestión de redes sociales para empresas: estrategia, contenido y publicación para que tus perfiles dejen de ser un escaparate y te traigan clientes."
       />
 
       <div className="social-page-wrapper">
@@ -81,7 +86,7 @@ const RedesSociales = () => {
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify([EMPRESA, schemaBreadcrumb, schemaService]),
+            __html: JSON.stringify([schemaFAQ, EMPRESA, schemaBreadcrumb, schemaService]),
           }}
         />
       </div>

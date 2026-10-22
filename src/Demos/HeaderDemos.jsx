@@ -91,36 +91,6 @@ const bloquesDemos = [
     ],
   },
   {
-    categoria: "Webs Corporativas y Eventos Estrategia B2B",
-    descripcion:
-      "Interfaces de alto rendimiento orientadas a la venta de servicios de alto valor, infoproductos y automatización de procesos comerciales.",
-    demos: [
-      {
-        slug: "mentor-b2b",
-        titulo: "Consultoría y Mentoría B2B",
-        tag: "Web B2B",
-        detalles:
-          "Estética Navy/Dorado. Incluye 4 micro-interacciones JS nativas: Calculadora de ROI en tiempo real y filtro dinámico.",
-        url: "https://mnmryk.github.io/mentor-b2b/",
-      },
-      {
-        slug: "demo-evento-b2b",
-        titulo: "Eventos Corporativos VIP",
-        tag: "Evento B2B",
-        detalles:
-          "Estética violeta y cyan neón. Incluye cuenta atrás en JS nativo, agenda interactiva y marquesina animada en CSS.",
-        url: "https://mnmryk.github.io/demo-evento-B2B/",
-      },
-      {
-        slug: "demo-inmobiliaria-b2b",
-        titulo: "Consultoría Inmobiliaria B2B",
-        tag: "Web B2B",
-        detalles: "Estructura corporativa de alto impacto para captación de inversores. Uso de tipografías contundentes, contraste estratégico y optimización visual diseñada para embudos de venta High Ticket.",
-        url: "https://mnmryk.github.io/demo-inmobiliaria/",
-      },
-    ],
-  },
-  {
     categoria: "Eventos de Experiencias, Hostelería y Estética",
     descripcion:
       "Diseños de estilo editorial e inmersivos pensados para marcas que venden una experiencia exclusiva y requieren gestión de reservas.",

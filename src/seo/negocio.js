@@ -16,11 +16,16 @@ export const DIRECCION = {
   addressCountry: "ES",
 };
 
+// La agencia trabaja para toda España; las ciudades son las de la zona del estudio
 export const AREA_SERVIDA = [
-  { "@type": "City", name: "Alcoi" },
+  { "@type": "Country", name: "España" },
+  { "@type": "City", name: "Alcoy" },
   { "@type": "City", name: "Cocentaina" },
   { "@type": "AdministrativeArea", name: "Alicante" },
 ];
+
+// María Nadal. El nodo Person completo irá en /nosotros/ (pendiente: fase 3 de la auditoría)
+export const ID_FUNDADORA = `${DOMINIO}/nosotros/#maria-nadal`;
 
 // Nodo completo de la empresa. Se incluye en cada página (Google no resuelve "@id" entre páginas).
 export const EMPRESA = {
@@ -32,7 +37,8 @@ export const EMPRESA = {
   logo: `${DOMINIO}/logo.webp`,
   image: `${DOMINIO}/logo-card.webp`,
   description:
-    "Agencia de diseño y desarrollo web en Cocentaina (Alicante): diseño web, e-commerce, posicionamiento SEO y redes sociales para negocios de Alcoi, Cocentaina y la provincia de Alicante.",
+    "Agencia de diseño y desarrollo web: diseño web a medida, tiendas online, posicionamiento SEO, redes sociales y software a medida para empresas de toda España. Estudio en Cocentaina (Alicante).",
+  founder: { "@id": ID_FUNDADORA },
   telephone: TELEFONO,
   email: EMAIL,
   address: DIRECCION,

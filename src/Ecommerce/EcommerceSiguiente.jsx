@@ -65,7 +65,7 @@ const EcommerceSiguiente = () => {
                 >
                     <h1 className="ecommerce-title">
                         <div className="ec-title-phrase-one">
-                            Diseño de tiendas online <br />en Alcoy (Alcoi)
+                            Diseño de tiendas online <br />a medida
                         </div>
                         <span className="ec-text-gradient">Tu tienda online lista para vender</span>
                     </h1>
@@ -83,7 +83,7 @@ const EcommerceSiguiente = () => {
                             transition={{ delay: 0.3, duration: 0.6 }}
                         >
                             <p>
-                                Vender online es mucho más que subir productos a una web. Diseñamos <strong>tu tienda online en Alcoy</strong> para que tu catálogo se convierta en una <strong>herramienta de ventas</strong>: una experiencia de compra fluida que reduzca los carritos abandonados y aumente tus pedidos.
+                                Vender online es mucho más que subir productos a una web. Con nuestro <strong>diseño de tiendas online</strong>, tu catálogo se convierte en una <strong>herramienta de ventas</strong>: una experiencia de compra fluida que reduzca los carritos abandonados y aumente tus pedidos.
                             </p>
                             <p>
                                 En <strong>MN Design Web</strong>, nos enfocamos en entregar herramientas que generen beneficios. Desarrollamos cada página respetando los estándares internacionales de programación y optimizando la estructura para el <strong>posicionamiento en buscadores</strong>. Gracias al uso de datos estructurados, facilitamos que Google indexe tu contenido con total eficacia.

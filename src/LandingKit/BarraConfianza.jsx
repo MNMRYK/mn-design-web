@@ -4,7 +4,7 @@ import './BarraConfianza.css';
 const badges = [
   { name: "Especialistas Shopify", icon: "./shopify.svg" },
   { name: "Rescate Express", icon: "/landing/rescate.svg" },               
-  { name: "Seguridad Verificada", icon: "/iconos/escudo.svg" },   
+  { name: "Webs seguras con SSL", icon: "/iconos/escudo.svg" },   
   { name: "Especialistas Wordpress", icon: "./wordpress.svg" },            
   { name: "Optimización SEO", icon: "/landing/landing2.svg" },
   { name: "Gestión redes Sociales", icon: "/landing/redes.svg" },  

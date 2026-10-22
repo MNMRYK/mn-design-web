@@ -70,7 +70,7 @@ const EcommercePlanes = () => {
                 transition={{ duration: 0.6 }}
             >
                 <div className="ec-section-title-container">
-                    <h2>Planes para tu tienda online en Alcoy</h2>
+                    <h2>Planes de diseño de tiendas online</h2>
                     <p className="ec-section-subtitle">Soluciones transparentes para escalar tu negocio sin sorpresas.</p>
                 </div>
 

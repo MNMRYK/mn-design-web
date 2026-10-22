@@ -8,6 +8,8 @@ import BlogPreview from "./Nosotros/BlogPreview";
 import SeccionContactoDemo from "./Demos/SeccionContactoDemo";
 import FormularioDemo from "./Demos/FormularioDemo";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
+import { schemaFaq } from "./seo/faq";
+import { PREGUNTAS_DEMO } from "./Demos/preguntasDemo";
 import { crearLenis } from "./utils/lenis";
 
 const Demos = () => {
@@ -21,45 +23,8 @@ const Demos = () => {
     url: "https://mndesignweb.es/demos/",
   };
 
-  // 2. Schema de "FAQPage"
-  const schemaFAQ = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "¿Qué incluye exactamente la demo?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Diseñamos la estructura principal adaptada a tu marca, paleta de colores y modelo de negocio para que visualices el resultado real.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿De verdad es 100% gratis?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Totalmente. Es nuestra forma de demostrarte la calidad de nuestro diseño antes de que inviertas con nosotros.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Cuánto tardáis en hacerla?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Analizamos tu formulario y en un plazo de 48h nos reunimos contigo por videollamada para presentarte el prototipo.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Qué pasa después?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Si la demo te encaja, trazamos la estrategia técnica y te pasamos un presupuesto cerrado para desarrollar la web completa. Sin compromisos.",
-        },
-      },
-    ],
-  };
+  // 2. Schema de "FAQPage": mismas preguntas que se ven en la página (el build falla si no coinciden)
+  const schemaFAQ = schemaFaq(PREGUNTAS_DEMO);
 
   // 3. Schema de "ProfessionalService"
   const schemaService = EMPRESA;

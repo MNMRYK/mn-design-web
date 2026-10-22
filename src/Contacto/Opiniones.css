@@ -29,7 +29,10 @@
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 0.9rem;
-  margin: 0;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 /* ========================================= */
@@ -102,6 +105,33 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   /* 🔥 Añade esto para que las fotos encajen perfectas 🔥 */
   object-fit: cover; 
+}
+
+/* Avatar con la inicial (no tenemos fotos de estas personas) */
+.review-avatar-inicial {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+/* Contexto del testimonio: proyecto de una agencia anterior, no cliente de MN Design Web */
+.review-etiqueta {
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(166, 114, 255, 0.15);
+  border: 1px solid rgba(166, 114, 255, 0.35);
+  color: #efebfc;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 
 .review-user-info {

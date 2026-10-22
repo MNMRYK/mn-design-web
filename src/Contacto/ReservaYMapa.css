@@ -126,9 +126,18 @@
   background-color: #efebfc !important; 
 }
 
-/* 🔥 OCULTAR LOS CRÉDITOS DEL MAPA 🔥 */
-.leaflet-control-attribution {
-  display: none !important;
+/* Créditos del mapa: obligatorios (condiciones de CARTO y OpenStreetMap), no se ocultan */
+.leaflet-map-actual .leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.85);
+  color: #3d3550;
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  border-top-left-radius: 8px;
+  padding: 2px 8px;
+}
+
+.leaflet-map-actual .leaflet-control-attribution a {
+  color: #5b13a3;
 }
 
 /* --- EFECTO PIN DE NEÓN EN EL MAPA --- */

@@ -26,11 +26,11 @@ const ContactoSiguiente = () => {
           transition={{ duration: 0.8 }}
         >
           <h1 className="contacto-title">
-            No dejes para mañana el éxito <br className="hidden-mobile" />
-            <span className="cont-text-gradient">que tu negocio necesita hoy.</span>
+            Pide presupuesto para tu web <br className="hidden-mobile" />
+            <span className="cont-text-gradient">o tu tienda online</span>
           </h1>
           <p className="contacto-subtitle">
-            Contacta y empecemos a construir algo increíble juntos. Creemos que la comunicación fluida es la base de un proyecto de éxito.
+            Cuéntanos qué necesitas y te respondemos en menos de 24 h laborables. Si lo prefieres, reserva una videollamada de 30 minutos.
           </p>
           <div className="hero-cta-container">
             <a 
@@ -66,7 +66,7 @@ const ContactoSiguiente = () => {
                 ¿Hablamos de tu <br />próximo gran salto?
               </h2>
               <p className="info-text">
-                En <strong>MN Design Web</strong>, ofrecemos una cobertura de servicio personalizada y cercana, adaptándonos totalmente a tus necesidades de planificación. ¿Tienes una idea en mente? Nos encantaría escucharla.
+                En <strong>MN Design Web</strong> trabajamos con empresas de toda España. Si estás cerca, nos vemos en nuestro estudio de Cocentaina (Alicante) o en tu negocio; si no, por videollamada. Cuéntanos tu idea y te diremos qué solución encaja y cuánto cuesta, sin compromiso.
               </p>
             </div>
 

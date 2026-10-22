@@ -19,7 +19,7 @@ const PlanesSeo = () => {
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2>Planes de posicionamiento SEO en Alcoy</h2>
+                    <h2>Planes de posicionamiento SEO</h2>
                     <p className="seo-section-subtitle">Soluciones transparentes para escalar tu negocio sin sorpresas.</p>
                 </motion.div>
 

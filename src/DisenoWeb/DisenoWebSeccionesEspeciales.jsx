@@ -102,7 +102,7 @@ const DisenoWebSeccionesEspeciales = () => {
                 transition={{ duration: 0.6 }}
             >
                 <div className="section-title-container">
-                    <h2>Nuestros Planes Adaptados</h2>
+                    <h2>Planes de diseño web a medida</h2>
                     <p className="section-subtitle">Soluciones transparentes para escalar tu negocio sin sorpresas.</p>
                 </div>
 

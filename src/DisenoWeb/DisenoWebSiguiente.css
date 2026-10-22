@@ -156,6 +156,25 @@
   font-weight: 700;
 }
 
+/* Enlace discreto a la landing de Alcoy (/alcoi/) */
+.dw-enlace-local {
+  align-self: flex-start;
+  font-family: "Nunito", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: rgba(26, 16, 45, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(26, 16, 45, 0.3);
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.dw-enlace-local:hover,
+.dw-enlace-local:focus-visible {
+  color: var(--deep-eggplant);
+  text-decoration-color: currentColor;
+}
+
 /* ESTILO PREMIUM PARA EL TEXTO DESTACO (Decrypted) */
 .texto-destacado {
   font-weight: 700 !important;

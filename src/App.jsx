@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import 'leaflet/dist/leaflet.css';
 import { Toaster } from 'react-hot-toast';
 import { MotionConfig } from 'framer-motion';
 import { Bubble } from "@typebot.io/react";

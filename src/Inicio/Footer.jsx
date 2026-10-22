@@ -13,7 +13,7 @@ const Footer = () => {
               {/* 1. Tu circulito */}
               <img src="/favicon_v2.webp" alt="Símbolo MN" className="footer-logo-img" />
               {/* 2. Tu texto original */}
-              <h2 className="footer-logo">MN <span>Design Web</span></h2>
+              <p className="footer-logo">MN <span>Design Web</span></p>
             </a>
             <p className="footer-tagline">
               Transformamos tu visión en un ecosistema digital de alto rendimiento. Especialistas en diseño web estratégico y desarrollo a medida enfocado en conversiones, escalabilidad y resultados reales para tu negocio.
@@ -39,6 +39,8 @@ const Footer = () => {
                 <li><a href="/disenoweb/">Diseño Web</a></li>
                 <li><a href="/e-commerce/">E-commerce</a></li>
                 <li><a href="/posicionamiento-seo/">Posicionamiento SEO</a></li>
+                <li><a href="/redes-sociales/">Redes Sociales</a></li>
+                <li><a href="/demos/">Demos</a></li>
                 <li><a href="https://mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
                 <li><a href="https://mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
                 <li><a href="https://mndesignweb.es/nutricionistas/">Diseño Web Nutricionistas</a></li>
@@ -54,9 +56,8 @@ const Footer = () => {
                 <li><a href="/nosotros/">Nosotros</a></li>
                 <li><a href="https://mndesignweb.es/aprende-shopify/">Aprende Shopify</a></li>
                 <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
-                <li><a href="https://mndesignweb.es/alcoi/">Diseño Web Alcoi</a></li>
-                <li><a href="https://mndesignweb.es/alcoi/">Diseño Web Cocentaina</a></li>
-                
+                <li><a href="https://mndesignweb.es/alcoi/">Diseño web en Alcoy</a></li>
+                <li><a href="https://mndesignweb.es/software-a-mida-alcoi/" lang="ca">Software a mida (Alcoi i Cocentaina)</a></li>
               </ul>
             </div>
           </div>

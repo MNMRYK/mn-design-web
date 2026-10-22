@@ -10,36 +10,7 @@ import { EMPRESA } from "./seo/negocio";
 import { crearLenis } from "./utils/lenis";
 
 const Nosotros = () => {
-  const schemaFAQ = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: [
-      {
-        "@type": "Question",
-        name: "¿Por qué MN Design Web es diferente a otras agencias?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Porque no somos una fábrica de webs. En MN Design Web tratamos cada proyecto como si fuera nuestro. Combinamos una metodología técnica sólida con un trato cercano, asegurándonos de que tu web no solo sea estética, sino una herramienta de negocio real.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Cuál es vuestra filosofía de trabajo?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Creemos en la honestidad, la transparencia y la calidad por encima de la cantidad. Nos gusta trabajar con clientes que valoran la estrategia y la personalización, no soluciones rápidas y de bajo valor.",
-        },
-      },
-      {
-        "@type": "Question",
-        name: "¿Qué tipo de proyectos soléis realizar?",
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: "Nos especializamos en diseño web estratégico, desarrollo E-commerce, sistemas de reservas y plataformas SaaS a medida. Ayudamos a negocios locales en Alicante y empresas de toda España a digitalizarse de forma profesional y eficiente.",
-        },
-      },
-    ],
-  };
+  // Sin FAQPage: esta página no muestra preguntas frecuentes (el schema debe coincidir con lo visible)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -68,7 +39,7 @@ const Nosotros = () => {
       <Seo
         ruta="/nosotros/"
         titulo="Sobre Nosotros | MN Design Web - Agencia de Diseño Web"
-        descripcion="Conoce a MN Design Web, agencia de diseño web en Cocentaina y Alcoi. Creamos webs, e-commerce y sistemas de reservas a medida para negocios locales."
+        descripcion="Conoce MN Design Web, agencia de diseño y desarrollo web con estudio en Cocentaina (Alicante): webs, tiendas online y software a medida para toda España."
         tituloSocial="Sobre MN Design Web | Tu aliado digital"
       />
 
@@ -81,7 +52,6 @@ const Nosotros = () => {
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify([
-              schemaFAQ,
               EMPRESA,
               {
                 "@context": "https://schema.org",

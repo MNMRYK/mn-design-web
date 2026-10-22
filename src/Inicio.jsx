@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Seo from "./seo/Seo";
-import { EMPRESA } from "./seo/negocio";
+import { EMPRESA, REF_EMPRESA } from "./seo/negocio";
+import { DOMINIO } from "./seo/rutas";
 
 // Importamos todas tus secciones
 import Grainient from "./Inicio/GrainientBackground";
@@ -60,59 +61,16 @@ const Inicio = () => {
         },
       ],
     },
+    // Nombre del sitio en los resultados de Google.
+    // (Sin FAQPage: la home no muestra preguntas frecuentes)
     {
       "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "¿Por qué mi negocio necesita una página web profesional?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Tener una página web profesional no solo transmite confianza y autoridad a tus clientes, sino que funciona como un comercial trabajando para ti 24/7. Te ayuda a captar nuevos pacientes o clientes, automatizar procesos como las reservas y diferenciarte de la competencia local y nacional.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Cuánto cuesta diseñar una página web a medida?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "El precio de una página web depende de sus funcionalidades (tienda online, sistema de reservas, web corporativa). En MN Design Web estudiamos cada caso para ofrecerte un presupuesto ajustado, priorizando siempre un diseño optimizado que te genere un retorno de inversión real.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Aparecerá mi nueva página web en Google?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí, todas nuestras páginas web se desarrollan con una estructura técnica optimizada para SEO (posicionamiento en buscadores). Nos aseguramos de que Google entienda perfectamente qué ofreces para que empieces a escalar posiciones frente a tu competencia desde el primer día.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Se pueden añadir sistemas de reservas o tienda online a mi web?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "¡Por supuesto! Somos especialistas en diseño web corporativo y también en integrar sistemas complejos como pasarelas de pago para E-commerce o calendarios de reservas automatizados, ideales para clínicas, estética y eventos.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Podré modificar yo mismo el contenido de la web?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Sí, diseñamos tu web en entornos amigables para que tengas total autonomía. Una vez terminada, podrás cambiar textos, subir nuevas fotos al portfolio o gestionar las reservas y pedidos de tus clientes de forma totalmente autogestionable.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Cuánto tiempo se tarda en crear y publicar un sitio web?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Los tiempos de desarrollo varían según la complejidad del proyecto. Una web corporativa o landing page puede estar lista en un par de semanas, mientras que plataformas de comercio electrónico o webs con bases de datos más complejas pueden requerir algo más de tiempo. Siempre marcamos plazos cerrados y transparentes.",
-          },
-        },
-      ],
+      "@type": "WebSite",
+      "@id": `${DOMINIO}/#web`,
+      url: `${DOMINIO}/`,
+      name: "MN Design Web",
+      inLanguage: "es-ES",
+      publisher: REF_EMPRESA,
     },
   ];
 
@@ -164,8 +122,8 @@ const Inicio = () => {
     <>
       <Seo
         ruta="/"
-        titulo="MN Design Web | Diseño Web en Alcoi, E-commerce y SEO"
-        descripcion="Diseño web profesional en Alcoi: webs a medida, tiendas online y sistemas de reservas para hacer crecer tu negocio. Pide presupuesto a MN Design Web."
+        titulo="Agencia de Diseño y Desarrollo Web | MN Design Web"
+        descripcion="Agencia de diseño y desarrollo web: webs a medida, tiendas online, SEO y software para empresas de toda España. Estudio en Cocentaina (Alicante)."
       />
 
       <div className="hero-section-container">

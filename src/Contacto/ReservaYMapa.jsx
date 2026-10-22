@@ -1,21 +1,33 @@
-import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import L from 'leaflet';
+import React, { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import './ReservaYMapa.css';
 import { Player } from '@lottiefiles/react-lottie-player';
 import animacionReserva from '../assets/animations/reserva-movil.json';
 import CalendarioCal from "../utils/CalendarioCal";
 
-const customIcon = new L.DivIcon({
-  className: 'custom-neon-marker',
-  html: `<div class="marker-pulse"></div><div class="marker-core"></div>`,
-  iconSize: [30, 30],
-  iconAnchor: [15, 15]
-});
+// Leaflet (y su CSS) solo se descarga cuando el mapa está a punto de verse
+const MapaContacto = lazy(() => import('./MapaContacto'));
 
 const ReservaYMapa = () => {
-  const posicion = [38.73891339445123, -0.440249004021603]; 
+    const mapaRef = useRef(null);
+    // Sin IntersectionObserver (navegadores muy antiguos) el mapa se carga directamente
+    const [mostrarMapa, setMostrarMapa] = useState(() => !('IntersectionObserver' in window));
+
+    useEffect(() => {
+        const contenedor = mapaRef.current;
+        if (!contenedor || mostrarMapa) return;
+        const observador = new IntersectionObserver(
+            (entradas) => {
+                if (entradas.some((e) => e.isIntersecting)) {
+                    setMostrarMapa(true);
+                    observador.disconnect();
+                }
+            },
+            { rootMargin: '400px 0px' }
+        );
+        observador.observe(contenedor);
+        return () => observador.disconnect();
+    }, [mostrarMapa]);
 
     useEffect(() => {
         const hash = window.location.hash;
@@ -88,31 +100,13 @@ const ReservaYMapa = () => {
                 className="lottie-reserva"
                 />
             </div>
-            <div className="map-container-styled">
-                <MapContainer 
-                    center={posicion} 
-                    zoom={13} 
-                    scrollWheelZoom={false}
-                    className="leaflet-map-actual"
-                >
-                    <TileLayer
-                        url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.webp"
-                        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                    />
-                
-                {/* Marcador personalizado con luz de neón */}
-                    <Marker position={posicion} icon={customIcon}>
-                        <Popup className="custom-map-popup">
-                            <div className="popup-content">
-                                <h4>MN Design Web</h4>
-                                <div className="popup-cita">
-                                    <span>¡Creamos desde aquí para todo el mundo! Reserva tu cita</span>
-                                    <img src="/cohete1.svg" alt="Reserva" className="popup-icono-svg" />
-                                </div>
-                            </div>
-                        </Popup>
-                    </Marker>
-                </MapContainer>
+            {/* La caja tiene altura fija en el CSS: el mapa aparece sin mover la página */}
+            <div className="map-container-styled" ref={mapaRef}>
+                {mostrarMapa && (
+                    <Suspense fallback={null}>
+                        <MapaContacto />
+                    </Suspense>
+                )}
             </div>
         </motion.div>
 

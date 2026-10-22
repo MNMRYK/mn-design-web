@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './FormularioDiseno.css';
 import { registrarLead } from "../utils/analitica";
+import { enviarLead, asuntoLead } from "../utils/enviarLead";
 import toast from 'react-hot-toast'; 
 
 // Opciones
@@ -63,29 +64,14 @@ const FormularioDiseno = () => {
     setEstaCargando(true);
 
     const dataToSend = {
-      access_key: "1bc2d285-71cb-4fe3-806f-530066ab6e15",
-      subject: `Nuevo lead desde la web (Diseño)`,
+      subject: asuntoLead("Diseño web", formData.servicios.join(", ")),
       from_name: formData.nombre,
       email: formData.email,
       message: `Intereses: ${formData.servicios.join(', ')}\n\nMensaje: ${formData.mensaje}`,
     };
 
     toast.promise(
-      Promise.all([
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(dataToSend)
-        }),
-        fetch("https://hook.eu1.make.com/mxvqg7gwne43yab165v2uhtyw5yh115r", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(dataToSend)
-        }).catch(() => null)
-      ]).then(async (results) => {
-        // Solo nos importa la respuesta de Web3Forms (la primera)
-        const result = await results[0].json();
-        if (!result.success) throw new Error(); 
+      enviarLead(dataToSend).then((result) => {
         
         setFormData({ nombre: '', email: '', servicios: [], mensaje: '' });
         setEstaCargando(false);
@@ -93,7 +79,7 @@ const FormularioDiseno = () => {
         // Conversión para GA4: solo tras un envío correcto
         registrarLead("diseno_web");
         return result;
-      }),
+      }).finally(() => setEstaCargando(false)),
 
       // PARTE 2: Los textos de las notificaciones (¡React ahora los entenderá!)
       {

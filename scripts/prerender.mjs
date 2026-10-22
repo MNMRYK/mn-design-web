@@ -175,6 +175,36 @@ async function renderizar(navegador, base, ruta) {
       // CSS y modulepreload que Vite añade al cargar el chunk de la página
       // (los que ya estaban en index.html se descartan en componer())
       recursos: [...document.head.querySelectorAll('link[href^="/assets/"]')].map((l) => l.outerHTML),
+      faq: (() => {
+        // El FAQPage debe coincidir con la página: cada pregunta, visible; cada respuesta, en el
+        // HTML (puede estar plegada en el acordeón). Se compara sin espacios y sin contar el
+        // texto del propio JSON-LD.
+        const sinEspacios = (s) => (s ?? "").replace(/\s+/g, "");
+        const vivo = document.getElementById("root");
+        const sinScripts = vivo.cloneNode(true);
+        sinScripts.querySelectorAll("script").forEach((s) => s.remove());
+        const visible = sinEspacios(vivo.innerText);
+        const completo = sinEspacios(sinScripts.textContent);
+        const fallos = [];
+        let preguntas = 0;
+        for (const script of document.querySelectorAll('script[type="application/ld+json"]')) {
+          let json;
+          try {
+            json = JSON.parse(script.textContent);
+          } catch {
+            continue; // validarDatosEstructurados() ya avisa del JSON no válido
+          }
+          const nodos = Array.isArray(json) ? json : json["@graph"] ?? [json];
+          for (const nodo of nodos.filter((n) => n["@type"] === "FAQPage")) {
+            for (const q of nodo.mainEntity ?? []) {
+              preguntas++;
+              if (!visible.includes(sinEspacios(q.name))) fallos.push(`pregunta del FAQPage que no se ve: "${q.name}"`);
+              if (!completo.includes(sinEspacios(q.acceptedAnswer?.text))) fallos.push(`respuesta del FAQPage que no está en la página: "${q.name}"`);
+            }
+          }
+        }
+        return { preguntas, fallos };
+      })(),
     };
   });
 
@@ -305,6 +335,7 @@ async function main() {
       if (palabras < MIN_PALABRAS) problemas.push(`${ruta}: solo ${palabras} palabras`);
       if (datos.texto.includes(TEXTO_404)) problemas.push(`${ruta}: se ha pintado la página 404`);
       if (datos.errores.length) problemas.push(`${ruta}: errores JS → ${datos.errores.join(" | ")}`);
+      problemas.push(...datos.faq.fallos.map((f) => `${ruta}: ${f}`));
       resultados.push({ ruta, datos, palabras });
     }
 
@@ -365,6 +396,7 @@ async function main() {
       titulo: datos.titulo.slice(0, 60),
       h1: datos.h1.replace(/\s+/g, " ").slice(0, 45),
       desc: datos.descripcion.length,
+      faq: datos.faq.preguntas,
       canonical: datos.canonical.replace(DOMINIO, ""),
     }))
   );

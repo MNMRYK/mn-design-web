@@ -15,7 +15,7 @@ const PlanesRedes = () => {
             transition={{ duration: 0.6 }}
         >
             <div className="rs-section-title-container">
-                <h2>Planes de gestión de redes sociales en Alcoy</h2>
+                <h2>Planes de gestión de redes sociales</h2>
                 <p className="rs-section-subtitle">Soluciones estratégicas diseñadas para escalar tu marca y convertir seguidores en clientes.</p>
             </div>
 

@@ -179,9 +179,9 @@ const DisenoWebSiguiente = () => {
         >
           <h1 className="diseno-title">
             <div className="title-phrase-one">
-              ¿Buscas una agencia que diseñe
+              ¿Buscas una agencia de
               <br />
-              tu proyecto?
+              diseño web a medida?
             </div>
             <span className="diseno-text-gradient">
               Diseño y Desarrollo Web
@@ -198,12 +198,14 @@ const DisenoWebSiguiente = () => {
             transition={{ delay: 0.3, duration: 0.6 }}
           >
             <p>
-              Crear una web que funcione no es cuestión de suerte. Para nosotros
-              el éxito de un proyecto digital depende de una estrategia sólida,
-              no de la improvisación.
+              Crear una web que funcione no es cuestión de suerte. Nuestro{" "}
+              <strong>diseño web a medida</strong> parte de una estrategia
+              sólida, no de la improvisación: cada página se piensa para tu
+              negocio y para tus clientes.
             </p>
             <p>
-              En <strong>MN Design Web</strong>, nos enfocamos en entregar
+              En <strong>MN Design Web</strong>, agencia de diseño y desarrollo
+              web, nos enfocamos en entregar
               herramientas que generen beneficios. Desarrollamos cada página
               respetando los estándares internacionales de programación y
               optimizando la estructura para el{" "}
@@ -236,6 +238,11 @@ const DisenoWebSiguiente = () => {
                     Portal Clínico & Academia
                 </a>
             </motion.div>
+
+            {/* Enlace discreto a la landing local: las búsquedas con ciudad son de /alcoi/ */}
+            <a href="/alcoi/" className="dw-enlace-local">
+              ¿Buscas una agencia de diseño web en Alcoy?
+            </a>
           </motion.div>
 
           <motion.div

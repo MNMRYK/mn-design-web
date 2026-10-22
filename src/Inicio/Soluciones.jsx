@@ -63,8 +63,8 @@ const Soluciones = () => {
                         <div className="ec-promo-badge">
                             <i className="fa-brands fa-shopify"></i> Especialistas en Liquid
                         </div>
-                        <h2>Toma el control operativo de tu Shopify <br/><span>sin miedo a romper nada</span></h2>
-                        <p>Mentoría técnica 1 a 1 para dueños de e-commerce que quieren dejar de perder ventas por fallos de configuración.</p>
+                        <h2>¿Vendes con Shopify? <br/><span>Aprende a llevar tu tienda sin depender de nadie</span></h2>
+                        <p>Sesiones 1 a 1 en las que revisamos contigo la configuración de tu tienda, resolvemos lo que te frena y te enseñamos a gestionarla tú.</p>
                         
                         <div className="ec-promo-buttons">
                             {/* Botón principal a la landing general */}

@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 // Reutilizamos tu CSS de contacto porque las clases son las mismas
 import './FormularioDemo.css';
 import { registrarLead } from "../utils/analitica";
+import { enviarLead, asuntoLead } from "../utils/enviarLead";
 
 const opcionesTiempo = [
   "Urgente (Lo necesito para ya)",
@@ -69,8 +70,7 @@ const FormularioDemo = () => {
     setEstaCargando(true);
 
     const dataToSend = {
-      access_key: "1bc2d285-71cb-4fe3-806f-530066ab6e15",
-      subject: `🚀 SOLICITUD DE DEMO: ${formData.sector}`,
+      subject: asuntoLead("Demos", `solicitud de demo (${formData.sector})`),
       from_name: formData.nombre,
       email: formData.email,
       Presupuesto: formData.presupuesto,
@@ -79,22 +79,7 @@ const FormularioDemo = () => {
     };
 
     toast.promise(
-      Promise.all([
-        fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify(dataToSend)
-        }),
-        fetch("https://hook.eu1.make.com/mxvqg7gwne43yab165v2uhtyw5yh115r", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(dataToSend)
-        }).catch(() => null)
-      ]).then(async (results) => {
-        const res = results[0]; 
-        const result = await res.json();
-        
-        if (!result.success) throw new Error();
+      enviarLead(dataToSend).then((result) => {
         
         // Limpiamos el formulario
         setFormData({ nombre: '', email: '', sector: '', tiempo: '', presupuesto: '', mensaje: '' });
@@ -104,7 +89,7 @@ const FormularioDemo = () => {
         registrarLead("solicitud_demo");
         
         return result;
-      }),
+      }).finally(() => setEstaCargando(false)),
       {
         loading: 'Enviando solicitud...',
         success: '¡Petición recibida! Nos pondremos manos a la obra.',

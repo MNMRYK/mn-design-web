@@ -87,6 +87,22 @@
   box-shadow: inset 0 2px 5px rgba(0,0,0,0.02);
 }
 
+/* Es un <button> (accesible con teclado): sin los estilos por defecto del navegador */
+.custom-select-trigger {
+  margin: 0;
+  font-weight: inherit;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: start;
+  box-sizing: border-box;
+}
+
+.custom-select-trigger:focus-visible,
+.custom-options-list:focus-visible {
+  outline: 2px solid var(--electric-violet);
+  outline-offset: 2px;
+}
+
 /* Efecto cuando está abierto o enfocado */
 .custom-select-trigger.open,
 .custom-select-trigger:hover {
@@ -159,6 +175,8 @@
   transition: all 0.2s ease;
 }
 
+/* Opción resaltada con el teclado (o con el ratón encima) */
+.custom-option.activa,
 .custom-option:hover {
   background: rgba(166, 114, 255, 0.1);
   color: var(--electric-violet);
@@ -222,4 +240,21 @@
   opacity: 0.6;
   cursor: not-allowed;
   transform: none !important; /* Desactiva la animación al pulsar */
+}
+
+/* Información básica de privacidad junto al botón de envío */
+.form-privacidad {
+  margin: 4px 0 0;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: rgba(26, 16, 45, 0.7);
+  text-align: center;
+}
+
+.form-privacidad a {
+  color: var(--deep-eggplant);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }

@@ -12,7 +12,8 @@ Nuestras soluciones digitales se enfocan en alta conversión y diseño minimalis
 
 ## Soluciones Sectoriales y Embudos
 Ecosistemas tecnológicos a medida y landing pages específicas:
-- [Software a medida en Alcoi / Cocentaina](/alcoi/) - Software a medida y automatización de procesos para empresas e industrias de l'Alcoià y El Comtat (página en valenciano).
+- [Diseño web en Alcoy (Alcoi)](/alcoi/) - Páginas web, tiendas online y SEO local para negocios de Alcoy y la comarca.
+- [Software a medida en Alcoi y Cocentaina](/software-a-mida-alcoi/) - Software a medida y automatización de procesos para empresas e industrias de l'Alcoià y El Comtat (página en valenciano).
 - [Portal Salud para Clínicas](/clinicas/) - Software de gestión para clínicas integrado en su propia web: agenda, recepción y portal del paciente.
 - [Diseño Web para Nutricionistas y Dietistas](/nutricionistas/) - Webs para captar pacientes, reservas automatizadas y cobros online.
 - [Plataformas para Psicólogos](/psicologos/) - Videoconsulta encriptada, reservas y diario clínico.
