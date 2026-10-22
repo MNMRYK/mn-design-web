@@ -39,6 +39,7 @@ Igual que las landings: un push a `main` **no publica nada**.
 5. **No toques** las carpetas de las landings (`/alcoi/`, `/clinicas/`…, `/_astro/`, `/marca/`) ni `/blog/`.
 6. Vacía la caché de SiteGround (Site Tools → Speed → Caching) y comprueba en una ventana privada.
 7. Los `assets/` antiguos se borran solo cuando se ha comprobado que ninguna página los usa.
+8. **IndexNow (Bing):** con todo subido, `npm run indexnow` envía las URLs de `dist/sitemap.xml` (o `npm run indexnow -- <url> …` solo las que cambien). La clave es `public/7cdae621f29f53e295912e22de1ea99e.txt` y tiene que estar en la raíz del servidor; no se borra ni se cambia. El blog avisa solo con Rank Math.
 
 ## Cookies y medición
 - El código de consentimiento está en `index.html` y es **el mismo** que `../Landings-mndesignweb/src/components/CookiesHead.astro`: si cambias uno, cambia el otro.

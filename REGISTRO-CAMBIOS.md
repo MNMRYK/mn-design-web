@@ -49,6 +49,12 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 22/10/2026 · IndexNow para Bing
+- **Qué:** clave `public/7cdae621f29f53e295912e22de1ea99e.txt` y `scripts/indexnow.mjs` (`npm run indexnow`), que comprueba que la clave está publicada y envía a api.indexnow.org las URLs de `dist/sitemap.xml` (web React + landings). Antes solo enviaba Rank Math desde WordPress, y las últimas URLs de la web principal que recibió Bing eran de mayo y antiguas (/diseno-web/, /especialidades/, /politica-de-privacidad/).
+- **Bing Webmaster Tools (lo hace María):** quitar los sitemaps antiguos (www, http, sitemap-index.xml, sitemap-0.xml y los de blog.mndesignweb.es) y dejar solo https://mndesignweb.es/sitemap.xml y https://mndesignweb.es/blog/sitemap_index.xml; dar de alta Bing Places importando el perfil de Google.
+- **Cómo medirlo:** Bing Webmaster Tools → IndexNow (URLs recibidas con origen distinto de rankmath) y Explorador de sitios; clics e impresiones en Rendimiento de la búsqueda.
+- **Estado:** hecho en local; se usa tras publicar.
+
 ### 22/10/2026 · Pie: acciones rápidas (videollamada, WhatsApp, cómo llegar)
 - **Qué:** `src/Inicio/Footer.jsx/.css`: en el hueco bajo la marca y el contacto, tres tarjetas: «Reserva una videollamada» (cal.com/mndesignweb/reunion-30-min), «Escríbenos por WhatsApp» (wa.me con mensaje predefinido) y «Cómo llegar» (ruta de Google Maps) con la dirección en `<address>` (mismo NAP que el schema y el perfil de Google). Iconos de lucide-react (CalendarDays, MessageCircle, MapPin), como en las landings. Ordenador: 3 en fila bajo marca + contacto; tablet: en columna; móvil: tras el contacto.
 - **Por qué:** el pie tenía un gran hueco vacío y son las tres formas de contacto que más convierten; la dirección visible refuerza el SEO local de la ficha de Google.
