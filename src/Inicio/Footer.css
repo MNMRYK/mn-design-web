@@ -1,6 +1,6 @@
 .footer-site {
   background: var(--deep-eggplant);
-  padding: 25px 5% 20px 5%;
+  padding: 45px 5% 20px 5%;
   color: white;
   font-family: 'Nunito', sans-serif;
   border-top: 1px solid rgba(166, 114, 255, 0.1);
@@ -338,6 +338,7 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   align-self: start;
+  margin-top: -50px;
 }
 
 .footer-links-grid {

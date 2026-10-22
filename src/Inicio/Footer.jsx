@@ -57,7 +57,7 @@ const Footer = () => {
               <span className="footer-accion-icono"><MapPin aria-hidden="true" /></span>
               <span>
                 <span className="footer-accion-titulo">Cómo llegar</span>
-                <address className="footer-accion-texto">Passeig del Comtat, 75, 5º 1º · 03820 Cocentaina (Alicante)</address>
+                <address className="footer-accion-texto">Passeig del Comtat, 75 · 03820 Cocentaina (Alicante)</address>
               </span>
             </a>
           </div>
@@ -71,11 +71,10 @@ const Footer = () => {
                 <li><a href="/posicionamiento-seo/">Posicionamiento SEO</a></li>
                 <li><a href="/redes-sociales/">Redes Sociales</a></li>
                 <li><a href="/demos/">Demos</a></li>
-                <li><a href="https://mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
-                <li><a href="https://mndesignweb.es/clinicas/">Clínicas Portal Salud</a></li>
-                <li><a href="https://mndesignweb.es/nutricionistas/">Diseño Web Nutricionistas</a></li>
-                <li><a href="https://mndesignweb.es/psicologos/">Diseño Web Psicólogos</a></li>
-                <li><a href="https://mndesignweb.es/bodas/">Invitaciones Bodas</a></li>
+                
+                <li><a href="https://mndesignweb.es/clinicas/">Para Clínicas </a></li>
+                <li><a href="https://mndesignweb.es/nutricionistas/">Para Nutricionistas</a></li>
+                <li><a href="https://mndesignweb.es/psicologos/">Para Psicólogos</a></li>
               </ul>
             </div>
 
@@ -88,6 +87,7 @@ const Footer = () => {
                 <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
                 <li><a href="https://mndesignweb.es/alcoi/">Diseño web en Alcoy</a></li>
                 <li><a href="https://mndesignweb.es/software-a-mida-alcoi/" lang="ca">Software a mida (Alcoi i Cocentaina)</a></li>
+                <li><a href="https://mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
               </ul>
             </div>
           </div>
