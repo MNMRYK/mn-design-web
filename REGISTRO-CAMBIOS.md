@@ -75,7 +75,7 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 - **Comprobado en el servidor de desarrollo:** al entrar en /, /disenoweb/, /posicionamiento-seo/, /contacto/ y /demos/ (1366 y 412 px) no hay ninguna petición externa salvo la API del blog; las fuentes salen de `/fonts/`; ni Typebot ni Leaflet; el globo solo en ordenador y tras la carga. ESLint: ningún error nuevo.
 - **Publicación:** carpetas nuevas en `public/`: `fonts/` (junto a la de Plus Jakarta Sans de las landings; nombres distintos), `chat/`, `portfolio/` y las imágenes `-400`, `-480`, `-800`, `-960`, `-1400`.
 - **Cómo medirlo:** Lighthouse móvil sobre `npm run preview` (y después en producción) y compararlo con el punto de partida; en Search Console, Core Web Vitals en unas semanas.
-- **Estado:** hecho en local, sin build, sin commit y sin publicar.
+- **Estado:** hecho en local y con commit, sin build ni publicar. Próximo paso: build de María + Lighthouse sobre `npm run preview` + lista de subida (ver «Estado actual» en `CLAUDE.md`).
 
 ### 22/10/2026 · Formularios sin Make: solo Web3Forms y asunto común
 - **Por qué:** María ya no usa Make (era un CRM en Excel para los leads de las campañas de Meta); ahora gestiona los leads con su propio software y los recibe por email desde Web3Forms.
