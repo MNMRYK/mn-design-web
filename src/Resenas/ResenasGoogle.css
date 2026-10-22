@@ -1,5 +1,6 @@
 /* Reseñas reales: tarjetas claras sobre el fondo lila de la web */
 .resenas-seccion {
+  display: block; /* anula "section { display: flex; align-items: center }" de index.css, que encogía la lista */
   width: 90vw;
   max-width: 1300px;
   margin: 40px auto 60px;
@@ -35,6 +36,8 @@
 }
 
 .resenas-lista {
+  width: 100%;
+  min-width: 0;
   list-style: none;
   display: grid;
   grid-template-columns: repeat(3, 1fr);

@@ -56,7 +56,7 @@
 /* La chispa de luz que baja en la punta de la línea */
 .punta-luminosa {
   position: absolute;
-  bottom: -5px;
+  bottom: -5px; /* centrada en la punta: al final queda tapada por el último punto */
   left: -4px;
   width: 10px;
   height: 10px;

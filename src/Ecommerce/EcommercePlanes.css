@@ -531,3 +531,18 @@
     margin-top: 10px;
   }
 }
+
+/* Enlace dentro del texto de la promo (fondo verde): menta como el titular, sin subrayado */
+.ec-promo-text p a {
+  color: #61ffc6;
+  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.ec-promo-text p a:hover,
+.ec-promo-text p a:focus-visible {
+  opacity: 0.85;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

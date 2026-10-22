@@ -213,7 +213,7 @@
     /* Reducimos los muelles (fr) para que el texto suba un poco más */
     grid-template-rows: 90px 0.3fr auto auto auto 1fr;
     gap: 35px;
-    padding: 0 40px; /* Más margen lateral en tablet */
+    padding: 110px 40px 40px; /* Más margen lateral en tablet; arriba, el alto del menú */
   }
 
   .hero-title {
@@ -252,16 +252,22 @@
 /* Ajustes para móviles (600px o menos) */
 @media (max-width: 600px) {
   .hero-container {
-    padding-top: 20px; /* Espacio exacto para que el texto no se pegue al logo */
+    padding-top: 120px; /* Alto del menú flotante + aire: el H1 nunca queda debajo */
+    padding-bottom: 32px;
   }
 
   .hero-content {
-    gap: 40px;
+    gap: 26px;
   }
 
   .hero-title {
-    font-size: clamp(2.2rem, 10vw, 3rem); 
+    font-size: clamp(2rem, 9vw, 2.6rem);
     max-width: 95%;
+  }
+
+  /* En móvil el título fluye en 3-4 líneas en vez de 5 */
+  .hero-title br {
+    display: none;
   }
 
   .hero-subtitle {

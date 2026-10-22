@@ -23,10 +23,14 @@ const RutaTrabajo = () => {
         const sectionWrapper = containerRef.current.closest('.contacto-section-wrapper');
         // 1. Calculamos la distancia exacta desde el primer punto hasta el último
         const ultimoPaso = pasosRef.current[pasos.length - 1];
-        const distanciaTotal = ultimoPaso.offsetTop; 
+        // Se mide en cada refresh (fuentes cargadas, cambio de ancho…): si se mide una sola vez
+        // al montar, la línea se pasa del último punto.
+        const distancia = () => ultimoPaso.offsetTop;
+        const distanciaTotal = distancia();
 
         // 2. Ajustamos la línea gris de fondo para que termine justo en el último punto
-        gsap.set('.ruta-linea-fondo', { height: `${distanciaTotal}px` });
+        const ajustarFondo = () => gsap.set('.ruta-linea-fondo', { height: `${distancia()}px` });
+        ajustarFondo();
 
         const tl = gsap.timeline({
             scrollTrigger: {
@@ -36,13 +40,15 @@ const RutaTrabajo = () => {
                 pin: true,        
                 scrub: 1,         
                 pinSpacing: true, 
-                anticipatePin: 1
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onRefresh: ajustarFondo
             }
         });
 
         // 1. Animamos la línea dentro de la línea de tiempo
         tl.to(lineaProgresoRef.current, {
-            height: `${distanciaTotal}px`,
+            height: () => `${distancia()}px`,
             ease: "none",
             duration: 1
         }, 0); // Empieza en el tiempo 0
