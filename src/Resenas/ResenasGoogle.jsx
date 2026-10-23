@@ -56,11 +56,11 @@ const Tarjeta = ({ r, destacada, corta }) => (
 );
 
 const ResenasGoogle = ({
-  ids = ["sara", "lara", "miriam", "damaris", "nutrimente"],
+  ids = ["sara", "alinea", "lara", "miriam", "damaris", "nutrimente"],
   etiqueta = "Reseñas",
   titulo = "Lo que dicen quienes ya",
   tituloColor = "han trabajado con nosotros",
-  destacada = true,
+  destacada = false,
 }) => {
   const lista = ids.map((id) => RESENAS[id]).filter(Boolean);
   const unica = lista.length === 1;

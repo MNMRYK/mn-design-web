@@ -36,9 +36,17 @@ export const RESENAS = {
     google: true,
     texto: "Gran profesional! Cualquier duda me informo y me resolvió perfectamente. […] Muchas gracias, 100% recomendada.",
   },
+  alinea: {
+    nombre: "Alinea",
+    detalle: "Plataforma de cursos online",
+    google: true,
+    texto:
+      "María es una gran profesional! Colaboramos con ella en un proyecto para crear una plataforma de cursos online y fue un 10/10. Seguiremos colaborando en otros proyectos futuros porque no solo su trabajo es impecable, sino que también es muy amable y cercana 😊",
+    textoCorto:
+      "María es una gran profesional! Colaboramos con ella en un proyecto para crear una plataforma de cursos online y fue un 10/10. […] no solo su trabajo es impecable, sino que también es muy amable y cercana 😊",
+  },
   nutrimente: {
-    // Testimonio de cliente, NO de Google (etiqueta "Cliente", sin estrellas).
-    // [PENDIENTE: confirmar el texto original en castellano; está traducido del valenciano, igual que en las landings]
+    // Testimonio de cliente, NO de Google (etiqueta "Cliente", sin estrellas). Texto confirmado por María el 23/10/2026.
     nombre: "Nutrimente",
     detalle: "Nutrición integrativa · Jaén",
     foto: "/opiniones/nutrimente.webp",

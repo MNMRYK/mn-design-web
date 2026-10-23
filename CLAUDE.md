@@ -72,7 +72,7 @@ Igual que las landings: un push a `main` **no publica nada**.
 ## Reglas fijas
 - No inventar reseñas, testimonios, logos de clientes, cifras ni proyectos. Si falta algo, `[PENDIENTE: ...]`.
 - Nada de schema `aggregateRating` ni `Review` sobre la propia empresa.
-- **Reseñas de Google** (textos literales; solo se puede recortar con "[…]"; etiqueta "Reseña de Google" y estrellas): Lara S. (Directora de arte), Miriam A., Damaris López y Sara Santos (Nutricionista). Textos de las tres primeras en `../Landings-mndesignweb/src/pages/alcoi/index.astro`. Debajo de cada bloque, el botón "Ver todas las reseñas en Google" → https://share.google/H7PZUbk3sAkb31aDe.
+- **Reseñas de Google** (textos literales; solo se puede recortar con "[…]"; etiqueta "Reseña de Google" y estrellas): Lara S. (Directora de arte), Miriam A., Damaris López, Sara Santos (Nutricionista) y Alinea (plataforma de cursos online). Fuente única en esta web: `src/Resenas/resenas.js`. Textos de las tres primeras en `../Landings-mndesignweb/src/pages/alcoi/index.astro`. Debajo de cada bloque, el botón "Ver todas las reseñas en Google" → https://share.google/H7PZUbk3sAkb31aDe.
   - **Lara S.** fue clienta (María le hizo su portfolio) y ahora colabora con nosotros en branding. Su reseña se usa con el contexto «Clienta · portfolio», pero **nunca en /branding/** (ni en nada de esa colaboración).
   - **Sara Santos** (Nutricionista): le hicimos el software de gestión de pacientes y la academia online.
 - **Testimonios de clientes que no vienen de Google** (etiqueta "Cliente", sin estrellas): Nutrimente (Nutrición integrativa · Jaén).
