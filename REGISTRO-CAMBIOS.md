@@ -49,6 +49,10 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 23/10/2026 · /demos/: NovoTeix y SupplyConnect; reseña de Alinea
+- **Qué:** dos demos nuevas al principio del bloque B2B de `src/Demos/HeaderDemos.jsx`: «Industria Textil Técnica» (https://mnmryk.github.io/novoteix/) y «Portal ERP Industrial» (https://mndesignweb.es/supplyconnect/), con capturas `public/mockups/novoteix.webp` y `supplyconnect.webp` (1000×456, 26-28 KB). Se presentan como demos, no como clientes. Reseña de Google de Alinea (plataforma de cursos online) en la home; la home pasa a rejilla de 3×2 sin reseña destacada. Texto de Nutrimente confirmado.
+- **Estado:** hecho en local, con commit, sin publicar.
+
 ### 22/10/2026 · IndexNow para Bing
 - **Qué:** clave `public/7cdae621f29f53e295912e22de1ea99e.txt` y `scripts/indexnow.mjs` (`npm run indexnow`), que comprueba que la clave está publicada y envía a api.indexnow.org las URLs de `dist/sitemap.xml` (web React + landings). Antes solo enviaba Rank Math desde WordPress, y las últimas URLs de la web principal que recibió Bing eran de mayo y antiguas (/diseno-web/, /especialidades/, /politica-de-privacidad/).
 - **Bing Webmaster Tools (lo hace María):** quitar los sitemaps antiguos (www, http, sitemap-index.xml, sitemap-0.xml y los de blog.mndesignweb.es) y dejar solo https://mndesignweb.es/sitemap.xml y https://mndesignweb.es/blog/sitemap_index.xml; dar de alta Bing Places importando el perfil de Google.

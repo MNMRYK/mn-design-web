@@ -68,6 +68,22 @@ const bloquesDemos = [
       "Interfaces de alto rendimiento orientadas a la venta de servicios de alto valor, infoproductos y automatización de procesos comerciales.",
     demos: [
       {
+        slug: "novoteix",
+        titulo: "Industria Textil Técnica",
+        tag: "Web industrial",
+        detalles:
+          "Web corporativa oscura para un fabricante de tejidos técnicos sostenibles: certificaciones, aplicaciones, empleo y un portal para reservar visitas B2B y turnos de carga en muelle.",
+        url: "https://mnmryk.github.io/novoteix/",
+      },
+      {
+        slug: "supplyconnect",
+        titulo: "Portal ERP Industrial",
+        tag: "Software B2B",
+        detalles:
+          "Acceso corporativo a un ERP a medida para fábricas, con cuatro módulos por rol: compras (SRM), ventas y CRM, logística y almacén (SGA) y administración y finanzas.",
+        url: "https://mndesignweb.es/supplyconnect/",
+      },
+      {
         slug: "mentor-b2b",
         titulo: "Consultoría y Mentoría B2B",
         tag: "Web B2B",
