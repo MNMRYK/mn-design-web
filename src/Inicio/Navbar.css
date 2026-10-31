@@ -439,8 +439,13 @@
 @media (max-width: 1052px) {
   /* 1. Hacemos que el menú principal en móvil pueda hacer scroll si la pantalla es pequeña */
   .menu-principal {
-    max-height: 80vh; /* Para que nunca rebase la altura del móvil */
+    /* Nunca más alto que la pantalla: alto visible (dvh, descuenta la barra del navegador)
+       menos el menú fijo (10 + 55 px), su separación y un margen */
+    max-height: calc(100vh - 90px);
+    max-height: calc(100dvh - 90px);
     overflow-y: auto; /* Permite deslizar si hay muchos elementos */
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
   }
 
@@ -457,9 +462,14 @@
   }
 
   /* 3. Aseguramos que el desplegable interior no oculte nada */
+  /* Plegado: sin altura y sin desbordar (si no, los enlaces ocultos alargan el panel) */
   .desplegable {
     max-height: 0;
-    overflow: visible; /* Cambiado de hidden a visible para que nomascare */
+    overflow: hidden;
+  }
+
+  .tiene-desplegable.abierto .desplegable {
+    overflow: visible;
   }
 }
 
@@ -547,4 +557,10 @@
   .desplegable a {
     white-space: normal;
   }
+}
+
+/* Menú móvil abierto: la página no hace scroll (lo pone y lo quita Navbar.jsx) */
+html.menu-movil-abierto,
+html.menu-movil-abierto body {
+  overflow: hidden;
 }

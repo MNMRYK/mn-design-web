@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
+import { useLocation } from "react-router-dom";
 import "./Navbar.css";
 import Icono from "../utils/Icono";
 import { SERVICIOS, SECTORES, MENU, CONTACTO } from "../utils/navegacion";
@@ -17,6 +18,37 @@ const Navbar = () => {
   const { scrollY } = useScroll();
   const botonServiciosRef = useRef(null);
   const botonMenuRef = useRef(null);
+  const { pathname } = useLocation();
+
+  // Cerrar el menú móvil también pliega "Servicios": al volver a abrirlo, el menú es corto
+  const cerrarMenu = () => {
+    setMenuAbierto(false);
+    setDesplegableAbierto(false);
+  };
+
+  // Al cambiar de página, el menú se cierra
+  useEffect(() => {
+    cerrarMenu();
+  }, [pathname]);
+
+  // Menú móvil abierto: la página no hace scroll (clase en <html> + Lenis parado), pero el
+  // panel sí (data-lenis-prevent). Se libera SIEMPRE al cerrar: al tocar la X o un enlace, al
+  // cambiar de ruta, al pasar a escritorio y si el componente se desmonta (limpieza del efecto).
+  useEffect(() => {
+    if (!menuAbierto) return undefined;
+    const html = document.documentElement;
+    html.classList.add("menu-movil-abierto");
+    window.__lenisActual?.stop();
+    const alRedimensionar = () => {
+      if (window.innerWidth > 1052) cerrarMenu();
+    };
+    window.addEventListener("resize", alRedimensionar);
+    return () => {
+      html.classList.remove("menu-movil-abierto");
+      window.__lenisActual?.start();
+      window.removeEventListener("resize", alRedimensionar);
+    };
+  }, [menuAbierto]);
 
   // --- LÓGICA HÍBRIDA: MATEMÁTICAS + ESCÁNER VISUAL ---
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -81,7 +113,7 @@ const Navbar = () => {
     }
   };
 
-  const toggleMenu = () => setMenuAbierto(!menuAbierto);
+  const toggleMenu = () => (menuAbierto ? cerrarMenu() : setMenuAbierto(true));
   return (
     <header className={`navbar-header ${isScrolled ? "scrolled" : "top"} `}>
       <a href="/" className="enlace-logo">
@@ -107,7 +139,11 @@ const Navbar = () => {
           <Icono nombre={menuAbierto ? "times" : "bars"} />
         </button>
 
-        <ul id="menu-principal" className={`menu-principal ${menuAbierto ? "active" : ""}`}>
+        <ul
+          id="menu-principal"
+          className={`menu-principal ${menuAbierto ? "active" : ""}`}
+          data-lenis-prevent
+        >
           <li
             className={`tiene-desplegable ${desplegableAbierto ? "abierto" : ""}`}
             onBlur={alPerderFoco}
@@ -133,7 +169,9 @@ const Navbar = () => {
                   <ul aria-labelledby={grupo.id}>
                     {grupo.enlaces.map((enlace) => (
                       <li key={enlace.url}>
-                        <a href={enlace.url}>{enlace.texto}</a>
+                        <a href={enlace.url} onClick={cerrarMenu}>
+                          {enlace.texto}
+                        </a>
                       </li>
                     ))}
                   </ul>
@@ -143,11 +181,13 @@ const Navbar = () => {
           </li>
           {MENU.map((enlace) => (
             <li key={enlace.url}>
-              <a href={enlace.url}>{enlace.texto}</a>
+              <a href={enlace.url} onClick={cerrarMenu}>
+                {enlace.texto}
+              </a>
             </li>
           ))}
           <li>
-            <a href={CONTACTO.url} className="boton-contacto">
+            <a href={CONTACTO.url} className="boton-contacto" onClick={cerrarMenu}>
               {CONTACTO.texto}
             </a>
           </li>

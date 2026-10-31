@@ -35,7 +35,10 @@ export const crearLenis = (opciones) => {
   const destruir = lenis.destroy.bind(lenis);
   lenis.destroy = () => {
     gsap.ticker.remove(tick);
+    if (window.__lenisActual === lenis) window.__lenisActual = null;
     destruir();
   };
+  // Instancia de la página actual: el menú móvil la para (stop) mientras está abierto
+  window.__lenisActual = lenis;
   return lenis;
 };

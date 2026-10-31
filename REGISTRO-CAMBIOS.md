@@ -50,6 +50,12 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 01/11/2026 · URGENTE: scroll del menú móvil
+- **Problema (en producción):** en móvil, con "Servicios" abierto el menú era más alto que la pantalla y no se podía deslizar (Lenis capturaba el gesto táctil); Demos salía cortado y Blog, Nosotros y Contacto eran inaccesibles.
+- **Arreglo:** panel con `max-height: calc(100dvh - 90px)`, `overflow-y: auto`, `overscroll-behavior: contain` y `data-lenis-prevent`; "Servicios" plegado por defecto y al cerrar el menú (y sin desbordar cuando está plegado); bloqueo del scroll de la página (`html.menu-movil-abierto` + `lenis.stop()`) solo mientras el menú está abierto, liberado al cerrar, al tocar un enlace, al cambiar de ruta, al pasar a escritorio y al desmontar (`lenis.start()`). Escritorio sin cambios.
+- **Probado:** Puppeteer en 390 × 844 con eventos táctiles reales en /, /branding/ y /redes-sociales/.
+- **Estado:** commit y push a `main`; falta subirlo a SiteGround.
+
 ### 31/10/2026 (7) · CTA final y bloque de servicios creativos equilibrados
 - **Qué:** CTA «Cuéntanos qué necesita tu negocio» (/branding/ y /redes-sociales/) con lista de 3 puntos con check (textos nuevos: «Primera videollamada gratuita y sin compromiso», «Propuesta por escrito con alcance, plazos y presupuesto», «Web y marca coordinadas por un único equipo»). Columnas texto 1,3fr / imagen 1fr, centradas; en una columna, la imagen va debajo (máx. 560 px en tablet, ancho completo en móvil). Mismo reparto en el bloque de /disenoweb/ y /e-commerce/.
 - **Estado:** hecho en local, con commit, sin publicar.
