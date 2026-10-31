@@ -50,6 +50,10 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 31/10/2026 (7) · CTA final y bloque de servicios creativos equilibrados
+- **Qué:** CTA «Cuéntanos qué necesita tu negocio» (/branding/ y /redes-sociales/) con lista de 3 puntos con check (textos nuevos: «Primera videollamada gratuita y sin compromiso», «Propuesta por escrito con alcance, plazos y presupuesto», «Web y marca coordinadas por un único equipo»). Columnas texto 1,3fr / imagen 1fr, centradas; en una columna, la imagen va debajo (máx. 560 px en tablet, ancho completo en móvil). Mismo reparto en el bloque de /disenoweb/ y /e-commerce/.
+- **Estado:** hecho en local, con commit, sin publicar.
+
 ### 31/10/2026 (6) · Imágenes enteras en el hero y los CTA de /branding/ y en el bloque de servicios creativos
 - **Qué:** el hero de /branding/ (`creatividad-principal.webp`), su CTA final y el bloque de /disenoweb/ y /e-commerce/ (los dos con `ctabranding.webp`) muestran la imagen entera con su proporción real (sin `cover` ni altura fija). La columna de la imagen del hero se limita a 440 px para que no crezca. Más aire bajo el menú en el hero (140 px; 116 en móvil).
 - **Estado:** hecho en local, con commit, sin publicar.

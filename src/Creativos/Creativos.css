@@ -736,12 +736,13 @@
   gap: 48px;
 }
 
+/* Texto ~1.3fr, imagen ~1fr (en torno al 40 % del ancho) */
 .cta-creativos:has(.cta-creativos-imagen) {
-  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
 }
 
 .cta-creativos--imagen-derecha:has(.cta-creativos-imagen) {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
 }
 
 .cta-creativos--imagen-derecha .cta-creativos-imagen {
@@ -749,7 +750,7 @@
 }
 
 .bloque-creativos:has(.bloque-creativos-imagen) {
-  grid-template-columns: minmax(0, 1fr) 300px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
 }
 
 .bloque-creativos-texto-col {
@@ -2403,8 +2404,8 @@
     grid-template-columns: 1fr;
   }
 
-  .cta-creativos--imagen-derecha .cta-creativos-imagen {
-    order: 0;
+  .cta-creativos .cta-creativos-imagen {
+    order: 2;
   }
 }
 
@@ -2488,4 +2489,51 @@
 
 .cta-creativos .creativos-img--entera {
   align-self: center;
+}
+
+/* Lista con checks del CTA final (claro sobre el fondo oscuro) */
+.cta-creativos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 2px 0 4px;
+  padding: 0;
+  list-style: none;
+}
+
+.cta-creativos-lista li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: var(--white-iris);
+}
+
+.cta-creativos-check {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(239, 235, 252, 0.35);
+  color: var(--white-iris);
+  font-size: 0.75rem;
+}
+
+/* Imagen entera centrada en su columna, a ancho completo de la columna */
+.cta-creativos .creativos-img--entera,
+.bloque-creativos .creativos-img--entera {
+  width: 100%;
+  max-width: 100%;
+  align-self: center;
+}
+
+/* En una columna (tablet), la imagen del CTA no pasa de 560 px; en móvil, a ancho completo */
+@media (max-width: 1100px) and (min-width: 601px) {
+  .cta-creativos .cta-creativos-imagen {
+    max-width: 560px;
+  }
 }

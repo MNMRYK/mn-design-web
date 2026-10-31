@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import ImagenCreativa from "./ImagenCreativa.jsx";
+import Icono from "../utils/Icono";
 import "./Creativos.css";
 
 // Los clics en cal.com y wa.me se miden solos en index.html (click_reserva / click_whatsapp).
@@ -12,6 +13,13 @@ const WHATSAPP =
 // Llamada final de /redes-sociales/ y /branding/ (tarjeta oscura con el degradado de la web).
 // `imagen`: { src, alt, width, height, posicion | entera } (izquierda en /redes-sociales/, derecha en
 // /branding/). Con `entera`, se ve completa con su proporción real.
+// Qué incluye el primer paso (texto nuevo, revisado por María)
+const PUNTOS = [
+  "Primera videollamada gratuita y sin compromiso",
+  "Propuesta por escrito con alcance, plazos y presupuesto",
+  "Web y marca coordinadas por un único equipo",
+];
+
 const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false }) => (
   <section className="creativos-seccion creativos-seccion--cta" aria-labelledby="cta-creativos-titulo">
     <motion.div
@@ -29,6 +37,16 @@ const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false }) => (
         <p className="cta-creativos-texto">
           {texto} Te respondemos en menos de 24 h laborables.
         </p>
+        <ul className="cta-creativos-lista">
+          {PUNTOS.map((punto) => (
+            <li key={punto}>
+              <span className="cta-creativos-check" aria-hidden="true">
+                <Icono nombre="check" />
+              </span>
+              {punto}
+            </li>
+          ))}
+        </ul>
         <div className="cta-creativos-botones">
           <a href={RESERVA} target="_blank" rel="noopener noreferrer" className="creativos-btn-primario">
             Reservar videollamada
