@@ -50,6 +50,11 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 31/10/2026 (5) · Imágenes de /branding/ y /redes-sociales/
+- **Qué:** imágenes de María en sus huecos (`src/Creativos/ImagenCreativa.jsx`: object-fit cover con su encuadre, width/height, lazy salvo el hero, que va con fetchpriority="high"). /branding/: hero, 3 trabajos (sección visible ya en producción) y CTA final. /redes-sociales/: collage del hero (reel en bucle que se carga al verse, solo póster con «reducir movimiento» y en el prerender; publicación y pieza) y CTA final. Archivos en `public/branding/` y `public/redes/`; `post.jpg` pasado a WebP y `post2`/`ctaredes` reducidos (529 y 351 KB → 32 y 41 KB).
+- **Pendiente:** títulos reales de los 3 trabajos (ahora genéricos), confirmar que las imágenes son trabajos propios o de Lara con permiso, borrar la carpeta vacía `public/branding/redes/` e imagen del bloque de /disenoweb/ y /e-commerce/.
+- **Estado:** hecho en local, con commit, sin publicar.
+
 ### 31/10/2026 (4) · /branding/: fases en una sola pantalla; botones de los CTA en fila
 - **«Cómo funciona un proyecto de branding»:** en escritorio la tarjeta cabe en una pantalla (554 px; probada a 1366 × 768 y 1440 × 900) y se queda fija mientras el scroll recorre las 7 fases (~45 vh por fase). Fases compactas (número + nombre), solo la activa desplegada; las pasadas, completadas. Clic en una fase la activa (botones con `aria-expanded`). Fuera el indicador «Fase X de 7»; queda una barra fina bajo la nota. Tablet, móvil y «reducir movimiento»: sin pin y todas abiertas. Las 7 descripciones, en el HTML.
 - **CTA finales y hero de /redes-sociales/ y /branding/:** botones en fila; solo pasan a columna (ancho completo) por debajo de 480 px.

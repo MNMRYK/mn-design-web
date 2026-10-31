@@ -81,8 +81,11 @@ const RedesSociales = () => {
         <CtaCreativos
           texto="Prepararemos una propuesta personalizada para tus redes."
           imagen={{
-            descripcion: "Imagen de cierre: mosaico de piezas de redes de un trabajo real",
-            medidas: "1000 × 640 px (se muestra a 500 × 320)",
+            src: "/redes/ctaredes.webp",
+            alt: "Móvil con stories y carruseles en blanco y negro para una marca de moda y cosmética",
+            width: "1000",
+            height: "1331",
+            posicion: "50% 54%",
           }}
         />
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HuecoImagen from "./HuecoImagen.jsx";
+import ImagenCreativa from "./ImagenCreativa.jsx";
 import "./Creativos.css";
 
 // Los clics en cal.com y wa.me se miden solos en index.html (click_reserva / click_whatsapp).
@@ -10,7 +10,7 @@ const WHATSAPP =
   encodeURIComponent("¡Hola! Vengo de vuestra web y me gustaría pedir información.");
 
 // Llamada final de /redes-sociales/ y /branding/ (tarjeta oscura con el degradado de la web).
-// `imagen`: el hueco de imagen de Figma (izquierda en /redes-sociales/, derecha en /branding/).
+// `imagen`: { src, alt, width, height, posicion } (izquierda en /redes-sociales/, derecha en /branding/).
 const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false }) => (
   <section className="creativos-seccion creativos-seccion--cta" aria-labelledby="cta-creativos-titulo">
     <motion.div
@@ -20,7 +20,7 @@ const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false }) => (
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6 }}
     >
-      {imagen && <HuecoImagen className="cta-creativos-imagen" proporcion="500 / 320" {...imagen} />}
+      {imagen && <ImagenCreativa className="cta-creativos-imagen" proporcion="500 / 320" {...imagen} />}
       <div className="cta-creativos-cuerpo">
         <h2 id="cta-creativos-titulo" className="cta-creativos-titulo">
           Cuéntanos qué necesita <span>tu negocio</span>

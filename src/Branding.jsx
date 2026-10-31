@@ -162,8 +162,11 @@ const Branding = () => {
           texto="Prepararemos una propuesta personalizada."
           imagenALaDerecha
           imagen={{
-            descripcion: "Imagen de cierre: detalle de un trabajo de marca o de una sesión creativa",
-            medidas: "1000 × 640 px (se muestra a 500 × 320)",
+            src: "/branding/que-necesita-tu-negocio.webp",
+            alt: "Identidad visual de una nutricionista: logotipo, paleta de colores tierra y aplicaciones de marca",
+            width: "736",
+            height: "736",
+            posicion: "50% 28%",
           }}
         />
 

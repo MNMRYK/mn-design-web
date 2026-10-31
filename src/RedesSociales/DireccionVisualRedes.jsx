@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Icono from "../utils/Icono";
-import HuecoImagen from "../Creativos/HuecoImagen.jsx";
+import ImagenCreativa, { ReelCreativo } from "../Creativos/ImagenCreativa.jsx";
 import FormatosRedes from "./FormatosRedes.jsx";
 import "../Creativos/Creativos.css";
 
@@ -124,23 +124,34 @@ export const HeroRedes = () => (
 
       <div className="creativos-hero-grid">
         {/* Collage del diseño: dos imágenes y un reel (huecos pendientes) */}
+        {/* Collage del diseño: reel vertical + publicación + pieza */}
         <div className="creativos-collage">
-          <HuecoImagen
+          <ReelCreativo
+            src="/redes/reel.mp4"
+            poster="/redes/reel-poster.webp"
+            alt="Reel con la animación de un logotipo en blanco sobre fondo negro"
+            width="338"
+            height="546"
             proporcion="269 / 440"
-            descripcion="Pieza vertical de redes (post o story de un trabajo real)"
-            medidas="540 × 880 px, vertical"
           />
           <div className="creativos-collage-columna">
-            <HuecoImagen
+            <ImagenCreativa
+              src="/redes/post.webp"
+              alt="Publicación para redes sobre una rutina de cuidado de la piel, con fotografía y los pasos ilustrados con iconos"
+              width="736"
+              height="1104"
               proporcion="269 / 213"
-              descripcion="Publicación o carrusel de un trabajo real"
-              medidas="540 × 430 px"
+              posicion="50% 12%"
+              prioridad
             />
-            <HuecoImagen
+            <ImagenCreativa
+              src="/redes/post2.webp"
+              alt="Perfil de redes sociales y web de una peluquería en dos móviles, con publicaciones y su paleta de colores"
+              width="800"
+              height="1000"
               proporcion="269 / 213"
-              descripcion="Reel: vídeo corto en bucle, sin sonido (o su portada)"
-              formato="MP4/WebM + póster WebP"
-              medidas="540 × 430 px"
+              posicion="50% 46%"
+              prioridad
             />
           </div>
         </div>

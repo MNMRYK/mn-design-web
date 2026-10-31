@@ -767,7 +767,7 @@
   align-items: center;
 }
 
-.creativos-hero-grid:has(.hueco-imagen, .creativos-hero-media img) {
+.creativos-hero-grid:has(.hueco-imagen, .creativos-hero-media img, .creativos-collage img, .creativos-collage video) {
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
@@ -783,7 +783,7 @@
 }
 
 /* Si no hay ningún hueco/imagen dentro, el collage no ocupa nada */
-.creativos-collage:not(:has(.hueco-imagen, img)),
+.creativos-collage:not(:has(.hueco-imagen, img, video)),
 .creativos-hero-media:not(:has(.hueco-imagen, img)) {
   display: none;
 }
@@ -792,7 +792,7 @@
   .cta-creativos:has(.cta-creativos-imagen),
   .cta-creativos--imagen-derecha:has(.cta-creativos-imagen),
   .bloque-creativos:has(.bloque-creativos-imagen),
-  .creativos-hero-grid:has(.hueco-imagen, .creativos-hero-media img) {
+  .creativos-hero-grid:has(.hueco-imagen, .creativos-hero-media img, .creativos-collage img, .creativos-collage video) {
     grid-template-columns: 1fr;
   }
 
@@ -1116,11 +1116,6 @@
   gap: 12px;
 }
 
-.creativos-trabajo-pendiente {
-  margin: 0;
-  font-weight: 700;
-  color: var(--dark-violet);
-}
 
 .creativos-trabajos-demos {
   display: flex;
@@ -2420,4 +2415,26 @@
     padding: 13px 20px;
     font-size: 1.05rem;
   }
+}
+
+/* ====================================================
+   IMÁGENES DE LOS HUECOS (ImagenCreativa.jsx): cubren su hueco sin deformarse;
+   object-position (en línea) decide qué parte se ve
+   ==================================================== */
+.creativos-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 22px;
+  background: rgba(209, 196, 233, 0.35);
+  box-shadow: 0 14px 30px rgba(26, 16, 45, 0.12);
+}
+
+.creativos-trabajo .creativos-h3 {
+  margin-top: 4px;
+}
+
+.cta-creativos .creativos-img {
+  box-shadow: none;
 }

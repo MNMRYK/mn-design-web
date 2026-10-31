@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Icono from "../utils/Icono";
-import HuecoImagen from "../Creativos/HuecoImagen.jsx";
+import ImagenCreativa from "../Creativos/ImagenCreativa.jsx";
 import "../Creativos/Creativos.css";
 
 // /branding/: diseño de Figma "Identidad de marca y contenido visual" + secciones nuevas
@@ -181,7 +181,30 @@ const FORMAS = [
 ];
 
 // --- NUEVO: galería de trabajos (3 huecos, solo en desarrollo hasta tener las imágenes) ---
-const TRABAJOS = [1, 2, 3];
+// [PENDIENTE: títulos reales de los proyectos y, si María lo indica, su enlace]
+const TRABAJOS = [
+  {
+    src: "/branding/proyecto1.webp",
+    width: "736",
+    height: "575",
+    titulo: "Identidad visual · Logotipo de línea",
+    alt: "Logotipo de línea fina con una hoja tropical, en blanco sobre una fotografía de hojas verdes",
+  },
+  {
+    src: "/branding/proyecto2.webp",
+    width: "736",
+    height: "736",
+    titulo: "Identidad visual · Logotipo tipográfico",
+    alt: "Logotipo tipográfico en blanco sobre una hoja verde en primer plano, con un pequeño símbolo",
+  },
+  {
+    src: "/branding/proyecto3.webp",
+    width: "749",
+    height: "586",
+    titulo: "Identidad visual · Símbolo y logotipo",
+    alt: "Símbolo con una hoja dentro de un marco y logotipo en blanco sobre hojas oscuras",
+  },
+];
 
 const aparecer = {
   initial: { opacity: 0, y: 30 },
@@ -233,10 +256,14 @@ export const HeroBranding = () => (
         </motion.div>
 
         <div className="creativos-hero-media">
-          <HuecoImagen
+          <ImagenCreativa
+            src="/branding/creatividad-principal.webp"
+            alt="Identidad visual de una marca de helados: logotipo, paleta de colores, envases y fotografía de producto en tonos morados"
+            width="720"
+            height="960"
             proporcion="552 / 600"
-            descripcion="Imagen principal: un trabajo de identidad de marca (aplicaciones, moodboard o pieza de campaña)"
-            medidas="1100 × 1200 px (se muestra a 552 × 600)"
+            posicion="50% 0%" /* arriba: logotipos enteros y fuera el texto de plantilla de abajo */
+            prioridad
           />
         </div>
       </div>
@@ -471,28 +498,22 @@ export const TrabajosBranding = () => (
         Proyectos de <span className="creativos-degradado">identidad y contenido visual</span>
       </h2>
 
-      {/* Galería de 3 proyectos reales: solo se ve en desarrollo hasta que haya imágenes.
-          Para cada proyecto: <img> + título + enlace al proyecto. */}
-      {import.meta.env.DEV && (
-        <div className="creativos-rejilla creativos-rejilla--3">
-          {TRABAJOS.map((n) => (
-            <article key={n} className="creativos-trabajo">
-              <HuecoImagen
-                proporcion="4 / 3"
-                descripcion={`Proyecto real ${n}: imagen de portada del trabajo (con permiso del cliente)`}
-                medidas="1200 × 900 px (4:3)"
-              />
-              <p className="creativos-trabajo-pendiente">Título del proyecto {n} · enlace al proyecto</p>
-            </article>
-          ))}
-        </div>
-      )}
+      <div className="creativos-rejilla creativos-rejilla--3">
+        {TRABAJOS.map((trabajo) => (
+          <article key={trabajo.src} className="creativos-trabajo">
+            <ImagenCreativa
+              src={trabajo.src}
+              alt={trabajo.alt}
+              width={trabajo.width}
+              height={trabajo.height}
+              proporcion="4 / 3"
+            />
+            <h3 className="creativos-h3">{trabajo.titulo}</h3>
+          </article>
+        ))}
+      </div>
 
       <div className="creativos-trabajos-demos">
-        <p className="creativos-subtitulo">
-          Mientras preparamos esta galería, puedes ver cómo trabajamos el diseño web en nuestras
-          demos.
-        </p>
         <a href="/demos/" className="creativos-btn-secundario">
           Mira nuestras demos
         </a>
