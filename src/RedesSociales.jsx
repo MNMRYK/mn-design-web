@@ -4,7 +4,7 @@ import Seo from "./seo/Seo";
 import { HeroRedes, ContenidoRedes } from "./RedesSociales/DireccionVisualRedes.jsx";
 import CronologiaPasos from "./Creativos/CronologiaPasos.jsx";
 import RedesDoble from "./RedesSociales/RedesDoble.jsx";
-import CtaCreativos from "./Creativos/CtaCreativos.jsx";
+import CtaCreativos, { PUNTOS_CTA } from "./Creativos/CtaCreativos.jsx";
 import { PASOS_CREATIVOS, TITULO_PASOS } from "./Creativos/pasos";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 import { DOMINIO } from "./seo/rutas";
@@ -80,6 +80,7 @@ const RedesSociales = () => {
         <RedesDoble />
         <CtaCreativos
           texto="Prepararemos una propuesta personalizada para tus redes."
+          puntos={[...PUNTOS_CTA.slice(0, 2), "Contenido coherente con tu web y tu marca"]}
           imagen={{
             src: "/redes/ctaredes.webp",
             alt: "Móvil con stories y carruseles en blanco y negro para una marca de moda y cosmética",

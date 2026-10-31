@@ -13,14 +13,15 @@ const WHATSAPP =
 // Llamada final de /redes-sociales/ y /branding/ (tarjeta oscura con el degradado de la web).
 // `imagen`: { src, alt, width, height, posicion | entera } (izquierda en /redes-sociales/, derecha en
 // /branding/). Con `entera`, se ve completa con su proporción real.
-// Qué incluye el primer paso (texto nuevo, revisado por María)
-const PUNTOS = [
+// Qué incluye el primer paso (texto nuevo, revisado por María). /redes-sociales/ pasa su propia
+// lista con `puntos` (el tercer punto cambia).
+export const PUNTOS_CTA = [
   "Primera videollamada gratuita y sin compromiso",
   "Propuesta por escrito con alcance, plazos y presupuesto",
   "Web y marca coordinadas por un único equipo",
 ];
 
-const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false }) => (
+const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false, puntos = PUNTOS_CTA }) => (
   <section className="creativos-seccion creativos-seccion--cta" aria-labelledby="cta-creativos-titulo">
     <motion.div
       className={`creativos-tarjeta-oscura cta-creativos tema-oscuro ${imagenALaDerecha ? "cta-creativos--imagen-derecha" : ""}`}
@@ -38,7 +39,7 @@ const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false }) => (
           {texto} Te respondemos en menos de 24 h laborables.
         </p>
         <ul className="cta-creativos-lista">
-          {PUNTOS.map((punto) => (
+          {puntos.map((punto) => (
             <li key={punto}>
               <span className="cta-creativos-check" aria-hidden="true">
                 <Icono nombre="check" />
