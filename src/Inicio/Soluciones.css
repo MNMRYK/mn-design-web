@@ -3,7 +3,7 @@
   width: 100vw;
   min-height: auto;
   height: auto;  
-  padding: 120px 40px 80px;
+  padding: 60px 40px 80px;
   text-align: center;
   z-index: 2; /* Mucho mayor que el del Hero */
   background-color: var(--white-iris);

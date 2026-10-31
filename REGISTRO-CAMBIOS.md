@@ -50,6 +50,11 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 31/10/2026 (4) · /branding/: fases en una sola pantalla; botones de los CTA en fila
+- **«Cómo funciona un proyecto de branding»:** en escritorio la tarjeta cabe en una pantalla (554 px; probada a 1366 × 768 y 1440 × 900) y se queda fija mientras el scroll recorre las 7 fases (~45 vh por fase). Fases compactas (número + nombre), solo la activa desplegada; las pasadas, completadas. Clic en una fase la activa (botones con `aria-expanded`). Fuera el indicador «Fase X de 7»; queda una barra fina bajo la nota. Tablet, móvil y «reducir movimiento»: sin pin y todas abiertas. Las 7 descripciones, en el HTML.
+- **CTA finales y hero de /redes-sociales/ y /branding/:** botones en fila; solo pasan a columna (ancho completo) por debajo de 480 px.
+- **Estado:** hecho en local, con commit, sin publicar.
+
 ### 31/10/2026 (3) · /branding/ y /redes-sociales/: fases, formatos, kit de marca; home
 - **/branding/ · «Cómo funciona un proyecto de branding»:** las 7 fases de Lara (textos literales) en cronología vertical (`src/Branding/FasesBranding.jsx`); en escritorio, columna izquierda fija (pin de ScrollTrigger: `position: sticky` no funciona en esta web por el `overflow-x: hidden` de html/body) con la nota de Lara, botón a «Tres formas de trabajar juntos» e indicador «Fase X de 7» (icono, nombre con `aria-live` y barra sincronizada con la línea). Fases en el `hasOfferCatalog` del Service y 2 preguntas nuevas (11 en total). /redes-sociales/ conserva la cronología de 4 pasos.
 - **Cronología de 4 pasos (/redes-sociales/):** pin + scrub como RutaTrabajo; el 4 queda activo antes de soltarse; puntos con fondo sólido siempre por encima de la línea. Probado con la rueda en 1440, 1280, 1024, 390 y 375 px.

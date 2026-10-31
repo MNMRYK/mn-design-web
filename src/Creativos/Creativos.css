@@ -613,8 +613,15 @@
 .cta-creativos-botones {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 16px;
   margin-top: 6px;
+}
+
+.cta-creativos-botones a,
+.creativos-botones a {
+  white-space: nowrap;
 }
 
 /* ====================================================
@@ -652,11 +659,6 @@
   .creativos-persona {
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .creativos-botones a,
-  .cta-creativos-botones a {
-    width: 100%;
   }
 
   .creativos-seccion--cta {
@@ -735,11 +737,11 @@
 }
 
 .cta-creativos:has(.cta-creativos-imagen) {
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
 }
 
 .cta-creativos--imagen-derecha:has(.cta-creativos-imagen) {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
 }
 
 .cta-creativos--imagen-derecha .cta-creativos-imagen {
@@ -829,7 +831,7 @@
   margin: 14px 0 0;
   max-width: 24ch;
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem);
+  font-size: clamp(1.8rem, 1.2rem + 2vw, 2.2rem);
   font-weight: 700;
   line-height: 1.25;
   color: var(--white-iris);
@@ -2152,87 +2154,42 @@
 }
 
 /* ====================================================
-   FASES DE UN PROYECTO DE BRANDING (/branding/)
-   Cronología vertical en todos los tamaños. En escritorio, título e introducción fijos
-   (pin de ScrollTrigger en FasesBranding.jsx) a la izquierda y las fases a la derecha. Usa la tarjeta y los puntos de
-   .cronologia (puntos siempre por encima de la línea, con fondo sólido).
+   FASES DE UN PROYECTO DE BRANDING (/branding/) · FasesBranding.jsx
+   Escritorio: tarjeta de una sola pantalla, fija (pin) mientras el scroll recorre las fases;
+   fases compactas y solo la activa desplegada. Móvil/tablet y "reducir movimiento": lista
+   con todas abiertas. La línea son tramos entre puntos (uno por fase) que se rellenan al
+   completarse: así sigue a la fase activa aunque cambie la altura de las filas.
    ==================================================== */
 .fases {
+  --fases-gap: 22px;
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   gap: 56px;
-  align-items: start;
+  align-items: center;
+}
+
+/* En escritorio, la tarjeta entera cabe debajo del menú */
+.fases--pin {
+  --fases-gap: 12px;
+  padding: 40px 48px;
+  max-height: calc(100vh - 96px);
 }
 
 .fases-entradilla {
-  margin: 18px 0 0;
-  font-size: 1.1rem;
+  margin: 14px 0 0;
+  font-size: 1.05rem;
   line-height: 1.6;
   color: rgba(209, 196, 233, 0.9);
 }
 
-.fases-pista {
-  position: relative;
-}
-
-/* Línea: del centro del primer punto al del último (GSAP la mide; esto es el valor sin JS) */
-.fases-linea {
-  position: absolute;
-  z-index: 0;
-  top: 22px;
-  bottom: 60px;
-  left: 21px;
-  width: 2px;
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.fases-progreso {
-  position: absolute;
-  inset: 0;
-  background: var(--electric-violet);
-  box-shadow: 0 0 15px var(--electric-violet);
-  transform-origin: center top;
-}
-
-.fases-progreso .cronologia-punta {
-  top: auto;
-  right: -4px;
-  bottom: -5px;
-}
-
-.fases-lista {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 56px; /* aire entre fases: la columna izquierda se queda fija mientras avanzan */
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.fases-paso {
-  display: flex;
-  align-items: flex-start;
-  gap: 18px;
-}
-
-.fases-paso .cronologia-nodo {
-  flex-shrink: 0;
-}
-
-.fases-contenido {
-  padding-top: 9px;
-}
-
-/* Nota de Lara + botón, en la columna izquierda */
+/* Nota de Lara + botón */
 .fases-nota {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 16px;
-  margin-top: 24px;
-  padding: 20px 22px;
+  gap: 14px;
+  margin-top: 20px;
+  padding: 18px 20px;
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(166, 114, 255, 0.25);
@@ -2240,8 +2197,8 @@
 
 .fases-nota p {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.98rem;
+  line-height: 1.55;
   color: rgba(239, 235, 252, 0.9);
 }
 
@@ -2249,6 +2206,8 @@
 .cronologia .creativos-btn-secundario {
   color: var(--white-iris);
   border-color: rgba(239, 235, 252, 0.45);
+  font-size: 0.95rem;
+  width: 100%;
 }
 
 .cronologia .creativos-btn-secundario:hover {
@@ -2261,79 +2220,153 @@
   outline-color: var(--white-iris);
 }
 
-/* Indicador de fase (solo escritorio) */
-.fases-indicador {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 14px 18px;
-  margin-top: 24px;
-}
-
-.fases-indicador-icono {
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  border-radius: 18px;
-  background: var(--electric-violet);
-  box-shadow: 0 0 22px rgba(166, 114, 255, 0.55);
-  color: #ffffff;
-  font-size: 1.6rem;
-  animation: fasesCambio 0.4s ease both;
-}
-
-.fases-indicador-contador {
-  margin: 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--iris-glaze);
-}
-
-.fases-indicador-nombre {
-  margin: 4px 0 0;
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.7rem;
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--white-iris);
-}
-
-.fases-indicador-nombre span {
-  display: inline-block;
-  animation: fasesCambio 0.4s ease both;
-}
-
-@keyframes fasesCambio {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.fases-indicador-barra {
-  grid-column: 1 / -1;
-  height: 6px;
+/* Barra de progreso fina bajo la nota */
+.fases-barra {
+  height: 4px;
+  margin-top: 18px;
   overflow: hidden;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.1);
 }
 
-.fases-indicador-progreso {
+.fases-barra span {
   display: block;
   height: 100%;
   border-radius: inherit;
   background: var(--electric-violet);
-  box-shadow: 0 0 12px var(--electric-violet);
+  box-shadow: 0 0 10px var(--electric-violet);
   transform-origin: left center;
+  transition: transform 0.4s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .fases-indicador-icono,
-  .fases-indicador-nombre span {
-    animation: none;
-  }
+/* --- Lista de fases --- */
+.fases-lista {
+  display: flex;
+  flex-direction: column;
+  gap: var(--fases-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fases-paso {
+  position: relative;
+}
+
+/* Tramo de línea hasta el punto siguiente (fondo + relleno), por detrás de los puntos */
+.fases-paso:not(:last-child)::before,
+.fases-paso:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  top: 22px;
+  left: 21px;
+  width: 2px;
+  height: calc(100% + var(--fases-gap));
+}
+
+.fases-paso:not(:last-child)::before {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.fases-paso:not(:last-child)::after {
+  background: var(--electric-violet);
+  box-shadow: 0 0 12px var(--electric-violet);
+  transform: scaleY(0);
+  transform-origin: center top;
+  transition: transform 0.45s ease;
+}
+
+.fases-paso[data-estado="completada"]:not(:last-child)::after {
+  transform: scaleY(1);
+}
+
+.fases-paso-boton {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: default;
+}
+
+.fases--pin .fases-paso-boton {
+  cursor: pointer;
+}
+
+.fases-paso-boton:focus-visible {
+  outline: 2px solid var(--white-iris);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+.fases-paso .cronologia-nodo {
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+}
+
+.fases-paso .cronologia-nodo-relleno {
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+/* Pendiente: punto vacío (fondo sólido, sin relleno) */
+.fases-paso[data-estado="pendiente"] .cronologia-nodo-relleno {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+/* Completada: punto relleno. Activa: relleno, algo más grande y con brillo */
+.fases-paso[data-estado="completada"] .cronologia-nodo-relleno {
+  box-shadow: none;
+}
+
+.fases-paso[data-estado="activa"] .cronologia-nodo {
+  transform: scale(1.1);
+}
+
+.fases-paso-nombre {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--white-iris);
+  transition: color 0.3s ease;
+}
+
+.fases-paso[data-estado="pendiente"] .fases-paso-nombre {
+  color: rgba(209, 196, 233, 0.6);
+}
+
+/* Descripción plegable (siempre en el HTML): grid 0fr → 1fr */
+.fases-paso-desc {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 0.35s ease, opacity 0.3s ease, visibility 0.35s;
+}
+
+.fases-paso-desc > div {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.fases-paso-desc p {
+  margin: 0;
+  padding: 6px 0 2px 60px;
+}
+
+.fases-paso-boton[aria-expanded="true"] + .fases-paso-desc {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
 }
 
 @media (max-width: 900px) {
@@ -2341,13 +2374,50 @@
     grid-template-columns: 1fr;
     gap: 32px;
   }
+}
 
-  /* Una columna: intro, nota y botón arriba y las fases debajo; sin indicador */
-  .fases-indicador {
-    display: none;
+@media (prefers-reduced-motion: reduce) {
+  .fases-barra span,
+  .fases-paso::after,
+  .fases-paso .cronologia-nodo,
+  .fases-paso .cronologia-nodo-relleno,
+  .fases-paso-nombre,
+  .fases-paso-desc {
+    transition: none !important;
+  }
+}
+
+/* Botones en fila (hero y CTA finales); solo pasan a columna, a ancho completo, si no caben */
+@media (max-width: 480px) {
+  .creativos-botones,
+  .cta-creativos-botones {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .fases-lista {
-    gap: 28px;
+  .creativos-botones a,
+  .cta-creativos-botones a {
+    width: 100%;
+  }
+}
+
+/* Con imagen, el CTA pasa a una columna (imagen encima) antes de que los botones no quepan */
+@media (max-width: 1100px) {
+  .cta-creativos:has(.cta-creativos-imagen),
+  .cta-creativos--imagen-derecha:has(.cta-creativos-imagen) {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-creativos--imagen-derecha .cta-creativos-imagen {
+    order: 0;
+  }
+}
+
+/* Entre ~480 y 767 px, botones algo más compactos para que quepan los dos en fila */
+@media (max-width: 767px) and (min-width: 481px) {
+  .cta-creativos-botones a,
+  .creativos-botones a {
+    padding: 13px 20px;
+    font-size: 1.05rem;
   }
 }

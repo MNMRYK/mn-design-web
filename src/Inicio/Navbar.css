@@ -211,7 +211,7 @@
 .desplegable {
   position: absolute;
   top: 210%;
-  right: -50px;
+  right: -150px;
   min-width: 220px;
   list-style: none;
   padding: 15px;
