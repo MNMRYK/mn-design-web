@@ -22,7 +22,7 @@ export default function OrbitingCircles({
           version="1.1"
           className="orbit-svg-path"
           viewBox={`0 0 ${radius * 2} ${radius * 2}`}
-          style={{ width: `${radius * 2}px`, height: `${radius * 2}px` }}
+          style={{ "--radius": radius }}
         >
           <circle
             className="orbit-circle-line"

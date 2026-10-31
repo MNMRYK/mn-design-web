@@ -52,7 +52,7 @@
 
 .ecommerce-title {
   font-size: 3rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--deep-eggplant);
   margin-bottom: 20px;
   line-height: 1.3;
@@ -239,25 +239,27 @@
 }
 
 /* 🔥 ESTA ES LA CAJA MÁGICA IGUAL QUE LA DE DISEÑO WEB 🔥 */
+/* Cuadrada y escalable: la órbita se dibuja en una rejilla de 480 unidades
+   (órbita exterior de 400 + burbujas de 65) que ocupa siempre el interior de la caja. */
 .ecommerce-imagen-wrapper {
   position: relative;
+  box-sizing: border-box;
   width: 100%;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  justify-self: center;
   border-radius: 30px;
   background: rgba(255, 255, 255, 0.4);
   border: 1px solid rgba(126, 87, 194, 0.15);
-  padding: 40px;
-  margin-top: -50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: clamp(16px, 6%, 40px);
   box-shadow: 0 20px 40px rgba(26, 16, 45, 0.05);
-  min-height: 500px;
+  container-type: inline-size;
 }
 
 .orbit-wrapper {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  --orbit-unit: calc(100cqi / 480);
 }
 
 .orbit-icon-bubble img {
@@ -273,15 +275,15 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
+  width: calc(70 * var(--orbit-unit, 1px));
+  height: calc(70 * var(--orbit-unit, 1px));
   background: var(--white-iris);
   border: 2px solid var(--electric-violet);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 30px;
+  font-size: calc(30 * var(--orbit-unit, 1px));
   color: var(--electric-violet);
   z-index: 3; /* Por encima de las órbitas */
   box-shadow: 0 0 20px rgba(126, 87, 194, 0.2);
@@ -298,8 +300,9 @@
    ==================================================== */
 @media (min-width: 1025px) {
   .ecommerce-main-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(40px, 5vw, 80px);
+    align-items: start;
   }
 
   .ecommerce-features {
@@ -310,15 +313,16 @@
    RESPONSIVE - TABLET (iPad y similares)
    ==================================================== */
 @media (min-width: 768px) and (max-width: 1024px) {
+  /* La órbita no cabe al lado del texto: pasa debajo */
   .ecommerce-main-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
   .ecommerce-features {
     grid-template-columns: 1fr 1fr;
   }
   .ecommerce-imagen-wrapper {
-    margin-top: 0 !important;
+    max-width: 520px;
   }
   .ec-text-gradient {
     font-size: 2rem;
@@ -345,25 +349,8 @@
     order: 1;
   }
 
-  /* 🔥 SOLUCIÓN ORBITA: Escalado dinámico 🔥 */
   .ecommerce-imagen-wrapper {
     order: 2;
-    min-height: 330px;
-    margin-top: 10px !important; /* Damos un poco más de aire */
-    padding: 10px !important;
-    overflow: hidden !important;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .orbit-wrapper {
-    /* Aquí está el truco: escalamos la animación al 65% en móvil */
-    transform: scale(0.65);
-    transform-origin: center center;
-    /* Aseguramos que ocupe el espacio sin romper el layout */
-    width: 100%;
-    height: 100%;
   }
 
   /* --- TÍTULOS --- */
@@ -372,8 +359,8 @@
   }
 
   .ecommerce-title {
-    font-size: 2.6rem !important;
-    line-height: 1.1;
+    font-size: clamp(2rem, 8.5vw, 2.6rem) !important;
+    line-height: 1.3;
     display: flex;
     flex-direction: column;
   }

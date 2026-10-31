@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useScroll, useMotionValueEvent } from "framer-motion";
 import "./Navbar.css";
 import Icono from "../utils/Icono";
+import { SERVICIOS, SECTORES, MENU, CONTACTO } from "../utils/navegacion";
+
+// Columnas del desplegable "Servicios"
+const GRUPOS = [
+  { id: "menu-grupo-servicios", titulo: "Servicios", enlaces: SERVICIOS },
+  { id: "menu-grupo-sectores", titulo: "Por sector", enlaces: SECTORES },
+];
 
 const Navbar = () => {
   const [menuAbierto, setMenuAbierto] = useState(false);
   const [desplegableAbierto, setDesplegableAbierto] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { scrollY } = useScroll();
+  const botonServiciosRef = useRef(null);
+  const botonMenuRef = useRef(null);
 
   // --- LÓGICA HÍBRIDA: MATEMÁTICAS + ESCÁNER VISUAL ---
   useMotionValueEvent(scrollY, "change", (latest) => {
@@ -48,6 +57,30 @@ const Navbar = () => {
     }
   });
 
+  // Teclado: Escape cierra el desplegable (o el menú del móvil) y devuelve el foco al botón
+  useEffect(() => {
+    if (!menuAbierto && !desplegableAbierto) return undefined;
+    const alPulsarTecla = (e) => {
+      if (e.key !== "Escape") return;
+      if (desplegableAbierto) {
+        setDesplegableAbierto(false);
+        botonServiciosRef.current?.focus();
+      } else {
+        setMenuAbierto(false);
+        botonMenuRef.current?.focus();
+      }
+    };
+    document.addEventListener("keydown", alPulsarTecla);
+    return () => document.removeEventListener("keydown", alPulsarTecla);
+  }, [menuAbierto, desplegableAbierto]);
+
+  // Si el foco sale del desplegable con el tabulador, se cierra
+  const alPerderFoco = (e) => {
+    if (window.innerWidth > 1052 && !e.currentTarget.contains(e.relatedTarget)) {
+      setDesplegableAbierto(false);
+    }
+  };
+
   const toggleMenu = () => setMenuAbierto(!menuAbierto);
   return (
     <header className={`navbar-header ${isScrolled ? "scrolled" : "top"} `}>
@@ -61,82 +94,61 @@ const Navbar = () => {
         </div>
       </a>
 
-      <nav>
+      <nav aria-label="Principal">
         <button
+          ref={botonMenuRef}
+          type="button"
           className="menu-toggle"
           onClick={toggleMenu}
-          aria-label="Abrir menú"
+          aria-label={menuAbierto ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={menuAbierto}
+          aria-controls="menu-principal"
         >
           <Icono nombre={menuAbierto ? "times" : "bars"} />
         </button>
 
-        <ul className={`menu-principal ${menuAbierto ? "active" : ""}`}>
+        <ul id="menu-principal" className={`menu-principal ${menuAbierto ? "active" : ""}`}>
           <li
             className={`tiene-desplegable ${desplegableAbierto ? "abierto" : ""}`}
+            onBlur={alPerderFoco}
+            onMouseLeave={() => window.innerWidth > 1052 && setDesplegableAbierto(false)}
           >
+            {/* En ordenador se abre al pasar el ratón (CSS) y también con clic o teclado */}
             <button
+              ref={botonServiciosRef}
               type="button"
               className="boton-desplegable"
-              aria-haspopup="true"
               aria-expanded={desplegableAbierto}
-              onClick={() => {
-                if (window.innerWidth <= 1052) {
-                  setDesplegableAbierto(!desplegableAbierto);
-                }
-              }}
+              aria-controls="menu-servicios"
+              onClick={() => setDesplegableAbierto(!desplegableAbierto)}
             >
               Servicios <span className="flecha" aria-hidden="true">▾</span>
             </button>
-            <ul className="desplegable">
-              <li>
-                <a href="/disenoweb/">Diseño Web</a>
-              </li>
-              <li>
-                <a href="/e-commerce/">E-commerce</a>
-              </li>
-              <li>
-                <a href="https://mndesignweb.es/aprende-shopify/">
-                  Mentorías Shopify
-                </a>
-              </li>
-              <li>
-                <a href="/posicionamiento-seo/">Posicionamiento SEO</a>
-              </li>
-              <li>
-                <a href="https://mndesignweb.es/psicologos/">Psicólogos</a>
-              </li>
-              <li>
-                <a href="https://mndesignweb.es/nutricionistas/">
-                  Nutricionistas
-                </a>
-              </li>
-              <li>
-                <a href="https://mndesignweb.es/academia-nutricion/">
-                  Academias E-Learning
-                </a>
-              </li>
-              <li>
-                <a href="https://mndesignweb.es/clinicas/">
-                  Plataforma Portal Salud
-                </a>
-              </li>
-              <li>
-                <a href="/redes-sociales/">Redes Sociales</a>
-              </li>
-            </ul>
+            <div id="menu-servicios" className="desplegable">
+              {GRUPOS.map((grupo) => (
+                <div className="desplegable-grupo" key={grupo.id}>
+                  <p className="desplegable-titulo" id={grupo.id}>
+                    {grupo.titulo}
+                  </p>
+                  <ul aria-labelledby={grupo.id}>
+                    {grupo.enlaces.map((enlace) => (
+                      <li key={enlace.url}>
+                        <a href={enlace.url}>{enlace.texto}</a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </li>
+          {MENU.map((enlace) => (
+            <li key={enlace.url}>
+              <a href={enlace.url}>{enlace.texto}</a>
+            </li>
+          ))}
           <li>
-            <a href="/demos/">Demos</a>
-          </li>
-          <li>
-            <a href="https://mndesignweb.es/blog/">Blog</a>
-          </li>
-          <li>
-            <a href="/nosotros/">Nosotros</a>
-          </li>
-          <li>
-            <a href="/contacto/" className="boton-contacto">
-              Contacto
+            <a href={CONTACTO.url} className="boton-contacto">
+              {CONTACTO.texto}
             </a>
           </li>
         </ul>

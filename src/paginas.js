@@ -8,6 +8,7 @@ export const DisenoWeb = paginaDiferida(() => import("./DisenoWeb.jsx"));
 export const Ecommerce = paginaDiferida(() => import("./Ecommerce.jsx"));
 export const PosicionamientoSeo = paginaDiferida(() => import("./PosicionamientoSeo.jsx"));
 export const RedesSociales = paginaDiferida(() => import("./RedesSociales.jsx"));
+export const Branding = paginaDiferida(() => import("./Branding.jsx"));
 export const Demos = paginaDiferida(() => import("./Demos.jsx"));
 export const PoliticaPrivacidad = paginaDiferida(() => import("./Legales/PoliticaPrivacidad.jsx"));
 export const AvisoLegal = paginaDiferida(() => import("./Legales/AvisoLegal.jsx"));
@@ -23,6 +24,7 @@ const PAGINAS_POR_RUTA = {
   "/e-commerce": Ecommerce,
   "/posicionamiento-seo": PosicionamientoSeo,
   "/redes-sociales": RedesSociales,
+  "/branding": Branding,
   "/demos": Demos,
   "/privacidad": PoliticaPrivacidad,
   "/aviso-legal": AvisoLegal,

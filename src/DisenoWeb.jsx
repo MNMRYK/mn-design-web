@@ -12,6 +12,7 @@ import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 import { schemaFaq } from "./seo/faq";
 import { PREGUNTAS_DISENO } from "./DisenoWeb/preguntasDiseno";
 import { crearLenis } from "./utils/lenis";
+import BloqueServiciosCreativos from "./Creativos/BloqueServiciosCreativos.jsx";
 
 const DisenoWeb = () => {
   // Mismas preguntas que se ven en la página (el build falla si no coinciden)
@@ -56,6 +57,7 @@ const DisenoWeb = () => {
         <DisenoWebSeccionesEspeciales />
         <LlamadaDemos />
         <ResponsiveShowcase />
+        <BloqueServiciosCreativos />
         <DisenoDoble />
 
         <script

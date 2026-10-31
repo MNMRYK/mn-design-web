@@ -40,7 +40,8 @@ Canibalización con /alcoi/ (dato de María, Search Console, 3 meses): "agencia 
 | /disenoweb/ | diseño web a medida | diseño web profesional, desarrollo web a medida |
 | /e-commerce/ | diseño de tiendas online | desarrollo e-commerce, tienda online Shopify / WooCommerce |
 | /posicionamiento-seo/ | posicionamiento SEO | posicionamiento web, SEO para pymes |
-| /redes-sociales/ | gestión de redes sociales | community manager para empresas |
+| /redes-sociales/ | contenido para redes sociales (desde el 31/10/2026; antes «gestión de redes sociales») | dirección visual de redes |
+| /branding/ | branding e identidad de marca | identidad visual, dirección de arte, imágenes con IA |
 | /contacto/ | presupuesto de diseño web | contacto agencia diseño web |
 | /demos/ | ejemplos de páginas web | demos de diseño web por sectores |
 | /nosotros/ | MN Design Web (marca) | María Nadal, agencia de diseño web |
@@ -48,6 +49,17 @@ Canibalización con /alcoi/ (dato de María, Search Console, 3 meses): "agencia 
 Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb/MEMORIA-SEO.md`).
 
 ## Registro
+
+### 31/10/2026 · H1 más aireados, navegación, /redes-sociales/ nueva, /branding/ y bloque de servicios creativos (rama `mejoras-h1-navegacion-redes`)
+- **H1:** home sin saltos forzados (`text-wrap: balance`, peso 800, interlineado 1,3, +0,01em, sombra más corta, 3 líneas en móvil y 2 en ordenador, subtítulo en peso 500 con interlineado 1,6, más aire entre H1, subtítulo y botones). Resto de H1: interlineado 1,3 y un punto menos de peso; `text-wrap: balance` global en `src/index.css`; en móvil «Posicionamiento» ya no se sale de la pantalla en /posicionamiento-seo/. /disenoweb/: faltaba un espacio en el H1 («agencia de» + «diseño»).
+- **/e-commerce/:** la tarjeta de la órbita escala con su ancho (`aspect-ratio`, unidad relativa `cqi`), ya no tapa el subtítulo y en tablet y móvil va debajo del texto.
+- **Navegación (solo React; las landings no se tocan):** enlaces en `src/utils/navegacion.js`. Desplegable «Servicios» en dos columnas (Servicios / Por sector), «Redes sociales» y «Branding e identidad» por separado, Escape cierra y `aria-expanded`. Estilo del menú igual que en main (pedido por María). Pie con columnas Servicios · Sectores · Empresa · Zonas · Invitaciones de boda. Mapa de /contacto/: `isolation: isolate` para que Leaflet no se pinte encima del menú.
+- **/redes-sociales/:** rediseño según Figma «Dirección visual para redes» (sustituye la gestión de redes). Title «Contenido para redes sociales | MN Design Web». FAQPage con sus 2 preguntas. Formulario de siempre (`generate_lead` con `formulario: redes_sociales`) con opciones nuevas (servicio puntual / colaboración mensual).
+- **/branding/ (nueva):** según Figma «Identidad de marca y contenido visual»: 5 servicios, «Quién está detrás» con María y Lara Summers (colaboradora; textos de Lara verificados con su biografía), tres formas de trabajar, proceso en 4 pasos, 4 preguntas (FAQPage) y formulario (`formulario: branding`). Schema Service + Person (Lara, `affiliation` con la empresa). Añadida a `rutas.js`, `App.jsx`, `paginas.js`, reglas 5 y 6 del `.htaccess` y `llms.txt`. Fotos: `lara-summers-directora-arte.webp` (400 px, el original no da para más) y `-200.webp`.
+- **Bloque «Servicios creativos»** al final de /disenoweb/ y /e-commerce/, antes del formulario, con enlace a /branding/.
+- **Huecos de imagen de Figma:** ocultos hasta tener imágenes (collage y reel del hero de /redes-sociales/, hero de /branding/, imagen de los dos CTA finales y del bloque).
+- **Cómo medirlo:** Search Console → «contenido para redes sociales» (/redes-sociales/), «branding», «identidad de marca» e «identidad visual» (/branding/); clics en «Conoce nuestros servicios creativos» y leads con `formulario: branding` en GA4.
+- **Estado:** hecho en local, con commit, sin publicar.
 
 ### 23/10/2026 · /demos/: NovoTeix y SupplyConnect; reseña de Alinea
 - **Qué:** dos demos nuevas al principio del bloque B2B de `src/Demos/HeaderDemos.jsx`: «Industria Textil Técnica» (https://mnmryk.github.io/novoteix/) y «Portal ERP Industrial» (https://mndesignweb.es/supplyconnect/), con capturas `public/mockups/novoteix.webp` y `supplyconnect.webp` (1000×456, 26-28 KB). Se presentan como demos, no como clientes. Reseña de Google de Alinea (plataforma de cursos online) en la home; la home pasa a rejilla de 3×2 sin reseña destacada. Texto de Nutrimente confirmado.

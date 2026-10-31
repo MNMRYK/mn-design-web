@@ -11,6 +11,7 @@ import { EMPRESA, REF_EMPRESA, AREA_SERVIDA } from "./seo/negocio";
 import { schemaFaq } from "./seo/faq";
 import { PREGUNTAS_ECOMMERCE } from "./Ecommerce/preguntasEcommerce";
 import { crearLenis } from "./utils/lenis";
+import BloqueServiciosCreativos from "./Creativos/BloqueServiciosCreativos.jsx";
 
 const Ecommerce = () => {
   // Mismas preguntas que se ven en la página (el build falla si no coinciden)
@@ -51,6 +52,7 @@ const Ecommerce = () => {
         <EcommerceSiguiente />
         <EcommercePlanes />
         <ResponsiveShowcase />
+        <BloqueServiciosCreativos />
         <EcommerceDoble />
 
         <script

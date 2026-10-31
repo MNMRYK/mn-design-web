@@ -13,6 +13,7 @@ export const RUTAS_REACT = [
   "/e-commerce/",
   "/posicionamiento-seo/",
   "/redes-sociales/",
+  "/branding/",
   "/demos/",
   "/rescate-kit-digital/",
   "/privacidad/",

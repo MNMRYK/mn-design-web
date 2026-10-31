@@ -25,3 +25,6 @@ dist-ssr
 
 # Datos de la auditoría SEO: viven fuera del proyecto, en ../auditoria-seo
 auditoria/
+
+# Material de trabajo de Lara (textos, PDF, foto original): no se publica ni se versiona
+contenido-lara/

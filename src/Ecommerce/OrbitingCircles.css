@@ -7,8 +7,12 @@
   height: 100%;
 }
 
+/* --orbit-unit: tamaño de 1 "px" de diseño. Por defecto 1px; el contenedor puede
+   cambiarlo (p. ej. en función de su ancho) para que la órbita escale entera. */
 .orbit-svg-path {
   position: absolute;
+  width: calc(var(--radius) * 2 * var(--orbit-unit, 1px));
+  height: calc(var(--radius) * 2 * var(--orbit-unit, 1px));
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -50,8 +54,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 65px;
-  height: 65px;
+  width: calc(65 * var(--orbit-unit, 1px));
+  height: calc(65 * var(--orbit-unit, 1px));
   background: white;
   border-radius: 50%;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -59,12 +63,12 @@
 
 /* Estilos para TUS imágenes SVG de la carpeta public */
 .orbit-icon-bubble img {
-  width: 33px; /* Tamaño del icono dentro de la burbuja */
-  height: 33px;
+  width: calc(33 * var(--orbit-unit, 1px)); /* Tamaño del icono dentro de la burbuja */
+  height: calc(33 * var(--orbit-unit, 1px));
   object-fit: contain;
 }
 
 @keyframes orbit {
-  0% { transform: rotate(0deg) translateY(calc(var(--radius) * -1px)) rotate(0deg); }
-  100% { transform: rotate(360deg) translateY(calc(var(--radius) * -1px)) rotate(-360deg); }
+  0% { transform: rotate(0deg) translateY(calc(var(--radius) * var(--orbit-unit, 1px) * -1)) rotate(0deg); }
+  100% { transform: rotate(360deg) translateY(calc(var(--radius) * var(--orbit-unit, 1px) * -1)) rotate(-360deg); }
 }

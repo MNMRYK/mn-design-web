@@ -20,6 +20,7 @@ import {
   Ecommerce,
   PosicionamientoSeo,
   RedesSociales,
+  Branding,
   Demos,
   PoliticaPrivacidad,
   AvisoLegal,
@@ -120,6 +121,7 @@ function App() {
               <Route path="/e-commerce" element={<MainLayout><Ecommerce /></MainLayout>} />
               <Route path="/posicionamiento-seo" element={<MainLayout><PosicionamientoSeo /></MainLayout>} />
               <Route path="/redes-sociales" element={<MainLayout><RedesSociales /></MainLayout>} />
+              <Route path="/branding" element={<MainLayout><Branding /></MainLayout>} />
               <Route path="/demos" element={<MainLayout><Demos /></MainLayout>} />
               <Route path="/privacidad" element={<MainLayout><PoliticaPrivacidad /></MainLayout>} />
               <Route path="/aviso-legal" element={<MainLayout><AvisoLegal /></MainLayout>} />

@@ -131,3 +131,16 @@ html::-webkit-scrollbar-thumb:hover {
     background: #1A102D !important;
   }
 }
+/* Títulos principales: líneas equilibradas, sin palabras sueltas al final */
+h1 {
+  text-wrap: balance;
+}
+
+/* En móvil, los saltos fijos de los H1 de servicios dejan palabras sueltas: que equilibre balance */
+@media (max-width: 767px) {
+  .diseno-title br,
+  .ecommerce-title br,
+  .seo-title br {
+    display: none;
+  }
+}

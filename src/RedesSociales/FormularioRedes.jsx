@@ -5,17 +5,20 @@ import { enviarLead, asuntoLead } from "../utils/enviarLead";
 import toast from 'react-hot-toast'; 
 import Icono from "../utils/Icono";
 
-// Opciones
-const opcionesServicio = [
-  "Plan: Despegue Digital (Configuración inicial)",
-  "Plan: Reto Aceleración (Sprint 90 días)",
-  "Plan: Autoridad 360 (Gestión Integral Recurrente)",
-  "Asesoría Estratégica Personalizada",
+// Opciones por defecto (/redes-sociales/): las dos formas de trabajar de la página
+const OPCIONES_REDES = [
+  "Servicio puntual (una campaña, un lanzamiento, unos reels…)",
+  "Colaboración mensual",
   "Consulta rápida / Otra duda",
-  "¿Vienes del Kit Digital?"
 ];
 
-const FormularioRedes = () => {
+// También lo usa /branding/ con sus propias opciones, asunto y nombre del evento.
+const FormularioRedes = ({
+  opciones = OPCIONES_REDES,
+  pagina = "Redes sociales",
+  formulario = "redes_sociales",
+  titulo = "Cuéntanos tu proyecto",
+}) => {
   const [formData, setFormData] = useState({
     nombre: '',
     email: '',
@@ -67,7 +70,7 @@ const FormularioRedes = () => {
     setEstaCargando(true);
 
     const dataToSend = {
-      subject: asuntoLead("Redes sociales", formData.servicios.join(", ")),
+      subject: asuntoLead(pagina, formData.servicios.join(", ")),
       from_name: formData.nombre,
       email: formData.email,
       message: `Intereses: ${formData.servicios.join(', ')}\n\nMensaje: ${formData.mensaje}`,
@@ -81,7 +84,7 @@ const FormularioRedes = () => {
         setEstaCargando(false);
 
         // Conversión para GA4: solo tras un envío correcto
-        registrarLead("redes_sociales");
+        registrarLead(formulario);
         return result;
       }).finally(() => setEstaCargando(false)),
 
@@ -132,9 +135,9 @@ const FormularioRedes = () => {
   };
 
   return (
-    <div id="contacto"className="redes-formulario-area">
+    <div id="contacto" className="redes-formulario-area">
       <div className="redes-form-header">
-        <h2>Cuéntanos tu proyecto</h2>
+        <h2>{titulo}</h2>
       </div>
 
       <form id="redes-form" onSubmit={handleSubmit}>
@@ -151,7 +154,7 @@ const FormularioRedes = () => {
         <div className="redes-form-grupo">
           <label>¿En qué te podemos ayudar? *</label> {/* Añadimos asterisco */}
           <div className="redes-checkbox-grid">
-            {opcionesServicio.map((opcion, index) => (
+            {opciones.map((opcion, index) => (
               <label key={index} className="redes-checkbox-label">
                 <input type="checkbox" value={opcion} checked={formData.servicios.includes(opcion)} onChange={() => handleCheckboxChange(opcion)} />
                 <span className="redes-checkmark"><Icono nombre="check" /></span>

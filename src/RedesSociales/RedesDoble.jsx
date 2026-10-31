@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
 import FormularioRedes from './FormularioRedes';
-import FaqRedes from './FaqRedes';
+import AcordeonFaq from '../utils/AcordeonFaq';
+import { PREGUNTAS_REDES } from './preguntasRedes';
+import './FaqRedes.css';
 import './RedesDoble.css'; // Aquí meteríamos el CSS del grid que divide la pantalla en 2
 import { motion } from 'framer-motion';
 
-const RedesDoble = () => {
+// Formulario + preguntas frecuentes. /branding/ lo reutiliza con sus preguntas y su formulario.
+const RedesDoble = ({ preguntas = PREGUNTAS_REDES, formulario = {} }) => {
   return (
     <motion.section 
       className="redes-section-wrapper"
@@ -16,10 +19,10 @@ const RedesDoble = () => {
         <div className="redes-grid">
             
             {/* Mitad izquierda */}
-            <FormularioRedes />
+            <FormularioRedes {...formulario} />
             
             {/* Mitad derecha */}
-            <FaqRedes />
+            <AcordeonFaq preguntas={preguntas} prefijo="redes" />
             
         </div>
     </motion.section>

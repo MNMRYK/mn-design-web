@@ -2,6 +2,15 @@ import React from "react";
 import './Footer.css';
 import { abrirConfiguracionCookies } from '../utils/cookies';
 import { CalendarDays, MessageCircle, MapPin } from 'lucide-react';
+import { SERVICIOS, SECTORES, EMPRESA, ZONAS, BODAS } from '../utils/navegacion';
+
+const COLUMNAS = [
+  { titulo: 'SERVICIOS', enlaces: SERVICIOS },
+  { titulo: 'SECTORES', enlaces: SECTORES },
+  { titulo: 'EMPRESA', enlaces: EMPRESA },
+  { titulo: 'ZONAS', enlaces: ZONAS },
+  { titulo: 'INVITACIONES DE BODA', enlaces: BODAS },
+];
 
 // Los clics en cal.com y wa.me se miden solos en index.html (click_reserva / click_whatsapp).
 const WHATSAPP = 'https://wa.me/34645854934?text=' + encodeURIComponent('¡Hola! Vengo de vuestra web y me gustaría pedir información.');
@@ -62,35 +71,20 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="footer-links-grid">
-            <div className="footer-column">
-              <h3>ESPECIALIDADES</h3>
-              <ul>
-                <li><a href="/disenoweb/">Diseño Web</a></li>
-                <li><a href="/e-commerce/">E-commerce</a></li>
-                <li><a href="/posicionamiento-seo/">Posicionamiento SEO</a></li>
-                <li><a href="/redes-sociales/">Redes Sociales</a></li>
-                <li><a href="/demos/">Demos</a></li>
-                
-                <li><a href="https://mndesignweb.es/clinicas/">Para Clínicas </a></li>
-                <li><a href="https://mndesignweb.es/nutricionistas/">Para Nutricionistas</a></li>
-                <li><a href="https://mndesignweb.es/psicologos/">Para Psicólogos</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-column">
-              <h3>EMPRESA</h3>
-              <ul>
-                <li><a href="/contacto/">Contacto</a></li>
-                <li><a href="/nosotros/">Nosotros</a></li>
-                <li><a href="https://mndesignweb.es/aprende-shopify/">Aprende Shopify</a></li>
-                <li><a href="https://mndesignweb.es/blog/">Blog</a></li>
-                <li><a href="https://mndesignweb.es/alcoi/">Diseño web en Alcoy</a></li>
-                <li><a href="https://mndesignweb.es/software-a-mida-alcoi/" lang="ca">Software a mida (Alcoi i Cocentaina)</a></li>
-                <li><a href="https://mndesignweb.es/academia-nutricion/">Academias E-Learning</a></li>
-              </ul>
-            </div>
-          </div>
+          <nav className="footer-links-grid" aria-label="Pie de página">
+            {COLUMNAS.map((columna) => (
+              <div className="footer-column" key={columna.titulo}>
+                <h3>{columna.titulo}</h3>
+                <ul>
+                  {columna.enlaces.map((enlace) => (
+                    <li key={enlace.url}>
+                      <a href={enlace.url} lang={enlace.lang}>{enlace.texto}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
         </div>
 
         {/* PARTE INFERIOR: Redes, Legal y Copyright */}

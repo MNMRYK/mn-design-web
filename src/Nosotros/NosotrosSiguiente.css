@@ -53,9 +53,9 @@
 .nosotros-content h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 900;
+  font-weight: 800;
   color: var(--deep-eggplant);
-  line-height: 1.1;
+  line-height: 1.3;
   margin-bottom: 30px;
 }
 

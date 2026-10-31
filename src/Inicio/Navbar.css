@@ -495,3 +495,56 @@
     height: 25px; /* Reducimos el pajarito */
   }
 }
+
+/* ====================================================
+   DESPLEGABLE EN DOS COLUMNAS (Servicios / Por sector)
+   Solo cambia la distribución: el panel, los colores y las fuentes son los de arriba.
+   ==================================================== */
+.desplegable ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Subtítulo de cada columna: misma fuente y mismo color que los enlaces del desplegable */
+.desplegable-titulo {
+  margin: 0 0 6px;
+  padding: 0 12px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dark-violet);
+  opacity: 0.8;
+}
+
+.navbar-header.top .desplegable-titulo {
+  color: var(--white-iris);
+}
+
+.desplegable a {
+  white-space: nowrap;
+}
+
+@media (min-width: 1053px) {
+  .desplegable {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 1052px) {
+  .desplegable-grupo + .desplegable-grupo {
+    margin-top: 15px;
+  }
+
+  .desplegable-titulo {
+    padding: 0;
+  }
+
+  .desplegable a {
+    white-space: normal;
+  }
+}

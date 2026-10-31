@@ -180,8 +180,7 @@ const DisenoWebSiguiente = () => {
         >
           <h1 className="diseno-title">
             <div className="title-phrase-one">
-              ¿Buscas una agencia de
-              <br />
+              ¿Buscas una agencia de <br />
               diseño web a medida?
             </div>
             <span className="diseno-text-gradient">
