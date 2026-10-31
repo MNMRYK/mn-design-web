@@ -162,11 +162,11 @@ const Branding = () => {
           texto="Prepararemos una propuesta personalizada."
           imagenALaDerecha
           imagen={{
-            src: "/branding/que-necesita-tu-negocio.webp",
-            alt: "Identidad visual de una nutricionista: logotipo, paleta de colores tierra y aplicaciones de marca",
+            src: "/branding/ctabranding.webp",
+            alt: "Identidad visual con logotipo en degradado de naranja a morado, símbolo, caja, pegatinas, bolsa de tela y tarjetas",
             width: "736",
             height: "736",
-            posicion: "50% 28%",
+            entera: true,
           }}
         />
 

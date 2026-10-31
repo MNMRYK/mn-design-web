@@ -10,7 +10,8 @@ const WHATSAPP =
   encodeURIComponent("¡Hola! Vengo de vuestra web y me gustaría pedir información.");
 
 // Llamada final de /redes-sociales/ y /branding/ (tarjeta oscura con el degradado de la web).
-// `imagen`: { src, alt, width, height, posicion } (izquierda en /redes-sociales/, derecha en /branding/).
+// `imagen`: { src, alt, width, height, posicion | entera } (izquierda en /redes-sociales/, derecha en
+// /branding/). Con `entera`, se ve completa con su proporción real.
 const CtaCreativos = ({ texto, imagen, imagenALaDerecha = false }) => (
   <section className="creativos-seccion creativos-seccion--cta" aria-labelledby="cta-creativos-titulo">
     <motion.div

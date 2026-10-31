@@ -4,9 +4,10 @@ import { esPrerender } from "../utils/prerender";
 // Imágenes de los huecos de /branding/ y /redes-sociales/.
 // Ocupan su hueco con object-fit: cover; `posicion` (object-position) decide qué parte se ve
 // para no perder lo importante. Las del hero van con fetchpriority="high" y sin lazy.
-const ImagenCreativa = ({ src, alt, width, height, proporcion, posicion = "50% 50%", prioridad = false, className = "" }) => (
+// `entera`: la imagen se ve completa y el hueco toma su proporción real (sin recorte ni cover).
+const ImagenCreativa = ({ src, alt, width, height, proporcion, posicion = "50% 50%", prioridad = false, entera = false, className = "" }) => (
   <img
-    className={`creativos-img ${className}`.trim()}
+    className={`creativos-img ${entera ? "creativos-img--entera" : ""} ${className}`.replace(/\s+/g, " ").trim()}
     src={src}
     alt={alt}
     width={width}
@@ -14,7 +15,7 @@ const ImagenCreativa = ({ src, alt, width, height, proporcion, posicion = "50% 5
     loading={prioridad ? "eager" : "lazy"}
     fetchPriority={prioridad ? "high" : undefined}
     decoding="async"
-    style={{ aspectRatio: proporcion, objectPosition: posicion }}
+    style={entera ? undefined : { aspectRatio: proporcion, objectPosition: posicion }}
   />
 );
 

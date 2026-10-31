@@ -261,8 +261,7 @@ export const HeroBranding = () => (
             alt="Identidad visual de una marca de helados: logotipo, paleta de colores, envases y fotografía de producto en tonos morados"
             width="720"
             height="960"
-            proporcion="552 / 600"
-            posicion="50% 0%" /* arriba: logotipos enteros y fuera el texto de plantilla de abajo */
+            entera
             prioridad
           />
         </div>

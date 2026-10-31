@@ -50,6 +50,10 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 31/10/2026 (6) · Imágenes enteras en el hero y los CTA de /branding/ y en el bloque de servicios creativos
+- **Qué:** el hero de /branding/ (`creatividad-principal.webp`), su CTA final y el bloque de /disenoweb/ y /e-commerce/ (los dos con `ctabranding.webp`) muestran la imagen entera con su proporción real (sin `cover` ni altura fija). La columna de la imagen del hero se limita a 440 px para que no crezca. Más aire bajo el menú en el hero (140 px; 116 en móvil).
+- **Estado:** hecho en local, con commit, sin publicar.
+
 ### 31/10/2026 (5) · Imágenes de /branding/ y /redes-sociales/
 - **Qué:** imágenes de María en sus huecos (`src/Creativos/ImagenCreativa.jsx`: object-fit cover con su encuadre, width/height, lazy salvo el hero, que va con fetchpriority="high"). /branding/: hero, 3 trabajos (sección visible ya en producción) y CTA final. /redes-sociales/: collage del hero (reel en bucle que se carga al verse, solo póster con «reducir movimiento» y en el prerender; publicación y pieza) y CTA final. Archivos en `public/branding/` y `public/redes/`; `post.jpg` pasado a WebP y `post2`/`ctaredes` reducidos (529 y 351 KB → 32 y 41 KB).
 - **Pendiente:** títulos reales de los 3 trabajos (ahora genéricos), confirmar que las imágenes son trabajos propios o de Lara con permiso, borrar la carpeta vacía `public/branding/redes/` e imagen del bloque de /disenoweb/ y /e-commerce/.

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import HuecoImagen from "./HuecoImagen.jsx";
+import ImagenCreativa from "./ImagenCreativa.jsx";
 import "./Creativos.css";
 
 // Bloque al final de /disenoweb/ y /e-commerce/ (antes del formulario) que lleva a /branding/.
@@ -30,11 +30,13 @@ const BloqueServiciosCreativos = () => (
           Conoce nuestros servicios creativos
         </a>
       </div>
-      <HuecoImagen
+      <ImagenCreativa
         className="bloque-creativos-imagen"
-        proporcion="300 / 280"
-        descripcion="Un trabajo de identidad visual aplicado a una web (marca + web juntas)"
-        medidas="600 × 560 px (se muestra a 300 × 280)"
+        src="/branding/ctabranding.webp"
+        alt="Identidad visual con logotipo en degradado de naranja a morado, símbolo, caja, pegatinas, bolsa de tela y tarjetas"
+        width="736"
+        height="736"
+        entera
       />
     </motion.div>
   </section>

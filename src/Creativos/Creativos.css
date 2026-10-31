@@ -2438,3 +2438,44 @@
 .cta-creativos .creativos-img {
   box-shadow: none;
 }
+
+/* Imagen entera: el hueco toma la proporción real de la imagen (sin recorte) */
+.creativos-img--entera {
+  height: auto;
+  object-fit: initial;
+}
+
+/* Hero de /branding/: la imagen es vertical; se limita el ancho de su columna en vez de
+   recortarla, para que el hero no se haga demasiado alto */
+.creativos-hero-media {
+  justify-self: end;
+  width: 100%;
+  max-width: 440px;
+}
+
+@media (max-width: 900px) {
+  .creativos-hero-media {
+    justify-self: center;
+    max-width: 420px;
+  }
+}
+
+/* Más aire bajo el menú fijo (la miga de pan nunca queda tapada) */
+.creativos-hero {
+  padding-top: 140px;
+}
+
+@media (max-width: 767px) {
+  .creativos-hero {
+    padding-top: 116px;
+  }
+}
+
+/* Bloque de /disenoweb/ y /e-commerce/ y CTA de /branding/: imagen entera, alineada arriba */
+.bloque-creativos:has(.bloque-creativos-imagen) {
+  align-items: center;
+}
+
+.cta-creativos .creativos-img--entera {
+  align-self: center;
+}
