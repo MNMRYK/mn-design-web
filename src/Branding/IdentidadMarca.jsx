@@ -102,17 +102,6 @@ const SERVICIOS = [
   },
 ];
 
-// --- NUEVO: entregables (respaldados por los textos de Lara) ---
-const ENTREGABLES = [
-  { titulo: "Guía visual", texto: "Las reglas de tu marca por escrito, para mantener la coherencia en cada pieza." },
-  { titulo: "Paleta cromática", texto: "Los colores de tu marca y cómo combinarlos." },
-  { titulo: "Tipografías", texto: "Las fuentes para títulos y textos, y cómo usarlas." },
-  { titulo: "Elementos gráficos y aplicaciones", texto: "Recursos visuales propios y su aplicación a las piezas que necesites." },
-  { titulo: "Moodboards y referencias", texto: "La exploración estética con la que se decide el estilo." },
-  { titulo: "Plantillas para redes", texto: "Para publicar con la misma línea visual sin empezar cada vez de cero." },
-  { titulo: "Imágenes y vídeos", texto: "Producidos con la identidad de tu marca para tu web, tu tienda y tus redes." },
-];
-
 const PERSONAS = [
   {
     nombre: "María Nadal",
@@ -294,7 +283,7 @@ export const ServiciosBranding = () => (
         ofrecer soluciones coherentes y adaptadas a cada negocio.
       </p>
 
-      <div className="creativos-rejilla creativos-rejilla--2">
+      <div className="creativos-rejilla creativos-rejilla--2 tema-oscuro">
         {DESTACADOS.map((servicio, i) => (
           <motion.article
             key={servicio.titulo}
@@ -353,34 +342,6 @@ export const ServiciosBranding = () => (
           </motion.article>
         ))}
       </div>
-    </div>
-  </section>
-);
-
-export const EntregablesBranding = () => (
-  <section className="creativos-seccion" aria-labelledby="branding-entregables-titulo">
-    <div className="creativos-contenedor">
-      <p className="creativos-etiqueta">Qué recibes</p>
-      <h2 id="branding-entregables-titulo" className="creativos-h2">
-        Entregables concretos, <span className="creativos-degradado">no solo ideas</span>
-      </h2>
-      <p className="creativos-subtitulo">
-        Según el alcance de cada proyecto, estos son los materiales con los que trabajamos y que
-        quedan definidos en la propuesta.
-      </p>
-      <ul className="creativos-checklist">
-        {ENTREGABLES.map((entregable, i) => (
-          <motion.li key={entregable.titulo} {...aparecer} transition={{ duration: 0.4, delay: (i % 4) * 0.08 }}>
-            <span className="creativos-checklist-icono" aria-hidden="true">
-              <Icono nombre="check" />
-            </span>
-            <div>
-              <h3 className="creativos-h3">{entregable.titulo}</h3>
-              <p className="creativos-texto">{entregable.texto}</p>
-            </div>
-          </motion.li>
-        ))}
-      </ul>
     </div>
   </section>
 );
@@ -449,7 +410,7 @@ export const EquipoBranding = () => (
 );
 
 export const FormasBranding = () => (
-  <section className="creativos-seccion" aria-labelledby="branding-formas-titulo">
+  <section id="formas-de-trabajar" className="creativos-seccion" aria-labelledby="branding-formas-titulo">
     <div className="creativos-contenedor">
       <p className="creativos-etiqueta">Servicios adaptados a cada proyecto</p>
       <h2 id="branding-formas-titulo" className="creativos-h2">

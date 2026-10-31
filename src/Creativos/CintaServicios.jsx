@@ -14,6 +14,7 @@ const TERMINOS = [
   "Dirección creativa",
   "Imágenes con IA",
   "Imágenes de producto",
+  "Investigación de marca",
   "Vídeo y campañas",
   "Contenido para redes sociales",
   "Moodboards",
@@ -21,6 +22,13 @@ const TERMINOS = [
   "Guía de estilo",
   "Plantillas para redes",
   "Dirección de arte web",
+  "Investigación visual",
+  "Universo visual",
+  "Imágenes editoriales",
+  "Identidad visual",
+  "Calendarios editoriales",
+  "Experiencia de Marca y Página Web",
+
 ];
 
 const CintaServicios = () => (

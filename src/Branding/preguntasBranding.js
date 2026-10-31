@@ -57,4 +57,16 @@ export const PREGUNTAS_BRANDING = [
       "Puede incluirlos. La dirección de arte, las imágenes con IA y el vídeo son servicios que se pueden sumar a la identidad de marca o contratar por separado, y se producen con la misma línea visual.",
     ],
   },
+  {
+    pregunta: "¿Tengo que hacer todas las fases del proyecto de branding?",
+    respuesta: [
+      "No. No todos los clientes necesitan todas las fases: podemos ofrecer un proyecto integral o trabajar en partes concretas, siempre que tengan sentido para las necesidades reales de tu marca.",
+    ],
+  },
+  {
+    pregunta: "¿Qué es la fase de discovery?",
+    respuesta: [
+      "Es la primera fase de un proyecto de branding: conocer tu negocio, tus objetivos, tu audiencia y tus necesidades. A partir de ahí se define la estrategia de la marca y la dirección creativa de su identidad.",
+    ],
+  },
 ];

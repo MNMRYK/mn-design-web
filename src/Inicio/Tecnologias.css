@@ -1,13 +1,13 @@
 .tech-slider-section {
   position: relative;
   background-color: var(--deep-eggplant);
-  margin: 0 !important;
   overflow: hidden;
   width: 100%;
   display: flex;
   align-items: center;
   padding: 50px 0;
   z-index: 5;
+  margin-bottom: 50px;
 }
 
 .tech-slider-container {

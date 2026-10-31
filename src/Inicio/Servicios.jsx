@@ -11,7 +11,7 @@ const serviciosData = [
     link: "/disenoweb/"
   },
   {
-    title: "Tienda E-commerce",
+    title: "Tiendas Online",
     desc: "Diseñamos tu tienda desde cero para que vendas tus productos de forma segura.",
     icon: "store",
     link: "/e-commerce/"
@@ -23,14 +23,14 @@ const serviciosData = [
     link: "/posicionamiento-seo/"
   },
   {
-    title: "Mantenimiento y Optimización",
-    desc: "Nos ocupamos de que tu web esté siempre rápida, segura y actualizada.",
-    icon: "cogs",
-    link: "/contacto/#calendario-reserva" 
+    title: "Branding e Identidad de Marca",
+    desc: "Identidad visual, dirección de arte y contenido visual para que tu marca se reconozca en todo.",
+    icon: "palette",
+    link: "/branding/"
   },
   {
-    title: "Gestión de Redes Sociales",
-    desc: "Creamos contenido estratégico para que tu marca destaque en redes sociales.",
+    title: "Redes Sociales y Contenido",
+    desc: "Dirección visual y creación de contenido para que tus redes vayan a juego con tu marca.",
     icon: "instagram",
     link: "/redes-sociales/"
   }

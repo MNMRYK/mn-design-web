@@ -50,6 +50,15 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 31/10/2026 (3) · /branding/ y /redes-sociales/: fases, formatos, kit de marca; home
+- **/branding/ · «Cómo funciona un proyecto de branding»:** las 7 fases de Lara (textos literales) en cronología vertical (`src/Branding/FasesBranding.jsx`); en escritorio, columna izquierda fija (pin de ScrollTrigger: `position: sticky` no funciona en esta web por el `overflow-x: hidden` de html/body) con la nota de Lara, botón a «Tres formas de trabajar juntos» e indicador «Fase X de 7» (icono, nombre con `aria-live` y barra sincronizada con la línea). Fases en el `hasOfferCatalog` del Service y 2 preguntas nuevas (11 en total). /redes-sociales/ conserva la cronología de 4 pasos.
+- **Cronología de 4 pasos (/redes-sociales/):** pin + scrub como RutaTrabajo; el 4 queda activo antes de soltarse; puntos con fondo sólido siempre por encima de la línea. Probado con la rueda en 1440, 1280, 1024, 390 y 375 px.
+- **/redes-sociales/ · Formatos:** pestañas accesibles + móvil en CSS con vista previa animada de cada formato (`FormatosRedes.jsx`), rotación cada 4 s solo en pantalla.
+- **/branding/ · Qué recibes:** kit de marca en bento grid 4 × 3 (`KitMarca.jsx`) con ilustraciones CSS; la guía visual es un manual que pasa páginas (logotipo con área de respeto, paleta, tipografía, retícula).
+- **Bloque de /disenoweb/ y /e-commerce/:** texto del proyecto conjunto web + marca (María y Lara Summers, un solo interlocutor).
+- **Home:** tarjetas «Branding e Identidad de Marca» (sustituye a «Mantenimiento y Optimización») y «Redes Sociales y Contenido»; «Tiendas Online». `makesOffer` con branding y redes sociales y contenido (el mantenimiento se mantiene en el schema y en los planes de /disenoweb/).
+- **Estado:** hecho en local, con commit, sin publicar. Textos nuevos pendientes de revisión de María.
+
 ### 31/10/2026 (2) · /redes-sociales/ y /branding/ ampliadas; logo de Sara Santos
 - **Botones:** los de /disenoweb/ (relleno + con borde, radio 12 px, Nunito 1,2rem) en las páginas creativas, el bloque y los CTA (`.creativos-btn-*`, misma definición que `.dw-btn-hero-*`).
 - **Cronología animada** «Cómo trabajamos» (`src/Creativos/CronologiaPasos.jsx`, GSAP + ScrollTrigger con `gsap.context`/`matchMedia`): horizontal en escritorio, vertical en móvil, todo visible con movimiento reducido y en el prerender. En /branding/ y /redes-sociales/.

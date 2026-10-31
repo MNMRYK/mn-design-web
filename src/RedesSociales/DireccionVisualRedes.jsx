@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Icono from "../utils/Icono";
 import HuecoImagen from "../Creativos/HuecoImagen.jsx";
+import FormatosRedes from "./FormatosRedes.jsx";
 import "../Creativos/Creativos.css";
 
 // /redes-sociales/: diseño de Figma "Dirección visual para redes" + contenido ampliado
@@ -60,8 +61,6 @@ const SERVICIOS = [
     texto: "Piezas para campañas y lanzamientos, adaptadas a cada red y a cada formato.",
   },
 ];
-
-const FORMATOS = ["Publicaciones", "Carruseles", "Reels y vídeos cortos", "Stories", "Portadas", "Piezas para campañas"];
 
 const PARA_QUIEN = [
   {
@@ -238,29 +237,8 @@ export const ContenidoRedes = () => (
       </div>
     </section>
 
-    {/* FORMATOS */}
-    <section className="creativos-seccion creativos-seccion--compacta" aria-labelledby="redes-formatos-titulo">
-      <div className="creativos-contenedor creativos-formatos">
-        <div>
-          <p className="creativos-etiqueta">Formatos</p>
-          <h2 id="redes-formatos-titulo" className="creativos-h2">
-            Formatos que <span className="creativos-degradado">trabajamos</span>
-          </h2>
-          <p className="creativos-subtitulo">
-            Cada formato lleva un trabajo distinto. Por eso el reparto entre ellos se acuerda antes de
-            empezar, según lo que necesite tu marca.
-          </p>
-        </div>
-        <ul className="creativos-formatos-lista">
-          {FORMATOS.map((formato) => (
-            <li key={formato}>
-              <Icono nombre="check" />
-              {formato}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    {/* FORMATOS (interactivo) */}
+    <FormatosRedes />
 
     {/* PARA QUIÉN ES */}
     <section className="creativos-seccion" aria-labelledby="redes-quien-titulo">

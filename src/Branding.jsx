@@ -5,16 +5,15 @@ import {
   HeroBranding,
   ProblemaBranding,
   ServiciosBranding,
-  EntregablesBranding,
   EquipoBranding,
   FormasBranding,
   TrabajosBranding,
 } from "./Branding/IdentidadMarca.jsx";
+import KitMarca from "./Branding/KitMarca.jsx";
 import CintaServicios from "./Creativos/CintaServicios.jsx";
-import CronologiaPasos from "./Creativos/CronologiaPasos.jsx";
+import FasesBranding, { FASES } from "./Branding/FasesBranding.jsx";
 import RedesDoble from "./RedesSociales/RedesDoble.jsx";
 import CtaCreativos from "./Creativos/CtaCreativos.jsx";
-import { PASOS_CREATIVOS, TITULO_PASOS } from "./Creativos/pasos";
 import { EMPRESA, REF_EMPRESA, AREA_SERVIDA, ID_FUNDADORA, ID_EMPRESA } from "./seo/negocio";
 import { DOMINIO } from "./seo/rutas";
 import { WEBSITE, schemaBreadcrumb, schemaWebPage, catalogo } from "./seo/paginaServicio";
@@ -102,7 +101,22 @@ const Branding = () => {
     url: `${DOMINIO}${RUTA}`,
     provider: REF_EMPRESA,
     areaServed: AREA_SERVIDA,
-    hasOfferCatalog: catalogo("Servicios creativos", SERVICIOS),
+    // Servicios de la página + las 7 fases de un proyecto de branding (catálogo anidado, sin precios)
+    hasOfferCatalog: {
+      ...catalogo("Servicios creativos", SERVICIOS),
+      itemListElement: [
+        ...catalogo("Servicios creativos", SERVICIOS).itemListElement,
+        {
+          "@type": "OfferCatalog",
+          name: "Fases de un proyecto de branding",
+          itemListElement: FASES.map((fase, i) => ({
+            "@type": "Offer",
+            position: i + 1,
+            itemOffered: { "@type": "Service", name: fase.nombre, description: fase.texto },
+          })),
+        },
+      ],
+    },
   };
 
   // Service no admite "contributor" en schema.org: Lara se enlaza como colaboradora desde la
@@ -135,10 +149,10 @@ const Branding = () => {
         <CintaServicios />
         <ProblemaBranding />
         <ServiciosBranding />
-        <EntregablesBranding />
+        <KitMarca />
         <EquipoBranding />
         <FormasBranding />
-        <CronologiaPasos etiqueta="Cómo trabajamos" titulo={TITULO_PASOS} pasos={PASOS_CREATIVOS} />
+        <FasesBranding />
         <TrabajosBranding />
         <RedesDoble
           preguntas={PREGUNTAS_BRANDING}

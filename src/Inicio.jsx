@@ -57,7 +57,14 @@ const Inicio = () => {
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
-            name: "Gestión de Redes Sociales y Marketing Digital",
+            name: "Redes sociales y contenido",
+          },
+        },
+        {
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: "Branding e identidad de marca",
           },
         },
       ],

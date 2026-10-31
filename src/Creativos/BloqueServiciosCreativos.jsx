@@ -21,9 +21,10 @@ const BloqueServiciosCreativos = () => (
         </h2>
         <p className="bloque-creativos-texto">
           Además del desarrollo técnico, podemos ayudarte con la dirección de arte, la identidad
-          visual y la creación de imágenes y vídeos para tu negocio. Trabajamos con profesionales
-          creativos especializados, desde el concepto visual hasta los materiales que dan vida a tu
-          web o tienda online.
+          visual y la creación de imágenes y vídeos para tu negocio. Lo planteamos como un único
+          proyecto: María se encarga del diseño y el desarrollo de tu web, y Lara Summers, directora
+          de arte, de la dirección visual y la identidad de marca. Cada una trabaja en su
+          especialidad y tú tienes un solo interlocutor.
         </p>
         <a href="/branding/" className="creativos-btn-primario">
           Conoce nuestros servicios creativos

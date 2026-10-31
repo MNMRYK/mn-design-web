@@ -5,11 +5,14 @@ import { esPrerender } from "../utils/prerender";
 import "./Creativos.css";
 
 // Cronología "Cómo trabajamos" de /branding/ y /redes-sociales/.
-// Misma idea que RutaTrabajo de la home (GSAP + ScrollTrigger, limpieza con gsap.context): la
-// línea avanza con el scroll y cada punto se enciende y muestra su texto cuando la línea llega.
-// - Escritorio: horizontal. Móvil: vertical.
-// - Con "reducir movimiento" (y en el prerender) no se anima: todo visible desde el principio.
-//   El texto está siempre en el HTML; GSAP solo lo oculta en el navegador antes de animarlo.
+// Mismo comportamiento que RutaTrabajo de la home (GSAP + ScrollTrigger, limpieza con
+// gsap.context): la tarjeta se queda fija (pin + scrub) mientras la línea avanza del 1 al 4;
+// cada punto se enciende y muestra su texto al llegar la línea, y la tarjeta se suelta cuando el
+// 4 ya está activo. Al volver hacia arriba se revierte.
+// - Escritorio: horizontal. Móvil: vertical; si la tarjeta no cabe en la pantalla, sin pin y cada
+//   paso se activa al entrar en pantalla.
+// - Con "reducir movimiento" (y en el prerender) no se anima: todo visible y activo.
+// Solo se animan transform y opacity (el relleno del punto es una capa aparte).
 const CronologiaPasos = ({ etiqueta, titulo, pasos }) => {
   const raizRef = useRef(null);
 
@@ -27,61 +30,76 @@ const CronologiaPasos = ({ etiqueta, titulo, pasos }) => {
         },
         ({ conditions }) => {
           const horizontal = conditions.escritorio;
-          const lista = raizRef.current.querySelector(".cronologia-lista");
-          const linea = raizRef.current.querySelector(".cronologia-linea");
-          const progreso = raizRef.current.querySelector(".cronologia-progreso");
-          const nodos = gsap.utils.toArray(".cronologia-nodo", raizRef.current);
-          const contenidos = gsap.utils.toArray(".cronologia-contenido", raizRef.current);
+          const tarjeta = raizRef.current;
+          const linea = tarjeta.querySelector(".cronologia-linea");
+          const progreso = tarjeta.querySelector(".cronologia-progreso");
+          const nodos = gsap.utils.toArray(".cronologia-nodo", tarjeta);
+          const rellenos = gsap.utils.toArray(".cronologia-nodo-relleno", tarjeta);
+          const contenidos = gsap.utils.toArray(".cronologia-contenido", tarjeta);
+          const eje = horizontal ? "scaleX" : "scaleY";
+          // Hueco del menú fijo: la tarjeta se fija justo debajo
+          const margenMenu = horizontal ? 90 : 80;
 
-          // En vertical, la línea va del centro del primer punto al del último (se mide en cada
-          // refresh: cambio de ancho, fuentes cargadas…)
+          // En vertical, la línea va del centro del primer punto al del último
           const ajustarLinea = () => {
-            if (horizontal) {
-              gsap.set(linea, { clearProps: "height" });
-              return;
-            }
+            if (horizontal) return;
             const primero = nodos[0].getBoundingClientRect();
             const ultimo = nodos[nodos.length - 1].getBoundingClientRect();
             gsap.set(linea, { height: ultimo.top - primero.top });
           };
           ajustarLinea();
 
-          const eje = horizontal ? "scaleX" : "scaleY";
           gsap.set(progreso, { [eje]: 0 });
+          gsap.set(rellenos, { opacity: 0, scale: 0.6 });
           gsap.set(contenidos, { opacity: 0, [horizontal ? "y" : "x"]: 16 });
-          gsap.set(nodos, { scale: 0.7, opacity: 0.45 });
+
+          const activar = (i) => [
+            [rellenos[i], { opacity: 1, scale: 1, duration: 0.06 }],
+            [nodos[i], { scale: 1.12, duration: 0.06 }],
+            [contenidos[i], { opacity: 1, x: 0, y: 0, duration: 0.1 }],
+          ];
+
+          // En móvil, si la tarjeta no cabe entera debajo del menú, no se fija
+          const cabe = tarjeta.offsetHeight <= window.innerHeight - margenMenu - 16;
+
+          if (!horizontal && !cabe) {
+            nodos.forEach((nodo, i) => {
+              const tl = gsap.timeline({
+                scrollTrigger: { trigger: nodo, start: "top 75%", toggleActions: "play none none reverse" },
+              });
+              activar(i).forEach(([el, props]) => tl.to(el, { ...props, duration: 0.35 }, 0));
+            });
+            gsap.to(progreso, {
+              [eje]: 1,
+              ease: "none",
+              scrollTrigger: { trigger: linea, start: "top 75%", end: "bottom 75%", scrub: 0.5, onRefresh: ajustarLinea },
+            });
+            return;
+          }
 
           const tl = gsap.timeline({
             defaults: { ease: "none" },
             scrollTrigger: {
-              trigger: lista,
-              start: horizontal ? "top 85%" : "top 70%",
-              end: horizontal ? "bottom 25%" : "bottom 55%",
-              scrub: 0.6,
+              trigger: tarjeta,
+              start: `top ${margenMenu}px`,
+              end: horizontal ? "+=175%" : "+=160%",
+              pin: true,
+              pinSpacing: true,
+              scrub: 0.5,
+              anticipatePin: 1,
               invalidateOnRefresh: true,
               onRefresh: ajustarLinea,
             },
           });
 
-          tl.to(progreso, { [eje]: 1, duration: 1 }, 0);
-
-          nodos.forEach((nodo, i) => {
-            // Momento en que la línea llega a este punto
-            const momento = nodos.length === 1 ? 0 : (i / (nodos.length - 1)) * 0.94;
-            tl.to(
-              nodo,
-              {
-                scale: 1,
-                opacity: 1,
-                backgroundColor: "#7E57C2",
-                borderColor: "#ffffff",
-                boxShadow: "0 0 22px rgba(166, 114, 255, 0.9)",
-                duration: 0.06,
-              },
-              momento,
-            );
-            tl.to(contenidos[i], { opacity: 1, x: 0, y: 0, duration: 0.12 }, momento);
+          // La línea llega al último punto en el 75 % del recorrido; el resto, con el 4 ya
+          // activo, es margen antes de soltar la tarjeta
+          tl.to(progreso, { [eje]: 1, duration: 0.75 }, 0);
+          nodos.forEach((_, i) => {
+            const momento = nodos.length === 1 ? 0 : (i / (nodos.length - 1)) * 0.75;
+            activar(i).forEach(([el, props]) => tl.to(el, props, momento));
           });
+          tl.to({}, { duration: 0.25 }, 0.75);
         },
       );
     }, raizRef);
@@ -90,7 +108,7 @@ const CronologiaPasos = ({ etiqueta, titulo, pasos }) => {
   }, []);
 
   return (
-    <section className="creativos-seccion" aria-labelledby="cronologia-titulo">
+    <section className="creativos-seccion creativos-seccion--cronologia" aria-labelledby="cronologia-titulo">
       <div className="creativos-contenedor">
         <div className="cronologia tema-oscuro" ref={raizRef} style={{ "--pasos": pasos.length }}>
           <p className="creativos-etiqueta creativos-etiqueta--clara">{etiqueta}</p>
@@ -108,7 +126,8 @@ const CronologiaPasos = ({ etiqueta, titulo, pasos }) => {
               {pasos.map((paso, i) => (
                 <li className="cronologia-paso" key={paso.titulo}>
                   <span className="cronologia-nodo" aria-hidden="true">
-                    {i + 1}
+                    <span className="cronologia-nodo-relleno" />
+                    <span className="cronologia-nodo-numero">{i + 1}</span>
                   </span>
                   <div className="cronologia-contenido">
                     <h3 className="cronologia-paso-titulo">{paso.titulo}</h3>
