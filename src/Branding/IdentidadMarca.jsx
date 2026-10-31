@@ -2,18 +2,36 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Icono from "../utils/Icono";
+import HuecoImagen from "../Creativos/HuecoImagen.jsx";
 import "../Creativos/Creativos.css";
 
-// /branding/: diseño de Figma "Identidad de marca y contenido visual".
+// /branding/: diseño de Figma "Identidad de marca y contenido visual" + secciones nuevas
+// (el problema, qué recibes, por qué web y marca juntas, formas de trabajar ampliadas, trabajos).
 // Lo que se dice de Lara y de los servicios creativos está respaldado por sus textos
-// (contenido-lara/, fuera del repo). Huecos de imagen pendientes (hero): ocultos por ahora.
+// (contenido-lara/, fuera del repo).
 
-const FRANJA = [
-  "Identidad de marca",
-  "Imágenes con IA",
-  "Vídeo y campañas",
-  "Redes sociales",
-  "Dirección de arte web",
+// --- NUEVO: situaciones en las que se reconoce el cliente ---
+const PROBLEMAS = [
+  {
+    icono: "layer-group",
+    titulo: "Tu web es nueva, pero lo demás no va a juego",
+    texto: "Estrenas web y tus redes, tus fotos o tu logotipo siguen contando otra historia.",
+  },
+  {
+    icono: "fingerprint",
+    titulo: "Tu marca se parece a la de tu competencia",
+    texto: "Colores, imágenes y mensajes que podrían ser de cualquier negocio de tu sector.",
+  },
+  {
+    icono: "paint-roller",
+    titulo: "Cada pieza la ha hecho alguien distinto",
+    texto: "La web, las redes y las fotos salen de manos diferentes y no se reconocen como una misma marca.",
+  },
+  {
+    icono: "chart-line",
+    titulo: "Tu negocio ha crecido y tu imagen no",
+    texto: "La marca con la que empezaste ya no refleja lo que ofreces hoy ni a quién te diriges.",
+  },
 ];
 
 const DESTACADOS = [
@@ -80,8 +98,19 @@ const SERVICIOS = [
     texto:
       "Una comunicación visual reconocible y constante: planificación creativa, dirección de arte y producción de contenido.",
     incluye: ["Diagnóstico visual", "Planificación editorial", "Plantillas", "Guía de estilo", "Imágenes y vídeos"],
-    enlace: { texto: "Ver dirección visual para redes →", url: "/redes-sociales/" },
+    enlace: { texto: "Ver dirección visual para redes", url: "/redes-sociales/" },
   },
+];
+
+// --- NUEVO: entregables (respaldados por los textos de Lara) ---
+const ENTREGABLES = [
+  { titulo: "Guía visual", texto: "Las reglas de tu marca por escrito, para mantener la coherencia en cada pieza." },
+  { titulo: "Paleta cromática", texto: "Los colores de tu marca y cómo combinarlos." },
+  { titulo: "Tipografías", texto: "Las fuentes para títulos y textos, y cómo usarlas." },
+  { titulo: "Elementos gráficos y aplicaciones", texto: "Recursos visuales propios y su aplicación a las piezas que necesites." },
+  { titulo: "Moodboards y referencias", texto: "La exploración estética con la que se decide el estilo." },
+  { titulo: "Plantillas para redes", texto: "Para publicar con la misma línea visual sin empezar cada vez de cero." },
+  { titulo: "Imágenes y vídeos", texto: "Producidos con la identidad de tu marca para tu web, tu tienda y tus redes." },
 ];
 
 const PERSONAS = [
@@ -111,30 +140,59 @@ const PERSONAS = [
   },
 ];
 
+// --- NUEVO: por qué web y marca juntas ---
+const VENTAJAS = [
+  {
+    icono: "handshake-angle",
+    titulo: "Un solo equipo y un solo interlocutor",
+    texto: "Tienes un único punto de contacto y nos coordinamos por dentro: no tienes que hacer de puente entre la parte creativa y la técnica.",
+  },
+  {
+    icono: "code",
+    titulo: "Coherencia entre lo visual y lo técnico",
+    texto: "La dirección de arte y el desarrollo se deciden juntos, así que lo que se diseña es lo que después funciona en la web, en el móvil y en la tienda online.",
+  },
+  {
+    icono: "layer-group",
+    titulo: "La identidad se integra desde el diseño de la web",
+    texto: "No se añade al final: la marca guía la estructura, las imágenes y la composición de la web desde el primer boceto.",
+  },
+];
+
+// Formas de trabajar: textos de Figma + "Ideal para", "Qué incluye", "Qué obtienes" y ejemplo
+// (NUEVOS; los ejemplos salen del catálogo de Lara)
 const FORMAS = [
   {
     titulo: "Proyecto cerrado",
     texto:
       "Objetivos, entregables, revisiones, plazos y presupuesto definidos desde el principio. Por ejemplo, una nueva identidad visual o una web con dirección de arte.",
+    ideal: "Marcas que necesitan crear o renovar su identidad, o lanzar una web con dirección de arte.",
+    incluye: ["Objetivos y alcance definidos", "Entregables cerrados", "Rondas de revisión acordadas", "Plazos y presupuesto desde el principio"],
+    obtienes: "Un resultado completo y terminado: tu identidad visual con su guía o tu web con dirección de arte.",
+    ejemplo: "Un estudio profesional renueva su web y necesita unificar sus colores, tipografías y estilo visual.",
   },
   {
     titulo: "Servicio puntual",
     texto:
       "Imágenes, vídeos o piezas concretas con un alcance acordado. Para marcas que ya tienen su identidad y necesitan recursos visuales.",
+    ideal: "Marcas que ya tienen su identidad y necesitan recursos visuales para algo concreto.",
+    incluye: ["Imágenes de producto o editoriales", "Vídeos y reels", "Piezas para una campaña o un lanzamiento", "Alcance acordado"],
+    obtienes: "Las piezas que necesitas para esa ocasión, listas para usar en tu web, tu tienda o tus redes.",
+    ejemplo: "Una tienda de cosmética necesita imágenes para sus páginas de producto, una campaña y sus redes sociales.",
   },
   {
     titulo: "Colaboración mensual",
     texto:
       "Producción recurrente con un volumen de entregables, tiempos de respuesta y revisiones definidos de antemano.",
+    ideal: "Marcas que, después de lanzar su web, necesitan contenido visual de forma continuada.",
+    incluye: ["Volumen de entregables al mes", "Tiempos de respuesta acordados", "Revisiones definidas de antemano", "Planificación de contenidos"],
+    obtienes: "Imágenes, vídeos y contenido cada mes para mantener activa tu comunicación.",
+    ejemplo: "Un negocio estrena web, pero sus redes sociales necesitan una identidad visual coherente con ella.",
   },
 ];
 
-const PASOS = [
-  { titulo: "Nos cuentas qué necesitas", texto: "En una primera llamada vemos tu negocio y tus objetivos." },
-  { titulo: "Reunión creativa", texto: "Una sesión específica para concretar el alcance creativo." },
-  { titulo: "Propuesta personalizada", texto: "Entregables, revisiones, plazos y presupuesto, por escrito." },
-  { titulo: "Producción y revisiones", texto: "Trabajamos con las rondas de ajustes acordadas." },
-];
+// --- NUEVO: galería de trabajos (3 huecos, solo en desarrollo hasta tener las imágenes) ---
+const TRABAJOS = [1, 2, 3];
 
 const aparecer = {
   initial: { opacity: 0, y: 30 },
@@ -150,17 +208,16 @@ const Etiquetas = ({ lista, clara = false }) => (
   </ul>
 );
 
-const IdentidadMarca = () => (
-  <>
-    {/* HERO */}
-    <section className="creativos-seccion creativos-hero">
-      <div className="creativos-contenedor">
-        <nav className="creativos-migas" aria-label="Miga de pan">
-          <Link to="/">Inicio</Link>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page">Branding e identidad de marca</span>
-        </nav>
+export const HeroBranding = () => (
+  <section className="creativos-seccion creativos-hero">
+    <div className="creativos-contenedor">
+      <nav className="creativos-migas" aria-label="Miga de pan">
+        <Link to="/">Inicio</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Branding e identidad de marca</span>
+      </nav>
 
+      <div className="creativos-hero-grid">
         <motion.div
           className="creativos-hero-texto"
           initial={{ opacity: 0, y: 30 }}
@@ -177,188 +234,308 @@ const IdentidadMarca = () => (
             producción de contenido visual.
           </p>
           <div className="creativos-botones">
-            <a href="#contacto" className="creativos-boton creativos-boton--primario">
+            <a href="#contacto" className="creativos-btn-primario">
               Cuéntanos tu proyecto
             </a>
-            <a href="#servicios" className="creativos-enlace">
-              Ver servicios →
+            <a href="#servicios" className="creativos-btn-secundario">
+              Ver servicios
             </a>
           </div>
         </motion.div>
-      </div>
-    </section>
 
-    {/* CINTA DE SERVICIOS */}
-    <div className="creativos-franja tema-oscuro">
-      <ul className="creativos-franja-lista">
-        {FRANJA.map((texto) => (
-          <li key={texto}>{texto}</li>
+        <div className="creativos-hero-media">
+          <HuecoImagen
+            proporcion="552 / 600"
+            descripcion="Imagen principal: un trabajo de identidad de marca (aplicaciones, moodboard o pieza de campaña)"
+            medidas="1100 × 1200 px (se muestra a 552 × 600)"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+export const ProblemaBranding = () => (
+  <section className="creativos-seccion" aria-labelledby="branding-problema-titulo">
+    <div className="creativos-contenedor">
+      <p className="creativos-etiqueta">El problema</p>
+      <h2 id="branding-problema-titulo" className="creativos-h2">
+        ¿Te suena alguna de <span className="creativos-degradado">estas situaciones</span>?
+      </h2>
+      <div className="creativos-rejilla creativos-rejilla--4">
+        {PROBLEMAS.map((problema, i) => (
+          <motion.article
+            key={problema.titulo}
+            className="creativos-tarjeta"
+            {...aparecer}
+            transition={{ duration: 0.5, delay: i * 0.1 }}
+          >
+            <span className="creativos-icono">
+              <Icono nombre={problema.icono} />
+            </span>
+            <h3 className="creativos-h3">{problema.titulo}</h3>
+            <p className="creativos-texto">{problema.texto}</p>
+          </motion.article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export const ServiciosBranding = () => (
+  <section id="servicios" className="creativos-seccion" aria-labelledby="branding-servicios-titulo">
+    <div className="creativos-contenedor">
+      <p className="creativos-etiqueta">Qué hacemos</p>
+      <h2 id="branding-servicios-titulo" className="creativos-h2">
+        Cinco servicios creativos, <span className="creativos-degradado">adaptados a cada proyecto</span>
+      </h2>
+      <p className="creativos-subtitulo">
+        Colaboramos con profesionales especializados según las necesidades de cada proyecto para
+        ofrecer soluciones coherentes y adaptadas a cada negocio.
+      </p>
+
+      <div className="creativos-rejilla creativos-rejilla--2">
+        {DESTACADOS.map((servicio, i) => (
+          <motion.article
+            key={servicio.titulo}
+            className="creativos-tarjeta-oscura creativos-destacado tema-oscuro"
+            {...aparecer}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+          >
+            <div className="creativos-destacado-cabecera">
+              <span className="creativos-icono creativos-icono--claro">
+                <Icono nombre={servicio.icono} />
+              </span>
+              <span className="creativos-insignia">Servicio destacado</span>
+            </div>
+            <p className="creativos-etiqueta creativos-etiqueta--clara">{servicio.antetitulo}</p>
+            <h3 className="creativos-destacado-titulo">{servicio.titulo}</h3>
+            <p className="creativos-destacado-texto">{servicio.texto}</p>
+            <Etiquetas lista={servicio.incluye} clara />
+            {servicio.partes && (
+              <div className="creativos-partes">
+                {servicio.partes.map((parte) => (
+                  <div key={parte.titulo} className="creativos-parte">
+                    <h4>{parte.titulo}</h4>
+                    <p>{parte.texto}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+            <p className="creativos-ideal creativos-ideal--claro">{servicio.ideal}</p>
+          </motion.article>
+        ))}
+      </div>
+
+      <div className="creativos-rejilla creativos-rejilla--3 creativos-rejilla--servicios">
+        {SERVICIOS.map((servicio, i) => (
+          <motion.article
+            key={servicio.numero}
+            className="creativos-tarjeta creativos-servicio"
+            {...aparecer}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+          >
+            <div className="creativos-servicio-cabecera">
+              <span className="creativos-icono">
+                <Icono nombre={servicio.icono} />
+              </span>
+              <span className="creativos-numero" aria-hidden="true">{servicio.numero}</span>
+            </div>
+            <h3 className="creativos-h3">{servicio.titulo}</h3>
+            <p className="creativos-texto">{servicio.texto}</p>
+            <Etiquetas lista={servicio.incluye} />
+            {servicio.ideal && <p className="creativos-ideal">{servicio.ideal}</p>}
+            {servicio.enlace && (
+              <a href={servicio.enlace.url} className="creativos-btn-secundario creativos-servicio-enlace">
+                {servicio.enlace.texto}
+              </a>
+            )}
+          </motion.article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export const EntregablesBranding = () => (
+  <section className="creativos-seccion" aria-labelledby="branding-entregables-titulo">
+    <div className="creativos-contenedor">
+      <p className="creativos-etiqueta">Qué recibes</p>
+      <h2 id="branding-entregables-titulo" className="creativos-h2">
+        Entregables concretos, <span className="creativos-degradado">no solo ideas</span>
+      </h2>
+      <p className="creativos-subtitulo">
+        Según el alcance de cada proyecto, estos son los materiales con los que trabajamos y que
+        quedan definidos en la propuesta.
+      </p>
+      <ul className="creativos-checklist">
+        {ENTREGABLES.map((entregable, i) => (
+          <motion.li key={entregable.titulo} {...aparecer} transition={{ duration: 0.4, delay: (i % 4) * 0.08 }}>
+            <span className="creativos-checklist-icono" aria-hidden="true">
+              <Icono nombre="check" />
+            </span>
+            <div>
+              <h3 className="creativos-h3">{entregable.titulo}</h3>
+              <p className="creativos-texto">{entregable.texto}</p>
+            </div>
+          </motion.li>
         ))}
       </ul>
     </div>
-
-    {/* QUÉ HACEMOS */}
-    <section id="servicios" className="creativos-seccion" aria-labelledby="branding-servicios-titulo">
-      <div className="creativos-contenedor">
-        <p className="creativos-etiqueta">Qué hacemos</p>
-        <h2 id="branding-servicios-titulo" className="creativos-h2">
-          Cinco servicios creativos, <span className="creativos-degradado">adaptados a cada proyecto</span>
-        </h2>
-        <p className="creativos-subtitulo">
-          Colaboramos con profesionales especializados según las necesidades de cada proyecto para
-          ofrecer soluciones coherentes y adaptadas a cada negocio.
-        </p>
-
-        <div className="creativos-rejilla creativos-rejilla--2">
-          {DESTACADOS.map((servicio, i) => (
-            <motion.article
-              key={servicio.titulo}
-              className="creativos-tarjeta-oscura creativos-destacado tema-oscuro"
-              {...aparecer}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-            >
-              <div className="creativos-destacado-cabecera">
-                <span className="creativos-icono creativos-icono--claro">
-                  <Icono nombre={servicio.icono} />
-                </span>
-                <span className="creativos-insignia">Servicio destacado</span>
-              </div>
-              <p className="creativos-etiqueta creativos-etiqueta--clara">{servicio.antetitulo}</p>
-              <h3 className="creativos-destacado-titulo">{servicio.titulo}</h3>
-              <p className="creativos-destacado-texto">{servicio.texto}</p>
-              <Etiquetas lista={servicio.incluye} clara />
-              {servicio.partes && (
-                <div className="creativos-partes">
-                  {servicio.partes.map((parte) => (
-                    <div key={parte.titulo} className="creativos-parte">
-                      <h4>{parte.titulo}</h4>
-                      <p>{parte.texto}</p>
-                    </div>
-                  ))}
-                </div>
-              )}
-              <p className="creativos-ideal creativos-ideal--claro">{servicio.ideal}</p>
-            </motion.article>
-          ))}
-        </div>
-
-        <div className="creativos-rejilla creativos-rejilla--3 creativos-rejilla--servicios">
-          {SERVICIOS.map((servicio, i) => (
-            <motion.article
-              key={servicio.numero}
-              className="creativos-tarjeta creativos-servicio"
-              {...aparecer}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-            >
-              <div className="creativos-servicio-cabecera">
-                <span className="creativos-icono">
-                  <Icono nombre={servicio.icono} />
-                </span>
-                <span className="creativos-numero" aria-hidden="true">{servicio.numero}</span>
-              </div>
-              <h3 className="creativos-h3">{servicio.titulo}</h3>
-              <p className="creativos-texto">{servicio.texto}</p>
-              <Etiquetas lista={servicio.incluye} />
-              {servicio.ideal && <p className="creativos-ideal">{servicio.ideal}</p>}
-              {servicio.enlace && (
-                <a href={servicio.enlace.url} className="creativos-enlace creativos-servicio-enlace">
-                  {servicio.enlace.texto}
-                </a>
-              )}
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* QUIÉN ESTÁ DETRÁS */}
-    <section className="creativos-seccion" aria-labelledby="branding-quien-titulo">
-      <div className="creativos-contenedor">
-        <p className="creativos-etiqueta">Quién está detrás</p>
-        <h2 id="branding-quien-titulo" className="creativos-h2">
-          Desarrollo y dirección creativa, <span className="creativos-degradado">trabajando juntas</span>
-        </h2>
-
-        <div className="creativos-rejilla creativos-rejilla--2">
-          {PERSONAS.map((persona, i) => (
-            <motion.article
-              key={persona.nombre}
-              className="creativos-tarjeta creativos-persona"
-              {...aparecer}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-            >
-              <img
-                className="creativos-persona-foto"
-                src={persona.foto.src}
-                srcSet={persona.foto.srcSet}
-                sizes="140px"
-                alt={persona.foto.alt}
-                width="140"
-                height="170"
-                loading="lazy"
-                decoding="async"
-              />
-              <div>
-                {persona.colaboradora && (
-                  <p className="creativos-persona-rol">Colaboradora de MN Design Web</p>
-                )}
-                <h3 className="creativos-h3">{persona.nombre}</h3>
-                <p className="creativos-persona-cargo">{persona.cargo}</p>
-                <p className="creativos-texto">{persona.texto}</p>
-              </div>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* TRES FORMAS DE TRABAJAR */}
-    <section className="creativos-seccion" aria-labelledby="branding-formas-titulo">
-      <div className="creativos-contenedor">
-        <p className="creativos-etiqueta">Servicios adaptados a cada proyecto</p>
-        <h2 id="branding-formas-titulo" className="creativos-h2">
-          Tres formas de <span className="creativos-degradado">trabajar juntos</span>
-        </h2>
-        <p className="creativos-subtitulo">
-          Siempre con un alcance definido y adaptado a los objetivos de tu marca.
-        </p>
-
-        <div className="creativos-rejilla creativos-rejilla--3">
-          {FORMAS.map((forma, i) => (
-            <motion.article
-              key={forma.titulo}
-              className="creativos-tarjeta"
-              {...aparecer}
-              transition={{ duration: 0.5, delay: i * 0.12 }}
-            >
-              <h3 className="creativos-h3">{forma.titulo}</h3>
-              <p className="creativos-texto">{forma.texto}</p>
-            </motion.article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* CÓMO TRABAJAMOS */}
-    <section className="creativos-seccion" aria-labelledby="branding-proceso-titulo">
-      <div className="creativos-contenedor">
-        <p className="creativos-etiqueta">Cómo trabajamos</p>
-        <h2 id="branding-proceso-titulo" className="creativos-h2">
-          Primero entendemos tu marca, <span className="creativos-degradado">después producimos</span>
-        </h2>
-
-        <ol className="creativos-pasos">
-          {PASOS.map((paso, i) => (
-            <motion.li key={paso.titulo} {...aparecer} transition={{ duration: 0.5, delay: i * 0.1 }}>
-              <span className="creativos-paso-numero" aria-hidden="true">{i + 1}</span>
-              <h3 className="creativos-paso-titulo">{paso.titulo}</h3>
-              <p className="creativos-texto">{paso.texto}</p>
-            </motion.li>
-          ))}
-        </ol>
-      </div>
-    </section>
-  </>
+  </section>
 );
 
-export default IdentidadMarca;
+export const EquipoBranding = () => (
+  <section className="creativos-seccion" aria-labelledby="branding-quien-titulo">
+    <div className="creativos-contenedor">
+      <p className="creativos-etiqueta">Quién está detrás</p>
+      <h2 id="branding-quien-titulo" className="creativos-h2">
+        Desarrollo y dirección creativa, <span className="creativos-degradado">trabajando juntas</span>
+      </h2>
+
+      <div className="creativos-rejilla creativos-rejilla--2">
+        {PERSONAS.map((persona, i) => (
+          <motion.article
+            key={persona.nombre}
+            className="creativos-tarjeta creativos-persona"
+            {...aparecer}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+          >
+            <img
+              className="creativos-persona-foto"
+              src={persona.foto.src}
+              srcSet={persona.foto.srcSet}
+              sizes="140px"
+              alt={persona.foto.alt}
+              width="140"
+              height="170"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              {persona.colaboradora && (
+                <p className="creativos-persona-rol">Colaboradora de MN Design Web</p>
+              )}
+              <h3 className="creativos-h3">{persona.nombre}</h3>
+              <p className="creativos-persona-cargo">{persona.cargo}</p>
+              <p className="creativos-texto">{persona.texto}</p>
+            </div>
+          </motion.article>
+        ))}
+      </div>
+
+      {/* NUEVO: por qué web y marca juntas */}
+      <h3 className="creativos-h2 creativos-h2--secundario">
+        Por qué <span className="creativos-degradado">web y marca juntas</span>
+      </h3>
+      <div className="creativos-rejilla creativos-rejilla--3">
+        {VENTAJAS.map((ventaja, i) => (
+          <motion.article
+            key={ventaja.titulo}
+            className="creativos-tarjeta"
+            {...aparecer}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+          >
+            <span className="creativos-icono">
+              <Icono nombre={ventaja.icono} />
+            </span>
+            <h4 className="creativos-h3">{ventaja.titulo}</h4>
+            <p className="creativos-texto">{ventaja.texto}</p>
+          </motion.article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export const FormasBranding = () => (
+  <section className="creativos-seccion" aria-labelledby="branding-formas-titulo">
+    <div className="creativos-contenedor">
+      <p className="creativos-etiqueta">Servicios adaptados a cada proyecto</p>
+      <h2 id="branding-formas-titulo" className="creativos-h2">
+        Tres formas de <span className="creativos-degradado">trabajar juntos</span>
+      </h2>
+      <p className="creativos-subtitulo">
+        Siempre con un alcance definido y adaptado a los objetivos de tu marca.
+      </p>
+
+      <div className="creativos-rejilla creativos-rejilla--3">
+        {FORMAS.map((forma, i) => (
+          <motion.article
+            key={forma.titulo}
+            className="creativos-tarjeta creativos-forma"
+            {...aparecer}
+            transition={{ duration: 0.5, delay: i * 0.12 }}
+          >
+            <h3 className="creativos-h3">{forma.titulo}</h3>
+            <p className="creativos-texto">{forma.texto}</p>
+            <dl className="creativos-forma-detalle">
+              <div>
+                <dt>Ideal para</dt>
+                <dd>{forma.ideal}</dd>
+              </div>
+              <div>
+                <dt>Qué incluye</dt>
+                <dd>
+                  <ul>
+                    {forma.incluye.map((punto) => (
+                      <li key={punto}>
+                        <Icono nombre="check" />
+                        {punto}
+                      </li>
+                    ))}
+                  </ul>
+                </dd>
+              </div>
+              <div>
+                <dt>Qué obtienes</dt>
+                <dd>{forma.obtienes}</dd>
+              </div>
+            </dl>
+            <p className="creativos-ideal">
+              <strong>Ejemplo:</strong> {forma.ejemplo}
+            </p>
+          </motion.article>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export const TrabajosBranding = () => (
+  <section className="creativos-seccion" aria-labelledby="branding-trabajos-titulo">
+    <div className="creativos-contenedor">
+      <p className="creativos-etiqueta">Trabajos</p>
+      <h2 id="branding-trabajos-titulo" className="creativos-h2">
+        Proyectos de <span className="creativos-degradado">identidad y contenido visual</span>
+      </h2>
+
+      {/* Galería de 3 proyectos reales: solo se ve en desarrollo hasta que haya imágenes.
+          Para cada proyecto: <img> + título + enlace al proyecto. */}
+      {import.meta.env.DEV && (
+        <div className="creativos-rejilla creativos-rejilla--3">
+          {TRABAJOS.map((n) => (
+            <article key={n} className="creativos-trabajo">
+              <HuecoImagen
+                proporcion="4 / 3"
+                descripcion={`Proyecto real ${n}: imagen de portada del trabajo (con permiso del cliente)`}
+                medidas="1200 × 900 px (4:3)"
+              />
+              <p className="creativos-trabajo-pendiente">Título del proyecto {n} · enlace al proyecto</p>
+            </article>
+          ))}
+        </div>
+      )}
+
+      <div className="creativos-trabajos-demos">
+        <p className="creativos-subtitulo">
+          Mientras preparamos esta galería, puedes ver cómo trabajamos el diseño web en nuestras
+          demos.
+        </p>
+        <a href="/demos/" className="creativos-btn-secundario">
+          Mira nuestras demos
+        </a>
+      </div>
+    </div>
+  </section>
+);

@@ -1,11 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Icono from "../utils/Icono";
+import HuecoImagen from "../Creativos/HuecoImagen.jsx";
 import "../Creativos/Creativos.css";
 
-// /redes-sociales/: diseño de Figma "Dirección visual para redes".
-// El collage del hero (dos imágenes y un reel) está pendiente: mientras no haya imágenes,
-// el hero es solo texto.
+// /redes-sociales/: diseño de Figma "Dirección visual para redes" + contenido ampliado
+// (servicios en detalle, formatos y para quién es), respaldado por los textos de Lara
+// (bloque 01 "Redes Sociales y Creación de Contenido" y su catálogo de servicios).
 
 const INCLUYE = [
   {
@@ -22,6 +24,76 @@ const INCLUYE = [
     numero: "03",
     titulo: "Producción de contenido",
     texto: "Diseño de publicaciones e imágenes y vídeos, también creados o asistidos con inteligencia artificial.",
+  },
+];
+
+// Los seis servicios del bloque 01 de Lara (descripciones nuevas)
+const SERVICIOS = [
+  {
+    icono: "palette",
+    titulo: "Dirección de arte para redes sociales",
+    texto: "Definimos cómo se ve tu marca en redes: estilo de imagen, composición, color y tono visual, para que cada publicación se reconozca como tuya.",
+  },
+  {
+    icono: "video",
+    titulo: "Creación de contenido gráfico y audiovisual",
+    texto: "Diseñamos publicaciones, carruseles y piezas gráficas, y producimos vídeos cortos con la misma línea visual.",
+  },
+  {
+    icono: "lightbulb",
+    titulo: "Desarrollo de conceptos creativos",
+    texto: "Antes de producir, pensamos la idea: cómo contar un lanzamiento, una temporada o un servicio para que tenga sentido en redes.",
+  },
+  {
+    icono: "wand-magic-sparkles",
+    titulo: "Contenido editorial generado con IA",
+    texto: "Imágenes editoriales creadas con inteligencia artificial bajo dirección de arte, coherentes con tu marca y revisadas antes de publicarse.",
+  },
+  {
+    icono: "calendar-days",
+    titulo: "Estrategia visual y planificación de contenidos",
+    texto: "Líneas temáticas, calendario editorial y reparto de formatos, para publicar con un plan y no sobre la marcha.",
+  },
+  {
+    icono: "bullseye",
+    titulo: "Diseño de campañas y piezas digitales",
+    texto: "Piezas para campañas y lanzamientos, adaptadas a cada red y a cada formato.",
+  },
+];
+
+const FORMATOS = ["Publicaciones", "Carruseles", "Reels y vídeos cortos", "Stories", "Portadas", "Piezas para campañas"];
+
+const PARA_QUIEN = [
+  {
+    icono: "store",
+    titulo: "Negocios locales",
+    texto: "Comercios y negocios de servicios que quieren que sus redes transmitan la misma confianza que su local o su web.",
+    enlaces: [{ texto: "Diseño web a medida", url: "/disenoweb/" }],
+  },
+  {
+    icono: "hands-helping",
+    titulo: "Clínicas y profesionales de la salud",
+    texto: "Psicólogos, nutricionistas y clínicas que necesitan comunicar con cercanía y con una imagen cuidada y profesional.",
+    enlaces: [
+      { texto: "Clínicas", url: "/clinicas/" },
+      { texto: "Psicólogos", url: "/psicologos/" },
+      { texto: "Nutricionistas", url: "/nutricionistas/" },
+    ],
+  },
+  {
+    icono: "shopify",
+    titulo: "Tiendas online",
+    texto: "Tiendas que necesitan imágenes de producto, campañas y contenido constante para mover su catálogo en redes.",
+    enlaces: [{ texto: "Tiendas online", url: "/e-commerce/" }],
+  },
+  {
+    icono: "desktop",
+    titulo: "Marcas que acaban de renovar su web",
+    texto: "Si tu web ya está renovada, tus redes tienen que ir a juego: misma identidad, mismos colores, mismo tono.",
+    enlaces: [
+      { texto: "Diseño web", url: "/disenoweb/" },
+      { texto: "Branding e identidad", url: "/branding/" },
+    ],
   },
 ];
 
@@ -42,16 +114,37 @@ const aparecer = {
   viewport: { once: true, margin: "-50px" },
 };
 
-const DireccionVisualRedes = () => (
-  <>
-    {/* HERO */}
-    <section className="creativos-seccion creativos-hero">
-      <div className="creativos-contenedor">
-        <nav className="creativos-migas" aria-label="Miga de pan">
-          <Link to="/">Inicio</Link>
-          <span aria-hidden="true">/</span>
-          <span aria-current="page">Redes sociales</span>
-        </nav>
+export const HeroRedes = () => (
+  <section className="creativos-seccion creativos-hero">
+    <div className="creativos-contenedor">
+      <nav className="creativos-migas" aria-label="Miga de pan">
+        <Link to="/">Inicio</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">Redes sociales</span>
+      </nav>
+
+      <div className="creativos-hero-grid">
+        {/* Collage del diseño: dos imágenes y un reel (huecos pendientes) */}
+        <div className="creativos-collage">
+          <HuecoImagen
+            proporcion="269 / 440"
+            descripcion="Pieza vertical de redes (post o story de un trabajo real)"
+            medidas="540 × 880 px, vertical"
+          />
+          <div className="creativos-collage-columna">
+            <HuecoImagen
+              proporcion="269 / 213"
+              descripcion="Publicación o carrusel de un trabajo real"
+              medidas="540 × 430 px"
+            />
+            <HuecoImagen
+              proporcion="269 / 213"
+              descripcion="Reel: vídeo corto en bucle, sin sonido (o su portada)"
+              formato="MP4/WebM + póster WebP"
+              medidas="540 × 430 px"
+            />
+          </div>
+        </div>
 
         <motion.div
           className="creativos-hero-texto"
@@ -70,17 +163,21 @@ const DireccionVisualRedes = () => (
             Ideal si tu web ya está renovada y tus redes todavía no van a juego.
           </p>
           <div className="creativos-botones">
-            <a href="#contacto" className="creativos-boton creativos-boton--primario">
+            <a href="#contacto" className="creativos-btn-primario">
               Pedir propuesta
             </a>
-            <a href="#que-incluye" className="creativos-enlace">
-              Qué incluye →
+            <a href="#que-incluye" className="creativos-btn-secundario">
+              Qué incluye
             </a>
           </div>
         </motion.div>
       </div>
-    </section>
+    </div>
+  </section>
+);
 
+export const ContenidoRedes = () => (
+  <>
     {/* QUÉ INCLUYE */}
     <section id="que-incluye" className="creativos-seccion" aria-labelledby="redes-incluye-titulo">
       <div className="creativos-contenedor">
@@ -110,7 +207,99 @@ const DireccionVisualRedes = () => (
       </div>
     </section>
 
-    {/* CÓMO TRABAJAMOS */}
+    {/* SERVICIOS EN DETALLE */}
+    <section className="creativos-seccion" aria-labelledby="redes-servicios-titulo">
+      <div className="creativos-contenedor">
+        <p className="creativos-etiqueta">Servicios</p>
+        <h2 id="redes-servicios-titulo" className="creativos-h2">
+          Contenido para redes sociales, <span className="creativos-degradado">con dirección visual</span>
+        </h2>
+        <p className="creativos-subtitulo">
+          Creamos contenido visual y estratégico para marcas que quieren comunicar de forma coherente,
+          atractiva y diferenciadora.
+        </p>
+
+        <div className="creativos-rejilla creativos-rejilla--3">
+          {SERVICIOS.map((servicio, i) => (
+            <motion.article
+              key={servicio.titulo}
+              className="creativos-tarjeta"
+              {...aparecer}
+              transition={{ duration: 0.5, delay: (i % 3) * 0.12 }}
+            >
+              <span className="creativos-icono">
+                <Icono nombre={servicio.icono} />
+              </span>
+              <h3 className="creativos-h3">{servicio.titulo}</h3>
+              <p className="creativos-texto">{servicio.texto}</p>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* FORMATOS */}
+    <section className="creativos-seccion creativos-seccion--compacta" aria-labelledby="redes-formatos-titulo">
+      <div className="creativos-contenedor creativos-formatos">
+        <div>
+          <p className="creativos-etiqueta">Formatos</p>
+          <h2 id="redes-formatos-titulo" className="creativos-h2">
+            Formatos que <span className="creativos-degradado">trabajamos</span>
+          </h2>
+          <p className="creativos-subtitulo">
+            Cada formato lleva un trabajo distinto. Por eso el reparto entre ellos se acuerda antes de
+            empezar, según lo que necesite tu marca.
+          </p>
+        </div>
+        <ul className="creativos-formatos-lista">
+          {FORMATOS.map((formato) => (
+            <li key={formato}>
+              <Icono nombre="check" />
+              {formato}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </section>
+
+    {/* PARA QUIÉN ES */}
+    <section className="creativos-seccion" aria-labelledby="redes-quien-titulo">
+      <div className="creativos-contenedor">
+        <p className="creativos-etiqueta">Para quién es</p>
+        <h2 id="redes-quien-titulo" className="creativos-h2">
+          Para negocios que quieren que sus redes <span className="creativos-degradado">vayan a juego</span>
+        </h2>
+
+        <div className="creativos-rejilla creativos-rejilla--2">
+          {PARA_QUIEN.map((perfil, i) => (
+            <motion.article
+              key={perfil.titulo}
+              className="creativos-tarjeta"
+              {...aparecer}
+              transition={{ duration: 0.5, delay: (i % 2) * 0.12 }}
+            >
+              <span className="creativos-icono">
+                <Icono nombre={perfil.icono} />
+              </span>
+              <h3 className="creativos-h3">{perfil.titulo}</h3>
+              <p className="creativos-texto">{perfil.texto}</p>
+              <p className="creativos-enlaces-relacionados">
+                {perfil.enlaces.map((enlace, j) => (
+                  <React.Fragment key={enlace.url}>
+                    {j > 0 && " · "}
+                    <a href={enlace.url} className="creativos-enlace">
+                      {enlace.texto}
+                    </a>
+                  </React.Fragment>
+                ))}
+              </p>
+            </motion.article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    {/* CÓMO TRABAJAMOS: modalidades */}
     <section className="creativos-seccion" aria-labelledby="redes-trabajamos-titulo">
       <div className="creativos-contenedor">
         <p className="creativos-etiqueta">Cómo trabajamos</p>
@@ -142,5 +331,3 @@ const DireccionVisualRedes = () => (
     </section>
   </>
 );
-
-export default DireccionVisualRedes;

@@ -11,6 +11,8 @@ export const RESENAS = {
   sara: {
     nombre: "Sara Santos",
     detalle: "Nutricionista · software de gestión de pacientes y academia online",
+    // Logo de su negocio (archivo tal cual lo pasó María). [PENDIENTE: nombre del negocio para el alt]
+    logo: { src: "/logosarasantos.webp", alt: "Logo de Sara Santos, nutricionista" },
     google: true,
     texto:
       "Conocí a María a través de instagram. Cuando hicimos la primera reunión tuve claro que iba a ser una gran idea trabajar con ella. La recomiendo totalmente, te escucha y entiende a la perfección y aporta ideas y soluciones muy buenas. Estoy encantada con el diseño, la funcionalidad y el acompañamiento cercano. Cuida mucho los detalles en todo y el soporte cuando hay dudas se agradece muchísimo. Gran profesional!",

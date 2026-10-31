@@ -19,7 +19,7 @@ export const DIRECCION = {
 // La agencia trabaja para toda España; las ciudades son las de la zona del estudio
 export const AREA_SERVIDA = [
   { "@type": "Country", name: "España" },
-  { "@type": "City", name: "Alcoy" },
+  { "@type": "City", name: "Alcoy", alternateName: "Alcoi" },
   { "@type": "City", name: "Cocentaina" },
   { "@type": "AdministrativeArea", name: "Alicante" },
 ];

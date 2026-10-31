@@ -32,7 +32,18 @@ const Tarjeta = ({ r, destacada, corta }) => (
       </div>
       <blockquote className="resena-texto">«{corta && r.textoCorto ? r.textoCorto : r.texto}»</blockquote>
       <figcaption className="resena-autor">
-        {r.foto ? (
+        {r.logo ? (
+          // Logo del negocio: mismo tamaño y estilo que los avatares (1174 × 1185 px)
+          <img
+            src={r.logo.src}
+            width="96"
+            height="97"
+            loading="lazy"
+            decoding="async"
+            alt={r.logo.alt}
+            className="resena-avatar resena-avatar--logo"
+          />
+        ) : r.foto ? (
           <img
             src={r.foto}
             srcSet={r.foto.includes("lara") ? `${r.foto} 1x, ${r.foto.replace(".webp", "@2x.webp")} 2x` : undefined}

@@ -50,6 +50,16 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 31/10/2026 (2) · /redes-sociales/ y /branding/ ampliadas; logo de Sara Santos
+- **Botones:** los de /disenoweb/ (relleno + con borde, radio 12 px, Nunito 1,2rem) en las páginas creativas, el bloque y los CTA (`.creativos-btn-*`, misma definición que `.dw-btn-hero-*`).
+- **Cronología animada** «Cómo trabajamos» (`src/Creativos/CronologiaPasos.jsx`, GSAP + ScrollTrigger con `gsap.context`/`matchMedia`): horizontal en escritorio, vertical en móvil, todo visible con movimiento reducido y en el prerender. En /branding/ y /redes-sociales/.
+- **Cinta de /branding/:** carrusel infinito con el estilo de `.tech-slider-section` (`CintaServicios.jsx`); 13 términos, «Fotografía de producto» cambiado por «Imágenes de producto» (Lara no hace sesiones de fotos).
+- **/redes-sociales/:** servicios en detalle (bloque 01 de Lara), formatos, para quién es (con enlaces a /disenoweb/, /e-commerce/, /branding/ y landings de sector), cronología y 8 preguntas. **/branding/:** el problema, qué recibes, por qué web y marca juntas, formas de trabajar ampliadas, trabajos (galería solo en desarrollo + enlace a /demos/) y 9 preguntas. Textos nuevos pendientes de revisión de María.
+- **Huecos de imagen:** `HuecoImagen.jsx`, visibles solo con `npm run dev`; en producción no se pintan y la maqueta pasa a una columna (`:has()`).
+- **Schema:** WebSite + WebPage + BreadcrumbList enlazados (`src/seo/paginaServicio.js`), Service con `hasOfferCatalog`, FAQPage con todas las preguntas, Person de Lara (`affiliation`; enlazada como `contributor` desde la WebPage, porque Service no admite `contributor`) y de María. Alcoy con `alternateName` «Alcoi» en `AREA_SERVIDA`.
+- **Logo de Sara Santos** (`public/logosarasantos.webp`, tal cual) en su reseña: home, /contacto/ y /nosotros/. [PENDIENTE: nombre de su negocio para el alt.]
+- **Estado:** hecho en local, con commit, sin publicar.
+
 ### 31/10/2026 · H1 más aireados, navegación, /redes-sociales/ nueva, /branding/ y bloque de servicios creativos (rama `mejoras-h1-navegacion-redes`)
 - **H1:** home sin saltos forzados (`text-wrap: balance`, peso 800, interlineado 1,3, +0,01em, sombra más corta, 3 líneas en móvil y 2 en ordenador, subtítulo en peso 500 con interlineado 1,6, más aire entre H1, subtítulo y botones). Resto de H1: interlineado 1,3 y un punto menos de peso; `text-wrap: balance` global en `src/index.css`; en móvil «Posicionamiento» ya no se sale de la pantalla en /posicionamiento-seo/. /disenoweb/: faltaba un espacio en el H1 («agencia de» + «diseño»).
 - **/e-commerce/:** la tarjeta de la órbita escala con su ancho (`aspect-ratio`, unidad relativa `cqi`), ya no tapa el subtítulo y en tablet y móvil va debajo del texto.
