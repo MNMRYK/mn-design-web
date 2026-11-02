@@ -2383,17 +2383,22 @@
   }
 }
 
-/* Botones en fila (hero y CTA finales); solo pasan a columna, a ancho completo, si no caben */
-@media (max-width: 480px) {
+/* Hero y CTA finales: botones en fila en tablet y escritorio; por debajo de 600 px, uno debajo
+   del otro y a todo el ancho. El contenedor se estira (align-self), porque su columna alinea
+   los hijos al inicio y si no los botones solo ocupaban el ancho de su texto. */
+@media (max-width: 600px) {
   .creativos-botones,
   .cta-creativos-botones {
     flex-direction: column;
     align-items: stretch;
+    align-self: stretch;
+    width: 100%;
   }
 
   .creativos-botones a,
   .cta-creativos-botones a {
     width: 100%;
+    white-space: normal;
   }
 }
 
@@ -2410,7 +2415,7 @@
 }
 
 /* Entre ~480 y 767 px, botones algo más compactos para que quepan los dos en fila */
-@media (max-width: 767px) and (min-width: 481px) {
+@media (max-width: 767px) and (min-width: 601px) {
   .cta-creativos-botones a,
   .creativos-botones a {
     padding: 13px 20px;

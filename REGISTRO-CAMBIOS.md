@@ -50,6 +50,10 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 02/11/2026 (2) · Botones del hero y de los CTA a todo el ancho en móvil
+- **Qué:** por debajo de 600 px, los dos botones del hero y del CTA final de /branding/ y /redes-sociales/ van uno debajo del otro y a todo el ancho (el contenedor no se estiraba y se quedaban en 262 y 202 px de 335). Mismo criterio en el hero de /demos/ (antes al 80 %). Tablet y escritorio, sin cambios. Revisados los heros de todas las páginas en 375 y 390 px: el menú no tapa el contenido al cargar en ninguna.
+- **Estado:** commit y push a `main`; falta subirlo a SiteGround.
+
 ### 02/11/2026 · Carrusel de reseñas en móvil: deslizamiento, flechas y puntos
 - **Qué:** reseñas de la home en móvil con flechas «Reseña anterior/siguiente» (una tarjeta por clic, desactivadas en los extremos) y puntos de paginación; `touch-action`, `overscroll-behavior-x: contain` y `-webkit-overflow-scrolling: touch` en el carrusel. Lenis con `allowNestedScroll` en todas las páginas (`src/utils/lenis.js`): deja al carrusel el gesto horizontal y sigue moviendo la página con el vertical (con `data-lenis-prevent`, un gesto vertical sobre el carrusel no movía la página). Mismo arreglo táctil en el carrusel de servicios de /rescate-kit-digital/ y en las pestañas de /nosotros/. En tablet y escritorio las reseñas siguen en rejilla, sin flechas.
 - **Estado:** commit y push a `main`; falta subirlo a SiteGround.

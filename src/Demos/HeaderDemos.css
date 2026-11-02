@@ -907,3 +907,14 @@
   }
 }
 
+/* Móvil: botones del hero a todo el ancho, uno debajo del otro (como en el resto de heros) */
+@media (max-width: 600px) {
+  .hero-cta-buttons {
+    align-items: stretch;
+  }
+
+  .btn-primary-hero,
+  .btn-secondary-hero {
+    width: 100%;
+  }
+}
