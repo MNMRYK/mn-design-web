@@ -2,6 +2,7 @@ import { Helmet } from "react-helmet-async";
 import { DOMINIO } from "./rutas.js";
 
 const IMAGEN_POR_DEFECTO = `${DOMINIO}/og-mndesignweb.jpg`;
+const ALT_IMAGEN_POR_DEFECTO = "MN Design Web · Agencia de diseño y desarrollo web en Alcoy y Cocentaina";
 
 // Metaetiquetas de cada página: título, descripción, canonical, Open Graph y Twitter.
 // `ruta` siempre con barra final (igual que en src/seo/rutas.js y el sitemap).
@@ -34,9 +35,11 @@ export default function Seo({
       <meta property="og:description" content={descripcionSocial} />
       {url && <meta property="og:url" content={url} />}
       <meta property="og:image" content={imagen} />
+      {/* Medidas, tipo y texto alternativo solo de la imagen por defecto (og-mndesignweb.jpg, 1200 × 630) */}
       {imagen === IMAGEN_POR_DEFECTO && <meta property="og:image:width" content="1200" />}
-      {imagen === IMAGEN_POR_DEFECTO && <meta property="og:image:height" content="628" />}
-      {imagen === IMAGEN_POR_DEFECTO && <meta property="og:image:alt" content="MN Design Web, agencia de diseño y desarrollo web" />}
+      {imagen === IMAGEN_POR_DEFECTO && <meta property="og:image:height" content="630" />}
+      {imagen === IMAGEN_POR_DEFECTO && <meta property="og:image:type" content="image/jpeg" />}
+      {imagen === IMAGEN_POR_DEFECTO && <meta property="og:image:alt" content={ALT_IMAGEN_POR_DEFECTO} />}
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={tituloSocial} />

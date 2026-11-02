@@ -50,6 +50,11 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 02/11/2026 (3) · Nueva imagen para redes (og:image)
+- **Qué:** `public/og-mndesignweb.jpg` nueva (1200 × 630, JPG calidad 85, 54 KB, convertida desde `og-mndesignweb.webp` de María). Todas las páginas la usan en `og:image` y `twitter:image` (URL absoluta), con `og:image:width` 1200, `og:image:height` 630 (antes decía 628), `og:image:type` image/jpeg y `og:image:alt` «MN Design Web · Agencia de diseño y desarrollo web en Alcoy y Cocentaina». Excepción a propósito: /rescate-kit-digital/ (`rescate-kit-digital.webp`). María borra `public/logo-card.webp` (sin uso en la web React).
+- **Cómo medirlo:** vista previa al compartir en WhatsApp, LinkedIn y Facebook (Sharing Debugger para refrescar la caché).
+- **Estado:** commit y push a `main`; falta subirlo a SiteGround.
+
 ### 02/11/2026 (2) · Botones del hero y de los CTA a todo el ancho en móvil
 - **Qué:** por debajo de 600 px, los dos botones del hero y del CTA final de /branding/ y /redes-sociales/ van uno debajo del otro y a todo el ancho (el contenedor no se estiraba y se quedaban en 262 y 202 px de 335). Mismo criterio en el hero de /demos/ (antes al 80 %). Tablet y escritorio, sin cambios. Revisados los heros de todas las páginas en 375 y 390 px: el menú no tapa el contenido al cargar en ninguna.
 - **Estado:** commit y push a `main`; falta subirlo a SiteGround.
