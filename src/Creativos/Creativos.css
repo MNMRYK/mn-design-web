@@ -662,7 +662,7 @@
   }
 
   .creativos-seccion--cta {
-    padding-bottom: 70px;
+    padding-bottom: 120px;
   }
 }
 
@@ -2415,6 +2415,7 @@
   .creativos-botones a {
     padding: 13px 20px;
     font-size: 1.05rem;
+    
   }
 }
 

@@ -27,7 +27,11 @@ export const crearLenis = (opciones) => {
   gsap.registerPlugin(ScrollTrigger);
   if (prefiereMenosMovimiento()) return SIN_LENIS;
 
-  const lenis = new Lenis(opciones);
+  // allowNestedScroll: si bajo el dedo (o el ratón) hay algo que se puede desplazar en la
+  // dirección del gesto (un carrusel en horizontal, el panel del menú…), Lenis se lo deja; si
+  // no, mueve la página. Así un carrusel se desliza con el dedo y un gesto vertical encima de él
+  // sigue bajando la página.
+  const lenis = new Lenis({ allowNestedScroll: true, ...opciones });
   lenis.on("scroll", ScrollTrigger.update);
   const tick = (time) => lenis.raf(time * 1000);
   gsap.ticker.add(tick);

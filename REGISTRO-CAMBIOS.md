@@ -50,6 +50,10 @@ Las búsquedas con ciudad se miden en las landings (ver `../Landings-mndesignweb
 
 ## Registro
 
+### 02/11/2026 · Carrusel de reseñas en móvil: deslizamiento, flechas y puntos
+- **Qué:** reseñas de la home en móvil con flechas «Reseña anterior/siguiente» (una tarjeta por clic, desactivadas en los extremos) y puntos de paginación; `touch-action`, `overscroll-behavior-x: contain` y `-webkit-overflow-scrolling: touch` en el carrusel. Lenis con `allowNestedScroll` en todas las páginas (`src/utils/lenis.js`): deja al carrusel el gesto horizontal y sigue moviendo la página con el vertical (con `data-lenis-prevent`, un gesto vertical sobre el carrusel no movía la página). Mismo arreglo táctil en el carrusel de servicios de /rescate-kit-digital/ y en las pestañas de /nosotros/. En tablet y escritorio las reseñas siguen en rejilla, sin flechas.
+- **Estado:** commit y push a `main`; falta subirlo a SiteGround.
+
 ### 01/11/2026 · URGENTE: scroll del menú móvil
 - **Problema (en producción):** en móvil, con "Servicios" abierto el menú era más alto que la pantalla y no se podía deslizar (Lenis capturaba el gesto táctil); Demos salía cortado y Blog, Nosotros y Contacto eran inaccesibles.
 - **Arreglo:** panel con `max-height: calc(100dvh - 90px)`, `overflow-y: auto`, `overscroll-behavior: contain` y `data-lenis-prevent`; "Servicios" plegado por defecto y al cerrar el menú (y sin desbordar cuando está plegado); bloqueo del scroll de la página (`html.menu-movil-abierto` + `lenis.stop()`) solo mientras el menú está abierto, liberado al cerrar, al tocar un enlace, al cambiar de ruta, al pasar a escritorio y al desmontar (`lenis.start()`). Escritorio sin cambios.

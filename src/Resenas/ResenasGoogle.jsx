@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import "./ResenasGoogle.css";
+import Icono from "../utils/Icono";
 import { RESENAS, GOOGLE_RESENAS } from "./resenas";
 
 // Reseñas reales (ver resenas.js). Sin schema Review ni aggregateRating.
@@ -66,6 +67,13 @@ const Tarjeta = ({ r, destacada, corta }) => (
   </li>
 );
 
+// Con "reducir movimiento", el desplazamiento de las flechas es instantáneo
+const comportamiento = () =>
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+
+// ¿El carrusel ha llegado al final?
+const alFinalRef = (el) => el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+
 const ResenasGoogle = ({
   ids = ["sara", "alinea", "lara", "miriam", "damaris", "nutrimente"],
   etiqueta = "Reseñas",
@@ -75,6 +83,72 @@ const ResenasGoogle = ({
 }) => {
   const lista = ids.map((id) => RESENAS[id]).filter(Boolean);
   const unica = lista.length === 1;
+  const listaRef = useRef(null);
+  // Carrusel (solo cuando las tarjetas no caben y la lista se desplaza en horizontal: en móvil;
+  // en tablet y escritorio es una rejilla con todas a la vista y no hay flechas)
+  const [carrusel, setCarrusel] = useState(false);
+  const [actual, setActual] = useState(0);
+  const [alPrincipio, setAlPrincipio] = useState(true);
+  const [alFinal, setAlFinal] = useState(false);
+
+  const medir = useCallback(() => {
+    const el = listaRef.current;
+    if (!el) return;
+    const desborda = el.scrollWidth > el.clientWidth + 2;
+    setCarrusel(desborda);
+    if (!desborda) return;
+    setAlPrincipio(el.scrollLeft <= 2);
+    setAlFinal(el.scrollLeft + el.clientWidth >= el.scrollWidth - 2);
+    // Tarjeta actual: la que más cerca tiene su borde izquierdo del inicio de la zona visible
+    const inicio = el.getBoundingClientRect().left + parseFloat(getComputedStyle(el).scrollPaddingLeft || 0);
+    const items = [...el.children];
+    let mejor = 0;
+    items.forEach((li, i) => {
+      if (Math.abs(li.getBoundingClientRect().left - inicio) < Math.abs(items[mejor].getBoundingClientRect().left - inicio)) mejor = i;
+    });
+    setActual(alFinalRef(el) ? items.length - 1 : mejor);
+  }, []);
+
+  useEffect(() => {
+    const el = listaRef.current;
+    if (!el || unica) return undefined;
+    medir();
+    let pendiente = false;
+    const alDesplazar = () => {
+      if (pendiente) return;
+      pendiente = true;
+      requestAnimationFrame(() => {
+        pendiente = false;
+        medir();
+      });
+    };
+    el.addEventListener("scroll", alDesplazar, { passive: true });
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(medir) : null;
+    ro?.observe(el);
+    window.addEventListener("resize", medir);
+    return () => {
+      el.removeEventListener("scroll", alDesplazar);
+      ro?.disconnect();
+      window.removeEventListener("resize", medir);
+    };
+  }, [medir, unica]);
+
+  // Una tarjeta exacta por clic: ancho de la tarjeta + hueco entre tarjetas
+  const pasar = (dir) => {
+    const el = listaRef.current;
+    const item = el?.children[0];
+    if (!item) return;
+    const hueco = parseFloat(getComputedStyle(el).columnGap) || 0;
+    el.scrollBy({ left: dir * (item.getBoundingClientRect().width + hueco), behavior: comportamiento() });
+  };
+
+  const irA = (i) => {
+    const el = listaRef.current;
+    const item = el?.children[i];
+    if (!item) return;
+    const destino = item.offsetLeft - el.children[0].offsetLeft;
+    el.scrollTo({ left: destino, behavior: comportamiento() });
+  };
   return (
     <section className={`resenas-seccion${unica ? " resenas-seccion--unica" : ""}`} aria-labelledby="resenas-titulo">
       <div className="resenas-encabezado">
@@ -83,11 +157,45 @@ const ResenasGoogle = ({
           {titulo} <span>{tituloColor}</span>
         </h2>
       </div>
-      <ul className="resenas-lista" aria-label="Reseñas de clientes">
+      <ul className="resenas-lista" aria-label="Reseñas de clientes" ref={listaRef}>
         {lista.map((r, i) => (
           <Tarjeta key={r.nombre} r={r} corta={!unica} destacada={destacada && !unica && i === 0} />
         ))}
       </ul>
+      {carrusel && (
+        <div className="resenas-controles">
+          <button
+            type="button"
+            className="resenas-flecha"
+            aria-label="Reseña anterior"
+            onClick={() => pasar(-1)}
+            disabled={alPrincipio}
+          >
+            <Icono nombre="arrow-left" />
+          </button>
+          <div className="resenas-puntos">
+            {lista.map((r, i) => (
+              <button
+                key={r.nombre}
+                type="button"
+                className="resenas-punto"
+                aria-label={`Ir a la reseña ${i + 1} de ${lista.length}`}
+                aria-current={i === actual ? "true" : undefined}
+                onClick={() => irA(i)}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            className="resenas-flecha"
+            aria-label="Reseña siguiente"
+            onClick={() => pasar(1)}
+            disabled={alFinal}
+          >
+            <Icono nombre="arrow-right" />
+          </button>
+        </div>
+      )}
       <div className="resenas-pie">
         <a href={GOOGLE_RESENAS} target="_blank" rel="noopener" className="resenas-boton">
           Ver todas las reseñas en Google

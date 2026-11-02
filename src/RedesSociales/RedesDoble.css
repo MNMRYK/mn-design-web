@@ -43,7 +43,7 @@
    ==================================================== */
 @media (max-width: 767px) {
   .redes-section-wrapper {
-    padding: 70px 20px 100px; /* Padding de chuleta */
+    padding: 70px 20px 60px; /* Padding de chuleta */
   }
 
   .redes-grid {

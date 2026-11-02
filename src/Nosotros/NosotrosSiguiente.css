@@ -188,6 +188,9 @@
     gap: 5px; /* Juntamos más los botones */
     flex-wrap: nowrap; /* Obligamos a que se queden en la misma línea */
     overflow-x: auto; /* Si la pantalla es enana, que hagan scroll lateral suave */
+    touch-action: pan-x pan-y;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
     padding-bottom: 10px;
   }
 
