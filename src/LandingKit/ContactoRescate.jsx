@@ -22,6 +22,7 @@ const ContactoRescate = () => {
 
         const dataToSend = {
             subject: asuntoLead("Rescate Kit Digital", "auditoría de rescate"),
+            pagina: "Web · Rescate Kit Digital",
             nombre: formData.nombre,
             email: formData.email,
             doc: formData.doc,

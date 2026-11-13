@@ -139,6 +139,7 @@ const FormularioContacto = () => {
 
     const dataToSend = {
       subject: asuntoLead(nombrePagina(pathname), formData.servicio),
+      pagina: `Web · ${nombrePagina(pathname)}`,
       from_name: formData.nombre,
       email: formData.email,
       message: formData.mensaje,

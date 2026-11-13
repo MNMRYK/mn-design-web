@@ -71,6 +71,7 @@ const FormularioRedes = ({
 
     const dataToSend = {
       subject: asuntoLead(pagina, formData.servicios.join(", ")),
+      pagina: `Web · ${pagina}`,
       from_name: formData.nombre,
       email: formData.email,
       message: `Intereses: ${formData.servicios.join(', ')}\n\nMensaje: ${formData.mensaje}`,

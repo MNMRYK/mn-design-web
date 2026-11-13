@@ -72,6 +72,7 @@ const FormularioDemo = () => {
 
     const dataToSend = {
       subject: asuntoLead("Demos", `solicitud de demo (${formData.sector})`),
+      pagina: "Web · Demos",
       from_name: formData.nombre,
       email: formData.email,
       Presupuesto: formData.presupuesto,

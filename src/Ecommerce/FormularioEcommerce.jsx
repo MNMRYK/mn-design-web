@@ -66,6 +66,7 @@ const FormularioEcommerce = () => {
 
     const dataToSend = {
       subject: asuntoLead("E-commerce", formData.servicios.join(", ")),
+      pagina: "Web · E-commerce",
       from_name: formData.nombre,
       email: formData.email,
       message: `Intereses: ${formData.servicios.join(', ')}\n\nMensaje: ${formData.mensaje}`,

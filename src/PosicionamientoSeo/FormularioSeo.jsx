@@ -67,6 +67,7 @@ const FormularioSeo = () => {
 
     const dataToSend = {
       subject: asuntoLead("Posicionamiento SEO", formData.servicios.join(", ")),
+      pagina: "Web · Posicionamiento SEO",
       from_name: formData.nombre,
       email: formData.email,
       message: `Intereses: ${formData.servicios.join(', ')}\n\nMensaje: ${formData.mensaje}`,

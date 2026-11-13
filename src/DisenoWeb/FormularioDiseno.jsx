@@ -66,6 +66,7 @@ const FormularioDiseno = () => {
 
     const dataToSend = {
       subject: asuntoLead("Diseño web", formData.servicios.join(", ")),
+      pagina: "Web · Diseño web",
       from_name: formData.nombre,
       email: formData.email,
       message: `Intereses: ${formData.servicios.join(', ')}\n\nMensaje: ${formData.mensaje}`,
