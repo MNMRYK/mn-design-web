@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import '../Nosotros/BlogPreview.css';
-import { imagenDestacadaBlog, SIZES_BLOG } from '../utils/imagenBlog';
+import { SIZES_BLOG } from '../utils/imagenBlog';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react'; 
+import { ArrowRight } from 'lucide-react';
+
+// Los 3 últimos artículos del blog (Astro, repo ../Blog-mndesignweb). El blog publica
+// /blog/ultimos.json en cada build; antes se leía la API de WordPress. En localhost da 404: es normal.
+const URL_ULTIMOS = 'https://mndesignweb.es/blog/ultimos.json';
 
 const BlogPreview = () => {
-  // 1. Preparamos el estado para guardar tus artículos reales
   const [articulos, setArticulos] = useState([]);
   const [cargando, setCargando] = useState(true);
 
-  // 2. Nos conectamos a tu WordPress al cargar la sección
   useEffect(() => {
     const obtenerArticulos = async () => {
       try {
-        // 🔥 Esta es la URL mágica de tu WP que trae los 3 últimos posts con sus imágenes (embed)
-        const respuesta = await fetch('https://mndesignweb.es/blog/wp-json/wp/v2/posts?_embed&per_page=3');
-        const datos = await respuesta.json();
-        setArticulos(datos);
-        setCargando(false);
+        const respuesta = await fetch(URL_ULTIMOS);
+        if (!respuesta.ok) throw new Error(respuesta.status);
+        setArticulos(await respuesta.json());
       } catch (error) {
-        console.error("Oops, error al conectar con WordPress:", error);
+        console.error('No se han podido cargar los artículos del blog:', error);
+      } finally {
         setCargando(false);
       }
     };
@@ -27,15 +28,13 @@ const BlogPreview = () => {
     obtenerArticulos();
   }, []);
 
-  // Función para formatear la fecha que nos devuelve WordPress
   const formatearFecha = (fechaIso) => {
     const opciones = { day: 'numeric', month: 'short', year: 'numeric' };
     return new Date(fechaIso).toLocaleDateString('es-ES', opciones);
   };
 
   return (
-    /* 🔥 Cambiamos section por motion.section y aplicamos tu animación 🔥 */
-    <motion.section 
+    <motion.section
       className="blog-preview-section-inicio"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -43,14 +42,14 @@ const BlogPreview = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="blog-preview-container">
-        
+
         {/* CABECERA */}
         <div className="blog-header">
             <div className="blog-intro">
-                
+
                 <div className="blog-top-row">
                     <h2 className="blog-title">Aprende y crece con nosotros</h2>
-                    <a href="https://mndesignweb.es/blog/" target="_blank" rel="noopener noreferrer" className="btn-ver-blog">
+                    <a href="/blog/" className="btn-ver-blog">
                     Ver todos los artículos
                     </a>
                 </div>
@@ -60,34 +59,26 @@ const BlogPreview = () => {
             </div>
         </div>
 
-        {/* CUADRÍCULA DINÁMICA CON DATOS DE WORDPRESS */}
+        {/* CUADRÍCULA CON LOS ÚLTIMOS ARTÍCULOS DEL BLOG */}
         <div className="blog-grid">
           {cargando ? (
             <p style={{ textAlign: 'center', gridColumn: '1 / -1' }}>Cargando los últimos artículos de MN Design Web...</p>
           ) : (
-            articulos.map((articulo) => {
-              const imagen = imagenDestacadaBlog(articulo);
-              const nombreCategoria = articulo._embedded?.['wp:term']?.[0]?.[0]?.name || 'Blog';
-
-              return (
-                <article key={articulo.id} className="blog-card">
-                  <div className="blog-card-img-wrapper">
-                    <img src={imagen.src} srcSet={imagen.srcSet} sizes={SIZES_BLOG} width={imagen.width} height={imagen.height} loading="lazy" decoding="async" alt="Portada del artículo" className="blog-card-img" />
-                    <span className="blog-badge">{nombreCategoria}</span>
-                  </div>
-                  <div className="blog-card-content">
-                    <span className="blog-date">{formatearFecha(articulo.date)}</span>
-                    <h3 
-                      className="blog-card-title" 
-                      dangerouslySetInnerHTML={{ __html: articulo.title.rendered }} 
-                    />
-                    <a href={articulo.link} target="_blank" rel="noopener noreferrer" className="blog-read-more">
-                      Leer artículo <ArrowRight size={16} />
-                    </a>
-                  </div>
-                </article>
-              );
-            })
+            articulos.map((articulo) => (
+              <article key={articulo.url} className="blog-card">
+                <div className="blog-card-img-wrapper">
+                  <img src={articulo.imagen} sizes={SIZES_BLOG} width={articulo.imagenAncho} height={articulo.imagenAlto} loading="lazy" decoding="async" alt={articulo.imagenAlt || 'Portada del artículo'} className="blog-card-img" />
+                  <span className="blog-badge">{articulo.categoria}</span>
+                </div>
+                <div className="blog-card-content">
+                  <span className="blog-date">{formatearFecha(articulo.fecha)}</span>
+                  <h3 className="blog-card-title">{articulo.titulo}</h3>
+                  <a href={articulo.url} className="blog-read-more">
+                    Leer artículo <ArrowRight size={16} />
+                  </a>
+                </div>
+              </article>
+            ))
           )}
         </div>
 

@@ -8,7 +8,7 @@ import Navbar from './Inicio/Navbar';
 import Footer from './Inicio/Footer';
 import { esPrerender } from './utils/prerender';
 import ErrorBoundary from './utils/ErrorBoundary';
-import ChatTypebot from './utils/ChatTypebot';
+import WhatsappFlotante from './utils/WhatsappFlotante';
 
 // 🚀 IMPORTS DINÁMICOS (LA DIETA): cada página se descarga solo cuando hace falta.
 // main.jsx precarga la de la URL actual antes de montar React (ver src/paginas.js).
@@ -135,9 +135,8 @@ function App() {
           </Suspense>
           </ProteccionPorRuta>
 
-          {/* Chat de Typebot: un botón propio que carga Typebot solo al pulsarlo (src/utils/ChatTypebot.jsx).
-              No se pinta durante el prerender: así no queda en el HTML estático */}
-          {!esPrerender && <ChatTypebot />}
+          {/* Botón flotante de WhatsApp (abajo a la derecha; sustituye al chat de Typebot): es un enlace, se queda en el HTML estático */}
+          <WhatsappFlotante />
         </main>
 
         {/* El banner de cookies está en index.html: se pinta con el HTML, sin esperar a React */}

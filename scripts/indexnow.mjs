@@ -1,16 +1,19 @@
 // Avisa a Bing (y a Yandex, Seznam, Naver…) de las URLs del sitemap con IndexNow.
 // Uso, DESPUÉS de subir el build a SiteGround: npm run indexnow
 //   npm run indexnow -- https://mndesignweb.es/contacto/   (solo esas URLs)
+//   npm run indexnow -- --blog   (todas las URLs del blog, de ../Blog-mndesignweb/dist/sitemap-0.xml)
 // La clave es pública: el archivo public/7cdae621f29f53e295912e22de1ea99e.txt tiene que estar subido en la raíz del dominio.
-// El blog (WordPress) ya avisa solo con Rank Math.
+// El blog (Astro desde nov. 2026) ya no avisa solo: tras subirlo, npm run indexnow -- --blog
 import { readFileSync } from "node:fs";
 
 const HOST = "mndesignweb.es";
 const KEY = "7cdae621f29f53e295912e22de1ea99e";
 
 let urls = process.argv.slice(2);
-if (!urls.length) {
-  const sitemap = readFileSync(new URL("../dist/sitemap.xml", import.meta.url), "utf8");
+const blog = urls.includes("--blog");
+if (blog || !urls.length) {
+  const archivo = blog ? "../../Blog-mndesignweb/dist/sitemap-0.xml" : "../dist/sitemap.xml";
+  const sitemap = readFileSync(new URL(archivo, import.meta.url), "utf8");
   urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
 }
 urls = urls.filter((u) => u.startsWith("https://" + HOST + "/"));

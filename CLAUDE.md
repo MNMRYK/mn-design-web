@@ -7,7 +7,7 @@ https://mndesignweb.es/ · Passeig del Comtat, 75, 5º 1º · 03820 Cocentaina (
 En el mismo dominio conviven:
 - Esta app React (Vite + prerender con Puppeteer): `/`, `/nosotros/`, `/contacto/`, `/disenoweb/`, `/e-commerce/`, `/posicionamiento-seo/`, `/redes-sociales/`, `/demos/`, `/rescate-kit-digital/` y las legales.
 - Las landings Astro (`../Landings-mndesignweb`): `/alcoi/`, `/software-a-mida-alcoi/`, `/clinicas/`, `/nutricionistas/`, `/psicologos/`, `/academia-nutricion/`, `/bodas/`, `/aprende-shopify/`, `/enlaces/` (noindex).
-- El blog WordPress en `/blog/` (`../Blog-mndesignweb`), con su propio sitemap.
+- El blog en `/blog/` (Astro desde nov. 2026, `../Blog-mndesignweb`; antes WordPress), con su propio sitemap (`/blog/sitemap-index.xml`). La sección "Aprende y crece con nosotros" lee `/blog/ultimos.json`.
 
 Antes de cambiar nada, lee también `../Landings-mndesignweb/CLAUDE.md` y `../Landings-mndesignweb/MEMORIA-SEO.md` (estrategia común, reglas de reseñas y del logotipo, objetivo de clics).
 
@@ -39,7 +39,7 @@ Igual que las landings: un push a `main` **no publica nada**.
 5. **No toques** las carpetas de las landings (`/alcoi/`, `/clinicas/`…, `/_astro/`, `/marca/`) ni `/blog/`.
 6. Vacía la caché de SiteGround (Site Tools → Speed → Caching) y comprueba en una ventana privada.
 7. Los `assets/` antiguos se borran solo cuando se ha comprobado que ninguna página los usa.
-8. **IndexNow (Bing):** con todo subido, `npm run indexnow` envía las URLs de `dist/sitemap.xml` (o `npm run indexnow -- <url> …` solo las que cambien). La clave es `public/7cdae621f29f53e295912e22de1ea99e.txt` y tiene que estar en la raíz del servidor; no se borra ni se cambia. El blog avisa solo con Rank Math.
+8. **IndexNow (Bing):** con todo subido, `npm run indexnow` envía las URLs de `dist/sitemap.xml` (o `npm run indexnow -- <url> …` solo las que cambien). La clave es `public/7cdae621f29f53e295912e22de1ea99e.txt` y tiene que estar en la raíz del servidor; no se borra ni se cambia. El blog ya no es WordPress: tras publicarlo, `npm run indexnow -- <urls del blog>` si hace falta.
 
 ## Cookies y medición
 - El código de consentimiento está en `index.html` y es **el mismo** que `../Landings-mndesignweb/src/components/CookiesHead.astro`: si cambias uno, cambia el otro.

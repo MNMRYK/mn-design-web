@@ -23,7 +23,7 @@ export const RUTAS_REACT = [
 
 // Páginas de otros proyectos publicadas en el mismo dominio que deben indexarse.
 // - Landings-mndesignweb (Astro)
-// El blog (WordPress en /blog/) tiene su propio sitemap: /blog/sitemap_index.xml
+// El blog (Astro en /blog/, repo ../Blog-mndesignweb) tiene su propio sitemap: /blog/sitemap-index.xml
 export const RUTAS_EXTERNAS_INDEXABLES = [
   "/alcoi/",
   "/software-a-mida-alcoi/", // página de software en valenciano (antes en /alcoi/)
